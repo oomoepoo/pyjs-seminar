@@ -572,15 +572,13 @@ gemeinnütziger Anbieter. Ich empfehle in diesem Zusammenhang [Zenodo](http://ze
 
 * **Readability**: Python is a "human-readable language"
 * **Built-in features**: Python comes with "batteries included"
-* **Availability of third-party modules**: plotting, PDF generation,
-  bioinformations, game development, databases
-* **high-level built-in data structures**: dictionaries, sets, lists, tuples, good
+* **Availability of third-party modules**: plotting, game development, databases, etc.
   to model real-world data
 * **multi-paradigm**: can be used as a procedural and object-oriented programming
   language
 * **extensibility**: Python can be connected to many other languages
 * **open source**: liberal open source license, also for commercial use
-* **cross-platform**: works on any computer that has a Python interpreter (even
+* **cross-platform**: works on any computer (even
   Windows)
 * **thriving community**: ask whatever question on
   [stackoverflow](http://stackoverflow.com), you'll get an answer in most of the
