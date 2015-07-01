@@ -1,0 +1,33 @@
+.head {
+	position: relative;
+	top: 0px;
+	font-size: 90%!important;
+	color: white;
+	background-color: Green;
+	width: 960px;
+	text-align:justify;
+	display: block;
+	padding: 0;
+	margin: 0;
+}
+.subhead {
+	position: relative;
+	top: -20px;
+	font-size: 70%!important;
+	color: white;
+	background-color: Crimson;
+	width: 960px;
+	text-align: justify;
+	padding: 0;
+	margin: 0;
+	display: block;
+}
+
+
+.question {
+	position: relative;
+	font-size: 70%!important;
+	color: Crimson;
+	font-weight: bold;
+	text-align: center;
+}

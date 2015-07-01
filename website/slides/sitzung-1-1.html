@@ -1,0 +1,713 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Sitzung 1: Erste Schritte</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <style>
+  .head {
+	position: relative;
+	top: 0px;
+	font-size: 90%!important;
+	color: white;
+	background-color: Green;
+	width: 960px;
+	text-align:justify;
+	display: block;
+	padding-left: 5px;
+	margin: 0;
+}
+.subhead {
+	position: relative;
+	top: -20px;
+	font-size: 70%!important;
+	color: white;
+	background-color: Crimson;
+	width: 960px;
+	text-align: justify;
+	padding: 5px;
+	margin: 0;
+	display: block;
+}
+
+
+.question {
+	position: relative;
+	font-size: 80%!important;
+	color: Crimson;
+	font-weight: bold;
+	font-style: italic;
+	text-align: center!important;
+	display: block;
+	width: 960px;
+	text-transform: none;
+}
+
+.small {
+	font-size: 70%!important;
+}
+
+  </style>
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+	<section data-background="#ffffff" style="text-align:justify;font-size:85%;text-align:center;font-size:100%;" data-transition="concave">
+<h2>Computergestützter Sprachvergleich mit Python und Javascript</h2>
+<hr />
+<h3>Sitzung 1 (Tag 1)</h3>
+<hr />
+<h4>20.07.2015</h4>
+<hr />
+<h3>&quot;Erste Schritte&quot;</h3>
+</section>
+
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition="concave">
+<h2><span class="head">Agenda 2015</span></h2>
+<ul>
+<li>Organisatorisches<ul>
+<li>Seminarverlauf</li>
+<li>Leistungsnachweise (BNs und APs)</li>
+<li>Seminarwebsite</li>
+</ul>
+</li>
+<li>Vorstellung<ul>
+<li>meiner Person</li>
+<li>des Seminarthemas</li>
+</ul>
+</li>
+<li>Allgemeines<ul>
+<li>Programmieren</li>
+<li>Programmieren in der Linguistik</li>
+</ul>
+</li>
+<li>Spezielles<ul>
+<li>zu Algorithmen, Skripten und Programmen</li>
+<li>zur Grundausstattung fürs Programmieren</li>
+<li>zu Python und Javascript</li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section>
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition="concave">
+<h2><span class="head">Organisatorisches: Seminarverlauf</span></h2>
+<h3><span class="subhead">Zeiten</span></h3>
+<p>Die Sitzungen werden an vier Tagen jeweils zu drei Zeiten abgehalten:</p>
+<ul>
+<li>I: 9 Uhr - 10:30</li>
+<li>II: 11 Uhr - 12:30</li>
+<li>III: 13:30 - 15:00 </li>
+</ul>
+<p>Zusätzlich gibt es noch für die restlichen Stunden der ersten drei Sitzungstage jeweils eine</p>
+<ul>
+<li>IV: Vertiefungsaufgabe</li>
+</ul>
+</section>
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition="concave">
+<h2><span class="head">Organisatorisches: Seminarverlauf</span></h2>
+<h3><span class="subhead">Seminarplan</span></h3>
+<p>Generelles Ziel des Seminars ist es, dass wir in den vier Tagen, die wir zur
+Verfügung haben, eine möglichst umfassende Einführung in die Thematik erhalten,
+die es allen Teilnehmern ermöglicht, bei Wunsch und Interesse, ihre Fähigkeiten
+auf dem Gebiet zu vertiefen.  Von den vier Tagen, die uns bleiben, dienen die
+ersten beiden Tage zur <strong>grundlegenden Einführung</strong> in die Thematik, während wir
+an den letzten beiden Tagen versuchen wollen, <strong>konkrete Beispiele aus der
+Praxis</strong> zu besprechen und umzusetzen.</p>
+<p>Der vollständige Plan kann von der
+<a href="http://lingulist.de/pyjs/seminarplan.html">Seminarwebseite</a> abgerufen werden
+und wurde auch vor dieser Sitzung bereits an alle Teilnehmer versandt.</p>
+</section>
+</section>
+
+<section>
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition="concave">
+<h2><span class="head">Organisatorisches: Leistungsnachweise</span></h2>
+<h3><span class="question">&quot;Wie kriege ich einen BN?&quot;</span></h3>
+<p>Da, soweit ich das verstanden habe, für einen BN lediglich eine Teilnahme
+erforderlich ist und keine weiteren Leistungen vom Dozenten eingefordert werden
+dürfen, bekommen alle einen BN, die sich bei mir melden und mit den
+erforderlichen Angaben in eine entsprechende Liste eintragen. Die Liste selbst
+wird zwei Mal im Laufe der Sitzungstage ausgegeben. Diejenigen, die zu keiner
+dieser Sitzungen erscheinen und sich als BN-Anwärter eintragen, können sich
+nachher noch persönlich an mich wenden. Ich behalte mir jedoch vor,
+Kandidaten, die ich kein einziges Mal im Seminar gesehen habe, den BN zu
+verweigern (wir müssen es ja nicht übertreiben...).</p>
+</section>
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition="concave">
+<h2><span class="head">Organisatorisches: Leistungsnachweise</span></h2>
+<h3><span class="question">&quot;Wie kriege ich einen AP?&quot;</span></h3>
+<p>Bitte bringen Sie die erforderlichen Unterlagen zu einer der Seminarsitzungen
+mit, damit ich sie unterschreiben kann. Es wird voraussichtlich nur die
+Möglichkeit geben, eine Klausur zu schreiben. In ganz dringenden Fällen können
+wir auch über eine Hausarbeit reden (allerdings ist das sehr schwierig, eine
+Hausarbeit in diesem Bereich zu schreiben!), wobei ich mir immer vorbehalte, das
+abzulehnen. Aller Voraussicht nach schreiben wir die Klausur am 18. September
+zwischen 14 und 16 Uhr. Eventuell teile ich die Termine in zwei Termine auf,
+einen für die Bachelor- und einen für die Masterkandidaten. In diesem Fall kommt
+auch der 11. September (gleiche Uhrzeit) als Termin in Frage. </p>
+</section>
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition="concave">
+<h2><span class="head">Organisatorisches: Leistungsnachweise</span></h2>
+<h3><span class="question">&quot;Wie wird die Klausur aussehen?&quot;</span></h3>
+<p>Die Klausur wird aus verschiedenen Fragen bestehen, die zu einem Großteil
+eindeutig beantwortet werden können (dies erleichtert das korrigieren). Dabei
+kommen verschiedene Fragestellungen in Betracht, so kann zum Beispiel nach dem
+Ergebnis eines Befehls gefragt werden. Ebenfalls können Multiple-Choice-Fragen
+zugrunde gelegt werden. Die Klausur wird wahrscheinlich online durchgeführt,
+wobei ich mich diesbezüglich noch genau informieren muss, ob das im Rahmen der
+Prüfungsordnung erlaubt ist. Alternativ wird die Klausur traditionell mit Zettel
+und Stift durchgeführt.</p>
+</section>
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition="concave">
+<h2><span class="head">Organisatorisches: Leistungsnachweise</span></h2>
+<h3><span class="question">&quot;Wie soll ich mich auf die Klausur vorbereiten?&quot;</span></h3>
+<p>Ich werde allen Klausurteilnehmern die Möglichkeit geben, sich mit möglichen Übungsaufgaben vetraut zu machen.</p>
+</section>
+</section>
+
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition="concave">
+<h2><span class="head">Organisatorisches: Seminarwebseite</span></h2>
+<p>Die Seminarwebseite zu diesem Seminar finden Sie unter
+<a href="http://www.lingulist.de/pyjs">http://www.lingulist.de/pyjs/</a>. Dort werden
+verschiedene Materialen zur Verfügung gestellt, und auch die Slides und
+Programmierbeispiele für jede einzelne Sitzung können agberufen werden. 
+Zuweilen gibt es geschützte Inhalte, für deren Abruf ein Passwort benötigt wird.
+Dieses Passwort wird im Verlaufe des Seminars, und zwar genau <span
+style="color:Crimson;font-weight:bold;font-size:200%">JETZT</span> bekannt
+gegeben.</p>
+</section>
+
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition="concave">
+<h2><span class="head">Agenda 2015</span></h2>
+<ul>
+<li><span style="text-decoration:line-through">Organisatorisches</span><ul>
+<li><span style="text-decoration:line-through">Seminarverlauf</span></li>
+<li><span style="text-decoration:line-through">Leistungsnachweise (BNs und APs)</span></li>
+<li><span style="text-decoration:line-through">Seminarwebsite</span></li>
+</ul>
+</li>
+<li>Vorstellung<ul>
+<li>meiner Person</li>
+<li>des Seminarthemas</li>
+</ul>
+</li>
+<li>Allgemeines<ul>
+<li>Programmieren</li>
+<li>Programmieren in der Linguistik</li>
+</ul>
+</li>
+<li>Spezielles<ul>
+<li>zu Algorithmen, Skripten und Programmen</li>
+<li>zur Grundausstattung fürs Programmieren</li>
+<li>zu Python und Javascript</li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section>
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition="concave">
+<h2><span class="head">Vorstellung</span></h2>
+<h3><span class="subhead">... meiner Person</span></h3>
+<h4>Werdegang:</h4>
+<ul>
+<li>Jahrgang 1981</li>
+<li>2002-2008: Studium der Indogermanistik, Sinologie und Slavistik in Berlin</li>
+<li>2009-2012: Doktorstudium der allgemeinen Sprachwissenschaft in Düsseldorf</li>
+<li>2012-2014: Post-Doktorand (computergestützter Sprachvergleich) in Marburg</li>
+<li>2014: Doktorarbeit veröffentlicht als: <a href="http://sequencecomparison.github.io">Sequence Comparison in Historical
+  Linguistics</a> (Düsseldorf University
+  Press)</li>
+<li>2015-jetzt: DFG Stipendiat (&quot;Computergestützte Untersuchung der chinesischen
+  Sprachgeschichte&quot;)</li>
+</ul>
+</section>
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition="concave">
+<h2><span class="head">Vorstellung</span></h2>
+<h3><span class="subhead">... meiner Person</span></h3>
+<h4>Wissenschaftliche Interessen:</h4>
+<ul>
+<li>historische Linguistik (Sprachwandel, Sprachvergleich, chinesische
+  Dialektologie)</li>
+<li>computerbasierte Ansätze in der historischen Linguistik</li>
+<li>computergestützte Ansätze in der historischen Linguistik</li>
+</ul>
+</section>
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition="concave">
+<h2><span class="head">Vorstellung</span></h2>
+<h3><span class="subhead">... meiner Person</span></h3>
+<h4>Online Tools:</h4>
+<ul>
+<li><a href="http://lingpy.org">LingPy</a>: Software-Bibliothek (Python) für
+  computerbasierten Sprachvergleich</li>
+<li><a href="http://clics.lingpy.org">CLICS</a>: Interaktive Visualisierung
+  cross-linguistischer Polysemien</li>
+<li><a href="http://dighl.github.io">DIGHL</a>: Sammlung von Javascript-Programmen für
+  computergestützte Ansätze in der historischen Linguistik</li>
+</ul>
+</section>
+</section>
+
+<section>
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition="concave">
+<h2><span class="head">Vorstellung</span></h2>
+<h3><span class="subhead">... des Seminarthemas</span></h3>
+<p><strong>Die Entdeckung des Sprachwandels</strong></p>
+<p><a href="img/arbre.jpg"><img alt="arbre" title="Arbre Génealogique" src="img/arbre.jpg" height="450px"
+/></a>
+<a href="img/schleicher.jpg"><img alt="schleicher" src="img/schleicher.jpg" height="400px"
+/></a></p>
+</section>
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition="concave">
+<h2><span class="head">Vorstellung</span></h2>
+<h3><span class="subhead">... des Seminarthemas</span></h3>
+<p><strong>Die Problematik des Sprachwandels</strong></p>
+<p><a href="img/hirt.jpg"><img alt="arbre" src="img/hirt.jpg" width="400px"
+/></a>
+<a href="img/bonfante.png"><img alt="schleicher" src="img/bonfante.png" width="400px"
+/></a></p>
+</section>
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition="concave">
+<h2><span class="head">Vorstellung</span></h2>
+<h3><span class="subhead">... des Seminarthemas</span></h3>
+<p><strong>Die Wiederentdeckung der Bäume</strong></p>
+<p><a href="img/gray.jpg"><img alt="arbre" src="img/gray.jpg" height="400px"
+/></a>
+<a href="img/ringe.png"><img alt="arbre" src="img/ringe.png" height="400px"
+/></a></p>
+</section>
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition="none">
+<p><img alt="bla" src="img/bridging-1.png" width="800px" /></p>
+</section>
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition=" none">
+<p><img alt="bla" src="img/bridging-2.png" width="800px" /></p>
+</section>
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition=" none">
+<p><img alt="bla" src="img/bridging-3.png" width="800px" /></p>
+</section>
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition=" none">
+<p><img alt="bla" src="img/bridging-4.png" width="800px" /></p>
+</section>
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition="concave">
+<p><strong>Computergestützter Sprachvergleich</strong></p>
+<p><img alt="bla" src="img/workflows.png" width="800px" /></p>
+</section>
+</section>
+
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition="concave">
+<h2><span class="head">Agenda 2015</span></h2>
+<ul>
+<li><span style="text-decoration:line-through">Organisatorisches</span><ul>
+<li><span style="text-decoration:line-through">Seminarverlauf</span></li>
+<li><span style="text-decoration:line-through">Leistungsnachweise (BNs und APs)</span></li>
+<li><span style="text-decoration:line-through">Seminarwebsite</span></li>
+</ul>
+</li>
+<li><span style="text-decoration:line-through">Vorstellung</span><ul>
+<li><span style="text-decoration:line-through">meiner Person</span></li>
+<li><span style="text-decoration:line-through">des Seminarthemas</span></li>
+</ul>
+</li>
+<li>Allgemeines<ul>
+<li>Programmieren</li>
+<li>Programmieren in der Linguistik</li>
+</ul>
+</li>
+<li>Spezielles<ul>
+<li>zu Algorithmen, Skripten und Programmen</li>
+<li>zur Grundausstattung fürs Programmieren</li>
+<li>zu Python und Javascript</li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section>
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition="concave">
+<h2><span class="head">Allgemeines</span></h2>
+<h3><span class="subhead">... zum Programmieren</span></h3>
+<p><strong>Warum ist es sinnvoll, programmieren zu können?</strong></p>
+<p><span class="fragment fade-in">Programmieren zu können ist immer dann sinnvoll, wenn man in seinem Beruf oder
+den Studien, denen man nachgeht, häufig wiederholte, redundante Operationen
+ausführen muss, die sich ebensogut automatisch erledigen lassen würden.</span></p>
+</section>
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition="none">
+<h2><span class="head">Allgemeines</span></h2>
+<h3><span class="subhead">... zum Programmieren</span></h3>
+<p><strong>Warum ist es sinnvoll, programmieren zu können?</strong></p>
+<p>Wenn man zum Beispiel ein psycholinguistisches Experiment mit
+200 Stimuli durchführen will, und wissen möchte, wie häufig die Wörter im Durchschnitt vorkommen,
+dann kann man zur Webseite <a href="http://wortschatz.informatik.uni-leipzig.de/">http://wortschatz.informatik.uni-leipzig.de/</a> gehen, wo
+die Worthäufigkeit für eine Vielzahl von Wörtern verzeichnet ist, und jedes der Wörter einzeln in das
+Suchfenster eingeben, um dessen Häufigkeit zu ermitteln.</p>
+</section>
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition="none">
+<h2><span class="head">Allgemeines</span></h2>
+<h3><span class="subhead">... zum Programmieren</span></h3>
+<p><strong>Warum ist es sinnvoll, programmieren zu können?</strong></p>
+<p>Dies wird dann mindestens zwei Stunden
+stumpfer Arbeit zur Folge haben, während der man jedes einzelnen Wort kopiert, die Webseite auf-
+ruft, die Häufigkeit kopiert und in eine Tabelle einträgt. Spätestens beim dritten Experiment, das man
+durchführt, wird man diese Arbeit hassen und sich Hiwis wünschen. </p>
+</section>
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition="concave">
+<h2><span class="head">Allgemeines</span></h2>
+<h3><span class="subhead">... zum Programmieren</span></h3>
+<p><strong>Daher ist es sinnvoll, programmieren zu können!</strong></p>
+<p>Alternativ kann man auch
+einfach programmieren: Die Leipziger Wortschatzprojekt bietet eine Zusatzbibliothek für Python an
+(<a href="http://pypi.python.org/pypi/libleipzig">http://pypi.python.org/pypi/libleipzig</a>), mit deren Hilfe man ganz schnell ein kleines
+Programm schreiben kann, das einem für eine beliebige Liste von Wörtern in Sekundenschnelle alle
+Frequenzen (und noch viel mehr Informationen, wenn man will) aus dem Internet herunterlädt, und —
+wenn man will, auch noch den Durchschnitt und die Standardabweichung aller Frequenzen errechnet.</p>
+</section>
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition="none">
+<h2><span class="head">Allgemeines</span></h2>
+<h3><span class="subhead">... zum Programmieren</span></h3>
+<p><strong>Daher ist es sinnvoll, programmieren zu können!</strong></p>
+<p>Die Eingabe ist dabei denkbar einfach. Um zum Beispiel die absolute Frequenz des Wortes “Python”
+zu erhalten, muss man auf der Kommandozeile einfach nur den folgenden Befehl eingeben:</p>
+<pre style="background-color:#3f3f3f"><code class="fragment fade-in" data-trim>
+>>> Frequencies("Python")</code>
+<code class="fragment fade-in" data-trim>
+[(Anzahl: '129', Frequenzklasse: 17)]
+</code></pre>
+</section>
+</section>
+
+<section>
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition="concave">
+<h2><span class="head">Allgemeines</span></h2>
+<h3><span class="subhead">... zum Programmieren in der Linguistik</span></h3>
+<p><span class="fragment">
+Die Linguistik, insbesondere die historische Linguistik, erlebt derzeit einen
+Paradigmenwechsel. Während intuitives umfangreiches Fachwissen, das Forscher
+sich über Jahre intensiven Studiums aneignen mussten, bisher eine sehr große
+Rolle spielte, und formale Aspekte lediglich als Gedankenspielereien präsentiert
+wurden, treten im Rahmen der Big-Data-Bewegung nun mehr und mehr die empirischen
+Aspekte der Disziplin in den Vordergrund. 
+</span></p>
+</section>
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition="none">
+<h2><span class="head">Allgemeines</span></h2>
+<h3><span class="subhead">... zum Programmieren in der Linguistik</span></h3>
+<p>Die großen Datensammlungen und die leichte Zugänglichkeit von Programmiertools
+machen es zusehends leichter, verschiedenste Forschungsfragen empirisch zu
+untersuchen und zu überprüfen. 
+Meiner Meinung nach ist dies sehr wichtig, da die traditionelle Linguistik sich
+viel zu wenig um die Empirie bemüht hat. Es ist jedoch wichtig, sich im Klaren
+darüber zu sein, dass eine gute empirische Forschung <strong>immer auf den
+Errungenschaften der traditionellen Linguistik aufbauen sollte</strong>. Idealerweise
+praktizieren wir Linguistik als <span
+style="color:Crimson;font-weight:bold">computergestützte Forschung</span>, das
+heißt, anstelle blind irgendwelchen Algorithmen zu vertrauen, sollten wir
+Computermethoden entwickeln, die helfen, traditionelle Ansätze zu modellieren
+und hochwertige Datensätze für die empirische Forschung zu erstellen.</p>
+</section>
+</section>
+
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition="concave">
+<h2><span class="head">Agenda 2015</span></h2>
+<ul>
+<li><span style="text-decoration:line-through">Organisatorisches</span><ul>
+<li><span style="text-decoration:line-through">Seminarverlauf</span></li>
+<li><span style="text-decoration:line-through">Leistungsnachweise (BNs und APs)</span></li>
+<li><span style="text-decoration:line-through">Seminarwebsite</span></li>
+</ul>
+</li>
+<li><span style="text-decoration:line-through">Vorstellung</span><ul>
+<li><span style="text-decoration:line-through">meiner Person</span></li>
+<li><span style="text-decoration:line-through">des Seminarthemas</span></li>
+</ul>
+</li>
+<li><span style="text-decoration:line-through">Allgemeines</span><ul>
+<li><span style="text-decoration:line-through">Programmieren</span></li>
+<li><span style="text-decoration:line-through">Programmieren in der Linguistik</span></li>
+</ul>
+</li>
+<li>Spezielles<ul>
+<li>zu Algorithmen, Skripten und Programmen</li>
+<li>zur Grundausstattung fürs Programmieren</li>
+<li>zu Python und Javascript</li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section>
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition="concave">
+<h2><span class="head">Spezielles</span></h2>
+<h3><span class="subhead">... zu Algorithmen, Skripten und Programmen</span></h3>
+<p><strong>Was ist Programmieren?</strong></p>
+<p><span class="fragment"> <a href="http://www.freenetpages.co.uk/hp/alan.gauld/german/tutwhat.htm">Alan Gauld</a> erklärt den Begriff Programmieren wie folgt:</p>
+<blockquote class="fragment" cite="http://www.freenetpages.co.uk/hp/alan.gauld/german/tutwhat.htm"> Computer-Programmierung ist die Kunst, dass ein Computer das macht, was du willst.
+</blockquote>
+
+<p><span class="fragment"><a href="http://de.wikipedia.org/wiki/Computerprogramm">Wikipedia</a> ist ein bisschen ausführlicher:</span></p>
+<blockquote class="fragment"
+cite="http://de.wikipedia.org/wiki/Computerprogramm">
+Ein Computerprogramm oder kurz Programm ist eine Folge von den Regeln der jeweiligen Programmiersprache genügenden Anweisungen, die auf einem Computer ausgeführt
+werden können, um damit eine bestimmte Funktionalität zur Verfügung zu stellen. </blockquote>
+</section>
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition="none">
+<h2><span class="head">Spezielles</span></h2>
+<h3><span class="subhead">... zu Algorithmen, Skripten und Programmen</span></h3>
+<p><strong>Was ist Programmieren?</strong></p>
+<p>Etymologisch gesehen, bedeutet Programmieren so viel wie &quot;Vorschriften
+erstellen&quot; und ist im Deutschen laut <a href="http://bibliography.lingpy.org?key=Kluge2002">Kluge und Seebold
+(2002)</a> zum ersten Mal seit dem 18. Jahrhunder bezeugt.</p>
+<p>Entscheidend für das Programmieren, ist, was die Vorschriften betrifft, dass
+diese ganz genau befolgt werden, denn so ergibt sich die Möglichkeit, egal, ob
+das Programm nun von einem Menschen oder einem Computer ausgeführt wird, dass
+das gewünschte Ergebnis immer erzielt wird.</p>
+</section>
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition="concave">
+<h2><span class="head">Spezielles</span></h2>
+<h3><span class="subhead">... zu Algorithmen, Skripten und Programmen</span></h3>
+<p><strong>Was ist ein Algorithmus?</strong></p>
+<p><span class="fragment">Im <a href="http://bibliography.lingpy.org?key=Kluge2002">Kluge</a> finden wir die Folgende Definition:</span></p>
+<blockquote class="fragment small"><b>Algorithmus.</b> Substantiv Maskulinum, “Berechnungsverfahren”, peripherer Wortschatz,
+fachsprachlich (13. Jh., Form 16. Jh.), mhd. algorismus. Onomastische Bildung. Entlehnt
+aus ml. algorismus, das das Rechnen im dekadischen Zahlensystem und dann die Grund-
+rechenarten bezeichnet. Das Wort geht zurück auf den Beinamen Al-Hwārizmī (”der Chwa-
+resmier”, eine Herkunftsbezeichnung) eines arabischen Mathematikers des 9. Jhs., durch
+dessen Lehrbuch die (indischen und dann) arabischen Ziffern in Europa allgemein bekannt
+wurden. Das Original des hier in Frage kommendes Buches ist verschollen, die ml. Über-
+setzung ist Liber algorismi de practica arismetrice. Die Schreibung mit <th> in Anlehnung
+an gr. arithmós “Zahl”. [...] </blockquote>
+</section>
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition="none">
+<h2><span class="head">Spezielles</span></h2>
+<h3><span class="subhead">... zu Algorithmen, Skripten und Programmen</span></h3>
+<p><strong>Was ist ein Algorithmus?</strong></p>
+<p><span class="fragment"><a href="http://bibliography.lingpy.org?key=Brassard1993">Brassard und Bratley (1993)</a> sind da
+weniger etymologisch:</span>
+<blockquote class="fragment small">
+Das Concise Oxford Dictionary definiert einen Algorithmus als “Verfahren oder Regeln für
+(speziell maschinelle) Berechnung”. Die Ausführung eines Algorithmus darf weder sub-
+jektive Entscheidungen beinhalten noch unsere Intuition und Kreativität fordern. Wenn wir
+über Algorithmen sprechen, denken wir meistens an Computer. Nichtsdestoweniger könn-
+ten andere systematische Methoden zur Lösung von Aufgaben eingeschlossen werden.
+So sind zum Beispiel die Methoden der Multiplikation und Division ganzer Zahlen, [...] ebenfalls Algorithmen. [...] Es ist sogar möglich, bestimmte Kochrezepte als Algorithmen aufzufassen, vorausgesetzt, sie enthalten keine Anweisungen wie
+“nach Geschmack salzen”. </blockquote></p>
+</section>
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition="concave">
+<h2><span class="head">Spezielles</span></h2>
+<h3><span class="subhead">... zu Algorithmen, Skripten und Programmen</span></h3>
+<ul>
+<li>Ein Algorithmus ist eine geordnete Sammlung von Verfahren, mit deren Hilfe
+  eine Aufgabe (ein Problem) eindeutig gelöst werden kann.</li>
+<li>Ein Programm ist eine <em>Implementierung</em> von Algorithmen mit Hilfe einer
+  speziellen Programmiersprache.</li>
+<li>Ein Skript ist ein Programm, das in einer interpretierten Programmiersprache
+  (einer Skriptsprache)
+  geschrieben wurde. Alle Programme, die mit Python oder Javascript erstellt
+  werden, sind demnach Skripte.</li>
+</ul>
+</section>
+</section>
+
+<section>
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition="concave">
+<h2><span class="head">Spezielles</span></h2>
+<h3><span class="subhead">... zur Grundausstattung fürs Programmieren</span></h3>
+<p><strong>Texteditoren</strong></p>
+<p>Um Skripte zu schreiben, benötigen wir einen guten
+<a href="http://de.wikipedia.org/wiki/Texteditor">Texteditor</a>. Das ist nicht
+das gleiche wie Word oder LibreOffice, sondern ein Editor, der reinen Text
+schreibt. Aus Zeitgründen erwarte ich von allen Teilnehmern des Seminars, dass sie sich
+eigenständig einen guten Texteditor zulegen, um Skripte zu schreiben. Ferner ist
+zu beachten, dass alle Dateien in <a href="https://de.wikipedia.org/wiki/UTF-8">UTF-8</a> abgespeichert werden solltet.</p>
+<p>Ich selbst schreibe meine Skripte alle mit <a href="http://vim.org">VIM</a>. Weitere
+populäre Texteditoren sind:</p>
+<ul>
+<li><a href="https://www.gnu.org/software/emacs/">GNU Emacs</a>: der natürliche Feind von
+  allen, die gerne VIM benutzen</li>
+<li><a href="http://de.wikipedia.org/wiki/Notepad++">Notepad++</a>: ein relativ ordentlicher Texteditor für
+  Windows-Benutzer</li>
+</ul>
+</section>
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition="concave">
+<h2><span class="head">Spezielles</span></h2>
+<h3><span class="subhead">... zur Grundausstattung fürs Programmieren</span></h3>
+<p><strong>Versionsverwaltungssoftware</strong></p>
+<p>Wer größere Projekte schreibt, kommt ohne sie nicht aus: die Software zur
+Versionsverwaltung. Ich selbst verwende <a href="http://de.wikipedia.org/wiki/Git">Git</a> für meine Arbeit, da es
+sich wunderbar mit <a href="http://github.org">GitHub</a> integrieren lässt, und Daten
+dadurch auch anderen Nutzern zur Verfügung gestellt werden können. Für das
+Seminar setze ich voraus, dass jeder Teilnehmer sich grundlegend mit den Ideen
+hinter Git auseinandersetzt. Um an bestimmte Resourcen zu gelangen, die ich
+anbiete, wird ferner ein GitHub Account benötigt werden. Ich empfehle ohnehin
+allen Programmierinteressierten, sich einen GitHub Account anzulegen, da sich
+GitHub mehr und mehr zum Standard für kollaboratives Arbeiten entwickelt (was
+nicht heißt, dass ich es gut finde, dass dahinter ein Konzern steckt!).</p>
+</section>
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition="concave">
+<h2><span class="head">Spezielles</span></h2>
+<h3><span class="subhead">... zur Grundausstattung fürs Programmieren</span></h3>
+<p><strong>Möglichkeiten zum Datenhosting</strong></p>
+<p>Wer als Linguist programmiert möchte irgendwann auch seinen Sourcecode anderen
+Nutzern zur Verfügung stellen. Das ist sehr leicht möglich mit Hilfe neuer
+gemeinnütziger Anbieter. Ich empfehle in diesem Zusammenhang <a href="http://zenodo.org">Zenodo</a>. Man kann sich mit seinem GitHub Account anmelden, und seinen Code entweder automatisch von Zenodo hosten lassen, oder ihn direkt manuell hochladen. Zenodo garantiert Langzeitarchivierung, ist kostenlos (weil gemeinnützig), und erlaubt bis zu zwei Gigabyte an Daten pro Projekt. Außerdem bekommt man von Zenodo immer automatisch einen <a href="http://de.wikipedia.org/wiki/Digital_Object_Identifier">Digital Object Identifier</a>, was gewährleistet, dass die Daten im Netz auffindbar und unmissverständlich referenzierbar sind.</p>
+</section>
+</section>
+
+<section>
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition="concave">
+<h2><span class="head">Spezielles</span></h2>
+<h3><span class="subhead">... zu Python und Javascript</span></h3>
+<p><strong>Vorzüge von Python (frei nach <a href=":ref:Bassi2010">Bassi (2010:10)</a>)</strong></p>
+<ul>
+<li><strong>Readability</strong>: Python is a "human-readable language"</li>
+<li><strong>Built-in features</strong>: Python comes with "batteries included"</li>
+<li><strong>Availability of third-party modules</strong>: plotting, PDF generation,
+  bioinformations, game development, databases</li>
+<li><strong>high-level built-in data structures</strong>: dictionaries, sets, lists, tuples, good
+  to model real-world data</li>
+<li><strong>multi-paradigm</strong>: can be used as a procedural and object-oriented programming
+  language</li>
+<li><strong>extensibility</strong>: Python can be connected to many other languages</li>
+<li><strong>open source</strong>: liberal open source license, also for commercial use</li>
+<li><strong>cross-platform</strong>: works on any computer that has a Python interpreter (even
+  Windows)</li>
+<li><strong>thriving community</strong>: ask whatever question on
+  <a href="http://stackoverflow.com">stackoverflow</a>, you'll get an answer in most of the
+  cases</li>
+</ul>
+</section>
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition="none">
+<h2><span class="head">Spezielles</span></h2>
+<h3><span class="subhead">... zu Python und Javascript</span></h3>
+<p><strong>Vorzüge von Javascript (frei nach Meinung von mir)</strong></p>
+<ul>
+<li><strong>cross-platform</strong>: Javascript ist die einzig wirkliche Cross-Platformsprache,
+  weil jeder, der einen Webbrowser hat, sie auch hat</li>
+<li><strong>schön anzusehen</strong>: Javascript ist sehr hilfreich, wenn man Programme
+  schreiben will, die optisch ansprechend sind</li>
+<li><strong>leicht zu verwenden (für den Anwender)</strong>: Javascript macht es dem Anwender
+  leicht (dem Programmierer aber leider eher schwer)</li>
+<li><strong>Schönheit ist nicht alles</strong>: Javascript ist eine durchweg hässliche Sprache.
+  Dennoch kann man sich mit ihr ganz ordentlich arrangieren.</li>
+<li><strong>große Unterstützergemeinschaft</strong>: wahrscheinlich sogar größer als die von
+  Python: man findet sehr schnell antworten zu Fragen im Web</li>
+<li><strong>viele Third-Party-Modules</strong>: es gibt eine Unmenge von Modulen, auf die man
+  zurückgreifen kann, und noch viel mehr kurze Beispiele</li>
+</ul>
+</section>
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition="none">
+<h2><span class="head">Spezielles</span></h2>
+<h3><span class="subhead">... zu Python und Javascript</span></h3>
+<p>Mit Python und Javascript hat man zwei unheimlich Mächtige Tools zur Hand, die es einem erlauben, Daten nicht nur auf hochwertige Weise zu analysieren, sondern die Ergebnisse auch noch interaktiv zu präsentieren. 
+Für die moderne, computergestützte Wissenschaft, ist es ein großer Vorteil,
+über Grundwissen in beiden Sprachen zu verfügen.</p>
+</section>
+</section>
+
+<section data-background="#ffffff" style="text-align:justify;font-size:85%;" data-transition="concave">
+<h2><span class="head">Agenda 2015</span></h2>
+<ul>
+<li><span style="text-decoration:line-through">Organisatorisches</span><ul>
+<li><span style="text-decoration:line-through">Seminarverlauf</span></li>
+<li><span style="text-decoration:line-through">Leistungsnachweise (BNs und APs)</span></li>
+<li><span style="text-decoration:line-through">Seminarwebsite</span></li>
+</ul>
+</li>
+<li><span style="text-decoration:line-through">Vorstellung</span><ul>
+<li><span style="text-decoration:line-through">meiner Person</span></li>
+<li><span style="text-decoration:line-through">des Seminarthemas</span></li>
+</ul>
+</li>
+<li><span style="text-decoration:line-through">Allgemeines</span><ul>
+<li><span style="text-decoration:line-through">Programmieren</span></li>
+<li><span style="text-decoration:line-through">Programmieren in der Linguistik</span></li>
+</ul>
+</li>
+<li><span style="text-decoration:line-through">Spezielles</span><ul>
+<li><span style="text-decoration:line-through">zu Algorithmen, Skripten und Programmen</span></li>
+<li><span style="text-decoration:line-through">zur Grundausstattung fürs Programmieren</span></li>
+<li><span style="text-decoration:line-through">zu Python und Javascript</span></li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section data-background="#000000" style="text-align:justify;font-size:85%;" data-transition="concave">
+<p style="font-size:200px;color:white;font-weight:bold;">
+ENDE 
+</p>
+
+<p style="font-size:80%;color:white;font-weight:bold;text-align:right;">
+der ersten Sitzung
+</p>
+</section>
+
+
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+	slideNumber: 'c / t',
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
