@@ -1,4 +1,4 @@
-# Sitzung 1: Erste Schritte
+# Sitzung 1: Einführung 
 
 @data-background:#ffffff
 @data-transition:concave
@@ -21,7 +21,7 @@
 
 ----
 
-### &quot;Erste Schritte&quot;
+### &quot;Einführung&quot;
 
 ---
 
@@ -568,7 +568,7 @@ gemeinnütziger Anbieter. Ich empfehle in diesem Zusammenhang [Zenodo](http://ze
 ## @head:"Spezielles"
 ### @subhead:"... zu Python und Javascript"
 
-**Vorzüge von Python (frei nach [Bassi (2010:10)](:ref:Bassi2010))**
+**Vorzüge von Python (frei nach [Bassi (2010:10)](:bib:Bassi2010))**
 
 * **Readability**: Python is a "human-readable language"
 * **Built-in features**: Python comes with "batteries included"

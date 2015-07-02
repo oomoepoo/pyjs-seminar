@@ -15,6 +15,7 @@ import re
 
 template = open('templates/template.html').read()
 style = open('templates/template.css').read()
+script = open('templates/template.js').read()
 
 if len(sys.argv) == 1:
     print("Usage: python reveal.py INFILE")
@@ -24,8 +25,6 @@ if len(sys.argv) == 1:
 infile = open(sys.argv[1]).read()
 title = infile[:infile.index('\n')].replace('# ','')
 infile = infile[infile.index('\n'):]
-
-
 
 # convert stuff
 def convert(md):
@@ -105,6 +104,6 @@ for slide in slides[1:]:
         text += '</section>\n\n'
 
 with open(sys.argv[1].split('/')[-1].replace('.md','.html'), 'w') as f:
-    f.write(template.format(SLIDES=text, TITLE=title, STYLE=style))
+    f.write(template.format(SLIDES=text, TITLE=title, SCRIPT=script, STYLE=style))
 print("Finished compiling your slide.")
 
