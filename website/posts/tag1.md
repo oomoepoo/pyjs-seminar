@@ -27,8 +27,8 @@ An diesem Tag werden wir versuchen, erste Schritte in die Welt des Programmieren
 * Materialien:
     - [SLIDES](slides/sitzung-1-2.html)
     - Beispielskripte (auch unter (http://github.com/lingulist/pyjs-seminar/))
-        - [hallo_welt.py](code/hallo_welt.py)
-        - [test_kph.py](code/test_kph.py)
+        - [hallo_welt.py](https://github.com/LinguList/pyjs-seminar/blob/master/website/code/hallo_welt.py)
+        - [test_kph.py](https://github.com/LinguList/pyjs-seminar/blob/master/website/code/test_kph.py)
 
 ### III: [Erste Schritte in Javascript](slides/sitzung-1-3.html)
 
