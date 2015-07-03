@@ -39,3 +39,8 @@
 .small {
 	font-size: 70%!important;
 }
+
+
+.stroked {
+	text-decoration: line-through;
+}

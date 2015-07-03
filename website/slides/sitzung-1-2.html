@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Sitzung 2: Erste Schritte in Python</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <style>
+  .head {
+	position: relative;
+	top: 0px;
+	font-size: 90%!important;
+	color: white;
+	background-color: Green;
+	width: 960px;
+	text-align:justify;
+	display: block;
+	padding-left: 5px;
+	margin: 0;
+}
+.subhead {
+	position: relative;
+	top: -20px;
+	font-size: 70%!important;
+	color: white;
+	background-color: Crimson;
+	width: 960px;
+	text-align: justify;
+	padding: 5px;
+	margin: 0;
+	display: block;
+}
+
+
+.question {
+	position: relative;
+	font-size: 80%!important;
+	color: Crimson;
+	font-weight: bold;
+	font-style: italic;
+	text-align: center!important;
+	display: block;
+	width: 960px;
+	text-transform: none;
+}
+
+.small {
+	font-size: 70%!important;
+}
+
+
+.stroked {
+	text-decoration: line-through;
+}
+
+  </style>
+  <script>
+function startTime(elm) {
+    var today=new Date();
+    var h=today.getHours();
+    var m=today.getMinutes();
+    var s=today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById(elm).innerHTML = h+":"+m+":"+s;
+    var t = setTimeout(function(){startTime()},500);
+}
+
+function checkTime(i) {
+    if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+
+  </script>
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+	<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;text-align:center;font-size:100%;">
+<h2>Computergestützter Sprachvergleich mit Python und Javascript</h2>
+<hr />
+<h3>Sitzung 2 (Tag 1)</h3>
+<hr />
+<h4>20.07.2015</h4>
+<hr />
+<h3>&quot;Erste Schritte in Python&quot;</h3>
+</section>
+
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Agenda 2015</span></h2>
+<ul>
+<li>Allgemeines zu Python<ul>
+<li>Herkunft</li>
+<li>Charakteristik</li>
+<li>Installation</li>
+</ul>
+</li>
+<li>Bibliotheken und Entwicklertools<ul>
+<li>Allgemeines</li>
+<li>Empfohlene Bibliotheken</li>
+<li>Empfohlene Tools</li>
+</ul>
+</li>
+<li>Ein erstes Programmierbeispiel<ul>
+<li>Das Problem</li>
+<li>Der Algorithmus</li>
+<li>Die Python-Implementierung</li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section>
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Allgemeines zu Python</span></h2>
+<h3><span class="subhead">Herkunft</span></h3>
+<p><a href="http://python.org">Python</a> </p>
+<ul>
+<li><span class="fragment">wurde Anfang der 1990er Jahre von Guido van Rossum entwickelt</span></li>
+<li><span class="fragment">erhielt seinen Namen in Anspielung auf die Monty Pythons</span></li>
+<li><span class="fragment">erschien 1994 in der ersten Version 1.0</span></li>
+<li><span class="fragment">erschien 2000 in der Version 2.0, die viele Neuerungen enthielt</span></li>
+<li><span class="fragment">erschien 2008 in der Version 3.0, die nicht mehr kompatibel mit 2.0 ist, eine Vielzahl von Verbesserungen aufweist und von uns verwendet wird</span></li>
+</ul>
+</section>
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Allgemeines zu Python</span></h2>
+<h3><span class="subhead">Charakteristik</span></h3>
+<p><a href="http://python.org">Python</a> </p>
+<ul>
+<li><span class="fragment">ist eine universelle, interpretierte höhere Programmiersprache</span></li>
+<li><span class="fragment">ist sehr stark auf gute Lesbarkeit ausgerichtet</span></li>
+<li><span class="fragment">relativ einfach zu erlernen</span></li>
+<li><span class="fragment">sehr flexibel (unterstützt objektorientierte und funktionale Programmierung)</span></li>
+<li><span class="fragment">bietet in der Version 3 endlich eine volle Unicode-Unterstützung</span></li>
+<li><span class="fragment">besticht durch einfache Syntax und relativ wenige Schlüsselwörter</span></li>
+<li><span class="fragment">ist eine wunderschöne Sprache</span></li>
+</ul>
+</section>
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Allgemeines zu Python</span></h2>
+<h3><span class="subhead">Installation</span></h3>
+<ul>
+<li><span class="fragment">Download unter <a href="http://python.org">http://python.org</a> (wir verwenden ausschließlich Python 3 im Rahmen des Seminars!)</span></li>
+<li><span class="fragment">Installationsanleitung unter <a href="https://www.python.org/about/gettingstarted/">https://www.python.org/about/gettingstarted/</a></span></li>
+<li><span class="fragment">die Installation sollte generell problemlos auf fast allen Plattformen verlaufen</span></li>
+</ul>
+</section>
+</section>
+
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Agenda 2015</span></h2>
+<ul>
+<li><span class="stroked">Allgemeines zu Python</span><ul>
+<li><span class="stroked">Herkunft</span></li>
+<li><span class="stroked">Charakteristik</span></li>
+<li><span class="stroked">Installation</span></li>
+</ul>
+</li>
+<li>Bibliotheken und Entwicklertools<ul>
+<li>Allgemeines</li>
+<li>Empfohlene Bibliotheken</li>
+<li>Empfohlene Tools</li>
+</ul>
+</li>
+<li>Ein erstes Programmierbeispiel<ul>
+<li>Das Problem</li>
+<li>Der Algorithmus</li>
+<li>Die Python-Implementierung</li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section>
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Bibliotheken und Entwicklertools</span></h2>
+<h2><span class="subhead">Allgemeines</span></h2>
+<p><a href="http://de.wikipedia.org/wiki/Programmbibliothek">Wikipedia</a> zur "Programmbibliothek":</p>
+<blockquote class="fragment">
+Eine Programmbibliothek bezeichnet in der
+Programmierung eine Sammlung von
+Programmfunktionen für zusammengehörende
+Aufgaben. Bibliotheken sind im Unterschied zu
+Programmen keine eigenständig lauffähigen Einheiten,
+sondern Hilfsmodule, die Programmen zur Verfügung
+gestellt werden.
+</blockquote>
+</section>
+<section data-background="#ffffff" data-transition="none" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Bibliotheken und Entwicklertools</span></h2>
+<h2><span class="subhead">Allgemeines</span></h2>
+<p><strong>Installation von Python-Bibliotheken mit <a href="http://pypa.io">pip</a></strong></p>
+<p>Die Installation von Python-Bibliotheken ist relativ einfach, wenn man auf das
+Installationstool <em>pip</em> ("pip installs packages")
+zurückgreift. Dieses ist bei den neuesten Pythonversionen (3.4) bereits
+vorinstalliert, und kann daher direkt verwendet werden. Die verwendung ist
+denkbar einfach. In der Kommandozeile ("cmd" in der Suchleiste bei Windows
+eingeben) gibt man einfach Folgendes ein:</p>
+<pre><code>$ pip install packagename</code></pre>
+
+<p>Daraufhin wird die Bibliothek dann installiert.</p>
+</section>
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Bibliotheken und Entwicklertools</span></h2>
+<h2><span class="subhead">Empfohlene Programmierbibliotheken</span></h2>
+<ul>
+<li><span class="fragment"><a href="http://numpy.org">NumPy</a>, "Numeric Python",
+  <a href="http://numpy.org">http://numpy.org</a>:  Sehr gute Bibliothek, die eine Vielzahl
+  effizienter numerischer Berechnungen erlaubt und häufig als Grundlage für
+  weitere Bibliotheken gefordert wird. </span></li>
+<li><span class="fragment"><a href="http://scipy.org">SciPy</a>, "Scientific Python",
+  <a href="http://scipy.org">http:/scipy.org</a>: Sehr wichtige (leider etwas langsame)
+  Bibliothek für wissenschaftliche Programmierung. </span></li>
+<li><span class="fragment"><a href="http://matplotlib.org">Matplotlib</a>,
+  <a href="http://matplotlib.org">http://matplotlib.org</a>: Exzellente Bibliothek für das
+  Erstellen hochwertiger Plots von Daten.</span></li>
+<li><span class="fragment"><a href="http://networkx.org">Networkx</a>,
+  <a href="http://networkx.org">http://networkx.org</a>: Sehr gute Bibliothek für
+  Netzwerkkalkulationen.</span></li>
+<li><span class="fragment"><a href="http://lingpy.org">LingPy</a>, "Linguistic Python",
+  <a href="http://lingpy.org">http://lingpy.org</a>: Bibliothek zur Durchführung von
+  quantitativen Analysen in der historischen Linguistik (Download unter:
+  <a href="https://github.com/lingpy/lingpy/releases/tag/v2.4.1-alpha">https://github.com/lingpy/lingpy/releases/tag/v2.4.1-alpha</a>).</span></li>
+</ul>
+</section>
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Bibliotheken und Entwicklertools</span></h2>
+<h2><span class="subhead">Empfohlene Entwicklertools</span></h2>
+<ul>
+<li><span class="fragment"><a href="http://ipython.org">IPython</a>,
+  <a href="http://ipython.org">http://ipython.org</a>: Sehr gutes Kommandozeileninterpreter
+  für Python, der vor allem auch das Testen von Code ungemein erleichtert.
+  </span></li>
+<li><span class="fragment">Installation unter Windows (kann etwas kompliziert
+  werden, aber Sie sollten das schon schaffen!):
+  <a href="http://ipython.org/ipython-doc/2/install/install.html#windows">http://ipython.org/ipython-doc/2/install/install.html#windows</a></span></li>
+<li><span class="fragment">Installation unter Linux/Ubuntu:
+  <pre><code>$ sudo apt-get install ipython3</code></pre></span></li>
+<li><span class="fragment">Installation unter Archlinux:
+  <pre><code>$ sudo pacman -S ipython</code></pre></span></li>
+</ul>
+</section>
+</section>
+
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Agenda 2015</span></h2>
+<ul>
+<li><span class="stroked">Allgemeines zu Python</span><ul>
+<li><span class="stroked">Herkunft</span></li>
+<li><span class="stroked">Charakteristik</span></li>
+<li><span class="stroked">Installation</span></li>
+</ul>
+</li>
+<li><span class="stroked">Bibliotheken und Entwicklertools</span><ul>
+<li><span class="stroked">Allgemeines</span></li>
+<li><span class="stroked">Empfohlene Bibliotheken</span></li>
+<li><span class="stroked">Empfohlene Tools</span></li>
+</ul>
+</li>
+<li>Ein erstes Programmierbeispiel<ul>
+<li>Das Problem</li>
+<li>Der Algorithmus</li>
+<li>Die Python-Implementierung</li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section>
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Ein erstes Programmierbeispiel</span></h2>
+<h3><span class="subhead">Das Problem</span></h3>
+<blockquote class="fragment">
+Karlheinz, ein Düsseldorfer Student der Lingustik im 20. Semester, hat auf einer
+Mediziner-Party in Köln eine Medizinstudentin
+kennengelernt, die ihr Physikum bereits abgeschlossen hat, und
+möchte sie gerne wiedersehen. Dummerweise kann er sich
+jedoch nicht mehr genau daran erinnern wie sie heißt. Ihr
+Nachname klang irgendwie nach <span style="font-style:normal">[maiɐ]</span>, und ihr Vorname war
+irgendwas in Richtung <span style="font-style:normal">[krɪstiːnə]</span>, jedoch weiß er nicht, welche
+Schreibung er zugrunde legen soll.
+</section>
+<section data-background="#ffffff" data-transition="none" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Ein erstes Programmierbeispiel</span></h2>
+<h3><span class="subhead">Das Problem</span></h3>
+<blockquote>
+Zufällig hat er eine Liste mit
+den wirklichen Namen und den dazugehörigen
+Facebook-Namen von allen Bürgern aus Köln und Umgebung
+als Excel-Tabelle auf seinem Computer zu Hause. Wenn er jetzt
+noch ein Verfahren finden könnte, das ihm alle Namen anzeigt,
+die wie <span style="font-style:normal">[krɪstiːnə maiɐ]</span> klingen, dann wäre es sicherlich ein
+Leichtes, herauszufinden, wo die unbekannte Studentin ihre
+Tierversuche veranstaltet, und sie mit einem Pausenkaffee von
+. Starbucks zwischen Frosch und Kaninchen zu überraschen...
+</blockquote>
+</section>
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Ein erstes Programmierbeispiel</span></h2>
+<h3><span class="subhead">Der Algorithmus</span></h3>
+<p><span class="fragment">
+Die Lösung besteht darin, alle Namen, die auf der Liste
+auftauchen, in ein anderes Format umzuwandeln, welches den
+Sprachklang der Wörter wiedergibt und nicht ihre Schreibung.
+Ein Algorithmus, der für diesen Zweck geschaffen wurde, ist die
+sogenannte "Kölner Phonetik" (vgl. <a href="http://bibliography.lingpy.org?key=Postel1969">Postel 1969</a>). 
+Die Kölner
+Phonetik wandelt Wörter der deutschen Sprache in einen
+phonetischen Kode um, mit dessen Hilfe auch Wörter, die
+unterschiedlich geschrieben werden, aber gleich klingen,
+verglichen werden können. So werden die beiden Namen
+<em>Christina Maier</em> und <em>Kirsten Mayr</em> durch den Algorithmus jeweils
+in die gleiche Zahlenfolge “47826-67” umgewandelt.</span></p>
+</section>
+<section data-background="#ffffff" data-transition="none" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Ein erstes Programmierbeispiel</span></h2>
+<h3><span class="subhead">Der Algorithmus</span></h3>
+<p><a href="img/kphon.svg"><img src="img/kphon.svg" alt="kphon" width="800px" /></a></p>
+</section>
+<section data-background="#ffffff" data-transition="none" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Ein erstes Programmierbeispiel</span></h2>
+<h3><span class="subhead">Der Algorithmus</span></h3>
+<p><strong>Das Verfahren</strong></p>
+<ol>
+<li>Wandle jeden Buchstaben schrittweise um und beachte die
+   Kontextregeln.</li>
+<li>Reduziere alle mehrfach hintereinander auftauchenden
+   Ziffern auf eine.</li>
+<li>Entfernen die Ziffer “0” an allen Stellen des Wortes, außer
+   am Anfang.</li>
+</ol>
+</section>
+<section data-background="#ffffff" data-transition="none" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Ein erstes Programmierbeispiel</span></h2>
+<h3><span class="subhead">Der Algorithmus</span></h3>
+<p><strong>Aufgabe an alle Seminarteilnehmer</strong></p>
+<p>Wenden Sie die Kölner Phonetik auf Ihren Vor- und Nachnamen an
+und dokumentieren Sie dabei explizit, welche Schritte Sie dabei
+durchführen. Warum ist das Verfahren komplizierter, als man am
+Anfang vermuten könnte?</p>
+</section>
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Ein erstes Programmierbeispiel</span></h2>
+<h3><span class="subhead">Die Python-Implementierung</span></h3>
+<p>Die Kölner Phonetik ist in Python von Robert Schindler implementiert worden und
+unter der URL (http://pypi.python.org/pypi/kph/0.3) erhältlich. Wir ignorieren
+vorerst die Details der Umsetzung und konzentrieren uns auf die Anwendung.
+Die Installation ist dank "pip" denkbar einfach:</p>
+<pre><code class="fragment shell">$ pip install kph</code></pre>
+
+<p><span class="fragment">Die Verwendung auch:</span></p>
+<pre><code class="fragment python" data-trim>
+>>> import kph
+>>> kph.encode("Mattis List")
+'628582'
+</code></pre>
+
+<p><span class="fragment">Aber wie können wir eine lange Liste von Namen
+abfragen, ohne jeden Namen einzeln in der Konsole eingeben zu müssen?</span></p>
+<p><span class="fragment">Richtig, wir brauchen ein Skript!</span></p>
+</section>
+<section data-background="#ffffff" data-transition="none" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Ein erstes Programmierbeispiel</span></h2>
+<h3><span class="subhead">Die Python-Implementierung</span></h3>
+<p><strong>Aufbau von Python-Skripten: Shebang und Kodierung</strong></p>
+<p>Die erste Zeile von Python-Skripten sieht oft wie folgt aus:</p>
+<pre><code class="python" data-trim>
+#! /usr/bin/env python
+# *-* coding:utf-8 *-*
+
+YOUR CODE HERE
+</code></pre>
+
+<p>Die erste Zeile, die sogenannte <a href="http://de.wikipedia.org/wiki/Shebang">Shebang line</a>, erlaubt es, das
+Programm durch Doppelklick in Linux- und Mac-Systemen ("unixoide Systeme")
+auszuführen. Die zweite Zeile legt die Kodierung fest und erlaubt es, bei der
+Verwendung von Python-2 Programmen, alle Arten von nicht-ASCII Zeichen zu
+verwenden. Streng genommen brauchen wir aber keine der Funktionen, da wir
+Programme auf Unix-Computern auch leicht über die Konsole ausführen können, und
+Python3 UTF-8 voll unterstützt. </p>
+</section>
+<section data-background="#ffffff" data-transition="none" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Ein erstes Programmierbeispiel</span></h2>
+<h3><span class="subhead">Die Python-Implementierung</span></h3>
+<p><strong>Aufbau von Python-Skripten: Kommentare</strong></p>
+<pre><code class="python fragment" data-trim>
+# Dies ist eine Kommentarzeile,
+# durch welche es möglich ist, Dinge in das
+# Programm zu schreiben, die nachher
+# nicht ausgeführt werden.
+
+# Man kann Kommentare Überall einsetzen, man 
+# muss aber beachten, dass, wenn man
+# sie einsetzt, alles was hinter dem Kommentar-Zeichen folgt, nicht mehr
+# interpretiert wird.
+
+1 + 1 # wird hier interpretiert
+# 1 + 1 wird nicht interpriert
+1 + # ruft einen Fehler hervor, weil das "+" ohne Gegenstück ist
+</code></pre>
+
+<pre><code class="python fragment" data-trim>
+"Alternativ kann man Dinge auch in Anführungsstriche setzen."
+
+"""
+Sicherer ist es allerdings, drei Anführungsstriche auf
+einmal zu verwenden, weil man dann auch Anführungsstriche
+inerhalb des Kommentars benutzen kann, bzw. auch über
+mehrere Zeilen hinweg schreiben kann.
+"""
+</pre>
+
+<p></code></p>
+</section>
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Ein erstes Programmierbeispiel</span></h2>
+<h3><span class="subhead">Die Python-Implementierung</span></h3>
+<p><strong><a href="code/hallo_welt.py">Die Print-Funktion</a></strong></p>
+<pre><code class="python fragment" data-trim>
+# file: hallo_welt.py
+print("Hallo Welt!")
+</code></pre>
+
+<pre><code class="fragment shell" data-trim>
+$ python3 hallo_welt.py
+Hallo Welt!
+</code></pre>
+
+<p><strong><a href="code/test_kph.py">Einbinden von Modulen (Bibliotheken)</a></strong></p>
+<pre><code class="python fragment" data-trim>
+# file: test_kph.py
+
+import kph 
+# importiert die Kölner Phonetik, vorher kann man
+# die Bibliothek nicht verwenden
+
+print(kph.encode('Monty Python'))
+</code></pre>
+
+<pre><code class="shell fragment" data-trim>
+$ python3 test_kph.py
+662126
+</code></pre>
+</section>
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Ein erstes Programmierbeispiel</span></h2>
+<h3><span class="subhead">Die Python-Implementierung</span></h3>
+<p><strong>Einige kurze Ideen zum Experimentieren und Nachdenken</strong></p>
+<ol>
+<li><span class="fragment">Experimentieren Sie mit der Kölner Phonetik. Welche Ausgaben erhalten Sie,
+wenn Sie</span><ul>
+<li><span class="fragment">eine Zahl in Anführungsstrichen,</span></li>
+<li><span class="fragment">eine Zahl ohne Anführungsstriche, oder</span></li>
+<li><span class="fragment">Buchstaben mit diakritischen Zeichen ("áłň")
+  eingeben?</span></li>
+</ul>
+</li>
+<li><span class="fragment">Gibt man statt <code class="python">encode("Kirsten")</code>,<code class="python">encode("Maier")</code>
+   die Zeile
+   <code>encode("Kirsten Maier")</code> ein, verändert sich die Ausgabe.
+   Woran liegt das?</span></li>
+<li><span class="fragment">Was brauchen wir (welche Routinen, Verfahren), um alle Daten aus der Excel-Tabelle von Karlheinz einlesen
+    und in ihre Werte entsprechend der Kölner Phonetik umwandeln zu
+    können?</span></li>
+</ol>
+</section>
+</section>
+
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span id="time" class="head" onmouseover="startTime('time')">Agenda 2015</span></h2>
+<ul>
+<li><span class="stroked">Allgemeines zu Python</span><ul>
+<li><span class="stroked">Herkunft</span></li>
+<li><span class="stroked">Charakteristik</span></li>
+<li><span class="stroked">Installation</span></li>
+</ul>
+</li>
+<li><span class="stroked">Bibliotheken und Entwicklertools</span><ul>
+<li><span class="stroked">Allgemeines</span></li>
+<li><span class="stroked">Empfohlene Bibliotheken</span></li>
+<li><span class="stroked">Empfohlene Tools</span></li>
+</ul>
+</li>
+<li><span class="stroked">Ein erstes Programmierbeispiel</span><ul>
+<li><span class="stroked">Das Problem</span></li>
+<li><span class="stroked">Der Algorithmus</span></li>
+<li><span class="stroked">Die Python-Implementierung</span></li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section data-background="#000000" data-transition="concave" style="text-align:justify;font-size:85%;">
+<p style="font-size:200px;color:white;font-weight:bold;">
+ENDE
+</p>
+
+<p style="font-size:80%;color:white;font-weight:bold;text-align:right;">
+der zweiten Sitzung
+</p>
+
+<p><code style="font-size:160px">:wq!</code></p>
+</section>
+
+
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+	slideNumber: 'c / t',
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
