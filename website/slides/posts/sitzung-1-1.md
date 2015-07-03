@@ -9,7 +9,7 @@
 
 @style:text-align:center;font-size:100%;
 
-## Computergestützter Sprachvergleich mit Python und Javascript
+## Computergestützter Sprachvergleich mit Python und JavaScript
 
 ----
 
@@ -40,7 +40,7 @@
 * Spezielles
     - zu Algorithmen, Skripten und Programmen
     - zur Grundausstattung fürs Programmieren
-    - zu Python und Javascript
+    - zu Python und JavaScript
 
 ---
 
@@ -161,7 +161,7 @@ gegeben.
 * Spezielles
     - zu Algorithmen, Skripten und Programmen
     - zur Grundausstattung fürs Programmieren
-    - zu Python und Javascript
+    - zu Python und JavaScript
 
 ---
 
@@ -203,7 +203,7 @@ gegeben.
   computerbasierten Sprachvergleich
 - [CLICS](http://clics.lingpy.org): Interaktive Visualisierung
   cross-linguistischer Polysemien
-- [DIGHL](http://dighl.github.io): Sammlung von Javascript-Programmen für
+- [DIGHL](http://dighl.github.io): Sammlung von JavaScript-Programmen für
   computergestützte Ansätze in der historischen Linguistik
 
 ---
@@ -291,7 +291,7 @@ gegeben.
 * Spezielles
     - zu Algorithmen, Skripten und Programmen
     - zur Grundausstattung fürs Programmieren
-    - zu Python und Javascript
+    - zu Python und JavaScript
 
 ---
 
@@ -419,7 +419,7 @@ und hochwertige Datensätze für die empirische Forschung zu erstellen.
 * Spezielles
     - zu Algorithmen, Skripten und Programmen
     - zur Grundausstattung fürs Programmieren
-    - zu Python und Javascript
+    - zu Python und JavaScript
 
 ---
 
@@ -509,7 +509,7 @@ So sind zum Beispiel die Methoden der Multiplikation und Division ganzer Zahlen,
   speziellen Programmiersprache.
 * Ein Skript ist ein Programm, das in einer interpretierten Programmiersprache
   (einer Skriptsprache)
-  geschrieben wurde. Alle Programme, die mit Python oder Javascript erstellt
+  geschrieben wurde. Alle Programme, die mit Python oder JavaScript erstellt
   werden, sind demnach Skripte.
 
 ---
@@ -566,7 +566,7 @@ gemeinnütziger Anbieter. Ich empfehle in diesem Zusammenhang [Zenodo](http://ze
 ---
 
 ## @head:"Spezielles"
-### @subhead:"... zu Python und Javascript"
+### @subhead:"... zu Python und JavaScript"
 
 **Vorzüge von Python (frei nach [Bassi (2010:10)](:bib:Bassi2010))**
 
@@ -589,17 +589,17 @@ gemeinnütziger Anbieter. Ich empfehle in diesem Zusammenhang [Zenodo](http://ze
 @data-transition:none
 
 ## @head:"Spezielles"
-### @subhead:"... zu Python und Javascript"
+### @subhead:"... zu Python und JavaScript"
 
-**Vorzüge von Javascript (frei nach Meinung von mir)**
+**Vorzüge von JavaScript (frei nach Meinung von mir)**
 
-* **cross-platform**: Javascript ist die einzig wirkliche Cross-Platformsprache,
+* **cross-platform**: JavaScript ist die einzig wirkliche Cross-Platformsprache,
   weil jeder, der einen Webbrowser hat, sie auch hat
-* **schön anzusehen**: Javascript ist sehr hilfreich, wenn man Programme
+* **schön anzusehen**: JavaScript ist sehr hilfreich, wenn man Programme
   schreiben will, die optisch ansprechend sind
-* **leicht zu verwenden (für den Anwender)**: Javascript macht es dem Anwender
+* **leicht zu verwenden (für den Anwender)**: JavaScript macht es dem Anwender
   leicht (dem Programmierer aber leider eher schwer)
-* **Schönheit ist nicht alles**: Javascript ist eine durchweg hässliche Sprache.
+* **Schönheit ist nicht alles**: JavaScript ist eine durchweg hässliche Sprache.
   Dennoch kann man sich mit ihr ganz ordentlich arrangieren.
 * **große Unterstützergemeinschaft**: wahrscheinlich sogar größer als die von
   Python: man findet sehr schnell antworten zu Fragen im Web
@@ -611,9 +611,9 @@ gemeinnütziger Anbieter. Ich empfehle in diesem Zusammenhang [Zenodo](http://ze
 @data-transition:none
 
 ## @head:"Spezielles"
-### @subhead:"... zu Python und Javascript"
+### @subhead:"... zu Python und JavaScript"
 
-Mit Python und Javascript hat man zwei unheimlich Mächtige Tools zur Hand, die es einem erlauben, Daten nicht nur auf hochwertige Weise zu analysieren, sondern die Ergebnisse auch noch interaktiv zu präsentieren. 
+Mit Python und JavaScript hat man zwei unheimlich Mächtige Tools zur Hand, die es einem erlauben, Daten nicht nur auf hochwertige Weise zu analysieren, sondern die Ergebnisse auch noch interaktiv zu präsentieren. 
 Für die moderne, computergestützte Wissenschaft, ist es ein großer Vorteil,
 über Grundwissen in beiden Sprachen zu verfügen.
 
@@ -634,7 +634,7 @@ Für die moderne, computergestützte Wissenschaft, ist es ein großer Vorteil,
 * <span style="text-decoration:line-through">Spezielles</span>
     - <span style="text-decoration:line-through">zu Algorithmen, Skripten und Programmen</span>
     - <span style="text-decoration:line-through">zur Grundausstattung fürs Programmieren</span>
-    - <span style="text-decoration:line-through">zu Python und Javascript</span>
+    - <span style="text-decoration:line-through">zu Python und JavaScript</span>
 
 ---
 

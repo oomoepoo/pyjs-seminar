@@ -29,6 +29,9 @@
       document.getElementsByTagName( 'head' )[0].appendChild( link );
     </script>
 
+
+
+
     <!--[if lt IE 9]>
     <script src="lib/js/html5shiv.js"></script>
     <![endif]-->
@@ -101,13 +104,21 @@ function checkTime(i) {
 
   </script>
   <body>
+  <div style="display: none;" class="tilda" id="tilda">
+    <div style="height: 100px;" class="td terminal">
+      <div class="terminal-output">
+      </div>
+    </div>
+  </div>
+
+
 
     <div class="reveal">
 
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
-	<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;text-align:center;font-size:100%;">
-<h2>Computergestützter Sprachvergleich mit Python und Javascript</h2>
+	<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;text-align:center;font-size:100%;">
+<h2>Computergestützter Sprachvergleich mit Python und JavaScript</h2>
 <hr />
 <h3>Sitzung 2 (Tag 1)</h3>
 <hr />
@@ -116,7 +127,7 @@ function checkTime(i) {
 <h3>&quot;Erste Schritte in Python&quot;</h3>
 </section>
 
-<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
 <h2><span class="head">Agenda 2015</span></h2>
 <ul>
 <li>Allgemeines zu Python<ul>
@@ -141,7 +152,7 @@ function checkTime(i) {
 </section>
 
 <section>
-<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
 <h2><span class="head">Allgemeines zu Python</span></h2>
 <h3><span class="subhead">Herkunft</span></h3>
 <p><a href="http://python.org">Python</a> </p>
@@ -153,7 +164,7 @@ function checkTime(i) {
 <li><span class="fragment">erschien 2008 in der Version 3.0, die nicht mehr kompatibel mit 2.0 ist, eine Vielzahl von Verbesserungen aufweist und von uns verwendet wird</span></li>
 </ul>
 </section>
-<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
 <h2><span class="head">Allgemeines zu Python</span></h2>
 <h3><span class="subhead">Charakteristik</span></h3>
 <p><a href="http://python.org">Python</a> </p>
@@ -167,7 +178,7 @@ function checkTime(i) {
 <li><span class="fragment">ist eine wunderschöne Sprache</span></li>
 </ul>
 </section>
-<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
 <h2><span class="head">Allgemeines zu Python</span></h2>
 <h3><span class="subhead">Installation</span></h3>
 <ul>
@@ -178,7 +189,7 @@ function checkTime(i) {
 </section>
 </section>
 
-<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
 <h2><span class="head">Agenda 2015</span></h2>
 <ul>
 <li><span class="stroked">Allgemeines zu Python</span><ul>
@@ -203,7 +214,7 @@ function checkTime(i) {
 </section>
 
 <section>
-<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
 <h2><span class="head">Bibliotheken und Entwicklertools</span></h2>
 <h2><span class="subhead">Allgemeines</span></h2>
 <p><a href="http://de.wikipedia.org/wiki/Programmbibliothek">Wikipedia</a> zur "Programmbibliothek":</p>
@@ -217,7 +228,7 @@ sondern Hilfsmodule, die Programmen zur Verfügung
 gestellt werden.
 </blockquote>
 </section>
-<section data-background="#ffffff" data-transition="none" style="text-align:justify;font-size:85%;">
+<section data-transition="none" data-background="#ffffff" style="text-align:justify;font-size:85%;">
 <h2><span class="head">Bibliotheken und Entwicklertools</span></h2>
 <h2><span class="subhead">Allgemeines</span></h2>
 <p><strong>Installation von Python-Bibliotheken mit <a href="http://pypa.io">pip</a></strong></p>
@@ -231,7 +242,7 @@ eingeben) gibt man einfach Folgendes ein:</p>
 
 <p>Daraufhin wird die Bibliothek dann installiert.</p>
 </section>
-<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
 <h2><span class="head">Bibliotheken und Entwicklertools</span></h2>
 <h2><span class="subhead">Empfohlene Programmierbibliotheken</span></h2>
 <ul>
@@ -254,7 +265,7 @@ eingeben) gibt man einfach Folgendes ein:</p>
   <a href="https://github.com/lingpy/lingpy/releases/tag/v2.4.1-alpha">https://github.com/lingpy/lingpy/releases/tag/v2.4.1-alpha</a>).</span></li>
 </ul>
 </section>
-<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
 <h2><span class="head">Bibliotheken und Entwicklertools</span></h2>
 <h2><span class="subhead">Empfohlene Entwicklertools</span></h2>
 <ul>
@@ -273,7 +284,7 @@ eingeben) gibt man einfach Folgendes ein:</p>
 </section>
 </section>
 
-<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
 <h2><span class="head">Agenda 2015</span></h2>
 <ul>
 <li><span class="stroked">Allgemeines zu Python</span><ul>
@@ -298,7 +309,7 @@ eingeben) gibt man einfach Folgendes ein:</p>
 </section>
 
 <section>
-<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
 <h2><span class="head">Ein erstes Programmierbeispiel</span></h2>
 <h3><span class="subhead">Das Problem</span></h3>
 <blockquote class="fragment">
@@ -311,7 +322,7 @@ Nachname klang irgendwie nach <span style="font-style:normal">[maiɐ]</span>, un
 irgendwas in Richtung <span style="font-style:normal">[krɪstiːnə]</span>, jedoch weiß er nicht, welche
 Schreibung er zugrunde legen soll.
 </section>
-<section data-background="#ffffff" data-transition="none" style="text-align:justify;font-size:85%;">
+<section data-transition="none" data-background="#ffffff" style="text-align:justify;font-size:85%;">
 <h2><span class="head">Ein erstes Programmierbeispiel</span></h2>
 <h3><span class="subhead">Das Problem</span></h3>
 <blockquote>
@@ -326,7 +337,7 @@ Tierversuche veranstaltet, und sie mit einem Pausenkaffee von
 . Starbucks zwischen Frosch und Kaninchen zu überraschen...
 </blockquote>
 </section>
-<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
 <h2><span class="head">Ein erstes Programmierbeispiel</span></h2>
 <h3><span class="subhead">Der Algorithmus</span></h3>
 <p><span class="fragment">
@@ -343,12 +354,12 @@ verglichen werden können. So werden die beiden Namen
 <em>Christina Maier</em> und <em>Kirsten Mayr</em> durch den Algorithmus jeweils
 in die gleiche Zahlenfolge “47826-67” umgewandelt.</span></p>
 </section>
-<section data-background="#ffffff" data-transition="none" style="text-align:justify;font-size:85%;">
+<section data-transition="none" data-background="#ffffff" style="text-align:justify;font-size:85%;">
 <h2><span class="head">Ein erstes Programmierbeispiel</span></h2>
 <h3><span class="subhead">Der Algorithmus</span></h3>
 <p><a href="img/kphon.svg"><img src="img/kphon.svg" alt="kphon" width="800px" /></a></p>
 </section>
-<section data-background="#ffffff" data-transition="none" style="text-align:justify;font-size:85%;">
+<section data-transition="none" data-background="#ffffff" style="text-align:justify;font-size:85%;">
 <h2><span class="head">Ein erstes Programmierbeispiel</span></h2>
 <h3><span class="subhead">Der Algorithmus</span></h3>
 <p><strong>Das Verfahren</strong></p>
@@ -361,7 +372,7 @@ in die gleiche Zahlenfolge “47826-67” umgewandelt.</span></p>
    am Anfang.</li>
 </ol>
 </section>
-<section data-background="#ffffff" data-transition="none" style="text-align:justify;font-size:85%;">
+<section data-transition="none" data-background="#ffffff" style="text-align:justify;font-size:85%;">
 <h2><span class="head">Ein erstes Programmierbeispiel</span></h2>
 <h3><span class="subhead">Der Algorithmus</span></h3>
 <p><strong>Aufgabe an alle Seminarteilnehmer</strong></p>
@@ -370,7 +381,7 @@ und dokumentieren Sie dabei explizit, welche Schritte Sie dabei
 durchführen. Warum ist das Verfahren komplizierter, als man am
 Anfang vermuten könnte?</p>
 </section>
-<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
 <h2><span class="head">Ein erstes Programmierbeispiel</span></h2>
 <h3><span class="subhead">Die Python-Implementierung</span></h3>
 <p>Die Kölner Phonetik ist in Python von Robert Schindler implementiert worden und
@@ -390,7 +401,7 @@ Die Installation ist dank "pip" denkbar einfach:</p>
 abfragen, ohne jeden Namen einzeln in der Konsole eingeben zu müssen?</span></p>
 <p><span class="fragment">Richtig, wir brauchen ein Skript!</span></p>
 </section>
-<section data-background="#ffffff" data-transition="none" style="text-align:justify;font-size:85%;">
+<section data-transition="none" data-background="#ffffff" style="text-align:justify;font-size:85%;">
 <h2><span class="head">Ein erstes Programmierbeispiel</span></h2>
 <h3><span class="subhead">Die Python-Implementierung</span></h3>
 <p><strong>Aufbau von Python-Skripten: Shebang und Kodierung</strong></p>
@@ -410,7 +421,7 @@ verwenden. Streng genommen brauchen wir aber keine der Funktionen, da wir
 Programme auf Unix-Computern auch leicht über die Konsole ausführen können, und
 Python3 UTF-8 voll unterstützt. </p>
 </section>
-<section data-background="#ffffff" data-transition="none" style="text-align:justify;font-size:85%;">
+<section data-transition="none" data-background="#ffffff" style="text-align:justify;font-size:85%;">
 <h2><span class="head">Ein erstes Programmierbeispiel</span></h2>
 <h3><span class="subhead">Die Python-Implementierung</span></h3>
 <p><strong>Aufbau von Python-Skripten: Kommentare</strong></p>
@@ -443,7 +454,7 @@ mehrere Zeilen hinweg schreiben kann.
 
 <p></code></p>
 </section>
-<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
 <h2><span class="head">Ein erstes Programmierbeispiel</span></h2>
 <h3><span class="subhead">Die Python-Implementierung</span></h3>
 <p><strong><a href="code/hallo_welt.py">Die Print-Funktion</a></strong></p>
@@ -473,7 +484,7 @@ $ python3 test_kph.py
 662126
 </code></pre>
 </section>
-<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
 <h2><span class="head">Ein erstes Programmierbeispiel</span></h2>
 <h3><span class="subhead">Die Python-Implementierung</span></h3>
 <p><strong>Einige kurze Ideen zum Experimentieren und Nachdenken</strong></p>
@@ -497,7 +508,7 @@ wenn Sie</span><ul>
 </section>
 </section>
 
-<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
 <h2><span id="time" class="head" onmouseover="startTime('time')">Agenda 2015</span></h2>
 <ul>
 <li><span class="stroked">Allgemeines zu Python</span><ul>
@@ -521,7 +532,7 @@ wenn Sie</span><ul>
 </ul>
 </section>
 
-<section data-background="#000000" data-transition="concave" style="text-align:justify;font-size:85%;">
+<section data-transition="concave" data-background="#000000" style="text-align:justify;font-size:85%;">
 <p style="font-size:200px;color:white;font-weight:bold;">
 ENDE
 </p>

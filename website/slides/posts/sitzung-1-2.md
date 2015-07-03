@@ -9,7 +9,7 @@
 
 @style:text-align:center;font-size:100%;
 
-## Computergestützter Sprachvergleich mit Python und Javascript
+## Computergestützter Sprachvergleich mit Python und JavaScript
 
 ----
 
