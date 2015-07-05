@@ -1,0 +1,219 @@
+\documentclass[xetex,svgnames]{scrartcl}
+
+% packages
+\usepackage{xltxtra}
+\usepackage{polyglossia}
+\usepackage{lsalike}
+\usepackage{hyperref}
+\usepackage{fontspec}
+\usepackage{covington}
+\usepackage{scrpage2}
+\usepackage{qtree}
+\usepackage[left=2cm,right=2cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{draftwatermark}
+\usepackage{hieroglf}
+%\usepackage{simpsons}
+\usepackage[weather,misc,alpine]{ifsym}
+\usepackage{phaistos}
+\usepackage{linearb}
+\usepackage{dingbat}
+\usepackage{pst-node}
+\usepackage{colortbl}
+\usepackage{alltt}
+\usepackage{listings}
+
+% fonts general
+\setmainfont[Mapping=tex-text,Scale=1.0]{FreeSans}
+\setsansfont[Mapping=tex-text,Scale=1.0]{FreeSans}
+\setmonofont{FreeMono}
+
+% special fonts
+\newfontfamily\hana{HAN NOM A}
+\newfontfamily\hanb{HAN NOM B}
+\newfontfamily\sil{Doulos SIL}
+\newfontfamily\grk{Aristarcoj}
+\newfontfamily\calligraphy{Chinese Calligraphy}
+\newfontfamily\gnm{Gnommish}
+\newfontfamily\jin{cjkbronze}
+\newfontfamily\jiagu{cjkjiagu}
+\newfontfamily\xiaozhuan{shuowenxiaozhuan}
+\newfontfamily\pur{Purisa}
+\newfontfamily\cjcalligraphy{sinocalligraphy}
+%\newfontfamily\ahd{eufm10}
+
+% specific commands
+\newcommand{\mysub}[1]{\raisebox{-0.5ex}{\scriptsize{#1}}}
+\SetWatermarkText{PYTHON}
+\newcommand{\bild}[2]{%
+    \scalebox{#1}{%
+        \includegraphics{/home/mattis/projects/graphics/img/#2.jpg}
+        }
+    }
+\newcommand{\Table}[1]{%
+    \begin{flushleft}
+        \begin{tabular}{|p{16.5cm}|}
+            \hline \cellcolor{lightgray} \bf \pur #1
+            \\\hline
+        \end{tabular}
+    \end{flushleft}
+}
+
+\lstset{language=Python}
+
+\newcommand{\Code}[1]{%
+    \begin{flushleft}
+        \begin{tabular}{||p{16.5cm}||}
+            \hline\hline \cellcolor{white}
+            \\
+            #1
+
+             \cellcolor{white}
+            \\\hline\hline
+        \end{tabular}
+    \end{flushleft}
+}
+\newcommand{\White}[1]{\cellcolor{white} \textcolor{black}{ #1}}
+
+% language settings
+\setmainlanguage[spelling=new]{german}
+\setotherlanguage{english}
+
+% pagestyle settings
+\pagestyle{scrheadings}
+\ihead{Johann-Mattis List}
+\chead{Python und JavaScript}
+\ohead{Übungen 1}
+\ifoot{}
+\cfoot{\pagemark}
+\ofoot{}
+
+%\include{latex/figures}
+
+\begin{document}
+%\maketitle
+
+\begin{center}
+  \bf \huge Praktisches zu Python
+\end{center}
+
+\Table{Um dem Seminar optimal folgen zu können, sollten Sie sicherstellen, dass Sie alle wichtigen
+Programme installiert haben. In Bezug auf Python wären das:
+\begin{itemize}
+  \item Python selbst (\url{http://python.org}), und zwar in der Version 3.4.,
+  \item NumPy (\url{http://numpy.org}),
+  \item SciPy (\url{http://scipy.org}),
+  \item Matplotlib (\url{http://matplotlib.org}),
+  \item Networkx (\url{http://networkx.org}),
+  \item LingPy (\url{http.lingpy.org})
+\end{itemize}
+
+Damit Sie überprüfen können, ob Sie auch alle Installationen richtig ausgeführt haben, habe ich ein kleines,
+sehr einfaches Skript geschrieben. Wenn Sie dieses ausführen, dann gibt es am Ende einen Lösungssatz
+aus. Wie lautet dieser Satz?}
+\begin{center}
+  \bf \huge Praktisches zu JavaScript
+\end{center}
+\Table{Um gut in JavaScript einsteigen zu können, ist es zunächst am wichtigsten, dass Sie die Tools haben,
+die Sie für ordentliche Webprogrammierung brauchen. Aufgrund der Unübersichtlichkeit des Codes ist
+es vor allem auch für JavaScript unerlässlich, ein Versionsverwaltungssystem zu verwenden. Um Ihre
+Daten zu sichern und mit Kollegen zu teilen, sollten Sie ferner die Dienste eines Webhosting
+Services in Anspruch nehmen. Mit GitHub (\url{http://github.com}) ist dies am einfachsten. 
+\\
+\bf\pur\cellcolor{lightgray}
+Beginnen Sie also ihren ersten Schritt in Richtung von JavaScript damit, dass Sie sich einen GitHub
+account anlegen, falls Sie den noch nicht haben. 
+Dann erstellen Sie bitte als nächstes einen Fork des diesem Seminar zugrunde liegenden GitHub
+Repositories (\url{http://github.com/lingulist/pyjs-seminar/}), und stellen Sie das Seminar auch
+unter ``Beobachtung" (Button ``watch"). Sobald Sie das getan haben, ist es mir möglich, Sie als
+Teilnehmer meines Seminars zu identifizieren, und ich sehe, wie viele der Teilnehmer, einen GitHub
+Account angelegt haben.
+\\
+\bf\pur\cellcolor{lightgray}Sobald Sie das getan haben, versuchen Sie doch schon mal, eine erste
+HTML/CSS/JS-Applikation zu erstellen. Alles, was Sie dafür brauchen, ist eine Blanko-Datei-Struktur,
+wie sie Sie unter \url{https://github.com/LinguList/pyjs-seminar/blob/master/website/code/html-app/}
+finden. Schaffen Sie es, mit Hilfe beliebig vieler Internetrecherchen ein kleines Programm zu
+entwickeln, durch das die HTML-Website dynamisch bei Knopfdruck auf einen Button um den Satz "Hallo Welt!" ergänzt
+wird?
+}
+\pagebreak
+
+\begin{center}
+    {\bf \huge  Jamie Olivers Bratäpfel}
+\end{center}
+
+\begin{flushleft}{\bf \Large \textcolor{Crimson}{Bratäpfel}} \\
+    \bf \textcolor{Crimson}{Zutaten} \end{flushleft}
+    \tabular{ll}
+    \em 50g Butter & \em 100g heller Muscovado-Zucker \\
+    \em 4 große herbe Kochäpfel & \em 75g Rosinen \\
+    \em 2 Lorbeerblätter, getrocknet oder frisch & \em 1 gehäufter TL
+    Lebkuchengewürz \\
+    \em 2 Gewürznelken & \em 1 Schuss Brandy oder Whiskey \\
+    \em 50g Mandelblättchen & \\
+    \endtabular
+    \begin{flushleft}{\bf \textcolor{Crimson}{Die Äpfel vorbereiten} } \end{flushleft}
+\begin{enumerate}
+    \item Die Butter 15-30 Minuten, bevor Sie anfangen, aus dem Kühlschrank
+        nehmen und etwas weich werden lassen.
+    \item Den Backofen auf 180°C vorheizen.
+    \item Mit einem Apfelausstecher das Kerngehäuse der Äpfel entfernen, dann
+        die Äpfel vorsichtig mit einem Messer in der Mitte rundum einschneiden.
+    \item Die Äpfel in eine ofenfeste Form setzen.
+    \item Wenn Sie getrocknete Lorbeerblätter verwenden, diese in kleine Stücke
+        reißen, frische Blätter fein hacken.
+    \item Zusammen mit den Nelken im Mörser zerstoßen.
+    \item Mit dem Großteil der Mandeln und den restlichen Zutaten in eine große
+        Schüssel geben.
+    \item Den Schüsselinhalt mit den Händen gut vermischen und verkneten,
+        sodass die Butter alle Aromen aufnehmen kann.
+    \item Die Äpfel mit der Buttermasse füllen (da, wo vorher das Kerngehäuse
+        war) und mit den Resten der Äpfel außen einreiben.
+    \item Die übrigen Mandelblätchen in der verbliebenen Flüssigkeit in der
+        Schüssel wenden, dann über die Äpfel streuen.
+\end{enumerate}
+\begin{flushleft}\bf \textcolor{Crimson}{Die Äpfel braten}\end{flushleft}
+    \begin{enumerate}
+        \item Die Äpfel 35-40 Minuten im vorgeheizten Ofen braten, bis sie
+            goldbraun und weich sind.
+        \item Aus dem Ofen nehmen  und vor dem Servieren etwa 5 Minuten
+            abkühlen lassen. 
+        \item Jeden Apfel in eine kleine Schale setzen und mit dem
+            karamellisierten Saft aus der Form beträufeln. 
+        \item Sie schmecken fantastisch mit etwas Vanilleeis, Crème fraîche
+            oder Vanillesauce.
+    \end{enumerate}
+%\end{quote}
+\Table{
+Wir schreiben das Jahr 2030. Die Linguisten sind in der Mitte der Gesellschaft
+angekommen, seit die Firma SkyNet den Prototypen eines Hausroboters
+herausgebracht hat, welcher auf Befehle in natürlicher Sprache (ausgenommen
+Chinesisch, wegen der überhöhten Ambiguitätsrate) reagiert. Sie (ein Absolvent
+des berühmten Heinrich Heine Centers for Advanced Linguistics) arbeiten als
+Kommunikationstrainer im Bereich MtTUWYM (Make the Thing Understand What You
+Mean) für eine große kulinarische Filiale (McDonalds). Ihre Aufgabe ist es,
+ein Template für die neue Bratapfelserie (Slogan: ``Das ganze Jahr wie
+Weihnachten!) zu entwickeln, welches den letzten lebenden Angestellten hilft,
+die Maschinen eindeutig zu trainieren. Ihre Vorlage ist das berühmte
+Bratapfelrezept von Jamie Oliver, welches Sie maschinentauglich machen sollen.
+Gehen Sie dabei wie folgt vor:
+\begin{enumerate}
+    \item Kreuzen Sie alle Stellen an, an denen ein Roboter Sie missverstehen
+        könnte.
+    \item Prüfen Sie exemplarisch am Programmteil 3 "Die Äpfel braten", über
+        welches Weltwissen die Maschinen verfügen müssen, um die Aufgabe zu
+        bearbeiten.
+    \item Ihr Arbeitgeber hat Ihnen aufgetragen, das Rezept als Funktion zu
+        programmieren. Lässt sich das bewerkstelligen? Und wenn ja, welche
+        Argumente würden sich für die Funktion anbieten?
+    \item Übertragen Sie die ersten 5 Sätze des Rezepts in URL (Unambiguous
+        Robot Language).
+\end{enumerate}
+}
+
+%\section*{Literatur}
+%\bibliographystyle{lsalike}
+%\renewcommand\refname{Literatur}
+%\renewcommand{\section}[2]{}
+%\bibliography{/home/mattis/Dropbox/EvoClass/bibliography/evoclass}
+\end{document}
+

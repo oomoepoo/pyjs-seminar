@@ -1,0 +1,180 @@
+\documentclass[xetex,svgnames]{scrartcl}
+
+% packages
+\usepackage{xltxtra}
+\usepackage{polyglossia}
+\usepackage{lsalike}
+\usepackage{hyperref}
+\usepackage{fontspec}
+\usepackage{covington}
+\usepackage{scrpage2}
+\usepackage{qtree}
+\usepackage[left=2cm,right=2cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{draftwatermark}
+\usepackage{hieroglf}
+%\usepackage{simpsons}
+\usepackage[weather,misc,alpine]{ifsym}
+\usepackage{phaistos}
+\usepackage{linearb}
+\usepackage{dingbat}
+\usepackage{pst-node}
+\usepackage{colortbl}
+\usepackage{alltt}
+\usepackage{listings}
+
+% fonts general
+\setmainfont[Mapping=tex-text,Scale=1.0]{FreeSans}
+\setsansfont[Mapping=tex-text,Scale=1.0]{FreeSans}
+\setmonofont{FreeMono}
+
+% special fonts
+\newfontfamily\hana{HAN NOM A}
+\newfontfamily\hanb{HAN NOM B}
+\newfontfamily\sil{Doulos SIL}
+\newfontfamily\grk{Aristarcoj}
+\newfontfamily\calligraphy{Chinese Calligraphy}
+\newfontfamily\gnm{Gnommish}
+\newfontfamily\jin{cjkbronze}
+\newfontfamily\jiagu{cjkjiagu}
+\newfontfamily\xiaozhuan{shuowenxiaozhuan}
+\newfontfamily\pur{Purisa}
+\newfontfamily\cjcalligraphy{sinocalligraphy}
+%\newfontfamily\ahd{eufm10}
+
+% specific commands
+\newcommand{\mysub}[1]{\raisebox{-0.5ex}{\scriptsize{#1}}}
+\SetWatermarkText{PYTHON}
+\newcommand{\bild}[2]{%
+    \scalebox{#1}{%
+        \includegraphics{/home/mattis/projects/graphics/img/#2.jpg}
+        }
+    }
+\newcommand{\Table}[1]{%
+    \begin{flushleft}
+        \begin{tabular}{|p{16.5cm}|}
+            \hline \cellcolor{lightgray} \bf \pur #1
+            \\\hline
+        \end{tabular}
+    \end{flushleft}
+}
+
+\lstset{language=Python}
+
+\newcommand{\Code}[1]{%
+    \begin{flushleft}
+        \begin{tabular}{||p{16.5cm}||}
+            \hline\hline \cellcolor{white}
+            \\
+            #1
+
+             \cellcolor{white}
+            \\\hline\hline
+        \end{tabular}
+    \end{flushleft}
+}
+\newcommand{\White}[1]{\cellcolor{white} \textcolor{black}{ #1}}
+
+% language settings
+\setmainlanguage[spelling=new]{german}
+\setotherlanguage{english}
+
+% pagestyle settings
+\pagestyle{scrheadings}
+\ihead{Johann-Mattis List}
+\chead{Python und JavaScript}
+\ohead{Lösungen 1}
+\ifoot{}
+\cfoot{\pagemark}
+\ofoot{}
+
+%\include{latex/figures}
+\lstset{language=perl}
+\begin{document}
+%\maketitle
+\begin{center}
+  \bf \huge Praktisches zu Python
+\end{center}
+``super sie haben alle python bibliotheken richtig installiert!
+
+\begin{center}
+  \bf \huge Praktisches zu JavaScript
+\end{center}
+Sie ein Lösungsbeispiel unter
+\url{https://github.com/LinguList/pyjs-seminar/blob/master/website/code/hallo_welt}.
+
+\begin{center}
+    {\bf \huge  Jamie Olivers Bratäpfel}
+\end{center}
+\section*{\textcolor{Crimson}{Aufgabe 1} }
+Die folgenden Sätze (genannt werden Schlüsselwörter) sind auf jeden Fall nicht eindeutig verständlich für Maschinen (über
+Feinheiten lässt sich streiten): 
+\begin{itemize}
+        \item {\bf Teil 2:} 
+            \begin{itemize}
+                \item[1] ``etwas weich''
+                \item[3] ``vorsichtig''
+                \item[5] ``kleine Stücke'', ``fein''
+                \item[7] ``Großteil''
+                \item[8] ``gut vermischen und verkneten''
+                \item[10] Missverständnis resultiert aus fehlender Präzision in
+                    Punkt 7.
+            \end{itemize}
+        \item {\bf Teil 3:}
+            \begin{itemize}
+                \item[1] Wie lange genau?
+                \item[2] ``etwa 5 Minuten"
+                \item[4] Kann eine Maschine nicht beurteilen.
+            \end{itemize}
+    \end{itemize}
+\section*{\textcolor{Crimson}{Aufgabe 2} }
+Ich liste hier wieder nur stichwortartig auf, was ich denke, das man wissen
+muss, ohne Anspruch auf totale Vollständigkeit.
+\begin{itemize}
+    \item ``Vorheizen" >> ``heiß"
+    \item ``Ofen"
+    \item ``braten"
+    \item ``goldbraun" >> Farbskalen
+    \item ``weich"
+    \item ``Apfel"
+    \item ``Servieren"
+        \item ``abkühlen" >> ``kalt"
+        \item ``klein'' in Bezug auf ``Schalen"
+        \item ``Saft"
+        \item \ldots
+    \end{itemize}
+\section*{\textcolor{Crimson}{Aufgabe 3} }
+Müsste wohl gehen! Die Zutaten, bei denen Varianten möglich sind, können als
+Schlüsselwörter übergeben werden. Die Mengenangaben können als Verhältnisse von der
+Personenzahl, die ich als Argument angeben wird, abgeleitet werden. Was genau
+intern geschieht, muss dann noch mal explizit erörtert werden.
+Die Funktion kann dann wie folgt aufgerufen werden: BratAepfel(Personen=4),
+womit Bratäpfel für vier Personen gebacken werden.
+\section*{\textcolor{Crimson}{Aufgabe 4} }
+\begin{lstlisting}[frame=trLB,numbers=left,numberstyle=\tiny]
+# Wir ermitteln erst mal die Startzeit
+$StartZeit = time('now') 
+# Jetzt lassen wir die Butter weich werden
+ButterWeichWerdenLassen( )
+# Jetzt heizen wir den Backofen vor
+BackofenVorheizen( )
+# Jetzt beginnen wir mit den Apfeloperationen
+for Apfel in ApfelMenge:
+do
+    KernGehaeuseEntfernen(Apfel)
+    MitEinemMesserInDerMitteRundumEinschneiden(Apfel)
+    InEineOfenfesteFormSetzen(Apfel)
+# Jetzt schneiden wir die Lorbeerblätter
+if Zustand(Lorbeerblaetter) == 'getrocknet'
+do 
+    InKleineStueckeReissen(Lorbeerblaetter)
+else if Zustand(Lorbeerblaetter) == 'frisch'
+do
+    FeinHacken(Lorbeerblaetter)
+# usw. usf. 
+# Die Lösung ist zugegebenermaßen etwas faul und grob. Es geht besser...
+
+\end{lstlisting}
+
+
+\end{document}
+
