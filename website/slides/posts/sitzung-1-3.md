@@ -72,7 +72,7 @@
 ### @subhead:"Installation"
 
 <span class="fragment">
-JavaScript ist fester Bestandteil gängiger Webbrowser, wie [Firefox][:wiki:Mozilla_Firefox]), [Chrome](:wiki:Google_Chrome), oder [Safari](:wiki:Apple_Safari). Im [Internet-Explorer](:wiki:Internet_Explorer) ist JavaScript angeblich auch vorinstalliert, jedoch laufe viele Apps sehr viel schlechter als gewünscht, weil Microsoft sich mal wieder qualitativ von den anderen Anbietern abgrenzen muss.
+JavaScript ist fester Bestandteil gängiger Webbrowser, wie [Firefox](:wiki:Mozilla_Firefox), [Chrome](:wiki:Google_Chrome), oder [Safari](:wiki:Apple_Safari). Im [Internet-Explorer](:wiki:Internet_Explorer) ist JavaScript angeblich auch vorinstalliert, jedoch laufe viele Apps sehr viel schlechter als gewünscht, weil Microsoft sich mal wieder qualitativ von den anderen Anbietern abgrenzen muss.
 </span>
 
 ---
@@ -150,7 +150,7 @@ Zum Testen bietet sich [node.js](http://nodejs.org) an: Dieses Paket erlaubt es,
 ### @subhead:"Die Kölner Phonetik in JavaScript"
 
 <span class="fragment">
-Es existiert natürlich bereits eine Implementierung der Kölner Phonetik für JavaScript, implementiert von J. Tillmann: (https://github.com/jtillmann/colophoneticjs). Diese Version wurde für die Zwecke unseres Seminars leicht umgeschrieben, so dass wir sie in ähnlicher Weise, wie die Python-Version der Kölner Phonetik verwenden können. Der resultierende Source Code, ein Skript mit Namen [kph.js](https://github.com/LinguList/pyjs-seminar/blob/master/website/code/hallo_welt.py) befindet sich auf der Projektwebseite und kann dort heruntergeladen werden. Er wurde ebenfalls bereits in die Terminal-Applikation integriert.
+Es existiert natürlich bereits eine Implementierung der Kölner Phonetik für JavaScript, implementiert von J. Tillmann: [https://github.com/jtillmann/colophoneticjs](https://github.com/jtillmann/colophoneticjs). Diese Version wurde für die Zwecke unseres Seminars leicht umgeschrieben, so dass wir sie in ähnlicher Weise, wie die Python-Version der Kölner Phonetik verwenden können. Der resultierende Source Code, ein Skript mit Namen [kph.js](https://github.com/LinguList/pyjs-seminar/blob/master/website/code/kph.js) befindet sich auf der Projektwebseite und kann dort heruntergeladen werden. Er wurde ebenfalls bereits in die Terminal-Applikation integriert.
 </span>
 
 --
@@ -271,6 +271,42 @@ function showKPH() {
 ## @head:"Ein erstes Programmierbeispiel"
 ### @subhead:"Die Kölner Phonetik in JavaScript"
 
+Diese Datei können wir entweder als separates Skript abspeichern und in HTML einbinden,
+
+<pre class="fragment"><code class="html" data-trim>
+&lt;html>
+  ...
+    <output id="opt"></output>
+    <script src="communication.js"></script>
+  &lt;/body>
+</code></pre>
+ 
+<p class="fragment">
+oder wir können sie direkt zwischen die Skript-Tags schreiben</p>
+
+<pre class="fragment"><code class="js html" data-trim>
+&lt;html>
+  ...
+    <output id="opt"></output>
+    <script>
+function showKPH() {
+  var ipt = document.getElementById('ipt');
+  var ipt_val = ipt.value;
+  var converted_values = kph.encode(ipt_val);
+  var opt = document.getElementById('opt');
+  opt.innerHTML = converted_values;
+}
+    </script>
+  &lt;/body>
+</code></pre>
+
+--
+
+@data-transition:none
+
+## @head:"Ein erstes Programmierbeispiel"
+### @subhead:"Die Kölner Phonetik in JavaScript"
+
 Und so sieht das Ganze dann in Aktion aus:
 
 <iframe scrolling="no" style="width:880px;height:200px;overflow:hidden;margin-left:40px;" src="../demos/kph-demo.html"></iframe>
@@ -298,7 +334,7 @@ Und so sieht das Ganze dann in Aktion aus:
 @data-background:#000000
 
 <p style="font-size:200px;color:white;font-weight:bold;">
-ENDE (KPH: 062)
+062
 </p>
 <p style="font-size:80%;color:white;font-weight:bold;text-align:right;">
 der dritten Sitzung
