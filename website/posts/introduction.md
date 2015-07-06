@@ -2,6 +2,12 @@
 
 # Einführendes zu Beginn
 
+## Der große Bravo-Nerd-Test
+
+Einfach anschauen und mitmachen, um herauszufinden, wie nerdig man wirklich ist.
+
+[Hier gehts zum Test...](media/nerdtest.jpg)
+
 ## Wie kriege ich einen BN?
 
 Da, soweit ich das verstanden habe, für einen BN lediglich eine Teilnahme erforderlich ist und keine weiteren Leistungen vom Dozenten eingefordert werden dürfen, bekommen alle einen BN, die sich bei mir melden und mit den erforderlichen Angaben in eine entsprechende Liste eintragen. Die Liste selbst wird zwei Mal im Laufe der Sitzungstage ausgegeben. Diejenigen, die zu keiner dieser Sitzungen erscheinen und sich als BN-Anwärter eintragen, können sich nachher noch persönlich an mich wenden. Ich behalte mir jedoch vor, Kandidaten, die ich kein einziges Mal im Seminar gesehen habe, den BN zu verweigern (wir müssen es ja nicht übertreiben...).

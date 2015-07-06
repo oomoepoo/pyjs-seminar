@@ -26,7 +26,7 @@ An diesem Tag werden wir versuchen, erste Schritte in die Welt des Programmieren
     - Beispielskript
 * Materialien:
     - [SLIDES](slides/sitzung-1-2.html)
-    - Beispielskripte (auch unter (http://github.com/lingulist/pyjs-seminar/))
+    - Beispielskripte:
         - [hallo_welt.py](https://github.com/LinguList/pyjs-seminar/blob/master/website/code/hallo_welt.py)
         - [test_kph.py](https://github.com/LinguList/pyjs-seminar/blob/master/website/code/test_kph.py)
 
@@ -39,14 +39,15 @@ An diesem Tag werden wir versuchen, erste Schritte in die Welt des Programmieren
     - Bibliotheken (jQuery, d3, node.js, bootstrap)
     - Beispielapplikation
 * Materialien:
-    - [SLIDES](sitzung-1-3.html)
+    - [SLIDES](slides/sitzung-1-3.html)
     - Beispielskripte:
         - [kph.js](https://github.com/LinguList/pyjs-seminar/blob/master/website/code/kph.js)
-    - [DEMOS]:
+    - DEMOS:
         - [JavaScript Console](demos/console.html)
         - [Kölner Phonetik in JavaScript](demos/kph-demo.html)
 
 ### IV: [Vertiefungsaufgabe](slides/sitzung-1-4.pdf)
 
-- [PDF](pdf/sitzung-1-4.pdf)
+- [AUFGABE](pdf/exercises_1.pdf)
+- [LÖSUNG](pdf/solutions_1.pdf)
 

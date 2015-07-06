@@ -40,6 +40,12 @@ def convert(md):
     for s,t in patterns:
         md = md.replace(s,t)
 
+    regexes = [
+            (':([a-z\-A-Z_ ]*): (.*) ::', r'<span class="\1">\2</span>'),
+            ]
+    for s,t in regexes:
+        md = re.sub(s, t, md, re.DOTALL)
+
     return md
 
 # we split the infile according to sections

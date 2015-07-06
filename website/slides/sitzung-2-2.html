@@ -1,0 +1,934 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Sitzung 2: Operatoren und Kontrollstrukturen</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+
+
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <style>
+  .head {
+	position: relative;
+	top: 0px;
+	font-size: 90%!important;
+	color: white;
+	background-color: Green;
+	width: 960px;
+	text-align:justify;
+	display: block;
+	padding-left: 5px;
+	margin: 0;
+}
+.subhead {
+	position: relative;
+	top: -20px;
+	font-size: 70%!important;
+	color: white;
+	background-color: Crimson;
+	width: 960px;
+	text-align: justify;
+	padding: 5px;
+	margin: 0;
+	display: block;
+}
+
+
+.question {
+	position: relative;
+	font-size: 80%!important;
+	color: Crimson;
+	font-weight: bold;
+	font-style: italic;
+	text-align: center!important;
+	display: block;
+	width: 960px;
+	text-transform: none;
+}
+
+.small {
+	font-size: 70%!important;
+}
+
+
+.stroked {
+	text-decoration: line-through;
+}
+
+  </style>
+  <script>
+function startTime(elm) {
+    var today=new Date();
+    var h=today.getHours();
+    var m=today.getMinutes();
+    var s=today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById(elm).innerHTML = h+":"+m+":"+s;
+    var t = setTimeout(function(){startTime()},500);
+}
+
+function checkTime(i) {
+    if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+
+  </script>
+  <body>
+  <div style="display: none;" class="tilda" id="tilda">
+    <div style="height: 100px;" class="td terminal">
+      <div class="terminal-output">
+      </div>
+    </div>
+  </div>
+
+
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+	<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;text-align:center;font-size:100%;">
+<h2>Computergestützter Sprachvergleich mit Python und JavaScript</h2>
+<hr />
+<h3>Sitzung 2 (Tag 2)</h3>
+<hr />
+<h4>21.07.2015</h4>
+<hr />
+<h3>&quot;Operatoren und Kontrollstrukturen&quot;</h3>
+</section>
+
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Agenda 2015</span></h2>
+<ul>
+<li><span class="unstroked">Operatoren</span><ul>
+<li><span class="unstroked">Allgemeines</span></li>
+<li><span class="unstroked">... in Python</span></li>
+<li><span class="unstroked">... in JavaScript</span></li>
+</ul>
+</li>
+<li><span class="unstroked">Kontrollstrukturen</span><ul>
+<li><span class="unstroked">Allgemeines</span></li>
+<li><span class="unstroked">... in Python</span></li>
+<li><span class="unstroked">... in JavaScript</span></li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Operatoren</span></h2>
+<h3><span class="subhead">Allgemeines</span></h3>
+<p><strong><a href="http://de.wikipedia.org/wiki/Operator_(Mathematik)">Wikipedia zu Operatoren in der Mathematik</a></strong>
+<blockquote class="fragment" style="line-height:40px">
+Ein Operator ist eine mathematische Vorschrift (ein Kalkül), durch die man
+aus mathematischen Objekten neue Objekte bilden kann. Er kann eine
+standardisierte Funktion oder eine Vorschrift über Funktionen sein.
+Anwendung finden die Operatoren bei Rechenoperationen, also bei manuellen
+oder bei maschinellen Berechnungen.
+</blockquote></p>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Operatoren</span></h2>
+<h3><span class="subhead">Allgemeines</span></h3>
+<p><strong><a href="http://de.wikipedia.org/wiki/Operator_(Logik)">Wikipedia zu Operatoren in der Logik</a></strong></p>
+<blockquote class="fragment" style="line-height:40px">
+Ein Logischer Operator ist eine Funktion, die einen Wahrheitswert liefert. Bei
+der zweiwertigen, booleschen Logik liefert er also wahr oder falsch, bei einer
+mehrwertigen Logik können auch entsprechend andere Werte geliefert werden.
+</blockquote>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Operatoren</span></h2>
+<h3><span class="subhead">Allgemeines</span></h3>
+<p><strong>Vereinfachte Begriffserklärung</strong></p>
+<ul>
+<li><span class="fragment">Wenn wir uns den Operator als einen Verfertiger von Objekten vorstellen, dann heißt das, dass ein Operator <em>irgendetwas</em> mit <em>irgendetwas</em> anstellt. Entscheidend sind hierbei die Fragen, <em>was</em> der Operator tut, und <em>womit</em> der Operator etwas tut.</span></li>
+<li><span class="fragment">Ein Operator wandelt also eines oder mehrere Objekte in neue Objekte um.</span></li>
+<li><span class="fragment">Das, was umgewandelt wird, nennen wir die <em>Operanden</em> eines Operators.</span></li>
+<li><span class="fragment">Das, was der Operator mit den Operanden tut, nennen wir die <em>Operation</em>.</span></li>
+<li><span class="fragment">Der Plus-Operator wandelt bspw. zwei Zahlen in eine Zahl um, indem er die Operation <em>Addition</em> ausführt.</span></li>
+</ul>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Operatoren</span></h2>
+<h3><span class="subhead">Allgemeines</span></h3>
+<p><strong>Klassifikation von Operatoren</strong></p>
+<p><span class="fragment">Operatoren können nach verschiedenen Kriterien klassifiziert werden. Die grundlegendste Unterscheidung besteht in der Anzahl der Operanden, auf die ein Operator die Operation anwendet. Hierbei unterscheiden wir zwischen <em>unären</em> und <em>binären</em> Operatoren</span></p>
+<ul>
+<li><span class="fragment"><em>Unäre</em> Operatoren haben nur einen Operanden.</span></li>
+<li><span class="fragment"><em>Binäre</em> Operatoren haben zwei Operanden.</span></li>
+</ul>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Operatoren</span></h2>
+<h3><span class="subhead">Allgemeines</span></h3>
+<p><strong>Klassifikation von Operatoren</strong></p>
+<p><span class="fragment">Ferner kann zwischen <em>arithmetischen</em>, <em>logischen</em> und <em>relationalen</em> Operatoren unterschieden werden.</span></p>
+<ul>
+<li><span class="fragment"><em>Arithmentische</em> Operatoren führen arithmetische Operationen aus (Addition, Division, etc.).</span></li>
+<li><span class="fragment"><em>Logische</em> Operatoren liefern Aussagen über Wahrheitswerte (wahr oder falsch).</span></li>
+<li><span class="fragment"><em>Relationale</em> Operatoren liefern Aussagen über die Beziehungen zwischen Objekten (Identität, Zugehörigkeit).</span></li>
+</ul>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Operatoren</span></h2>
+<h3><span class="subhead">Allgemeines</span></h3>
+<p><strong>Überladen von Operatoren</strong></p>
+<ul>
+<li><span class="fragment">Normalerweise werden Operatoren immer nur für spezifische Datentypen definiert.</span></li>
+<li><span class="fragment">Der Operator $+$ nimmt als Operanden bspw. gewöhnlich nur Zahlen.</span></li>
+<li><span class="fragment">In vielen Programmiersprachen ist es jedoch üblich, Operatoren, je nach Datentyp, auf den sie angewendet werden, unterschiedliche Operationen zuzuschreiben.</span></li>
+<li><span class="fragment">Diesen Vorgang nennt man das <em>Überladen</em> von Operatoren.</span></li>
+<li><span class="fragment">Wird der Additionsoperator $+$ bswp. auf den Datentyp <em>string</em> angewendet, so bewirkt er eine Verkettung von Strings (Konkatenation).</span></li>
+<li><span class="fragment">Das Überladen von Operatoren ermöglicht es, sehr kompakt und flexibel zu programmieren.</span></li>
+</ul>
+</section>
+</section>
+
+<section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Operatoren</span></h2>
+<h3><span class="subhead">... in Python</span></h3>
+<p><strong>Allgemeines</strong></p>
+<ul>
+<li><span class="fragment">Die Operatoren in Python ähneln denen vieler Programmiersprachen.</span></li>
+<li><span class="fragment">Neben den durch mathematische Zeichen dargestellten Operatoren ($+$, $-$, $*$) sind einige Operatoren auch als <em>Namen</em> (<strong>is</strong>, <strong>in</strong>) definiert.</span></li>
+<li><span class="fragment">Die Überladung von Operatoren ist ein entscheidender Wesenszug der Sprache. Viele Operatoren sind auf viele Datentypen anwendbar.</span></li>
+</ul>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Operatoren</span></h2>
+<h3><span class="subhead">... in Python</span></h3>
+<p><strong>Arithmetische Operatoren</strong></p>
+<p><a href="img/operatoren.svg"><img src="img/operatoren.svg" alt="operatoren" style="width:600px;" /></a></p>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Operatoren</span></h2>
+<h3><span class="subhead">... in Python</span></h3>
+<p><strong>Arithmetische Operatoren</strong></p>
+<pre><code class="python fragment" data-trim>
+>>> x,y = 5,2
+>>> +x
+5
+>>> -x
+-5
+>>> x + y
+7
+>>> x - y
+3
+>>> x * y
+10
+>>> x / y
+2.5
+>>> x // y
+2
+>>> x % y
+1
+>>> x ** y
+25
+</code></pre>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Operatoren</span></h2>
+<h3><span class="subhead">... in Python</span></h3>
+<p><strong>Logische Operatoren</strong></p>
+<ul>
+<li><span class="fragment">Die logischen Operatoren dienen dem Verarbeiten von Wahrheitswerten.</span></li>
+<li><span class="fragment">Jeder Wert bekommt in Python automatisch einen Wahrheitswert zugewiesen (<strong>True</strong> oder <strong>False</strong>).</span></li>
+<li><span class="fragment">Die Wahrheitswerte werden dem Datentyp <em>bool</em> zugeschrieben.</span></li>
+<li><span class="fragment">Negative Zahlen einschließlich der Zahl $0$ besitzen den Wahrheitswert <strong>False</strong>.</span></li>
+<li><span class="fragment">Alle "leeren" Werte (der leere String <code>""</code> oder die leere Liste <code>[]</code>) besitzen ebenfalls den Wahrheitswert <strong>False</strong>.</span></li>
+<li><span class="fragment">Die logischen Operatoren prüfen den Wahrheitswert von Werten und liefern als Ergebnis einen Wahrheitswert zurück.</span></li>
+</ul>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Operatoren</span></h2>
+<h3><span class="subhead">... in Python</span></h3>
+<p><strong>Logische Operatoren</strong></p>
+<p><a href="img/logische_operatoren.svg"><img src="img/logische_operatoren.svg" style="width:800px"></a></p>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Operatoren</span></h2>
+<h3><span class="subhead">... in Python</span></h3>
+<p><strong>Logische Operatoren</strong></p>
+<p><a href="img/truth_table.svg"><img src="img/truth_table.svg" style="width:600px"></a></p>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Operatoren</span></h2>
+<h3><span class="subhead">... in Python</span></h3>
+<p><strong>Logische Operatoren</strong></p>
+<p>Wenn andere Werte als der Datentyp <em>bool</em> mit den Operatoren <strong>and</strong> und
+<strong>or</strong> verknüpft werden, so wird immer einer der beiden Operanden
+zurückgegeben, wobei die Bedingungen für die Rückgabe wie folgt sind:</p>
+<ul>
+<li><span class="fragment">[<strong>and</strong>]</span><ul>
+<li><span class="fragment">Wenn der erste Operand falsch ist, wird dieser zurückgegeben.</span></li>
+<li><span class="fragment">Wenn der erste Operand wahr ist, wird der zweite Operand zurückgegeben.</span></li>
+</ul>
+</li>
+<li><span class="fragment">[<strong>or</strong>]</span><ul>
+<li><span class="fragment">Wenn der erste Operand wahr ist, wird dieser zurückgegeben.</span></li>
+<li><span class="fragment">Wenn der erste Operand falsch ist, wird der zweite Operand zurückgegeben.</span></li>
+</ul>
+</li>
+</ul>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Operatoren</span></h2>
+<h3><span class="subhead">... in Python</span></h3>
+<p><strong>Logische Operatoren</strong></p>
+<pre><code class="python" data-trim>
+>>> x,y = True,False
+>>> not x
+False
+>>> not y
+True
+>>> x and y
+False
+>>> x or y
+True
+>>> x,y = False,False
+>>> not x and not y
+True
+>>> x and y
+False
+>>> x or y
+False
+>>> x,y = 'harry','potter'
+>>> x and y
+'potter'
+>>> x or y
+'harry'
+>>> x = False
+>>> x and y
+False
+>>> x or y
+'potter'
+</code></pre>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Operatoren</span></h2>
+<h3><span class="subhead">... in Python</span></h3>
+<p><strong>Relationale Operatoren</strong></p>
+<ul>
+<li><span class="fragment">Relationale Operatoren liefern immer einen Wahrheitswert in Bezug auf die Relation zurück, die überprüft werden soll.</span></li>
+<li><span class="fragment">Bei den relationalen Operatoren kann zwischen Vergleichs-, Element- und Identitätsoperatoren unterschieden werden.</span><ul>
+<li><span class="fragment">Vergleichsoperatoren dienen dem Vergleich von Operanden hinsichtlich ihrer Werte.</span></li>
+<li><span class="fragment">Zugehörigkeitsoperatoren dienen der Ermittlung der Zugehörigkeit eines Operanden zu anderen Operanden.</span></li>
+<li><span class="fragment">Identitätsoperatoren dienen der Ermittlung von Identitätsverhältnissen, wobei Identität von Gleichheit ähnlich abgegrenzt wird wie dies im Deutschen mit Hilfe der Wörter <em>dasselbe</em> vs. <em>das gleiche</em> getan wird.</span></li>
+</ul>
+</li>
+</ul>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Operatoren</span></h2>
+<h3><span class="subhead">... in Python</span></h3>
+<p><strong>Relationale Operatoren</strong></p>
+<p><a href="img/relationale_operatoren.svg"><img src="img/relationale_operatoren.svg" style="width:700px"></a></p>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Operatoren</span></h2>
+<h3><span class="subhead">... in Python</span></h3>
+<p><strong>Relationale Operatoren: Vergleichsoperatoren</strong></p>
+<pre><code class="python" data-trim>
+>>> x,y = 5,10
+>>> x > y
+False
+>>> x < y
+True
+>>> x == y
+False
+>>> x != y
+True
+>>> x <= y
+True
+>>> x >= y
+False
+</code></pre>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Operatoren</span></h2>
+<h3><span class="subhead">... in Python</span></h3>
+<p><strong>Relationale Operatoren: Zugehörigkeitsoperatoren</strong></p>
+<pre><code class="python" data-trim>
+>>> x,y = 'doculect','cul'
+>>> x in y
+False
+>>> y in x
+True
+>>> x not in y
+True
+</code></pre>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Operatoren</span></h2>
+<h3><span class="subhead">... in Python</span></h3>
+<p><strong>Relationale Operatoren: Identitätsoperatoren</strong></p>
+<pre><code class="python" data-trim>
+>>> x = 1,2
+>>> y = x
+>>> x is y
+True
+>>> y = 1,2
+>>> x is y
+False
+</code></pre>
+</section>
+</section>
+
+<section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Operatoren</span></h2>
+<h3><span class="subhead">... in JavaScript</span></h3>
+<p><strong>Arithmetische Operatoren</strong></p>
+<p>Die arithmetischen Operatoren in JavaScript sind im Großen und Ganzen identisch mit denen in Python. Lediglich der Potenz-Operator <code>**</code> existiert nicht. </p>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Operatoren</span></h2>
+<h3><span class="subhead">... in JavaScript</span></h3>
+<p><strong>Arithmetische Operatoren</strong></p>
+<pre><code class="javascript" data-trim>
+> var x = 5; var y = 2;
+> +x;
+5
+> -x;
+-5
+> x + y;
+7
+> x - y;
+3
+> x * y;
+10
+> x / y;
+2.5
+> x // y;
+2
+> x % y;
+1
+> Math.pow(x,y); // x ** y in Python
+25
+</code></pre>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Operatoren</span></h2>
+<h3><span class="subhead">... in JavaScript</span></h3>
+<p><strong>Logische Operatoren</strong></p>
+<p>Funktionell sind die logischen Operatoren in JavaScript identisch mit denen in Python, jedoch werden an Stelle der Schlüsselwörter <strong>and</strong>, <strong>or</strong> und <strong>not</strong> in JavaScript die Zeichen <strong>\&amp;\&amp;</strong>, <strong>||</strong> und <strong>!</strong> verwendet. Ferner werden die beiden Werte des Datentyps <strong>bool</strong> klein geschrieben (<strong>true</strong> und <strong>false</strong> anstelle von <strong>True</strong> und <strong>False</strong>).</p>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Operatoren</span></h2>
+<h3><span class="subhead">... in JavaScript</span></h3>
+<p><strong>Logische Operatoren</strong></p>
+<pre><code class="javascript" data-trim>
+> var x = true; var y = false
+> !x; // not x in Python
+false
+> !y // not y in Python
+true
+> x && y // x and y in Python
+false
+> x || y // x or y in Python
+true
+> var x = false; var y = false;
+> ! x && ! y // not x and not y in Python
+true
+> x && y
+false
+> x || y
+false
+> var x = 'harry'; var y = 'potter';
+> x && y
+'potter'
+> x || y
+'harry'
+> var x = False
+> var x && y
+false
+>>> x || y
+'potter'
+</code></pre>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Operatoren</span></h2>
+<h3><span class="subhead">... in JavaScript</span></h3>
+<p><strong>Relationale Operatoren</strong></p>
+<p>Auch die relationalen Operatoren in JavaScript sind denen in Python sehr ähnlich. Es fehlen jedoch die Operatoren <strong>in</strong> und <strong>not in</strong>. Anstelle der Schlüsselwörter <strong>is</strong> und <strong>is not</strong> werden die Symbole <strong>===</strong> und <strong>!==</strong> verwendet.</p>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Operatoren</span></h2>
+<h3><span class="subhead">... in JavaScript</span></h3>
+<p><strong>Relationale Operatoren: Vergleichsoperatoren</strong></p>
+<pre><code class="javascript">
+> var x = 5; var y = 10;
+> x > y
+false
+> x < y
+true
+> x == y
+false
+> x != y
+true
+> x <= y
+true
+> x >= y
+false
+</code></pre>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Operatoren</span></h2>
+<h3><span class="subhead">... in JavaScript</span></h3>
+<p><strong>Relationale Operatoren: Vergleichsoperatoren</strong></p>
+<pre><code class="javascript">
+> var x = 'doculect'; var y = 'cul';
+> y.indexOf(x) != -1 // x in y in Python
+false
+> x.indexOf(y) != -1 // y in x in Python
+true
+> y.indexOf(x) == -1 // x not in y in Python
+true
+</code></pre>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Operatoren</span></h2>
+<h3><span class="subhead">... in JavaScript</span></h3>
+<p><strong>Relationale Operatoren: Vergleichsoperatoren</strong></p>
+<pre><code class="javascript">
+> var x = [1, 2] // x = [1,2] in Python
+> var y = x
+> x === y // x is y in Python
+true
+> y = [1, 2] 
+> x === y // x is y in Python
+false
+</code></pre>
+</section>
+</section>
+
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Agenda 2015</span></h2>
+<ul>
+<li><span class="stroked">Operatoren</span><ul>
+<li><span class="stroked">Allgemeines</span></li>
+<li><span class="stroked">... in Python</span></li>
+<li><span class="stroked">... in JavaScript</span></li>
+</ul>
+</li>
+<li><span class="unstroked">Kontrollstrukturen</span><ul>
+<li><span class="unstroked">Allgemeines</span></li>
+<li><span class="unstroked">... in Python</span></li>
+<li><span class="unstroked">... in JavaScript</span></li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Kontrollstrukturen</span></h2>
+<h3><span class="subhead">Allgemeines</span></h3>
+<p><strong><a href="http://de.wikipedia.org/wiki/Kontrollstruktur">Gängige Begriffserklärung aus Wikipedia</a></strong></p>
+<blockquote class="fragment">
+Kontrollstrukturen (Steuerkonstrukte) werden in imperativen
+Programmiersprachen verwendet, um den Ablauf eines Computerprogramms zu
+steuern. Eine Kontrollstruktur gehört entweder zur Gruppe der Verzweigungen
+oder der Schleifen. Meist wird ihre Ausführung über logische Ausdrücke der
+booleschen Algebra beeinflusst.
+</blockquote>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Kontrollstrukturen</span></h2>
+<h3><span class="subhead">Allgemeines</span></h3>
+<p><strong>Begriffserklärung in <a href="http://bibliography.lingpy.org?key=Weigend2008">Weigend (2008:127)</a></strong></p>
+<blockquote class="fragment">
+Kontrollstrukturen legen fest, in welcher Reihenfolge und unter welchen
+Bedingungen die Anweisungen eines Programms abgearbeitet werden.
+</blockquote>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Kontrollstrukturen</span></h2>
+<h3><span class="subhead">Allgemeines</span></h3>
+<p><strong>Typen von Kontrollstrukturen</strong></p>
+<ul>
+<li><span class="fragment"><strong>Verzweigungen</strong> kontrollieren den Fluss eines Programms, indem sie dieses, abhängig von bestimmten Gegebenheiten, in unterschiedliche Bahnen lenken</span></li>
+<li><span class="fragment"><strong>Schleifen</strong> kontrollieren den Fluss eines Programms, indem sie Operationen wiederholt auf Objekte anwenden</span></li>
+</ul>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Kontrollstrukturen</span></h2>
+<h3><span class="subhead">Allgemeines</span></h3>
+<p><strong>Typen von Kontrollstrukturen</strong></p>
+<p><a href="img/kontrollstrukturen.svg"><img src="img/kontrollstrukturen.svg" alt="ks" style="width:800px" /></a></p>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Kontrollstrukturen</span></h2>
+<h3><span class="subhead">... in Python</span></h3>
+<p><strong>Allgemeines</strong></p>
+<ul>
+<li><span class="fragment">Python kennt insgesamt vier verschiedene Kontrollstrukturen: zwei Verzweigungsstrukturen (<strong>if</strong>, <strong>try</strong>) und zwei Schleifenstrukturen (<strong>for</strong>, <strong>while</strong>).</span></li>
+<li><span class="fragment">Das besondere an den Kontrollstrukturen in Python ist deren enge Anbindung an logische Ausdrücke, welche einen sehr kompakten, sehr leicht verständlichen Kode erlauben.</span></li>
+</ul>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Kontrollstrukturen</span></h2>
+<h3><span class="subhead">... in Python</span></h3>
+<p><strong>Verzweigungen: if, elif, und else</strong></p>
+<ul>
+<li><span class="fragment">Bei der <strong>if</strong>-Verzweigung wird ein Programmabschnitt unter einer bestimmten Bedingung ausgeführt.</span></li>
+<li><span class="fragment">Dabei wird eine Bedingung auf ihren Wahrheitswert getestet. Trifft sie zu, wird das Programm entsprechend weitergeführt. Trifft sie nicht zu, unterbleibt der Abschnitt.</span></li>
+<li><span class="fragment">Es können auch mehrere Bedingungen auf ihren Wahrheitswert überprüft und entsprechend mehrere verschiedene Programmabschnitte aktiviert werden.</span></li>
+<li><span class="fragment">Es gibt in Python auch die Möglichkeit, <em>nichts</em> zu tun, wenn eine Bedingung zutrifft. Dies muss durch das Schlüsselwort <strong>pass</strong> festgelegt werden.</span></li>
+</ul>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Kontrollstrukturen</span></h2>
+<h3><span class="subhead">... in Python</span></h3>
+<p><strong>Verzweigungen: if, elif, und else</strong></p>
+<pre><code class="python" data-trim>
+>>> x, y, yes, no = 10, 0, "yes", "no"
+>>> if x: print(yes)
+yes
+>>> if y: print(yes)
+>>> if not x: print(yes)
+    elif not y: print no
+no
+>>> if 1 > 10: print("Eins ist groesser als zehn.")
+    elif 1 < 10: print("Eins ist kleiner als zehn.")
+Eins ist kleiner als zehn.
+>>> if x or y: print("Einer von beiden Werten ist wahr.")
+    else: print("Keiner von beiden Werten ist wahr.")
+Einer von beiden Werten ist wahr.
+>>> if x == 10: pass
+    else: print("Danke, Herr Jauch!")
+</code></pre>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Kontrollstrukturen</span></h2>
+<h3><span class="subhead">... in Python</span></h3>
+<p><strong>Verzweigungen: try und except</strong></p>
+<ul>
+<li><span class="fragment">Eine sehr wichtige und nützliche Verzweigunsstruktur bietet Python mit <strong>try</strong> und <strong>except</strong>.</span></li>
+<li><span class="fragment">Hierbei wird nicht eine Bedingung auf ihren Wahrheitswert überprüft, sondern getestet, ob ein Statement eine Fehlermeldung hervorruft.</span></li>
+<li><span class="fragment">Auf diese Weise kann man gezielt auf mögliche Fehler reagieren.</span></li>
+<li><span class="fragment">Fehler können dabei gezielt entsprechend ihrer Klasse eingeordnet werden.</span></li>
+<li><span class="fragment">Auf diese Weise können gezielt bestimmte Fehler angesprochen werden, die vom Programm ignoriert werden sollen.</span></li>
+</ul>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Kontrollstrukturen</span></h2>
+<h3><span class="subhead">... in Python</span></h3>
+<p><strong>Verzweigungen: try und except</strong></p>
+<pre><code class="python" data-trim>
+>>> try: x = int(input())
+    except: print("Der Wert, den Sie eingegeben haben, ist kein Integer!")
+2
+>>> try: x = int(input())
+    except ValueError: print("Der Wert, den Sie eingegeben haben, ist kein Integer!")
+2.0
+Der Wert, den Sie eingegeben haben, ist kein Integer!"
+>>> x = input()
+10
+>>> x, y = 10, 0 
+>>> try: x / y
+    except ZeroDivisionError: print("Durch Null kann man nicht teilen!")
+Durch Null kann man nicht teilen.
+>>> try: x = int(input())
+    except ValueError: print("Falscher Wert für Integer!")
+10.0
+Falscher Wert für Integer!
+</code></pre>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Kontrollstrukturen</span></h2>
+<h3><span class="subhead">... in Python</span></h3>
+<p><strong>Schleifen: while</strong></p>
+<ul>
+<li><span class="fragment">Mit Hilfe von Schleifenkonstruktionen werden Blöcke von Anweisungen in Programmen wiederholt ausgeführt, bis eine Abbruchsbedingung eintritt, bzw. so lange eine Bedingung zutrifft.</span></li>
+<li><span class="fragment">Wie für Verzweigunsstrukturen werden auch die Bedingungen in Schleifen auf Grundlage der Auswertung von Wahrheitswerten errechnet.</span></li>
+<li><span class="fragment">Der Abbruch einer Schleife kann in Python bewusst durch das Schlüsselwort <strong>break</strong> gesteuert werden.</span></li>
+</ul>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Kontrollstrukturen</span></h2>
+<h3><span class="subhead">... in Python</span></h3>
+<p><strong>Schleifen: while</strong></p>
+<pre><code class="python">
+>>> a = 10
+>>> while a > 0: 
+        print(a," ist groesser als 0.")
+        a -= 1 # wir lassen der Wert gegen 0 laufen
+
+10 ist groesser als 0
+9 ist groesser als 0
+8 ist groesser als 0
+7 ist groesser als 0
+6 ist groesser als 0
+5 ist groesser als 0
+4 ist groesser als 0
+3 ist groesser als 0
+2 ist groesser als 0
+1 ist groesser als 0
+>>> while True:
+        b = input("Sag was: ")
+        print b
+        if not b:
+            print("Aaaaaabbbbbrrrrruuuuccccccch!")
+            break
+Sag was: bla
+bla
+Sag was: bloed
+bloed
+Aaaaaabbbbbrrrrruuuuccccccch!
+</code></pre>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Kontrollstrukturen</span></h2>
+<h3><span class="subhead">... in Python</span></h3>
+<p><strong>Schleifen: for</strong></p>
+<ul>
+<li><span class="fragment">Während bei der <strong>while</strong>-Schleife die Abbruchsbedingung immer explizit genannt werden muss, gilt dies nicht für die <strong>for</strong>-Schleife.</span> </li>
+<li><span class="fragment">Hier wird explizit und im Voraus festgelegt, wie oft, bzw. in Bezug auf welche Objekte eine bestimmte Operation ausgeführt werden soll, weshalb sich die <strong>for</strong>-Schleife anbietet, wenn man die Anzahl der Operationen kennt, die man durchführen will.</span></li>
+<li><span class="fragment">Der Bereich, in dem in Python eine Operation mit Hilfe der <strong>for</strong>-Schleife ausgeführt wird, wird zumeist mit Hilfe der Funktion <strong>range()</strong> angegeben, welche automatisch eine Liste von Integern erzeugt, über die dann iteriert wird.</span></li>
+</ul>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Kontrollstrukturen</span></h2>
+<h3><span class="subhead">... in Python</span></h3>
+<p><strong>Schleifen: for</strong></p>
+<pre><code class="python" data-trim>
+>>> a = range(5)
+>>> a
+range(0,5)
+>>> list(a)
+[0, 1, 2, 3, 4]
+>>> for i in range(5): print(i)
+0
+1
+2
+3
+4
+>>> einkaufsliste = ['mehl','butter','zitronen','bier']
+>>> for element in einkaufsliste: print element
+mehl
+butter
+zitronen
+bier
+>>> namen = ['peter','frank','karl','jan']
+>>> for name in namen: print(name)
+peter
+frank
+karl
+jan
+>>> woerter = ['haus','kaffee','getraenk','wasser','flasche']
+>>> for wort in woerter: print(wort)
+haus
+kaffee
+getraenk
+wasser
+flasche
+</code></pre>
+</section>
+</section>
+
+<section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Kontrollstrukturen</span></h2>
+<h3><span class="subhead">... in JavaScript</span></h3>
+<p><strong>Verzweigungen: if, else if und else</strong></p>
+<p>Die if-else-Verzweigung in JavaScript unterscheidet sich in ihrer Syntax von Python, nicht jedoch in der grundlegenden Konzeption, auf der sie aufbaut. Auch in JavaScript wird der Wahrheitswert einer Datenstruktur getestet und entsprechend reagiert. Anstelle von "elif" wird dabei in javaScript "else if" geschrieben. Ferner werden hässliche Klammern verwendet anstelle der schönen Einrückungen, die in Python verwendet werden.</p>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Kontrollstrukturen</span></h2>
+<h3><span class="subhead">... in JavaScript</span></h3>
+<p><strong>Verzweigungen: if, else if und else</strong></p>
+<pre><code class="javascript" data-trim>
+> var x = 10; var y = 0; var yes = 'yes'; var no = 'no';
+> if (x) {console.log(yes);} // if x: print(yes) in Python
+yes
+> if (y) {console.log(yes);} // if y: print(yes) in Python 
+>>> if (!x) {console.log(yes);}
+    else if(!y) { console.log(no);}
+no
+>>> if (1 > 10) {console.log("Eins ist groesser als zehn.");}
+    else if (1 < 10) {console.log("Eins ist kleiner als zehn.");}
+Eins ist kleiner als zehn.
+>>> if (x || y) {console.log("Einer von beiden Werten ist wahr.");} // if x or y in Python
+    else {console.log("Keiner von beiden Werten ist wahr.");}
+Einer von beiden Werten ist wahr.
+>>> if (x == 10) {}
+    else {console.log("Danke, Herr Jauch!");}
+</code></pre>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Kontrollstrukturen</span></h2>
+<h3><span class="subhead">... in JavaScript</span></h3>
+<p><strong>Verzweigungen: try und catch</strong></p>
+<p>Anstelle von <strong>try</strong> und <strong>except</strong> bietet JavaScript die Verzweigung <strong>try</strong> und <strong>catch</strong> an. Die Syntax ist auch hier wieder anders als in Python, die grundlegende Struktur ist jedoch sehr ähnlich. Allerdings sollte man diese Verzweigung nach Möglichkeit nur spärlich anwenden, da eine Vielzahl von Fehlern in JavaScript nicht als solche definiert werden. So führt eine Division durch 0 beispielsweise nicht zu einem ZeroDivisionError, sondern zum Wert <em>Infinity</em>. Ferner führt der Befehl <code>parseInt('m')</code> nicht zu einem ValueError, sondern zum Wert <em>NaN</em>. Aus diesem Grund werden <strong>try</strong> und <strong>catch</strong> hier nicht weiter behandelt. </p>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Kontrollstrukturen</span></h2>
+<h3><span class="subhead">... in JavaScript</span></h3>
+<p><strong>Schleifen: while</strong></p>
+<p>Abgesehen von der Verwendung der hässlichen Klammerstrukturen funktioniert die <strong>while</strong>-Schleife in JavaScript im Prinzip genauso wie die <strong>while</strong>-Schleife in Python. Auch das Schlüsselwort <strong>break</strong> kann verwendet werden.</p>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Kontrollstrukturen</span></h2>
+<h3><span class="subhead">... in JavaScript</span></h3>
+<p><strong>Schleifen: while</strong></p>
+<pre><code class="javascript" data-trim>
+> var a = 10
+> while (a > 0) { console.log(a+" ist groesser als 0."); a -= 1;}
+10 ist groesser als 0
+9 ist groesser als 0
+8 ist groesser als 0
+7 ist groesser als 0
+6 ist groesser als 0
+5 ist groesser als 0
+4 ist groesser als 0
+3 ist groesser als 0
+2 ist groesser als 0
+1 ist groesser als 0
+> var a = 10;
+> while(true){a -= 1; console.log(a+' ist groesser als 0'); if(a == 0){break;}}
+9 ist groesser als 0 
+8 ist groesser als 0 
+7 ist groesser als 0 
+6 ist groesser als 0 
+5 ist groesser als 0 
+4 ist groesser als 0 
+3 ist groesser als 0 
+2 ist groesser als 0 
+1 ist groesser als 0 
+0 ist groesser als 0 
+</code></pre>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Kontrollstrukturen</span></h2>
+<h3><span class="subhead">... in JavaScript</span></h3>
+<p><strong>Schleifen: for</strong></p>
+<p>In Bezug auf die <strong>for</strong>-Schleife unterscheiden sich Python und JavaScript ein wenig mehr als in Bezug auf die anderen Kontrollstrukturen. Während die <strong>for</strong>-Schleife in Python generell auf der Datenstruktur von iterierbaren Elementen (vorrangig Listen) aufbaut, wird in JavaScript eine explizite Zählerstruktur benötigt. Zwar gibt es auch ein <strong>for value in iterable</strong>-Konstrukt in JavaScript, jedoch gibt dies nur die Schlüsselwerte von Objekten (<strong>dictionaries</strong> in Python) aus und sollte nie zusammen mit Arrays verwendet werden. </p>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Kontrollstrukturen</span></h2>
+<h3><span class="subhead">... in JavaScript</span></h3>
+<p><strong>Schleifen: for</strong></p>
+<pre><code class="javascript" data-trim>
+> var liste = ["a", "b", "c", "d"];
+> for (var i=0; i < liste.length; i++) {console.log(i, liste[i]);}
+0 'a'
+1 'b'
+2 'c'
+3 'd'
+> for (var i=0,elm; elm=liste[i]; i++) {console.log(i, elm);}
+0 'a'
+1 'b'
+2 'c'
+3 'd'
+> var myobj = {"a":1, "b":2, "c":3, "d":4};
+> for (key in myobj) {console.log(key, myobj[key]);}
+a 1
+b 2
+c 3
+d 4
+</code></pre>
+</section>
+</section>
+
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Agenda 2015</span></h2>
+<ul>
+<li><span class="stroked">Operatoren</span><ul>
+<li><span class="stroked">Allgemeines</span></li>
+<li><span class="stroked">... in Python</span></li>
+<li><span class="stroked">... in JavaScript</span></li>
+</ul>
+</li>
+<li><span class="stroked">Kontrollstrukturen</span><ul>
+<li><span class="stroked">Allgemeines</span></li>
+<li><span class="stroked">... in Python</span></li>
+<li><span class="stroked">... in JavaScript</span></li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section data-transition="concave" data-background="#000000" style="text-align:justify;font-size:85%;">
+<p style="font-size:200px;color:white;font-weight:bold;">
+sys.exit()
+</p>
+
+<p style="font-size:80%;color:white;font-weight:bold;text-align:right;">
+der zweiten Sitzung
+</p>
+
+<p><code style="font-size:160px">88</code></p>
+</section>
+
+
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+	slideNumber: 'c / t',
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+	  { src: 'plugin/math/math.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>

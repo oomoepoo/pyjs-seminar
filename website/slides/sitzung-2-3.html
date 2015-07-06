@@ -1,0 +1,703 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Sitzung 3: Funktionen</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+
+
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <style>
+  .head {
+	position: relative;
+	top: 0px;
+	font-size: 90%!important;
+	color: white;
+	background-color: Green;
+	width: 960px;
+	text-align:justify;
+	display: block;
+	padding-left: 5px;
+	margin: 0;
+}
+.subhead {
+	position: relative;
+	top: -20px;
+	font-size: 70%!important;
+	color: white;
+	background-color: Crimson;
+	width: 960px;
+	text-align: justify;
+	padding: 5px;
+	margin: 0;
+	display: block;
+}
+
+
+.question {
+	position: relative;
+	font-size: 80%!important;
+	color: Crimson;
+	font-weight: bold;
+	font-style: italic;
+	text-align: center!important;
+	display: block;
+	width: 960px;
+	text-transform: none;
+}
+
+.small {
+	font-size: 70%!important;
+}
+
+
+.stroked {
+	text-decoration: line-through;
+}
+
+  </style>
+  <script>
+function startTime(elm) {
+    var today=new Date();
+    var h=today.getHours();
+    var m=today.getMinutes();
+    var s=today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById(elm).innerHTML = h+":"+m+":"+s;
+    var t = setTimeout(function(){startTime()},500);
+}
+
+function checkTime(i) {
+    if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+
+  </script>
+  <body>
+  <div style="display: none;" class="tilda" id="tilda">
+    <div style="height: 100px;" class="td terminal">
+      <div class="terminal-output">
+      </div>
+    </div>
+  </div>
+
+
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+	<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;text-align:center;font-size:100%;">
+<h2>Computergestützter Sprachvergleich mit Python und JavaScript</h2>
+<hr />
+<h3>Sitzung 3 (Tag 2)</h3>
+<hr />
+<h4>21.07.2015</h4>
+<hr />
+<h3>&quot;Funktionen&quot;</h3>
+</section>
+
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Agenda 2015</span></h2>
+<ul>
+<li><span class="unstroked">Funktionen im Allgemeinen</span><ul>
+<li><span class="unstroked">Begriffserklärung</span></li>
+<li><span class="unstroked">Typen von Funktionen</span></li>
+</ul>
+</li>
+<li><span class="unstroked">Funktionen in Python</span><ul>
+<li><span class="unstroked">Grundlagen</span></li>
+<li><span class="unstroked">Parameter und Schlüsselwörter</span></li>
+<li><span class="unstroked">Spezialfälle</span></li>
+</ul>
+</li>
+<li><span class="unstroked">Funktionen in JavaScript</span><ul>
+<li><span class="unstroked">Grundlagen</span></li>
+<li><span class="unstroked">Parameter und Schlüsselwörter</span></li>
+<li><span class="unstroked">Spezialfälle</span></li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Funktionen im Allgemeinen</span></h2>
+<h3><span class="subhead">Begriffserklärung</span></h3>
+<p><strong><a href="http://de.wikipedia.org/wiki/Funktion (Mathematik)">Funktionen in der Mathematik (laut Wikipedia)</a></strong></p>
+<blockquote class="fragment">
+In der Mathematik ist eine Funktion oder Abbildung eine Beziehung zwischen
+zwei Mengen, die jedem Element der einen Menge (Funktionsargument,
+unabhängige Variable, x-Wert) genau ein Element der anderen Menge
+(Funktionswert, abhängige Variable, y-Wert) zuordnet. Das Konzept der
+Funktion oder Abbildung nimmt in der modernen Mathematik eine zentrale
+Stellung ein; es enthält als Spezialfälle unter anderem parametrische
+Kurven, Skalar- und Vektorfelder, Transformationen, Operationen, Operatoren
+und vieles mehr. 
+</blockquote>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Funktionen im Allgemeinen</span></h2>
+<h3><span class="subhead">Begriffserklärung</span></h3>
+<p><strong><a href="http://de.wikipedia.org/wiki/Funktion (Programmierung)">Funktionen in der Programmierung (laut Wikipedia)</a></strong></p>
+<blockquote class="fragment">
+Eine Funktion (engl.: function, subroutine) ist in der Informatik die
+Bezeichnung eines Programmierkonzeptes, das große Ähnlichkeit zum Konzept
+der Prozedur hat. Hauptmerkmal einer Funktion ist es, dass sie ein Resultat
+zurückliefert und deshalb im Inneren von Ausdrücken verwendet werden kann.
+Durch diese Eigenschaft grenzt sie sich von einer Prozedur ab, die nach
+ihrem Aufruf kein Ergebnis/Resultat zurück liefert. Die genaue Bezeichnung
+und Details ihrer Ausprägung ist in verschiedenen Programmiersprachen
+durchaus unterschiedlich.
+</blockquote>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Funktionen im Allgemeinen</span></h2>
+<h3><span class="subhead">Typen von Funktionen</span></h3>
+<p>Da entscheidend für Funktionen der Eingabewert und der Rückgabewert sind,
+können wir ganz grob die folgenden speziellen Typen von Funktionen 
+identifizieren:</p>
+<ul>
+<li><span class="fragment">Funktionen ohne Rückgabewert (Prozedur)</span></li>
+<li><span class="fragment">Funktionen ohne Eingabewert</span></li>
+<li><span class="fragment">Funktionen mit einer festen Anzahl von Eingabewerten</span></li>
+<li><span class="fragment">Funktionen mit einer beliebigen Anzahl von Eingabewerten</span></li>
+</ul>
+</section>
+</section>
+
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Agenda 2015</span></h2>
+<ul>
+<li><span class="stroked">Funktionen im Allgemeinen</span><ul>
+<li><span class="stroked">Begriffserklärung</span></li>
+<li><span class="stroked">Typen von Funktionen</span></li>
+</ul>
+</li>
+<li><span class="unstroked">Funktionen in Python</span><ul>
+<li><span class="unstroked">Grundlagen</span></li>
+<li><span class="unstroked">Parameter und Schlüsselwörter</span></li>
+<li><span class="unstroked">Spezialfälle</span></li>
+</ul>
+</li>
+<li><span class="unstroked">Funktionen in JavaScript</span><ul>
+<li><span class="unstroked">Grundlagen</span></li>
+<li><span class="unstroked">Parameter und Schlüsselwörter</span></li>
+<li><span class="unstroked">Spezialfälle</span></li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Funktionen in Python</span></h2>
+<h3><span class="subhead">Grundlagen</span></h3>
+<p><strong>Vorweg</strong></p>
+<p>In Python sind Funktionen spezielle Datentypen. Sie unterscheiden sich von
+anderen Datentypen wie <strong>strings</strong> oder <strong>integers</strong> dadurch, dass sie
+zusätzlich aufgerufen werden können (<em>callable types</em>).</p>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Funktionen in Python</span></h2>
+<h3><span class="subhead">Grundlagen</span></h3>
+<p><strong>Allgemeine Struktur</strong></p>
+<pre><code class="python" data-trim>
+def functionName(
+        parameterA,
+        ...,
+        keywordA='defaultA',
+        ...,
+        ):
+    """
+    docString
+    """
+    functionBody
+    return functionValue
+</code></pre>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Funktionen in Python</span></h2>
+<h3><span class="subhead">Grundlagen</span></h3>
+<p><strong>Erstes Beispiel</strong></p>
+<pre><code class="python data-trim">
+def stoneAgeCalculator(intA, intB, calc='+'):
+    """
+    This is the famous stoneAgeCalculator, a program written by the very first
+    men on earth who brought the fire to us and were the first to dance naked
+    on the first of May.
+    """
+    # check for inconsistencies in the input for keyword calc
+    if calc not in ['+', '-', '*', '/']:
+        raise ValueError('The operation you chose is not defined.')
+
+    # start the calculation, catch errors from input with a simple
+    # try-except-structure
+    try:
+        if calc == '+':
+            return intA + intB
+        elif calc == '-':
+            return intA - intB
+        elif calc == '*':
+            return intA * intB
+        else:
+            return intA / intB
+    except:
+        raise ValueError('No way to operate on your input.')
+</code></pre>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Funktionen in Python</span></h2>
+<h3><span class="subhead">Grundlagen</span></h3>
+<p><strong>Aufrufen und Ausführen</strong></p>
+<blockquote>
+<p>Eine Funktion wird aufgerufen, indem der Name der Funktion angegeben wird,
+gefolgt von einer Liste aktueller Parameter in Klammern.
+<a href="http://bibliography.lingpy.org?key=Weigend2008">(Weigend 2008:144)</a></p>
+</blockquote>
+<pre><code class="fragment python" data-trim>
+>>> a = range(5)
+>>> a = int('1')
+>>> range(5)
+range(0,5)
+>>> int('1')
+1
+>>> float(1)
+1.0
+>>> print('Hallo Welt!')
+Hallo Welt!
+>>> list('hallo')
+['h', 'a', 'l', 'l', 'o']
+</code></pre>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Funktionen in Python</span></h2>
+<h3><span class="subhead">Grundlagen</span></h3>
+<p><strong>Die Funktionsdokumentation</strong></p>
+<p>Für jede Funktion, die in Python definiert wird, steht eine automatische
+Dokumentation bereit, welche mit Hilfe der Parameter und der Angaben im
+Docstring generiert wird. Die Dokumentation einer Funktion wird mit Hilfe von
+<code>help(function)</code> aufgerufen. Mit Hilfe der Funktionsdokumentation
+lässt sich leicht ermitteln, welche Eingabewerte eine Funktion benötigt, wie
+sie verwendet wird, und welche Werte sie zurückliefert. Docstrings lassen sich
+am besten interaktiv einsehen.</p>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Funktionen in Python</span></h2>
+<h3><span class="subhead">Parameter und Schlüsselwörter</span></h3>
+<p><strong>Parameter</strong></p>
+<p>Mit Hilfe von Funktionen werden Eingabewerte (Parameter) in Ausgabewerte
+umgewandelt. Bezüglich der Datentypen von Eingabewerten gibt es in Python keine
+Grenzen. Alle Datentypen (also auch Funktionen selbst) können daher als
+Eingabewerte für Funktionen verwendet werden. Gleichzeitig ist es möglich,
+Funktionen ohne Eingabewerte oder ohne Ausgabewerte zu definieren. Will man
+eine beliebige Anzahl an Parametern als Eingabe einer Funktion verwenden, so
+erreicht man dies, indem man der Parameterbezeichnung einen Stern (*)
+voranstellt. Die Parameter von Eingabeseite werden innerhalb der Funktion dann
+automatisch in eine Liste umgewandelt, auf die mit den normalen
+Listenoperationen zugegriffen werden kann.</p>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Funktionen in Python</span></h2>
+<h3><span class="subhead">Parameter und Schlüsselwörter</span></h3>
+<p><strong>Parameter</strong></p>
+<pre><code class="python" data-trim>
+>>> def leer():
+...     print "leer"
+>>> def empty():
+...     pass
+>>> def gruss1(wort):
+...     print wort
+>>> def gruss2(wort):
+...     return wort
+>>> def eins():
+...     """Gibt die Zahl 1 aus."""
+...     return 1
+>>> leer()
+leer
+>>> empty
+... <function empty at 0xb76ef374>
+>>> empty()
+>>> type(empty)
+<type 'function'>
+>>> a = eins()
+>>> a
+1
+>>> print bla.func_doc
+Gibt die Zahl 1 aus.
+>>> def printWords(\*words):
+...     for word in words:
+...         print(word)
+...
+>>> printWords('mama','papa','oma',opa')
+mama
+papa
+oma
+opa
+</code></pre>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Funktionen in Python</span></h2>
+<h3><span class="subhead">Parameter und Schlüsselwörter</span></h3>
+<p><strong>Schlüsselwörter</strong></p>
+<p>Als Schlüsselwörter bezeichnet man Funktionsparameter, die mit einem
+Standardwert belegt sind. Werden diese beim Funktionsaufruf nicht angegeben,
+gibt es keine Fehlermeldung, sondern anstelle der fehlenden Werte wird einfach
+auf den Standardwert zurückgegriffen. Gleichzeitig braucht man beim Aufrufen
+nicht auf die Reihenfolge der Parameter zu achten, da diese ja durch die
+Anbindung der Schlüsselwörter vordefiniert ist. Weist eine Funktion hingegen
+Schlüsselwörter und Parameter auf, so müssen die Parameter den Schlüsselwörtern
+immer vorangehen.</p>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Funktionen in Python</span></h2>
+<h3><span class="subhead">Parameter und Schlüsselwörter</span></h3>
+<p><strong>Schlüsselwörter</strong></p>
+<pre><code class="python" data-trim>
+>>> def wind(country, season='summer')
+...     """Return the typical wind conditions for a given country."""
+...     if country == "Germany" and season == 'summer':
+...         print("There's strong wind in",country)
+...     else:
+...         print("This part hasn't been programmed yet.")
+...
+>>> wind('Germany'):
+There's strong wind in Germany.
+>>> wind('Germany,season='winter')
+This part hasn't been programmed yet.
+</code></pre>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Funktionen in Python</span></h2>
+<h3><span class="subhead">Spezialfälle</span></h3>
+<p><strong>Prozeduren</strong></p>
+<blockquote>
+<p>Prozeduren sind Funktionen, die den Wert <strong>None</strong> zurückgeben. Fehlt in
+einer Funktionsdefinition die <strong>return</strong>-Anweisung, wird automatisch der
+Wert <strong>None</strong> zurückgegeben. <a href="http://bibliography.lingpy.org?key=Weigend2008">(Weigend 2008: 155)</a></p>
+</blockquote>
+<pre><code class="fragment python" data-trim>
+>>> def quak(frosch=''):
+...     print("quak")
+...
+>>> quak()
+quak
+>>> a = quak()
+quak
+>>> type(a)
+<type 'NoneType'>
+</code></pre>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Funktionen in Python</span></h2>
+<h3><span class="subhead">Spezialfälle</span></h3>
+<p><strong>Rekursive Funktionen</strong></p>
+<blockquote>
+<p>Rekursive Funktionen sind solche, die sich selbst aufrufen.
+<a href="http://bibliography.lingpy.org?key=Weigend2008">(Weigend 2008: 151)</a></p>
+</blockquote>
+<pre><code class="fragment python">
+>>> def factorial(number):
+...     """
+...     Aus: http://www.dreamincode.net/code/snippet2800.htm
+...     """
+...     if number == 0:
+...         return 1
+...     else:
+...         value = factorial(n-1)
+...         result = n * value
+...         return result
+...
+>>> factorial(4)
+24
+</code></pre>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Funktionen in Python</span></h2>
+<h3><span class="subhead">Spezialfälle</span></h3>
+<p><strong>Globale und lokale Variablen</strong></p>
+<p>Es muss bei Funktionen zwischen lokalen und globalen Variablen unterschieden
+werden. Lokale Variablen haben nur innerhalb einer Funktion ihren
+Gültigkeitsbereich. Globale Variablen hingegen gelten auch außerhalb der
+Funktion. Will man mit Hilfe einer Funktion eine Variable, die global, also
+außerhalb der Funktion deklariert wurde, verändern, so muss man ihr das 
+<em>Keyword</em> <strong>global</strong> voranstellen. Dies sollte man jedoch nach Möglichkeit
+vermeiden, da dies schnell zu Fehlern im Programmablauf führen kann. Lokale und
+globale Variablen sollten nach Möglichkeit getrennt werden.</p>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Funktionen in Python</span></h2>
+<h3><span class="subhead">Spezialfälle</span></h3>
+<p><strong>Globale und lokale Variablen</strong></p>
+<pre><code class="python" data-trim>
+>>> s = 'globaler string'
+>>> def f1():
+...     print(s)
+...
+>>> def f2():
+...     s = 'lokaler string'
+...     print(s)
+...
+>>> f1()
+globaler string
+>>> f2()
+lokaler string
+>>> def f3():
+...     global s
+...     s = 'lokaler string'
+...     print(s)
+>>> s = 'globaler string'
+>>> f3()
+lokaler string
+>>> print(s)
+lokaler string
+</code></pre>
+</section>
+</section>
+
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Agenda 2015</span></h2>
+<ul>
+<li><span class="stroked">Funktionen im Allgemeinen</span><ul>
+<li><span class="stroked">Begriffserklärung</span></li>
+<li><span class="stroked">Typen von Funktionen</span></li>
+</ul>
+</li>
+<li><span class="stroked">Funktionen in Python</span><ul>
+<li><span class="stroked">Grundlagen</span></li>
+<li><span class="stroked">Parameter und Schlüsselwörter</span></li>
+<li><span class="stroked">Spezialfälle</span></li>
+</ul>
+</li>
+<li><span class="unstroked">Funktionen in JavaScript</span><ul>
+<li><span class="unstroked">Grundlagen</span></li>
+<li><span class="unstroked">Parameter und Schlüsselwörter</span></li>
+<li><span class="unstroked">Spezialfälle</span></li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Funktionen in JavaScript</span></h2>
+<h3><span class="subhead">Grundlagen</span></h3>
+<p><strong>Allgemeines vorweg</strong></p>
+<p class="fragment">Wie in Python, so sind auch in JavaScript Funktionen spezielle Datentypen.</p>
+
+<p><strong>Allgemeine Struktur</strong></p>
+<pre><code class="javascript fragment" data-trim>
+function functionName (
+  parameterA,
+  parameterB,
+  parameterC,
+  ...
+  ) {
+
+  functionBody;
+
+  return functionValue;
+}
+</code></pre>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Funktionen in JavaScript</span></h2>
+<h3><span class="subhead">Grundlagen</span></h3>
+<p><strong>Erstes Beispiel: Der Steinzeittaschenrechner</strong></p>
+<pre><code class="javascript">
+function stoneAgeCalculator(intA, intB, calc) {
+  /* This is a very famous StoneAge Calculator. */
+
+  /* check for active values for type */
+  if (typeof calc == 'undefined') {
+    calc = "+";
+  }
+  /* check for correct values for calc */
+  else if(["+", "-", "*", "/"].indexOf(calc) == -1) {
+    return false;
+  }
+
+  /* return the stuff */
+  if (calc == '+') {return intA + intB;}
+  else if (calc == '-') {return intA - intB;}
+  else if (calc == '*') {return intA * intB;}
+  else if (calc == '/') {return intA / intB;}
+  return false;
+}
+</code></pre>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Funktionen in JavaScript</span></h2>
+<h3><span class="subhead">Grundlagen</span></h3>
+<p><strong>Erstes Beispiel: Der Steinzeittaschenrechner</strong></p>
+<iframe style="width:900px;height:600px;" src="../demos/console.html"></iframe>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Funktionen in JavaScript</span></h2>
+<h3><span class="subhead">Parameter und Schlüsselwörter</span></h3>
+<p><strong>Parameter und Schlüsselwörter</strong></p>
+<p>Die Handhabung von Parametern und Schlüsselwörtern ist nicht so leicht in JavaScript wie in Python. Schlüsselwörter gibt eigentlich gar nicht. Das heißt leider auch, dass man keine Standardwerte für bestimmte Parameter annehmen kann, was das Programmieren ein wenig umständlich macht. Um ähnliche Funktionalitäten wie in Python zu erlangen, behilft man sich meist mit Ersatzkonstruktionen.</p>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Funktionen in JavaScript</span></h2>
+<h3><span class="subhead">Parameter und Schlüsselwörter</span></h3>
+<p><strong>Parameter und Schlüsselwörter</strong></p>
+<pre><code class="javascript">
+function wind(country, season) {
+  /* Return the typical wind conditions for a country */
+
+  /* carry out type check of season, to set the basic value */
+  if (typeof season == "undefined") {
+    season = "summer";
+  }
+
+  if (country == "Germany" and season == "summer") {
+    return "There's strong wind in "+country+".";
+  }
+  else {
+    return "This part hasn't been programmed yet.";
+  }
+}
+</code></pre>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Funktionen in JavaScript</span></h2>
+<h3><span class="subhead">Parameter und Schlüsselwörter</span></h3>
+<p><strong>Parameter und Schlüsselwörter</strong></p>
+<iframe style="width:900px;height:600px;" src="../demos/console.html"></iframe>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Funktionen in JavaScript</span></h2>
+<h3><span class="subhead">Spezialfälle</span></h3>
+<p><strong>Prozeduren und Rekursive Funktionen</strong></p>
+<p>Prozeduren und rekursive Funktionen können in JavaScript genauso verwendet werden wie in Python. Tendentiell werden sehr viel mehr Prozeduren in JavaScript verwendet, da das Auslösen von Aktionen mit Hilfe der HTML-Buttons und der "onclick"-Anweisung am leichtesten geregelt werden kann. </p>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Funktionen in JavaScript</span></h2>
+<h3><span class="subhead">Spezialfälle</span></h3>
+<p><strong>Globale und lokale Variablen</strong></p>
+<p>JavaScript unterscheidet nicht direkt zwischen globalen und lokalen Variablen: Alles, was auf einer jeweils höheren Ebene definiert wurde, kann auch auf einer niedrigeren Ebene verwendet werden und umgekehrt. Das Schlüsselwort <strong>var</strong> kann jedoch verwendet werden, um zu gewährleisten, dass Variablen nur innerhalb ihrer jeweiligen Ebene Geltung haben. Sicherheitshalber sollte man daher vor jede Variablendeklaration das Schlüsselwort <strong>var</strong> setzen. </p>
+</section>
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Funktionen in JavaScript</span></h2>
+<h3><span class="subhead">Spezialfälle</span></h3>
+<p><strong>Globale und lokale Variablen</strong></p>
+<pre><code class="javascript" data-trim>
+> s = 'globaler string'
+> function f1(){console.log(s)}
+> function f2(){s = 'lokaler string'; console.log(s);}
+> f1()
+'globaler string'
+> f2()
+'lokaler string'
+> function f3() { var s; s = 'lokaler string'; console.log(s);}
+> s = 'globaler string';
+> f3()
+lokaler string
+> s 
+globaler string
+</code></pre>
+</section>
+</section>
+
+<section data-transition="concave" data-background="#ffffff" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Agenda 2015</span></h2>
+<ul>
+<li><span class="stroked">Funktionen im Allgemeinen</span><ul>
+<li><span class="stroked">Begriffserklärung</span></li>
+<li><span class="stroked">Typen von Funktionen</span></li>
+</ul>
+</li>
+<li><span class="stroked">Funktionen in Python</span><ul>
+<li><span class="stroked">Grundlagen</span></li>
+<li><span class="stroked">Parameter und Schlüsselwörter</span></li>
+<li><span class="stroked">Spezialfälle</span></li>
+</ul>
+</li>
+<li><span class="stroked">Funktionen in JavaScript</span><ul>
+<li><span class="stroked">Grundlagen</span></li>
+<li><span class="stroked">Parameter und Schlüsselwörter</span></li>
+<li><span class="stroked">Spezialfälle</span></li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section data-transition="concave" data-background="#000000" style="text-align:justify;font-size:85%;">
+<p style="font-size:120px;color:white;font-weight:bold;">
+window.close();
+</p>
+
+<p style="font-size:80%;color:white;font-weight:bold;text-align:right;">
+der dritten Sitzung
+</p>
+</section>
+
+
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+	slideNumber: 'c / t',
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+	  { src: 'plugin/math/math.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
