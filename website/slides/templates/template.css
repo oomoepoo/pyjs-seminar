@@ -36,6 +36,10 @@
 	text-transform: none;
 }
 
+.bq80 {
+	font-size: 80%!important;
+	line-height: 30px!important;
+}
 .small {
 	font-size: 70%!important;
 }
