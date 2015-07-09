@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Sitzung 1: Sequenzvergleiche in der historischen Linguistik</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+
+
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <style>
+  .head {
+	position: relative;
+	top: 0px;
+	font-size: 90%!important;
+	color: white;
+	background-color: Green;
+	width: 960px;
+	text-align:justify;
+	display: block;
+	padding-left: 5px;
+	margin: 0;
+}
+.subhead {
+	position: relative;
+	top: -20px;
+	font-size: 70%!important;
+	color: white;
+	background-color: Crimson;
+	width: 960px;
+	text-align: justify;
+	padding: 5px;
+	margin: 0;
+	display: block;
+}
+
+
+.question {
+	position: relative;
+	font-size: 80%!important;
+	color: Crimson;
+	font-weight: bold;
+	font-style: italic;
+	text-align: center!important;
+	display: block;
+	width: 960px;
+	text-transform: none;
+}
+
+.bq80 {
+	font-size: 80%!important;
+	line-height: 30px!important;
+}
+.small {
+	font-size: 70%!important;
+}
+
+
+.stroked {
+	text-decoration: line-through;
+}
+
+  </style>
+  <script>
+function startTime(elm) {
+    var today=new Date();
+    var h=today.getHours();
+    var m=today.getMinutes();
+    var s=today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById(elm).innerHTML = h+":"+m+":"+s;
+    var t = setTimeout(function(){startTime()},500);
+}
+
+function checkTime(i) {
+    if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+
+  </script>
+  <body>
+  <div style="display: none;" class="tilda" id="tilda">
+    <div style="height: 100px;" class="td terminal">
+      <div class="terminal-output">
+      </div>
+    </div>
+  </div>
+
+
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+	<section data-transition="concave" style="text-align:justify;font-size:85%;text-align:center;font-size:100%;" data-background="#ffffff">
+<h2>Computergestützter Sprachvergleich mit Python und JavaScript</h2>
+<hr />
+<h3>Sitzung 1 (Tag 3)</h3>
+<hr />
+<h4>22.07.2015</h4>
+<hr />
+<h3>&quot;Sequenzvergleiche in der historischen Linguistik&quot;</h3>
+</section>
+
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Agenda 2015</span></h2>
+<ul>
+<li><span class="unstroked">Sprachwandel</span><ul>
+<li><span class="unstroked">Sprachen</span></li>
+<li><span class="unstroked">Sprachwandel im Allgmeinen</span></li>
+<li><span class="unstroked">Lautwandel</span></li>
+</ul>
+</li>
+<li><span class="unstroked">Lautwandel</span><ul>
+<li><span class="unstroked">Mechanismen des Lautwandels</span></li>
+<li><span class="unstroked">Typen des Lautwandels</span></li>
+<li><span class="unstroked">Die komparative Methode</span></li>
+</ul>
+</li>
+<li><span class="unstroked">Sequenzalinierung</span><ul>
+<li><span class="unstroked">Sequenzen und Sequenzvergleiche</span></li>
+<li><span class="unstroked">Alinierung</span></li>
+<li><span class="unstroked">Phonetische Alinierung</span></li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Sprachwandel</span></h2>
+<h3><span class="subhead">Sprachen</span></h3>
+<p><strong>Der Nordwind und die Sonne und das Problem der Sprachgrenzen</strong></p>
+<p><a href="img/northwind.svg"><img src="img/northwind.svg" alt="northwind" style="width:800px" /></a></p>
+</section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Sprachwandel</span></h2>
+<h3><span class="subhead">Sprachen</span></h3>
+<p><strong>Diasysteme</strong></p>
+<p><a href="img/diasystem.svg"><img src="img/diasystem.svg" alt="diasystem" style="width:800px" /></a></p>
+</section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Sprachwandel</span></h2>
+<h3><span class="subhead">Sprachen</span></h3>
+<p><strong>Dimensionen der Sprachvariation</strong></p>
+<p><img onclick="this.src='img/variation-2.png';" src="img/variation-1.png" alt="variation" style="width:400px" /></p>
+</section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Sprachwandel</span></h2>
+<h3><span class="subhead">Sprachen</span></h3>
+<p><strong>Komplexität des Sprachwandels</strong></p>
+<p><a href="img/marlboro.svg"><img src="img/marlboro.svg" alt="marlboro" style="width:700px" /></a></p>
+</section>
+</section>
+
+<section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Sprachwandel</span></h2>
+<h3><span class="subhead">Sprachwandel im Allgemeinen</span></h3>
+<p><strong>Die komischen Reime in den chinesischen Oden</strong></p>
+<p><a href="img/odes.svg"><img src="img/odes.svg" alt="odes" style="width:900px" /></a></p>
+</section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Sprachwandel</span></h2>
+<h3><span class="subhead">Sprachwandel im Allgemeinen</span></h3>
+<p><strong>Die komischen Reime in den chinesischen Oden</strong></p>
+<blockquote style="font-size:80%;line-height:30px">
+The writings of scholars must be made of adequate sounds. Even in
+the rural areas everybody orders the sounds harmonically. Can it
+be that the ancients solely did not have rhymes? One can say that
+in the same way in which ancient times differ from modern times,
+and places in the North differ from places in the South, characters
+change and sounds shift. This is a natural tendency. Therefore, it
+is inevitable that reading the ancient writings with modern pronun-
+ciation will sound improper and wrong. (Máoshī Gǔyīnkǎo: 原序, meine Übersetzung)
+</blockquote>
+</section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Sprachwandel</span></h2>
+<h3><span class="subhead">Sprachwandel im Allgemeinen</span></h3>
+<p><strong>Wandel als Katastrophe</strong></p>
+<p>Schon früh in der Geschichte der Linguistik war den Forschern in Europa
+bewusst, dass Sprachen sich wandeln können. Vorherrschend war dabei jedoch die
+Ansicht, dass alle Formen des Wandels "katastrophisch" abliefen, dass Wandel
+also im Rahmen eines unberechenbaren, chaotischen "Verfalls" vor sich ginge.
+Erst spät (zu Beginn des 19. Jahrhunderts) wurde erstmals klar, dass sich
+bestimmte Phänomene des Sprachwandels, insbesondere der Lautwandel, durch eine
+beachtliche Regelmäßigkeit auszeichnen.</p>
+</section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Sprachwandel</span></h2>
+<h3><span class="subhead">Sprachwandel im Allgemeinen</span></h3>
+<p><strong>Wandel als Prozess</strong></p>
+<p><a href="img/lautwandel-ita-lat.svg"><img src="img/lautwandel-ita-lat.svg" alt="lautwandel-ita-lat" style="width:900px" /></a></p>
+</section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Sprachwandel</span></h2>
+<h3><span class="subhead">Sprachwandel im Allgemeinen</span></h3>
+<p><strong>Wandel und Regelmäßigkeit</strong></p>
+<p>Während den Menschen im Verlaufe der Geschichte bereits relativ lange bewusst
+war, dass Sprachen sich ändern können, war es eine radikal neue Erkenntnis, die
+sich zu Beginn des 19. Jahrhunderts herauskristallisierte, dass Sprachen sich
+in Prozessen ändern, von denen bestimmte sogar regelmäßig verlaufen können. Mit
+der Entdeckung der Regelmäßigkeit einher festigte sich ebenfalls die
+Erkenntnis, dass Sprachen miteinander verwandt sein können, wobei
+Verwandtschaft von Sprachen dadurch definiert ist, dass miteinander verwandte
+Sprachen aus einer gemeinsamen Vorgängersprache entstanden sind, wie bspw. das
+Englische und das Deutsche, die beide aus dem Protogermanischen hervorgegangen
+sind.</p>
+</section>
+</section>
+
+<section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Sprachwandel</span></h2>
+<h3><span class="subhead">Lautwandel</span></h3>
+<p><strong>Wandel als Gesetz (<a href="http://bibliography.lingpy.org?key=Osthoff1878">Osthoff und Brugmann 1878: XIII</a>)</strong></p>
+<blockquote class="bq80">
+Aller lautwandel, soweit er mechanisch vor sich geht, vollzieht sich nach ausnahmslosen
+gesetzen, d.h. die richtung der lautbewegung ist bei allen angehörigen einer
+sprachgenossenschaft, ausser dem Fall, dass dialektspaltung eintritt, stets dieselbe, und alle
+wörter, in denen der der lautbewegung unterworfene laut unter gleichen verhältnissen erscheint,
+werden ohne ausnahme von der änderung ergriffen.
+</blockquote>
+</section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Sprachwandel</span></h2>
+<h3><span class="subhead">Lautwandel</span></h3>
+<p><strong>Chaque mot a son histoire</strong></p>
+<p>Nicht alle Linguisten waren der Meinung der Junggrammatiker. Besonders
+Dialektologen folgten dem berühmten Slogan <em>chaque mot a son histoire</em>
+("jedes Wort hat seine Geschichte"), der gewöhnlich <a href="http://de.wikipedia.org/wiki/Jules_Gilliéron">Jules Gilliéron (1854–1926)</a> zugeschrieben wird (<a href="http://bibliography.lingpy.org?key=Campbell1999">Campbell 1999: 189</a>). 
+Die Bedenken der
+Dialektologen standen jedoch strengenommen nicht direkt im Widerspruch zur
+junggrammatischen Doktrin, schließlich besagte die junggrammatische Theorie ja
+nicht, dass sich zwangsläufig <em>alle</em> Wörter einer Sprache regelmäßig
+änderten, sondern lediglich, dass idiosynkratischer Wandel durch andere Mechanismen (Entlehnung oder Analogie) erklärt werden konnte (<a href="http://bibliography.lingpy.org?key=Kiparsky1988">Kiparsky 1988:368</a>).</p>
+</section>
+</section>
+
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Agenda 2015</span></h2>
+<ul>
+<li><span class="stroked">Sprachwandel</span><ul>
+<li><span class="stroked">Sprachen</span></li>
+<li><span class="stroked">Sprachwandel im Allgmeinen</span></li>
+<li><span class="stroked">Lautwandel</span></li>
+</ul>
+</li>
+<li><span class="unstroked">Lautwandel</span><ul>
+<li><span class="unstroked">Mechanismen des Lautwandels</span></li>
+<li><span class="unstroked">Typen des Lautwandels</span></li>
+<li><span class="unstroked">Die komparative Methode</span></li>
+</ul>
+</li>
+<li><span class="unstroked">Sequenzalinierung</span><ul>
+<li><span class="unstroked">Sequenzen und Sequenzvergleiche</span></li>
+<li><span class="unstroked">Alinierung</span></li>
+<li><span class="unstroked">Phonetische Alinierung</span></li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Lautwandel</span></h2>
+<h3><span class="subhead">Mechanismen des Lautwandels</span></h3>
+<p><strong>Junggrammatischer
+Lautwandel (nach <a href="http://bibliography.lingpy.org?key=Wang2006a">Wang 2006: 109, meine Übersetzung</a>)</strong></p>
+<blockquote class="bq80">
+Regarding the lexicon [they assumed] that a change always affects the whole
+lexicon, and can therefore be seen as an abrupt change. Regarding the sounds
+[they assumed] that the change proceeded step by step, and can therefore be
+seen as a gradual change. 
+</blockquote>
+</section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Lautwandel</span></h2>
+<h3><span class="subhead">Mechanismen des Lautwandels</span></h3>
+<p><strong>Lexikalische Diffusion (<a href="http://bibliography.lingpy.org?key=Wang1969">Wang 1969: 9</a>)</strong></p>
+<blockquote class="bq80">
+Phonological change may be implemented in a manner that is phonetically abrupt but
+    lexically gradual. As the change diffuses across the lexicon, it may not reach all the morphemes
+    to which it is applicable. If there is another change competing for part of the lexicon, residue
+    may result.
+</blockquote>
+</section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Lautwandel</span></h2>
+<h3><span class="subhead">Mechanismen des Lautwandels</span></h3>
+<p><strong>Kompettitierende Theorien der Lautwandelmechanismen</strong></p>
+<table style="border:0px solid white">
+<tr style="border: 0px solid white">
+  <td style="border-color:white">
+    <img src="img/neo.gif" alt="neo" style="width:350px" />
+  </td>
+  <td style="border-color:white">
+    <img src="img/diffusion.gif" alt="diffusion" style="width:350px" />
+  </td>
+</tr>
+<tr style="border: 0px solid white">
+  <td style="text-align:center;border-color:white;font-size:80%">Junggrammatischer Lautwandel</td>
+  <td style="text-align:center;border-color:white;font-size:80%">Lexikalische Diffusion</td>
+</tr>
+</table>
+</section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Lautwandel</span></h2>
+<h3><span class="subhead">Mechanismen des Lautwandels</span></h3>
+<p><strong>Zwei Mechanismen des Lautwandels (<a href="http://bibliography.lingpy.org?key=Labov1994">Labov 1994: 471</a>)</strong></p>
+<blockquote>
+There is no basis for contending that lexical diffusion is somehow more fundamental than
+regular, phonetically motivated sound change. On the contrary, if we were to decide the issue
+by counting cases, there appear to be far more substantially documented cases of Neogrammarian sound
+change than of lexical diffusion.
+</blockquote>
+</section>
+</section>
+
+<section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Lautwandel</span></h2>
+<h3><span class="subhead">Typen des Lautwandels</span></h3>
+<p><strong>Terminologische Probleme</strong></p>
+<p>Die lange Forschungstradition in der historischen Linguistik
+hat zur Postulierung einer Vielzahl unterschiedlicher Typen des
+Lautwandels} geführt. Leider ist die Terminologie, welche verwendet wird, um
+auf diese Typen in der Literatur zu verweisen, etwas "unstetig" und reicht
+von sehr konkreten Termini, welche sehr konkrete Lautwandelinstanzen abdecken,
+bis hin zu sehr generellen Termini, die auf den Wandel abstrakter Lautklassen
+verweisen.</p>
+</section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Lautwandel</span></h2>
+<h3><span class="subhead">Typen des Lautwandels</span></h3>
+<p><strong>Terminologische Probleme</strong></p>
+<p>Was in der Literatur als <em>Lautwandeltyp</em> bezeichnet wird, kann dabei sowohl das Phänomen des
+<em>Rhotazismus</em> umfassen (<a href="Trask2000">Trask 2000: 288</a>), welches, vereinfacht gesagt, einen Wandel von
+/s/ nach /r/ bezeichnet, als auch den Prozess der <em>Lenisierung</em>, welcher eine
+bestimmte Art von Wandel bezeichnet, "in which
+a segment becomes less consonant-like than previously" (<a href="Trask2000">idb. 190</a>).</p>
+</section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Lautwandel</span></h2>
+<h3><span class="subhead">Typen des Lautwandels</span></h3>
+<p><strong>Definitionen von <a href="http://bibliography.lingpy.org?key=Trask2000">Trask (2000</a></strong></p>
+<ul>
+<li><strong>Assimilierung</strong> "Any <strong>syntagmatic change</strong> in which some segment becomes more
+    similar in nature to antother segment int he same sequence, usually within a single
+    phonological word or phrase" (30).  </li>
+<li><strong>Dissimilierung</strong> "Any <strong>syntagmatic change</strong> in which one segment changes
+  so as to become less similar to another segment in the same form" (95).</li>
+<li><strong>Metathese</strong> "Any <strong>syntagmatic change</strong> in which the order of segments (or
+    simetimes of other phonological elements) in a word is altered" (211).</li>
+<li><strong>Tonogenese</strong> "Any process which leads to the introduction of tones into a
+    language which formerly lacked them" (346). </li>
+</ul>
+</section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Lautwandel</span></h2>
+<h3><span class="subhead">Typen des Lautwandels</span></h3>
+<p><strong>Definitionen von <a href="http://bibliography.lingpy.org?key=Trask2000">Trask (2000, cont.)</a></strong></p>
+<ul>
+<li><strong>Sandhi</strong> "Any of various phonological processes applying to sequences of
+    segments either across morpheme boundaries (<em>internal sandhi</em>) or across word
+    boundaries (<em>external sandhi</em>)" (296).</li>
+<li><strong>Haplologie</strong> "A type of phonological change (of or phonological constraint) in
+    which one of two adjacent syllables of identical or similar form is lost (or fails to appear
+    in the first place)" (146).</li>
+<li><strong>Elision (Aphaerese, Synkope, Apokope)</strong> "Any of various processes in which phonological segments are lost from a word or a phrase. Specific
+    varieties of elision are often given special names like <strong>aphaeresis</strong>, <strong>syncope</strong>,
+    <strong>apocope, synaeresis, synizesis, synaloepha</strong>. Not infrequently
+    this name is given to specific processes in particular languages" (102).</li>
+</ul>
+</section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Lautwandel</span></h2>
+<h3><span class="subhead">Typen des Lautwandels</span></h3>
+<p><strong>Definitionen von <a href="http://bibliography.lingpy.org?key=Trask2000">Trask (2000, cont.)</a></strong></p>
+<ul>
+<li><strong>Epenthese</strong> "Any phonological change which inserts a segment into a word or
+    form in a position in which no segment was formerly present" (107).</li>
+<li><strong>Prothese</strong> "The addition of a segment to the beginning of a word. [...] The
+    opposite is <strong>aphaeresis</strong>" (266). </li>
+<li><strong>Nasalierung</strong> "Any phonological process in which a segment acquires a nasal
+    character which it formerly lacked" (224).</li>
+</ul>
+</section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Lautwandel</span></h2>
+<h3><span class="subhead">Typen des Lautwandels</span></h3>
+<p><strong>Ein vereinfachtes Modell</strong></p>
+<p><a href="img/indel.svg"><img src="img/indel.svg" alt="indel" style="width:900px" /></a></p>
+</section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Lautwandel</span></h2>
+<h3><span class="subhead">Typen des Lautwandels</span></h3>
+<p><strong>Ein vereinfachtes Modell (Beispiele)</strong></p>
+<p><a href="img/indel-concrete.svg"><img src="img/indel-concrete.svg" alt="indel" style="width:900px" /></a></p>
+</section>
+</section>
+
+<section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Lautwandel</span></h2>
+<h3><span class="subhead">Die komparative Methode</span></h3>
+<p><strong>Definitionen</strong></p>
+<p><a href="img/cm-wirr.png"><img src="img/cm-wirr.png" alt="indel" style="width:700px" /></a></p>
+</section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Lautwandel</span></h2>
+<h3><span class="subhead">Die komparative Methode</span></h3>
+<p><strong>Ein neuer Definitionsversuch</strong></p>
+<p>Die komparative Methode ist ein Komplex von
+Verfahren der historischen Sprachwissenschaft, mit deren Hilfe Sprachen klassifiziert und
+nicht belegte Sprachstufen rekonstruiert werden, um somit Entwicklungsgeschichte von
+Sprachen zu schreiben. Die Ergebnisse der komparativen Methoden werden in Form von
+etymologischen Wörterbüchern, historischen Grammatiken und Entwicklungsschemata
+(evolutionäre Bäume und Netze) kodiert. </p>
+</section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Lautwandel</span></h2>
+<h3><span class="subhead">Die komparative Methode</span></h3>
+<p><strong>Beschreibung des Workflows in <a href="http://bibliography.lingpy.org?key=Ross1996">Ross und Durie (1996)</a></strong></p>
+<p><a href="img/rodu.svg"><img src="img/rodu.svg" alt="indel" style="width:700px" /></a></p>
+</section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Lautwandel</span></h2>
+<h3><span class="subhead">Die komparative Methode</span></h3>
+<p><strong>Visualisierung des Workflows von <a href="http://bibliography.lingpy.org?key=Ross1996">Ross und Durie (1996)</a></strong></p>
+<p><a href="img/ross-durie-workflow.svg"><img src="img/ross-durie-workflow.svg" alt="indel" style="width:700px" /></a></p>
+</section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Lautwandel</span></h2>
+<h3><span class="subhead">Die komparative Methode</span></h3>
+<p><strong>Vereinfachter Workflow <a href="http://bibliography.lingpy.org?key=List2014d">(List 2014)</a></strong></p>
+<p><a href="img/cm-simplified.png"><img src="img/cm-simplified.png" alt="indel" style="width:600px" /></a></p>
+</section>
+</section>
+
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Agenda 2015</span></h2>
+<ul>
+<li><span class="stroked">Sprachwandel</span><ul>
+<li><span class="stroked">Sprachen</span></li>
+<li><span class="stroked">Sprachwandel im Allgmeinen</span></li>
+<li><span class="stroked">Lautwandel</span></li>
+</ul>
+</li>
+<li><span class="stroked">Lautwandel</span><ul>
+<li><span class="stroked">Mechanismen des Lautwandels</span></li>
+<li><span class="stroked">Typen des Lautwandels</span></li>
+<li><span class="stroked">Die komparative Methode</span></li>
+</ul>
+</li>
+<li><span class="unstroked">Sequenzalinierung</span><ul>
+<li><span class="unstroked">Sequenzen und Sequenzvergleiche</span></li>
+<li><span class="unstroked">Alinierung</span></li>
+<li><span class="unstroked">Phonetische Alinierung</span></li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Sequenzalinierung</span></h2>
+<h3><span class="subhead">Sequenzen und Sequenzvergleiche</span></h3>
+<p><strong>Sequenzen: Definition (vgl. <a href="http://bibliography.lingpy.org?key=Boeckenbauer2003">Böckenbauer und Bongartz 2003: 30f</a>)</strong></p>
+<p><strong>Definition:</strong> Ein <em>Alphabet</em> ist eine nicht-leere endliche Menge deren
+Elemente <em>Buchstaben</em> genannt werden. Eine <em>Sequenz</em> ist eine geordnete Liste
+von Buchstaben, die aus dem Alphabet gezogen werden. Die Elemente von Sequenzen
+werden <em>Segmente</em> genannt, die <em>Mächtigkeit</em> einer Sequenz ist die Anzahl ihrer
+unterschiedlichen Buchstaben, und die <em>Länge</em> einer Sequenz ist die Anzahl
+ihrer Segmente.</p>
+</section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Sequenzalinierung</span></h2>
+<h3><span class="subhead">Sequenzen und Sequenzvergleiche</span></h3>
+<p><strong>Sequenzen als Perlenketten</strong></p>
+<p><a href="img/kette.svg"><img src="img/kette.svg" style="width:800px" alt="kette" /></a></p>
+</section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Sequenzalinierung</span></h2>
+<h3><span class="subhead">Sequenzen und Sequenzvergleiche</span></h3>
+<p><strong>Vergleich von Sequenzen mit gleicher Länge</strong></p>
+<p><a href="img/hamming.svg"><img src="img/hamming.svg" style="width:800px" alt="hamming" /></a></p>
+</section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Sequenzalinierung</span></h2>
+<h3><span class="subhead">Sequenzen und Sequenzvergleiche</span></h3>
+<p><strong>Vergleich von Sequenzen mit unterschiedlicher Länge</strong></p>
+<p><a href="img/matchings.png"><img src="img/matchings.png" style="width:800px" alt="matchings" /></a></p>
+</section>
+</section>
+
+<section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Sequenzalinierung</span></h2>
+<h3><span class="subhead">Alinierung</span></h3>
+<p><strong>Definitionsversuch</strong></p>
+<blockquote>
+<p>Eine <em>Alinierung</em> von $n$ ($n&gt;1$) Sequenzen ist eine $n$-reihige Matrix, in der alle
+Sequenzen dergestalt angeordnet werden, dass alle matchenden Segmente in derselben Spalte
+erscheinen, während nicht-matchende Segmente, die aus leeren Matches resultieren, durch
+Gap-Symbole angezeigt werden. (vgl <a href="http://bibliography.lingpy.org?key=Gusfield1997">Gusfield 1997: 216</a>)</p>
+</blockquote>
+</section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Sequenzalinierung</span></h2>
+<h3><span class="subhead">Alinierung</span></h3>
+<p><strong>Beispiel</strong></p>
+<p><a href="img/alignment.svg"><img src="img/alignment.svg" style="width:1000px" alt="alignment" /></a></p>
+</section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Sequenzalinierung</span></h2>
+<h3><span class="subhead">Alinierung</span></h3>
+<p><strong>Preisfrage</strong></p>
+<p>Die Levenshtein-Distanz zwischen zwei Sequenzen $S_1$ und $S_2$ ist definiert als die Anzahl von Editieroperationen, die notwendig
+ist, um $S₁$ in $S_2$ zu transformieren. Mit Hilfe des Konzepts der Alinierung lässt sich dieses
+Distanzmaß leicht auf die Hamming-Distanz zurückführen. Wie genau?</p>
+</section>
+</section>
+
+<section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Sequenzalinierung</span></h2>
+<h3><span class="subhead">Phonetische Alinierung</span></h3>
+<p>Obwohl Alinierungsanalysen eine der allgemeinsten Möglichkeiten darstellen, Sequenzen zu
+vergleichen, steckt ihre Verwendung in der historischen Linguistik noch in den Kinderschuhen.
+Natürlich
+alinieren
+historische Linguisten eigentlich <em>immer</em> Wörter und haben dies auch schon immer getan, da ohne
+Alinierung überhaupt keine regulären Lautkorrespondenzen ermittelt werden könnten. Der
+Sprachvergleich basierte lange Zeit jedoch eher auf einer impliziten Alinierung, die selten
+visualisiert wurde, und wenn doch, dann nur aus illustrativen Zwecken.</p>
+</section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Sequenzalinierung</span></h2>
+<h3><span class="subhead">Phonetische Alinierung</span></h3>
+<p><strong>Schwierigkeiten der phonetischen Alinierung</strong></p>
+<p><a href="img/phonalign.svg"><img src="img/phonalign.svg" style="width:1000px" alt="phonalign" /></a></p>
+</section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Sequenzalinierung</span></h2>
+<h3><span class="subhead">Phonetische Alinierung</span></h3>
+<p><strong>Substantielle und strukturelle Ähnlichkeit</strong></p>
+<ul>
+<li>die Wörter "schlafen" und "Flaschen" sind recht ähnlich</li>
+<li>die Wörter "Obst" und "Post" auch</li>
+<li>die Wörter "Kerker" und "Tanten" sind sich auch recht ähnlich, aber auf andere Art und Weise</li>
+</ul>
+<p><strong>Die beiden unterschiedlichen Formen von Ähnlichkeit können wir "substantielle" vs. "strukturelle" Ähnlichkeit nennen.</strong></p>
+</section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Sequenzalinierung</span></h2>
+<h3><span class="subhead">Phonetische Alinierung</span></h3>
+<p><strong>Heuristiken für strukturelle Ähnlichkeiten</strong></p>
+<p>Beim Alinieren in der historischen Linguistik ist es wichtig, der Tatsache Rechnung zu tragen, dass
+substantielle Ähnlichkeit zwischen Lauten nicht notwendigerweise auch auf deren Kognazität hinweist.
+Nur, wenn zwei Segmente auch systematisch (also in den Sprachsystemen) korrespondieren, sollten sie
+tatsächlich als ähnlich angesehen werden. 
+In den Schritten des Sprachvergleichs kann diese systematische Ähnlichkeit jedoch schwer ermittelt
+werden, denn zu Beginn eines Sprachvergleichs sind weder die kognaten Wörter bekannt, noch die
+regulär korrespondierenden Laute. </p>
+</section>
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Sequenzalinierung</span></h2>
+<h3><span class="subhead">Phonetische Alinierung</span></h3>
+<p><strong>Dolgopolskys Lautklassen</strong></p>
+<p><a href="img/dolgopolsky.svg"><img src="img/dolgopolsky.svg" style="width:1000px" alt="dolgopolsky" /></a></p>
+</section>
+</section>
+
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#ffffff">
+<h2><span class="head">Agenda 2015</span></h2>
+<ul>
+<li><span class="stroked">Sprachwandel</span><ul>
+<li><span class="stroked">Sprachen</span></li>
+<li><span class="stroked">Sprachwandel im Allgmeinen</span></li>
+<li><span class="stroked">Lautwandel</span></li>
+</ul>
+</li>
+<li><span class="stroked">Lautwandel</span><ul>
+<li><span class="stroked">Mechanismen des Lautwandels</span></li>
+<li><span class="stroked">Typen des Lautwandels</span></li>
+<li><span class="stroked">Die komparative Methode</span></li>
+</ul>
+</li>
+<li><span class="stroked">Sequenzalinierung</span><ul>
+<li><span class="stroked">Sequenzen und Sequenzvergleiche</span></li>
+<li><span class="stroked">Alinierung</span></li>
+<li><span class="stroked">Phonetische Alinierung</span></li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#000000">
+<p style="font-size:120px;color:white;font-weight:bold;">
+pause(30, "min");
+</p>
+
+<p style="font-size:80%;color:white;font-weight:bold;text-align:right;">
+Ende der ersten Sitzung
+</p>
+</section>
+
+
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+	slideNumber: 'c / t',
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+	  { src: 'plugin/math/math.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>

@@ -3,10 +3,15 @@
 ## Tag 3: Vom Wortvergleich zum Sprachvergleich
 
 ### I: [Sequenzvergleiche in der historischen Linguistik](sitzung-3-1.html)
-  - linguistische Aspekte von Sequenzvergleichen
-  - formale Aspekte von Sequenzvergleichen
-  - Sprachwandel im Allgemeinen
-  - Lautwandel im Besonderen
+
+* Themen:
+    - linguistische Aspekte von Sequenzvergleichen
+    - formale Aspekte von Sequenzvergleichen
+    - Sprachwandel im Allgemeinen
+    - Lautwandel im Besonderen
+* Materialien:
+    - [SLIDES](slides/sitzung-3-1.html)
+
 
 ### II: [Sequenzalinierung in Javascript](sitzung-3-2.html)
   - Berechnung der Levenshtein-Distanz in Javascript

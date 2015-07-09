@@ -6,7 +6,7 @@ An unserem zweiten Sitzungstag wollen wir versuchen, so schnell wie möglich auf
 
 ### I: [Datentypen und Variablen](sitzung-2-1.html)
 
-* Themen
+* Themen:
     - Datentypen im Allgemeinen
     - Datentypen in Python und Javascript (ausführliche Behandlung von Sequenzen und Dictionaries)
     - Variablen im Allgemeinen
@@ -14,10 +14,10 @@ An unserem zweiten Sitzungstag wollen wir versuchen, so schnell wie möglich auf
 * Materialien:
     - [SLIDES](slides/sitzung-2-1.html)
     - Beispielskripte:
-	- [kaskade.py](https://github.com/LinguList/pyjs-seminar/blob/master/website/code/kaskade.py)
-	- [kaskade.html](https://github.com/LinguList/pyjs-seminar/blob/master/website/code/kaskade.html)
-    - [DEMO]:
-	- [KASKADE](../demos/kaskade.html)
+        - [kaskade.py](https://github.com/LinguList/pyjs-seminar/blob/master/website/code/kaskade.py)
+        - [kaskade.html](https://github.com/LinguList/pyjs-seminar/blob/master/website/code/kaskade.html)
+    - DEMO:
+        - [KASKADE](../demos/kaskade.html)
 
 ### II: [Operatoren und Kontrollstrukturen](sitzung-2-2.html)
 
@@ -39,10 +39,10 @@ An unserem zweiten Sitzungstag wollen wir versuchen, so schnell wie möglich auf
 * Materialien: 
     - [SLIDES](slides/sitzung-2-3.html)
     - Beispielskripte:
-	- [stoneAgeCalculator.py](https://github.com/LinguList/pyjs-seminar/blob/master/website/code/stoneAgeCalculator.py)
-	- [stoneAgeCalculator.js](https://github.com/LinguList/pyjs-seminar/blob/master/website/code/stoneAgeCalculator.js)
+        - [stoneAgeCalculator.py](https://github.com/LinguList/pyjs-seminar/blob/master/website/code/stoneAgeCalculator.py)
+        - [stoneAgeCalculator.js](https://github.com/LinguList/pyjs-seminar/blob/master/website/code/stoneAgeCalculator.js)
     - DEMOS:
-	- [JS-CONSOLE mit Funktionen aus der Sitzung](../demos/console.html)
+        - [JS-CONSOLE mit Funktionen aus der Sitzung](demos/console.html)
 
 ### IV: [Vertiefungsaufgabe](sitzung-2-4.html)
 

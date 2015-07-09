@@ -175,7 +175,7 @@ Die Bedenken der
 Dialektologen standen jedoch strengenommen nicht direkt im Widerspruch zur
 junggrammatischen Doktrin, schließlich besagte die junggrammatische Theorie ja
 nicht, dass sich zwangsläufig *alle* Wörter einer Sprache regelmäßig
-änderten, sondern lediglich, dass idiosynkratischer Wandel durch andere Mechanismen (Entlehnung oder Analogie) erklärt werden konnte ([Kiparsky 1988:368](Kiparsky1988)).
+änderten, sondern lediglich, dass idiosynkratischer Wandel durch andere Mechanismen (Entlehnung oder Analogie) erklärt werden konnte ([Kiparsky 1988:368](:bib:Kiparsky1988)).
 
 ---
 
@@ -225,7 +225,7 @@ Phonological change may be implemented in a manner that is phonetically abrupt b
 --
 
 ## @head:"Lautwandel"
-### @subhead:"Mechanismen des Sprachwandels"
+### @subhead:"Mechanismen des Lautwandels"
 
 **Kompettitierende Theorien der Lautwandelmechanismen**
 
@@ -258,7 +258,7 @@ by counting cases, there appear to be far more substantially documented cases of
 change than of lexical diffusion.
 </blockquote>
 
---
+---
 
 ## @head:"Lautwandel"
 ### @subhead:"Typen des Lautwandels"
@@ -281,10 +281,10 @@ verweisen.
 **Terminologische Probleme**
 
 Was in der Literatur als *Lautwandeltyp* bezeichnet wird, kann dabei sowohl das Phänomen des
-\emph{Rhotazismus} umfassen ([Trask 2000:288}(Trask2000): 288, welches, vereinfacht gesagt, einen Wandel von
-/s/ nach /r/} bezeichnet, als auch den Prozess der *Lenisierung*, welcher eine
-bestimmte Art von Wandel bezeichnet, "in" which
-a segment becomes less consonant-like than previously ([idb. 190](Trask2000)).
+*Rhotazismus* umfassen ([Trask 2000: 288](Trask2000)), welches, vereinfacht gesagt, einen Wandel von
+/s/ nach /r/ bezeichnet, als auch den Prozess der *Lenisierung*, welcher eine
+bestimmte Art von Wandel bezeichnet, "in which
+a segment becomes less consonant-like than previously" ([idb. 190](Trask2000)).
 
 --
 
@@ -298,7 +298,7 @@ a segment becomes less consonant-like than previously ([idb. 190](Trask2000)).
     phonological word or phrase" (30).  
 * **Dissimilierung** "Any **syntagmatic change** in which one segment changes
   so as to become less similar to another segment in the same form" (95).
-* Metathese** "Any **syntagmatic change** in which the order of segments (or
+* **Metathese** "Any **syntagmatic change** in which the order of segments (or
     simetimes of other phonological elements) in a word is altered" (211).
 * **Tonogenese** "Any process which leads to the introduction of tones into a
     language which formerly lacked them" (346). 
@@ -361,7 +361,7 @@ a segment becomes less consonant-like than previously ([idb. 190](Trask2000)).
 
 **Definitionen**
 
-[<img src="img/cm-wirr.png" alt="indel" style="width:800px" />](img/cm-wirr.png)
+[<img src="img/cm-wirr.png" alt="indel" style="width:700px" />](img/cm-wirr.png)
 
 --
 
@@ -383,7 +383,7 @@ etymologischen Wörterbüchern, historischen Grammatiken und Entwicklungsschemat
 
 **Beschreibung des Workflows in [Ross und Durie (1996)](:bib:Ross1996)**
 
-[<img src="img/rodu.svg" alt="indel" style="width:800px" />](img/rodu.svg)
+[<img src="img/rodu.svg" alt="indel" style="width:700px" />](img/rodu.svg)
 
 --
 ## @head:"Lautwandel"
@@ -391,16 +391,16 @@ etymologischen Wörterbüchern, historischen Grammatiken und Entwicklungsschemat
 
 **Visualisierung des Workflows von [Ross und Durie (1996)](:bib:Ross1996)**
 
-[<img src="img/ross-durie-workflow.svg" alt="indel" style="width:800px" />](img/ross-durie-workflow.svg)
+[<img src="img/ross-durie-workflow.svg" alt="indel" style="width:700px" />](img/ross-durie-workflow.svg)
 
 --
 
 ## @head:"Lautwandel"
 ### @subhead:"Die komparative Methode"
 
-**Vereinfachter Workflow [List (2014)](:bib:List2014d)**
+**Vereinfachter Workflow [(List 2014)](:bib:List2014d)**
 
-[<img src="img/cm-simplified.svg" alt="indel" style="width:600px" />](img/cm-simplified.svg)
+[<img src="img/cm-simplified.png" alt="indel" style="width:600px" />](img/cm-simplified.png)
 
 ---
 
@@ -458,7 +458,7 @@ ihrer Segmente.
 
 **Vergleich von Sequenzen mit unterschiedlicher Länge**
 
-[<img src="img/matchings.svg" style="width:800px" alt="matchings" />](img/matchings.svg)
+[<img src="img/matchings.png" style="width:800px" alt="matchings" />](img/matchings.png)
 
 ---
 
@@ -470,7 +470,7 @@ ihrer Segmente.
 > Eine *Alinierung* von $n$ ($n>1$) Sequenzen ist eine $n$-reihige Matrix, in der alle
 > Sequenzen dergestalt angeordnet werden, dass alle matchenden Segmente in derselben Spalte
 > erscheinen, während nicht-matchende Segmente, die aus leeren Matches resultieren, durch
-> Gap-Symbole angezeigt werden. [(vgl. Gusfield 1997: 216)](:bib:Gusfield1997)
+> Gap-Symbole angezeigt werden. (vgl [Gusfield 1997: 216](:bib:Gusfield1997))
 
 --
 
