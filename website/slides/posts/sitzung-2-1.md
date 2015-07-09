@@ -193,11 +193,6 @@ Traceback (most recent call last):
 TypeError: unsupported operand type(s) for +: 'int' and 'str'
 </code></pre>
 
---
-
-
-<iframe src="https://trinket.io/embed/python/81ee860cf7" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
-
 ---
 
 ## @head:"Variablen"
@@ -322,7 +317,7 @@ Typisierung.
 * :fragment: Worum es sich bei dem Wert handelt, ist wichtig für die korrekte Durchführung eines Programms. ::
 * :fragment: Wörter kann man beispielsweise nicht addieren. ::
 * :fragment: Zahlen kann man dafür nicht einfach aneinanderreihen. ::
-* :fragment: Auch im wirklichen Leben teilen wir unsere Zeichen in gewisser Weise in Datentypen ein, denn wenn wir den Satz ``Multipliziere mal 1 und 1" hören, dann denken wir bei ``1" an eine Zahl und nicht an eine Zeugnisnote, weil man eine Zeugnisnote nicht multiplizieren kann. ::
+* :fragment: Auch im wirklichen Leben teilen wir unsere Zeichen in gewisser Weise in Datentypen ein, denn wenn wir den Satz "Multipliziere mal 1 und 1" hören, dann denken wir bei "1" an eine Zahl und nicht an eine Zeugnisnote, weil man eine Zeugnisnote nicht multiplizieren kann. ::
 
 ---
 
@@ -368,7 +363,7 @@ auch die Erstellung eigener komplexer Datentypen.
 True
 >>> isinstance(d, (int,str))
 False
-</code>
+</code></pre>
 
 --
 
