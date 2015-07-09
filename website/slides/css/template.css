@@ -23,6 +23,11 @@
 	display: block;
 }
 
+.bq80 {
+	font-size: 80%;
+	line-height:30px;
+}
+
 
 .question {
 	position: relative;
