@@ -24,7 +24,7 @@
 }
 
 .mytabs td {
-	border: 2px solid black!important;
+	border: 2px solid black;
 }
 .question {
 	position: relative;

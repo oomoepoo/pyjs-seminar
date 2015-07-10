@@ -1,0 +1,57 @@
+.alm {
+  border: 2px solid gray;
+}
+.alm td {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  border: 3px solid lightgray;
+  
+}
+
+.alms {
+	display: table-cell;
+	width: 40px;
+	height: 40px;
+	text-align:center;
+	border: 3px solid lightgray;
+	padding: 5px;
+	vertical-align: center;
+	font-weight: bold;
+	background: black;
+	color: white;
+}
+
+.tb0 {
+	border-left: 3px solid DarkGreen!important;
+	border-top: 3px solid DarkGreen!important;
+}
+
+.tb1 {
+	border-top: 3px solid Blue!important;
+}
+
+.tb2 {
+	border-left: 3px solid Crimson!important;
+}
+
+.path {
+	background-color: gray;
+	font-weight: bold;
+	color:white;
+}
+
+.popup {
+	position: absolute;
+	border: 3px solid Crimson;
+	padding: 5px;
+	font-weight: bold;
+	font-size;
+}
+
+#answer div {
+	float: left;
+	display: table-cell;
+	margin-right: 20px;
+}
+

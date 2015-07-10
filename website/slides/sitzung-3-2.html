@@ -1,0 +1,650 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Sitzung 1: Sequenzvergleiche in der historischen Linguistik</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+
+
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <style>
+  .head {
+	position: relative;
+	top: 0px;
+	font-size: 90%!important;
+	color: white;
+	background-color: Green;
+	width: 960px;
+	text-align:justify;
+	display: block;
+	padding-left: 5px;
+	margin: 0;
+}
+.subhead {
+	position: relative;
+	top: -20px;
+	font-size: 70%!important;
+	color: white;
+	background-color: Crimson;
+	width: 960px;
+	text-align: justify;
+	padding: 5px;
+	margin: 0;
+	display: block;
+}
+
+.mytabs td {
+	border: 2px solid black!important;
+}
+.question {
+	position: relative;
+	font-size: 80%!important;
+	color: Crimson;
+	font-weight: bold;
+	font-style: italic;
+	text-align: center!important;
+	display: block;
+	width: 960px;
+	text-transform: none;
+}
+
+.bq80 {
+	font-size: 80%!important;
+	line-height: 30px!important;
+}
+.small {
+	font-size: 70%!important;
+}
+
+
+.stroked {
+	text-decoration: line-through;
+}
+
+  </style>
+  <script>
+function startTime(elm) {
+    var today=new Date();
+    var h=today.getHours();
+    var m=today.getMinutes();
+    var s=today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById(elm).innerHTML = h+":"+m+":"+s;
+    var t = setTimeout(function(){startTime()},500);
+}
+
+function checkTime(i) {
+    if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+
+  </script>
+  <body>
+  <div style="display: none;" class="tilda" id="tilda">
+    <div style="height: 100px;" class="td terminal">
+      <div class="terminal-output">
+      </div>
+    </div>
+  </div>
+
+
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+	<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;text-align:center;font-size:100%;">
+<h2>Computergestützter Sprachvergleich mit Python und JavaScript</h2>
+<hr />
+<h3>Sitzung 2 (Tag 3)</h3>
+<hr />
+<h4>22.07.2015</h4>
+<hr />
+<h3>&quot;Sequenzalinierung in JavaScript&quot;</h3>
+</section>
+
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Agenda 2015</span></h2>
+<ul>
+<li><span class="unstroked">Automatische Sequenzalinierung</span><ul>
+<li><span class="unstroked">Das Problem</span></li>
+<li><span class="unstroked">Die Lösungsstrategie</span></li>
+<li><span class="unstroked">Der Algorithmus</span></li>
+</ul>
+</li>
+<li><span class="unstroked">Sequenzalinierung in JavaScript</span><ul>
+<li><span class="unstroked">Vorüberlegungen</span></li>
+<li><span class="unstroked">Implementierung der Matrixberechnung</span></li>
+<li><span class="unstroked">Implementierung des Traceback</span></li>
+</ul>
+</li>
+<li><span class="unstroked">Interaktive Sequenzalinierung</span><ul>
+<li><span class="unstroked">Grundlagen</span></li>
+<li><span class="unstroked">Implementierung</span></li>
+<li><span class="unstroked">Demo</span></li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section>
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Automatische Sequenzalinierung</span></h2>
+<h3><span class="subhead">Das Problem</span></h3>
+<p><strong>Wir wollen zwei Sequenzen automatisch alinieren, aber wie?</strong></p>
+<ul>
+<li><span class="fragment">Eine einfache automatische Lösung wäre es, einfach alle verschiedenen Kombinationen durchzutesten.</span></li>
+<li><span class="fragment">In einem weiteren Schritt könnten wir dann alle Alinierungen testen und ihren &quot;Score&quot; berechnen, also sie bewerten, indem wir, zum Beispiel, zählen, wie viele Mismatches und leere Matches sie aufweisen.</span></li>
+<li><span class="fragment">Dann könnten wir den Score für jedes Paar aufsummieren und würden einfach die Alinierung mit dem besten Score nehmen.</span></li>
+</ul>
+</section>
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Automatische Sequenzalinierung</span></h2>
+<h3><span class="subhead">Das Problem</span></h3>
+<p><strong>Leider dauert das zu lange!</strong></p>
+<p>Die Zahl aller Möglichen Alinierungen zwischen zwei Strings hängt von deren Länge ab: Es gilt:</p>
+<p>$N = \sum_{k=0}^{\min(m,n)} 2^{k} \cdot \binom{m}{k} \cdot \binom{n}{k}$, </p>
+<p>für zwei Strings der Länge $m$ und $n$.</p>
+</section>
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Automatische Sequenzalinierung</span></h2>
+<h3><span class="subhead">Das Problem</span></h3>
+<p><strong>Und was soll das heißen?</strong></p>
+<p>Das wir für die Alinierung von "Herz" und "heart" 681 verschiedene Alinierungen testen müssten, und für die Alinierung von "Werdegänge" und "Kinderpass" 8 097 453 verschiedene Möglichkeiten!</p>
+</section>
+</section>
+
+<section>
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Automatische Sequenzalinierung</span></h2>
+<h3><span class="subhead">Die Lösungsstrategie</span></h3>
+<p><strong>Sei faul und mach Dir keine unnötige Arbeit!</strong></p>
+<p>Die Lösungsstrategie beruht auf der Idee, dass man bestimmte Teillösungen, die man schon berechnet hat, ja eigentlich nicht noch ein zweites Mal berechnen muss, und ferner, dass man Lösungswege, die so abwegig sind, dass klar ist, dass sie nicht zum Erfolg führen können, einfach nicht weiterverfolgt.</p>
+</section>
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Automatische Sequenzalinierung</span></h2>
+<h3><span class="subhead">Die Lösungsstrategie</span></h3>
+<p><strong>Dynamische Programmierung</strong></p>
+<p>Der Algorithmus, mit dem man die optimale Alinierung von zwei Strings relativ schnell und effizient berechnen kann, gehört zur Familie der dynamischen Programmieralgorithmen (<em>dynamic programming</em>). Die Idee dieser Algorithmen ist es, ein Problem in umgekehrter Richtung anzugehen: Anstatt alle möglichen Alinierungen zwischen zwei Sequenzen zu testen, baut man eine Alinierung auf, indem man Gebrauch macht von "previous solutions for optimal alignments of smaller subsequenze" (<a href="http://bibliography.lingpy.org?key=Durbin2002">Durbin et al. 1998[2002]</a>).</p>
+</section>
+</section>
+
+<section>
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Automatische Sequenzalinierung</span></h2>
+<h3><span class="subhead">Der Algorithmus</span></h3>
+<p><strong>Grundlegende Bestandteile</strong></p>
+<ol>
+<li><strong>Scoring Schema:</strong> bestimmt, wie wir uniforme, divergente, und leere Matches bewerten.</li>
+<li><strong>Matrizzenkonstruktion:</strong> erstellt eine Matrix, in der wir alle möglichen Kombinationen der Sequenzen miteinander einander gegenüberstellen.</li>
+<li><strong>Traceback:</strong> Merkt sich alle Zwischenentscheidungen, die getroffen wurden, so dass wir nachher ermitteln können, welchen "Pfad" wir gelaufen sind, umz um besten Ergebnis zu gelangen.</li>
+</ol>
+</section>
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Automatische Sequenzalinierung</span></h2>
+<h3><span class="subhead">Der Algorithmus</span></h3>
+<p><strong>Scoring Schema</strong></p>
+<table class="mytabs">
+<tr><th>Matching Type</th><th>Score</th><th>Example</th></tr>
+<tr><td> uniform match </td>   <td>0 </td><td> A / A </td></tr>
+<tr><td> divergent match </td> <td>1 </td><td> A / B</td></tr>
+<tr><td> emtpy match </td>     <td>1 </td><td> A / -, - / A </td></tr>
+</table>
+</section>
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Automatische Sequenzalinierung</span></h2>
+<h3><span class="subhead">Der Algorithmus</span></h3>
+<p><strong>Matrix</strong></p>
+<table class="mytabs">
+<tr><td>  </td><td> B </td><td> Ä </td><td> R </td></tr>
+<tr><td> A </td><td style="color:white">A / B</td><td style="color:white">A / Ä</td><td style="color:white">A / Ä</td></tr>
+<tr><td> B </td><td style="color:white">B / B</td><td style="color:white">B / Ä</td><td style="color:white">B / Ä</td></tr>
+<tr><td> E </td><td style="color:white">E / B</td><td style="color:white">E / Ä</td><td style="color:white">E / Ä</td></tr>
+<tr><td> R </td><td style="color:white">R / B</td><td style="color:white">R / Ä</td><td style="color:white">R / Ä</td></tr>
+</table>
+</section>
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Automatische Sequenzalinierung</span></h2>
+<h3><span class="subhead">Der Algorithmus</span></h3>
+<p><strong>Matrix</strong></p>
+<table class="mytabs">
+<tr><td> - / - </td><td> - / B </td><td> - / Ä </td><td> - / R </td></tr>
+<tr><td> A / - </td><td style="color:Crimson">A / B</td><td style="color:Crimson">A / Ä</td><td style="color:Crimson">A / R</td></tr>
+<tr><td> B / - </td><td style="color:Crimson">B / B</td><td style="color:Crimson">B / Ä</td><td style="color:Crimson">B / R</td></tr>
+<tr><td> E / - </td><td style="color:Crimson">E / B</td><td style="color:Crimson">E / Ä</td><td style="color:Crimson">E / R</td></tr>
+<tr><td> R / - </td><td style="color:Crimson">R / B</td><td style="color:Crimson">R / Ä</td><td style="color:Crimson">R / R</td></tr>
+</table>
+</section>
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Automatische Sequenzalinierung</span></h2>
+<h3><span class="subhead">Der Algorithmus</span></h3>
+<p><strong>Matrix</strong></p>
+<table><tr><td>
+<table class="mytabs">
+<tr><td> - / - </td><td> - / B </td><td> - / Ä </td><td> - / R </td></tr>
+<tr><td> A / - </td><td style="color:black">A / B</td><td style="color:black">A / Ä</td><td style="color:black">A / R</td></tr>
+<tr><td> B / - </td><td style="color:black">B / B</td><td style="color:Crimson;font-weight:bold">B / Ä</td><td style="color:black">B / R</td></tr>
+<tr><td> E / - </td><td style="color:black">E / B</td><td style="color:black">E / Ä</td><td style="color:black">E / R</td></tr>
+<tr><td> R / - </td><td style="color:black">R / B</td><td style="color:black">R / Ä</td><td style="color:black">R / R</td></tr>
+</table></td><td style="font-size:100px;font-weight:bold;vertical-align:top;">→</td><td>
+<table class="mytabs">
+<tr><td style="color:Crimson"> - </td><td style="color:Crimson"> Ä </td></tr>
+<tr><td style="color:Crimson"> B </td><td style="color:Crimson"> Ä </td></tr>
+<tr><td style="color:Crimson"> B </td><td style="color:Crimson"> - </td></tr>
+</table></td></tr></table>
+</section>
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Automatische Sequenzalinierung</span></h2>
+<h3><span class="subhead">Der Algorithmus</span></h3>
+<p><strong>Traceback</strong></p>
+<table class="mytabs">
+<tr><td style="background:lightgray;"> - / - </td><td> - / B </td><td> - / Ä </td><td> - / R </td></tr>
+<tr><td style="background:lightgray"> A / - </td><td style="color:black">A / B</td><td style="color:black">A / Ä</td><td style="color:black">A / R</td></tr>
+<tr><td> B / - </td><td style="color:black;background:lightgray;">B / B</td><td style="color:black">B / Ä</td><td style="color:black">B / R</td></tr>
+<tr><td> E / - </td><td style="color:black">E / B</td><td style="color:black;background:lightgray">E / Ä</td><td style="color:black">E / R</td></tr>
+<tr><td> R / - </td><td style="color:black">R / B</td><td style="color:black">R / Ä</td><td style="color:black;background:lightgray">R / R</td></tr>
+</table>
+</section>
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Automatische Sequenzalinierung</span></h2>
+<h3><span class="subhead">Der Algorithmus</span></h3>
+<p><strong>Traceback</strong></p>
+<table><tr><td>
+<table class="mytabs">
+<tr><td style="background:lightgray;"> - / - </td><td> - / B </td><td> - / Ä </td><td> - / R </td></tr>
+<tr><td style="background:lightgray"> A / - </td><td style="color:black">A / B</td><td style="color:black">A / Ä</td><td style="color:black">A / R</td></tr>
+<tr><td> B / - </td><td style="color:black;background:lightgray;">B / B</td><td style="color:black">B / Ä</td><td style="color:black">B / R</td></tr>
+<tr><td> E / - </td><td style="color:black">E / B</td><td style="color:black;background:lightgray">E / Ä</td><td style="color:black">E / R</td></tr>
+<tr><td> R / - </td><td style="color:black">R / B</td><td style="color:black">R / Ä</td><td style="color:black;background:lightgray">R / R</td></tr>
+</table></td><td style="font-size:100px;font-weight:bold;vertical-align:top;">→</td><td>
+<table class="mytabs">
+<tr><td style="background:lightgray"> 0 </td><td> 2 </td><td> 2 </td><td> 2 </td></tr>
+<tr><td style="background:lightgray"> 1 </td><td> 0 </td><td> 2 </td><td> 2 </td></tr>
+<tr><td> 1 </td><td style="background:lightgray;"> 0 </td><td> 2 </td><td> 2 </td></tr>
+<tr><td> 1 </td><td> 1 </td><td style="background:lightgray"> 0 </td><td> 2 </td></tr>
+<tr><td> 1 </td><td> 1 </td><td> 1 </td><td style="background:lightgray"> 0 </td></tr>
+</table></td></tr></table>
+</section>
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Automatische Sequenzalinierung</span></h2>
+<h3><span class="subhead">Der Algorithmus</span></h3>
+<iframe src="../demos/nw-demo.html" style="width:950px;height:600px"></iframe>
+</section>
+</section>
+
+<section data-background="#ffffff" data-transition="none" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Agenda 2015</span></h2>
+<ul>
+<li><span class="stroked">Automatische Sequenzalinierung</span><ul>
+<li><span class="stroked">Das Problem</span></li>
+<li><span class="stroked">Die Lösungsstrategie</span></li>
+<li><span class="stroked">Der Algorithmus</span></li>
+</ul>
+</li>
+<li><span class="unstroked">Sequenzalinierung in JavaScript</span><ul>
+<li><span class="unstroked">Vorüberlegungen</span></li>
+<li><span class="unstroked">Implementierung der Matrixberechnung</span></li>
+<li><span class="unstroked">Implementierung des Traceback</span></li>
+</ul>
+</li>
+<li><span class="unstroked">Interaktive Sequenzalinierung</span><ul>
+<li><span class="unstroked">Grundlagen</span></li>
+<li><span class="unstroked">Implementierung</span></li>
+<li><span class="unstroked">Demo</span></li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section>
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Sequenzalinierung in JavaScript</span></h2>
+<h3><span class="subhead">Vorüberlegungen</span></h3>
+<p><strong>Um den Algorithmus zu implementieren, brauchen wir:</strong></p>
+<ul>
+<li>einige numerische Variablen</li>
+<li>die Repräsentation der Sequenzen</li>
+<li>Wege, Alinierungen zu repräsentieren</li>
+<li>Wege, die Matrix zu repräsentieren</li>
+<li>eine Möglichkeit, das Scoring-Schema umzusetzen</li>
+</ul>
+</section>
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Sequenzalinierung in JavaScript</span></h2>
+<h3><span class="subhead">Vorüberlegungen</span></h3>
+<p><strong>JavaScript bietet uns:</strong></p>
+<ul>
+<li>Variablen, kein Problem</li>
+<li>Listen (Arrays) für die Alinierungen</li>
+<li>und auch für die Sequenzen</li>
+<li>mehrdimensionale Arrays für die Matrix und den Traceback</li>
+<li>if/else-Verzweigungen und String-Vergleiche für das Scoring-Schema</li>
+</ul>
+</section>
+</section>
+
+<section>
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Sequenzalinierung in JavaScript</span></h2>
+<h3><span class="subhead">Implementierung der Matrixberechnung</span></h3>
+<pre><code class="javascript">
+function seqAlign(seqA, seqB) {
+  /* Vorbereitung der Daten hier */
+  /* Matrix-Initialisierung hier */
+  /* Haupt-Loop hier, darin auch die Scoring Function */
+  /* Traceback hier */
+  /* Nachbearbeitung hier */
+}
+</code></pre>
+</section>
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Sequenzalinierung in JavaScript</span></h2>
+<h3><span class="subhead">Implementierung der Matrixberechnung</span></h3>
+<pre><code class="javascript">
+function seqAlign(seqA, seqB) {
+  /* return nothing if either of the lists is empty */
+  if(seqA.length == 0 || seqB.length == 0) {
+    return;
+  }
+  /* get the lengths of the sequences */
+  var alen = seqA.length;
+  var blen = seqB.length;
+  /* declare variables in local environment */
+  var i, j; // numbers
+  var gapA, gapB, dist; // floats
+  var charA, charB; // characters
+  /* Matrix-Initialisierung hier */
+  /* Haupt-Loop hier, darin auch die Scoring Function */
+  /* Traceback hier */
+  /* Nachbearbeitung hier */
+}
+</code></pre>
+</section>
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Sequenzalinierung in JavaScript</span></h2>
+<h3><span class="subhead">Implementierung der Matrixberechnung</span></h3>
+<pre><code class="javascript">
+function seqAlign(seqA, seqB) {
+  /* Vorbereitung hier */
+  /* create the matrix */
+  var matrix = [];
+  for(var i=0;i&lt;alen+1;i++) {
+    var inline = [];
+    for(var j=0;j&lt;blen+1;j++) {
+      inline.push(0);
+    }
+    matrix.push(inline);
+  }
+  /* initialize matrix */
+  for(i=1;i&lt;blen+1;i++) {
+    matrix[0][i] = i;
+  }
+  for(i=1;i&lt;alen+1;i++) {
+    matrix[i][0] = i;
+  }
+  /* create the traceback */
+  var traceback = [];
+  for(var i=0;i&lt;alen+1;i++) {
+    var inline = [];
+    for(var j=0;j&lt;blen+1;j++) {
+      inline.push(0);
+    }
+    traceback.push(inline);
+  }
+  /* initialize traceback */
+  for(i=1;i&lt;blen+1;i++) {
+    traceback[0][i] = 2;
+  }
+  for(i=1;i&lt;alen+1;i++) {
+    traceback[i][0] = 1;
+  }
+  /* Haupt-Loop hier, darin auch die Scoring Function */
+  /* Traceback hier */
+  /* Nachbearbeitung hier */
+}
+</code></pre>
+</section>
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Sequenzalinierung in JavaScript</span></h2>
+<h3><span class="subhead">Implementierung der Matrixberechnung</span></h3>
+<pre><code class="javascript">
+function seqAlign(seqA, seqB) {
+  /* Vorbereitung hier */  
+  /* Matrix-Initialisierung hier */ 
+  /* start the iteration to fill the matrix */
+  for(i=1;i&lt;alen+1;i++) {
+    for(j=1;j&lt;blen+1;j++) {      
+      /* get the character in both sequences at their respective position */
+      charA = seqA[i-1];
+      charB = seqB[j-1];      
+      /* check the similarity between the characters to get the local distance */
+      if(charA == charB) {
+        dist = matrix[i-1][j-1];
+      }
+      else {
+        dist = matrix[i-1][j-1]+1;
+      }      
+      /* we have the distance for substitution, now we need the gaps */
+      gapA = matrix[i-1][j]+1;
+      gapB = matrix[i][j-1]+1;    
+      /* find the minimal value */
+      if(dist &lt; gapA && dist &lt; gapB) {
+        matrix[i][j] = dist;
+      }
+      else if(gapA &lt; gapB) {
+        matrix[i][j] = gapA ;
+        traceback[i][j] = 1;
+      }
+      else {
+        matrix[i][j] = gapB;
+        traceback[i][j] = 2;
+      }
+    }
+  }
+  /* Traceback hier */
+  /* Nachbearbeitung hier */
+}
+</code></pre>
+</section>
+</section>
+
+<section>
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Sequenzalinierung in JavaScript</span></h2>
+<h3><span class="subhead">Implementierung des Traceback</span></h3>
+<pre><code class="javascript">
+function seqAlign(seqA, seqB) {
+  /* Vorbereitung hier */
+  /* Matrix-Initialisierung hier */
+  /* get indices for the last cells of the matrix */
+  i = matrix.length-1;
+  j = matrix[0].length-1;
+  /* get the edit-dist */
+  var ED = matrix[i][j];
+  /* initialize the alignment arrays */
+  var almA = [];
+  var almB = [];
+  /* start the traceback */
+  while(i &gt; 0 || j &gt; 0) {
+    if(traceback[i][j] == 0) {
+      almA.push(seqA[i-1]);
+      almB.push(seqB[j-1]);
+      i--;
+      j--;
+    }
+    else if(traceback[i][j] == 1) {
+      almA.push(seqA[i-1]);
+      almB.push("-");
+      i--;
+    }
+    else {
+      almA.push("-");
+      almB.push(seqB[j-1]);
+      j--;
+    }   
+  }
+  /* Nachbearbeitung hier */
+}
+</code></pre>
+</section>
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Sequenzalinierung in JavaScript</span></h2>
+<h3><span class="subhead">Implementierung des Traceback</span></h3>
+<pre><code class="javascript">
+function seqAlign(seqA, seqB) {
+  /* Vorbereitung hier */
+  /* Matrix-Initialisierung hier */
+  /* Haupt-Loop hier, darin auch die Scoring Function */
+  /* reverse alignments */
+  almA = almA.reverse();
+  almB = almB.reverse();
+}
+</code></pre>
+</section>
+</section>
+
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Agenda 2015</span></h2>
+<ul>
+<li><span class="stroked">Automatische Sequenzalinierung</span><ul>
+<li><span class="stroked">Das Problem</span></li>
+<li><span class="stroked">Die Lösungsstrategie</span></li>
+<li><span class="stroked">Der Algorithmus</span></li>
+</ul>
+</li>
+<li><span class="stroked">Sequenzalinierung in JavaScript</span><ul>
+<li><span class="stroked">Vorüberlegungen</span></li>
+<li><span class="stroked">Implementierung der Matrixberechnung</span></li>
+<li><span class="stroked">Implementierung des Traceback</span></li>
+</ul>
+</li>
+<li><span class="unstroked">Interaktive Sequenzalinierung</span><ul>
+<li><span class="unstroked">Grundlagen</span></li>
+<li><span class="unstroked">Implementierung</span></li>
+<li><span class="unstroked">Demo</span></li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Interaktive Sequenzalinierung</span></h2>
+<h3><span class="subhead">Grundlagen</span></h3>
+</section>
+
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Interaktive Sequenzalinierung</span></h2>
+<h3><span class="subhead">Implementierung</span></h3>
+<pre><code class="html">
+
+</code></pre>
+</section>
+
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Interaktive Sequenzalinierung</span></h2>
+<h3><span class="subhead">Demo</span></h3>
+<iframe src="../demos/nw-aktiv.html" style="width:950px;height:700px"></iframe>
+</section>
+
+<section data-background="#ffffff" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Agenda 2015</span></h2>
+<ul>
+<li><span class="stroked">Automatische Sequenzalinierung</span><ul>
+<li><span class="stroked">Das Problem</span></li>
+<li><span class="stroked">Die Lösungsstrategie</span></li>
+<li><span class="stroked">Der Algorithmus</span></li>
+</ul>
+</li>
+<li><span class="stroked">Sequenzalinierung in JavaScript</span><ul>
+<li><span class="stroked">Vorüberlegungen</span></li>
+<li><span class="stroked">Implementierung der Matrixberechnung</span></li>
+<li><span class="stroked">Implementierung des Traceback</span></li>
+</ul>
+</li>
+<li><span class="stroked">Interaktive Sequenzalinierung</span><ul>
+<li><span class="stroked">Grundlagen</span></li>
+<li><span class="stroked">Implementierung</span></li>
+<li><span class="stroked">Demo</span></li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section data-background="#000000" data-transition="concave" style="text-align:justify;font-size:85%;">
+<p style="font-size:120px;color:white;font-weight:bold;">
+pause(30, "min");
+</p>
+
+<p style="font-size:80%;color:white;font-weight:bold;text-align:right;">
+Ende der zweiten Sitzung
+</p>
+</section>
+
+
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+	slideNumber: 'c / t',
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+	  { src: 'plugin/math/math.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>

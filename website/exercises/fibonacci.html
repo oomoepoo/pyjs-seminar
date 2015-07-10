@@ -1,0 +1,50 @@
+<html>
+<head>
+  <title>Fibonacci's Kanickel</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="<++>" />
+</head>
+<body>
+  <label>How many generations do you want to breed your rabbits?</label>
+  <input type="number" value="5" max="10" min="1" id="kanickel"/>
+  <br>
+  <button onclick="fiboStart()">GO!</button>
+  <div id="kanickelfarm"></div>
+  <script>
+function fiboStart() {
+  
+  /* get the number of generations */
+  var ngen = document.getElementById('kanickel').value;
+
+  /* teste, ob ngen kleiner als 2 ist, dann lassen wir das ganze */
+  if (ngen < 2) {
+    return ngen;
+  }
+  
+  /* wenn nicht, dann machen wir einen schönen array fertig */
+  var a = [0, 1];
+  
+  /* wir bereiten unsere schönen kaninchenbilder vor */
+  var images = '';
+
+  /* jetzt ist es einfach, wir iterieren durch den array und expan-
+     dieren ihn mit seinen eigenen werten */
+  for (var i=1; i<ngen; i++) {
+    a.push(a[a.length-1] + a[a.length-2]);
+
+    /* jetzt fügen wir bilder hinzu */
+    var image = '';
+    for (var j=0; j<a[a.length-1]; j++) {
+      image += '<img src="img/rabbits.svg" style="width:50px" />';
+    }
+    images += "<p style=\"border:2px solid lightgray\">"+image+"</p>";
+  }
+
+  /* get the kanickelfarm */
+  var kf = document.getElementById('kanickelfarm');
+  kf.innerHTML = images;
+
+}
+  </script>
+</body>
+</html>

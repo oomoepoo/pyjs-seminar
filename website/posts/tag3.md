@@ -13,9 +13,9 @@
     - [SLIDES](slides/sitzung-3-1.html)
 
 
-### II: [Sequenzalinierung in Javascript](sitzung-3-2.html)
-  - Berechnung der Levenshtein-Distanz in Javascript
-  - Needleman-Wunsch Algorithmus in Javascript
+### II: [Sequenzalinierung in JavaScript](sitzung-3-2.html)
+  - Berechnung der Levenshtein-Distanz in JavaScript
+  - Needleman-Wunsch Algorithmus in JavaScript
   - Interaktive Version des Needleman-Wunsch Algorithmus
 
 ### III: [Sequenzalinierung in Python](sitzung-3-3.html)
