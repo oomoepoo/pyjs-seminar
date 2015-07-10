@@ -1,6 +1,0 @@
-.alm {
-	border: 2px solid gray;
-}
-.alm td {
-	border: 1px solid lightgray;
-}
