@@ -16,8 +16,8 @@
 <br></br>
 <div id="answer">
 <div id="nw"></div>
-<div id="alignment"></div>
 <div id="number"></div>
+<div id="alignment"></div>
 </div>
 
 <script>
@@ -113,13 +113,14 @@ function startDemo() {
 
     /* get the traceback for the given sub-path */
 
-    for (var i=0; i < M.length; i++) {
+    for (var i=0; i < seqA.length + 1; i++) {
       if (i == 0) {
 	mtxt += '<tr><th></th><th></th><th>'+seqB.join('</th><th>')+'</th></tr>';
       }
       mtxt += '<tr>';
-      for (var j=0; j < M[0].length; j++) {
+      for (var j=0; j < seqB.length + 1; j++) {
 	
+	/* prepare the traceback */
 	if (j == 0 && i > 0) {
 	  mtxt += '<th>'+seqA[i-1]+'</th>';
 	}
@@ -139,7 +140,6 @@ function startDemo() {
 	    cell += ' onmouseover="popUp(this,\''+lA+'\',\''+lB+'\')"';
 	    cell += ' onmouseout="this.innerHTML=\''+M[i][j]+'\';"';
 	  }
-	  //cell.onmouseout 
 	  cell += '>';
 	}
 	else {
@@ -148,14 +148,47 @@ function startDemo() {
 
 	cell += M[i][j]+'</td>';
 	
-	if (visited.indexOf(i+'/'+j) != -1) {
-	  mtxt += cell;
-	}
-	else if (i == x && j == y) {
+	/* fill in the matrix */
+	if (i == x && j == y) {
 	  mtxt += cell;
 	  visited.push(i+'/'+j);
 
 	  /* check for previous cell and the like */
+	  if (i > 0 || j > 0) {
+	    var cav = (i > 0) ? M[i-1][j] : '?';
+	    var clv = (j > 0) ? M[i][j-1] : '?';
+	    var cdv = (i > 0 && j > 0) ? M[i-1][j-1] : '?';
+	    var gpa = (cav != '?') ? cav + 1 : '?';
+	    var gpl = (clv != '?') ? clv + 1 : '?';
+	    if (seqA[i-1] == seqB[j-1] && i > 0 && j > 0) {
+	      var mtc = cdv;
+	      var pval = 0;
+	    }
+	    else if (i == 0 || j == 0) {
+	      var mtc = '?';
+	      var pval = '';
+	    }
+	    else {
+	      var mtc = cdv + 1;
+	      var pval = 1;
+	    }
+
+	    var charA = (typeof seqA[i-1] != 'undefined') ? seqA[i-1] : '?';
+	    var charB = (typeof seqB[j-1] != 'undefined') ? seqB[j-1] : '?';
+
+	    var txt = '<table class="cells">';
+	    txt += '<tr><th colspan="4">Position: i='+x+', j='+y+'</th></tr>';
+	    txt += '<tr><th>Cell</th><th>Match</th><th>Old</th><th>New</th></tr>';
+	    txt += '<tr><td>Top</td>'     +'<td>'+charA+' / -</td><td>'+cav+'+1</td><td>'+gpa+'</td></tr>';
+	    txt += '<tr><td>Left</td>'        +'<td>'+'- / '+charB+'</td><td>'+clv+'+1</td><td>'+gpl+'</td></tr>';
+	    txt += '<tr><td>Diagonal</td>'    +'<td>'+charA+' / '+charB+'</td><td>'+cdv+'+'+pval+'</td><td>'+mtc+'</td></tr>';
+	    txt += '</table>';
+	    nr.innerHTML = txt;
+	  }
+
+	}
+	else if (visited.indexOf(i+'/'+j) != -1) {
+	  mtxt += cell;
 	}
 	else if (i < x && j < y) {
 	  mtxt += cell;
@@ -177,7 +210,7 @@ function startDemo() {
   for (var i=0; i<M.length; i++) {
     times.push([i,0]);
   }
-  for (var j=0; j<M.length; j++) {
+  for (var j=0; j<M[0].length; j++) {
     times.push([0,j]);
   }
 

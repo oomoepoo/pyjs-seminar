@@ -263,7 +263,7 @@ Der Algorithmus, mit dem man die optimale Alinierung von zwei Strings relativ sc
 ## @head:"Sequenzalinierung in JavaScript"
 ### @subhead:"Implementierung der Matrixberechnung"
 
-<pre><code class="javascript">
+<pre><code class="javascript" data-trim>
 function seqAlign(seqA, seqB) {
   /* Vorbereitung der Daten hier */
   /* Matrix-Initialisierung hier */
@@ -277,7 +277,7 @@ function seqAlign(seqA, seqB) {
 ## @head:"Sequenzalinierung in JavaScript"
 ### @subhead:"Implementierung der Matrixberechnung"
 
-<pre><code class="javascript">
+<pre><code class="javascript" data-trim>
 function seqAlign(seqA, seqB) {
   /* return nothing if either of the lists is empty */
   if(seqA.length == 0 || seqB.length == 0) {
@@ -302,7 +302,7 @@ function seqAlign(seqA, seqB) {
 ## @head:"Sequenzalinierung in JavaScript"
 ### @subhead:"Implementierung der Matrixberechnung"
 
-<pre><code class="javascript">
+<pre><code class="javascript" data-trim>
 function seqAlign(seqA, seqB) {
   /* Vorbereitung hier */
   /* create the matrix */
@@ -348,7 +348,7 @@ function seqAlign(seqA, seqB) {
 ## @head:"Sequenzalinierung in JavaScript"
 ### @subhead:"Implementierung der Matrixberechnung"
 
-<pre><code class="javascript">
+<pre><code class="javascript" data-trim>
 function seqAlign(seqA, seqB) {
   /* Vorbereitung hier */  
   /* Matrix-Initialisierung hier */ 
@@ -392,7 +392,7 @@ function seqAlign(seqA, seqB) {
 ## @head:"Sequenzalinierung in JavaScript"
 ### @subhead:"Implementierung des Traceback"
 
-<pre><code class="javascript">
+<pre><code class="javascript" data-trim>
 function seqAlign(seqA, seqB) {
   /* Vorbereitung hier */
   /* Matrix-Initialisierung hier */
@@ -432,7 +432,7 @@ function seqAlign(seqA, seqB) {
 ## @head:"Sequenzalinierung in JavaScript"
 ### @subhead:"Implementierung des Traceback"
 
-<pre><code class="javascript">
+<pre><code class="javascript" data-trim>
 function seqAlign(seqA, seqB) {
   /* Vorbereitung hier */
   /* Matrix-Initialisierung hier */
@@ -465,23 +465,96 @@ function seqAlign(seqA, seqB) {
 ## @head:"Interaktive Sequenzalinierung"
 ### @subhead:"Grundlagen"
 
+**Input-Felder in HTML**
 
+Um eine interaktive Alinierungsapp zu erstellen, machen wir Gebrauch von den Input-Felder in HTML. Diese sind sehr einfach zu erstellen:
+
+<pre ><code class="html"><input id="seqA" type="text" style="width:300px" onkeyup="alinit()" /></code></pre>
+
+Beachten Sie dabei, dass wir unbedingt eine ID als Tag vergeben müssen, wie auch eine Funktion, die wir diesmal nicht per <code>onclick="function()"</code>, sondern mittels <code>onkeyup="function()"</code> ausführbar machen. Das heißt nichts anderes, als dass jedes mal, wenn wir eine Taste drücken, während wir mit dem Cursor im Text-Feld sind, potentiell eine Funktion auslösen.
+
+--
+
+## @head:"Interaktive Sequenzalinierung"
+### @subhead:"Grundlagen"
+
+**Es kann losgehen!**
+
+Abgesehen davon brauchen wir eigentlich nur noch die klassische Einbindung von JavaScript in eine HTML-Seite vorzunehmen. Wir nutzen dafür das Script [nw.js](https://github.com/LinguList/pyjs-seminar/blob/master/website/code/nw.js), welches zuvor besprochen wurde. Auch eine kleine CSS-Datei wird erstellt, damit es nachher ein wenig besser aussieht. Darauf wird in diesem Zusammenhang aus Zeitgründen nicht genauer eingegangen), die findet sich aber online und auf GitHub und kann dort gezielt eingesehen werden.
 
 ---
 
 ## @head:"Interaktive Sequenzalinierung"
 ### @subhead:"Implementierung"
 
-<pre><code class="html">
-
+**Der Header**
+<pre><code class="html" data-trim>
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Alignment Demo&lt;/title&gt;
+  &lt;meta http-equiv="content-type" content="text/html; charset=utf-8"&gt;
+  &lt;script src="js/nw.js" type="text/javascript"&gt;&lt;/script&gt;
+  &lt;link rel="stylesheet" type="text/css" href="css/nw.css" /&gt;
+&lt;/head&gt;
 </code></pre>
+
+--
+
+## @head:"Interaktive Sequenzalinierung"
+### @subhead:"Implementierung"
+
+**Der Body**
+<pre><code class="html" data-trim>
+&lt;body&gt;
+  &lt;input type="text" style="width: 300px" id="seqA" onkeyup="alignit()" /&gt;
+  &lt;input type="text" style="width: 300px" id="seqB" onkeyup="alignit()" /&gt;
+  &lt;div id="display"&gt;&lt;/div&gt;
+&lt;!-- Java-Script-Code kommt hier --&gt;
+&lt;/body&gt;
+</code></pre>
+
+--
+
+## @head:"Interaktive Sequenzalinierung"
+### @subhead:"Implementierung"
+
+**Der JavaScript-Code**
+<pre><code class="javascript" data-trim>
+function alignit() {
+  /\* get the sequences \*/
+  var seqA = document.getElementById('seqA');
+  var seqB = document.getElementById('seqB');
+  /\* get the values \*/
+  seqA = seqA.value.split('');
+  seqB = seqB.value.split('');
+  /\* return if one of the vals is none \*/
+  if (seqA == '' || seqB == '') {
+    document.getElementById('display').innerHTML = '';
+    return;
+  }
+  /\* get the alignment \*/
+  alms = seqAlign(seqA, seqB);
+  var almA = alms[0];
+  var almB = alms[1];
+  var dist = alms[2];
+  /\* create the text \*/
+  var txt = '<table class="alm">';
+  txt += '<tr><td>'+almA.join('</td><td>')+'</td></tr>';
+  txt += '<tr><td>'+almB.join('</td><td>')+'</td></tr>';
+  txt += '<tr><td colspan="'+almA.length+'">Edit-Distance: '+dist+'</td></tr>';
+  txt += '</table>';
+  /\* update \*/
+  document.getElementById('display').innerHTML = txt;
+}
+</code></pre>
+
 
 ---
 
 ## @head:"Interaktive Sequenzalinierung"
 ### @subhead:"Demo"
 
-<iframe src="../demos/nw-aktiv.html" style="width:950px;height:700px"></iframe>
+<iframe src="../demos/alignment-demo.html" style="width:950px;height:700px"></iframe>
 
 ---
 

@@ -55,3 +55,10 @@
 	margin-right: 20px;
 }
 
+.cells {
+	text-align: left;
+}
+.cells th,td {
+	text-align: left;
+	border: 3px solid lightgray;
+}
