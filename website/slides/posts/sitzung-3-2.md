@@ -264,7 +264,7 @@ Der Algorithmus, mit dem man die optimale Alinierung von zwei Strings relativ sc
 ### @subhead:"Implementierung der Matrixberechnung"
 
 <pre><code class="javascript" data-trim>
-function seqAlign(seqA, seqB) {
+function wf_align(seqA, seqB) {
   /* Vorbereitung der Daten hier */
   /* Matrix-Initialisierung hier */
   /* Haupt-Loop hier, darin auch die Scoring Function */
@@ -278,7 +278,7 @@ function seqAlign(seqA, seqB) {
 ### @subhead:"Implementierung der Matrixberechnung"
 
 <pre><code class="javascript" data-trim>
-function seqAlign(seqA, seqB) {
+function wf_align(seqA, seqB) {
   /* return nothing if either of the lists is empty */
   if(seqA.length == 0 || seqB.length == 0) {
     return;
@@ -303,7 +303,7 @@ function seqAlign(seqA, seqB) {
 ### @subhead:"Implementierung der Matrixberechnung"
 
 <pre><code class="javascript" data-trim>
-function seqAlign(seqA, seqB) {
+function wf_align(seqA, seqB) {
   /* Vorbereitung hier */
   /* create the matrix */
   var matrix = [];
@@ -349,7 +349,7 @@ function seqAlign(seqA, seqB) {
 ### @subhead:"Implementierung der Matrixberechnung"
 
 <pre><code class="javascript" data-trim>
-function seqAlign(seqA, seqB) {
+function wf_align(seqA, seqB) {
   /* Vorbereitung hier */  
   /* Matrix-Initialisierung hier */ 
   /* start the iteration to fill the matrix */
@@ -393,7 +393,7 @@ function seqAlign(seqA, seqB) {
 ### @subhead:"Implementierung des Traceback"
 
 <pre><code class="javascript" data-trim>
-function seqAlign(seqA, seqB) {
+function wf_align(seqA, seqB) {
   /* Vorbereitung hier */
   /* Matrix-Initialisierung hier */
   /* get indices for the last cells of the matrix */
@@ -433,7 +433,7 @@ function seqAlign(seqA, seqB) {
 ### @subhead:"Implementierung des Traceback"
 
 <pre><code class="javascript" data-trim>
-function seqAlign(seqA, seqB) {
+function wf_align(seqA, seqB) {
   /* Vorbereitung hier */
   /* Matrix-Initialisierung hier */
   /* Haupt-Loop hier, darin auch die Scoring Function */
@@ -533,7 +533,7 @@ function alignit() {
     return;
   }
   /\* get the alignment \*/
-  alms = seqAlign(seqA, seqB);
+  alms = wf_align(seqA, seqB);
   var almA = alms[0];
   var almB = alms[1];
   var dist = alms[2];
