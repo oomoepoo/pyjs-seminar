@@ -29,7 +29,7 @@ An unserem zweiten Sitzungstag wollen wir versuchen, so schnell wie möglich auf
 * Materialien:
     - [SLIDES](slides/sitzung-2-2.html)
 
-### III: [Funktionen und Reguläre Ausdrücke](sitzung-2-3.html)
+### III: [Funktionen](sitzung-2-3.html)
 
 * Themen
     - Funktionen im Allgemeinen
