@@ -41,3 +41,6 @@
 
 ### IV: [Vertiefungsaufgabe](sitzung-3-4.html)
 
+- [AUFGABE](pdf/exercise_3.pdf)
+- [LÖSUNG](pdf/solutions_3.pdf)
+- [KODE](https://github.com/LinguList/pyjs-seminar/blob/master/website/code/exercise_3.py)
