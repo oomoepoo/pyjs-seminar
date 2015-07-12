@@ -93,8 +93,62 @@
     </script>
 <div class="footer" style="display: block; position: absolute; bottom: 50px; left: 1%; margin-left: 0px; z-index: 20;">
   <a
-    style="background:DarkGreen;color:Crimson;padding:10px;font-size:120%;font-weight:bold;text-decoration:none;"
+    style="background:CornflowerBlue;color:Crimson;border-radius:25px;padding:10px;font-size:60%;font-weight:bold;text-decoration:none;"
     href="../slides.html">ÜBERBLICK</a>
 </div>
-  </body>
+ <div class="footer" style="display: block; position: absolute; top: 10px; right: 1%; margin-left: 0px; z-index: 20;">
+  <a id="changeme"
+    onclick="nextSession();"
+    style="background:CornflowerBlue;color:white;border-radius:25px;padding:10px;font-size:60%;font-weight:bold;text-decoration:none;"
+    href="../slides.html">Nächste Sitzung</a>
+</div>
+ <div class="footer" style="display: block; position: absolute; top: 10px; left: 1%; margin-left: 0px; z-index: 20;">
+  <a id="changeve"
+    onclick="nextSession();"
+    style="background:CornflowerBlue;color:white;border-radius:25px;padding:10px;font-size:60%;font-weight:bold;text-decoration:none;"
+    href="../slides.html">Vorherige Sitzung</a>
+</div>
+ <div class="footer" style="display: block; position: absolute; top: 2px; left: 44.0%; margin-left: 0px; z-index: 20;">
+  <p id="sitzung"
+    style="color:CornflowerBlue;padding:1px;font-size:80%;font-weight:bold;text-decoration:none;">Vorherige Sitzung</p>
+</div>
+
+
+<script>
+  var cur1 = window.location.href.split('#')[0];
+  var cur1= cur1.split('/');
+  console.log(cur1, cur1[cur1.length-1]);
+  var cur2 = cur1[cur1.length-1].replace('.html','').replace('sitzung-','');
+  var cur3 = cur2.split('-');
+  console.log(cur3, cur2);
+  var next = parseInt(cur3[1]) + 1;
+  var before = parseInt(cur3[1]) - 1 
+  if (next == 4) {{
+    var next = 1;
+    var day = parseInt(cur3[0])+1;
+  }}
+ else {{
+    var day = parseInt(cur3[0]);
+  }}
+
+  if (before == 0) {{
+    var before = 3;
+    var bday = parseInt(cur3[0])-1
+  }}
+  else {{
+    var bday = parseInt(cur3[0]);
+}}
+ 
+if (bday == 0) {{
+  document.getElementById('changeve').style.display = "none";
+}}
+if (day == 5) {{
+  document.getElementById('changeme').style.display = "none";
+}}
+  document.getElementById('changeme').href = 'sitzung-'+day+'-'+next+'.html';
+  document.getElementById('changeve').href = 'sitzung-'+bday+'-'+before +'.html';
+
+  document.getElementById('sitzung').innerHTML = "PyJS: Sitzung "+cur3[1]+" (Tag "+cur3[1]+")";
+</script>
+ </body>
 </html>

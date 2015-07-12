@@ -50,3 +50,14 @@
 .stroked {
 	text-decoration: line-through;
 }
+
+
+h2 {
+	color: Green!important;
+}
+h3 {
+	color: Crimson!important;
+}
+h4 {
+	color: CornflowerBlue!important;
+}

@@ -62,7 +62,9 @@
 	display: block;
 }
 
-
+.mytabs td {
+	border: 2px solid black!important;
+}
 .question {
 	position: relative;
 	font-size: 80%!important;
@@ -75,6 +77,10 @@
 	text-transform: none;
 }
 
+.bq80 {
+	font-size: 80%!important;
+	line-height: 30px!important;
+}
 .small {
 	font-size: 70%!important;
 }
@@ -82,6 +88,17 @@
 
 .stroked {
 	text-decoration: line-through;
+}
+
+
+h2 {
+	color: Green!important;
+}
+h3 {
+	color: Crimson!important;
+}
+h4 {
+	color: CornflowerBlue!important;
 }
 
   </style>
@@ -117,7 +134,7 @@ function checkTime(i) {
 
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
-	<section style="text-align:justify;font-size:85%;text-align:center;font-size:100%;" data-transition="concave" data-background="#ffffff">
+	<section data-transition="concave" style="text-align:justify;font-size:85%;text-align:center;font-size:100%;" data-background="LightYellow">
 <h2>Computergestützter Sprachvergleich mit Python und JavaScript</h2>
 <hr />
 <h3>Sitzung 1 (Tag 2)</h3>
@@ -127,7 +144,7 @@ function checkTime(i) {
 <h3>&quot;Variablen und Datentypen&quot;</h3>
 </section>
 
-<section style="text-align:justify;font-size:85%;" data-transition="concave" data-background="#ffffff">
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="LightYellow">
 <h2><span class="head">Agenda 2015</span></h2>
 <ul>
 <li><span class="unstroked">Variablen</span><ul>
@@ -152,7 +169,7 @@ function checkTime(i) {
 </section>
 
 <section>
-<section style="text-align:justify;font-size:85%;" data-transition="concave" data-background="#ffffff">
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="LightYellow">
 <h2><span class="head">Variablen</span></h2>
 <h3><span class="subhead">... im Allgemeinen</span></h3>
 <p><strong>Was ist eine Variable?</strong></p>
@@ -162,7 +179,7 @@ function checkTime(i) {
 <li><span class="fragment">Johnny Depp ist ein Beispiel für eine <em>Variable</em>, weil er sehr änderbar ist, wie man an seinen Filmen sehen kann.</span></li>
 </ul>
 </section>
-<section style="text-align:justify;font-size:85%;" data-transition="concave" data-background="#ffffff">
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="LightYellow">
 <h2><span class="head">Variablen</span></h2>
 <h3><span class="subhead">... im Allgemeinen</span></h3>
 <p><strong><a href="http://de.wikipedia.org/wiki/variable_(programming)">Wikipedias Definition</a>:</strong></p>
@@ -173,7 +190,7 @@ function checkTime(i) {
    thus also its contents, and these may change during the course of program
    execution.</blockquote>
 </section>
-<section style="text-align:justify;font-size:85%;" data-transition="concave" data-background="#ffffff">
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="LightYellow">
 <h2><span class="head">Variablen</span></h2>
 <h3><span class="subhead">... im Allgemeinen</span></h3>
 <p><strong>Definition in <a href="http://bibliography.lingpy.org?key=Puttkamer1990">Puttkamer (1990)</a>:</strong></p>
@@ -189,7 +206,7 @@ Ein [sic!] anschließende Anweisung "drucke A" druckt den Inhalt des
 Behälters A aus, den Wert der Variablen A, hier 10.
 </blockquote>
 </section>
-<section style="text-align:justify;font-size:85%;" data-transition="concave" data-background="#ffffff">
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="LightYellow">
 <h2><span class="head">Variablen</span></h2>
 <h3><span class="subhead">... im Allgemeinen</span></h3>
 <p><strong>Vereinfachte Begriffserklärung</strong></p>
@@ -204,7 +221,7 @@ Behälters A aus, den Wert der Variablen A, hier 10.
 </section>
 
 <section>
-<section style="text-align:justify;font-size:85%;" data-transition="concave" data-background="#ffffff">
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="LightYellow">
 <h2><span class="head">Variablen</span></h2>
 <h3><span class="subhead">... in Python</span></h3>
 <p><strong>Deklaration von Variablen in Python</strong></p>
@@ -224,7 +241,7 @@ Behälters A aus, den Wert der Variablen A, hier 10.
 1 2 3 4 [5, 6] (7, 8, 9)
 </code></pre>
 </section>
-<section style="text-align:justify;font-size:85%;" data-transition="concave" data-background="#ffffff">
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="LightYellow">
 <h2><span class="head">Variablen</span></h2>
 <h3><span class="subhead">... in Python</span></h3>
 <p><strong>Struktur von Variablennamen</strong></p>
@@ -239,7 +256,7 @@ Behälters A aus, den Wert der Variablen A, hier 10.
 SyntaxError: invalid syntax
 </code></pre>
 </section>
-<section style="text-align:justify;font-size:85%;" data-transition="concave" data-background="#ffffff">
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="LightYellow">
 <h2><span class="head">Variablen</span></h2>
 <h3><span class="subhead">... in Python</span></h3>
 <p><strong>Programmierbeispiele</strong></p>
@@ -260,7 +277,7 @@ True
 2 und 3 macht 5
 </code></pre>
 </section>
-<section style="text-align:justify;font-size:85%;" data-transition="concave" data-background="#ffffff">
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="LightYellow">
 <h2><span class="head">Variablen</span></h2>
 <h3><span class="subhead">... in Python</span></h3>
 <p><strong>Fehlermeldungen</strong></p>
@@ -288,13 +305,10 @@ Traceback (most recent call last):
 TypeError: unsupported operand type(s) for +: 'int' and 'str'
 </code></pre>
 </section>
-<section style="text-align:justify;font-size:85%;" data-transition="concave" data-background="#ffffff">
-<iframe src="https://trinket.io/embed/python/81ee860cf7" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
-</section>
 </section>
 
 <section>
-<section style="text-align:justify;font-size:85%;" data-transition="concave" data-background="#ffffff">
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="LightYellow">
 <h2><span class="head">Variablen</span></h2>
 <h3><span class="subhead">... in JavaScript</span></h3>
 <p><strong>Deklaration von Variablen in JavaScript</strong></p>
@@ -308,7 +322,7 @@ TypeError: unsupported operand type(s) for +: 'int' and 'str'
 
 <p><span class="fragment">Das Schlüsselwort "var" wird in JavaScript verwendet, um sicherzustellen, dass Variablen in Funktionen lokal definiert werden.  Grundsätzlich sollte man (da wir ohnehin nicht global definieren sollten) darauf achten, immer das Schlüsselwort "var" einer Variablendeklaration vorwegzustellen.</span></p>
 </section>
-<section style="text-align:justify;font-size:85%;" data-transition="concave" data-background="#ffffff">
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="LightYellow">
 <h2><span class="head">Variablen</span></h2>
 <h3><span class="subhead">... in JavaScript</span></h3>
 <p><strong>Struktur von Variablennamen</strong></p>
@@ -323,7 +337,7 @@ TypeError: unsupported operand type(s) for +: 'int' and 'str'
 SyntaxError: identifier starts immediately after numeric literal
 </code></pre>
 </section>
-<section style="text-align:justify;font-size:85%;" data-transition="concave" data-background="#ffffff">
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="LightYellow">
 <h2><span class="head">Variablen</span></h2>
 <h3><span class="subhead">... in JavaScript</span></h3>
 <p><strong>Programmierbeispiele</strong></p>
@@ -336,7 +350,7 @@ SyntaxError: identifier starts immediately after numeric literal
 [ 2, 4, 6, 8, 10 ]
 </code></pre>
 </section>
-<section style="text-align:justify;font-size:85%;" data-transition="concave" data-background="#ffffff">
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="LightYellow">
 <h2><span class="head">Variablen</span></h2>
 <h3><span class="subhead">... in JavaScript</span></h3>
 <p><strong>Fehlermeldungen</strong></p>
@@ -359,7 +373,7 @@ SyntaxError: identifier starts immediately after numeric literal
 </section>
 </section>
 
-<section style="text-align:justify;font-size:85%;" data-transition="concave" data-background="#ffffff">
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="LightYellow">
 <h2><span class="head">Agenda 2015</span></h2>
 <ul>
 <li><span class="stroked">Variablen</span><ul>
@@ -384,7 +398,7 @@ SyntaxError: identifier starts immediately after numeric literal
 </section>
 
 <section>
-<section style="text-align:justify;font-size:85%;" data-transition="concave" data-background="#ffffff">
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="LightYellow">
 <h2><span class="head">Datentypen</span></h2>
 <h3><span class="subhead">... im Allgemeinen</span></h3>
 <p><strong><a href="http://de.wikipedia.org/wiki/Datentyp">Wikipedia-Definition:</a></strong></p>
@@ -403,7 +417,7 @@ Programmiersprachen mit Datentypen umgehen, siehe
 Typisierung.
 </blockquote>
 </section>
-<section style="text-align:justify;font-size:85%;" data-transition="concave" data-background="#ffffff">
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="LightYellow">
 <h2><span class="head">Datentypen</span></h2>
 <h3><span class="subhead">... im Allgemeinen</span></h3>
 <p><strong>Vereinfachte Begriffserklärung</strong></p>
@@ -412,13 +426,13 @@ Typisierung.
 <li><span class="fragment">Worum es sich bei dem Wert handelt, ist wichtig für die korrekte Durchführung eines Programms.</span></li>
 <li><span class="fragment">Wörter kann man beispielsweise nicht addieren.</span></li>
 <li><span class="fragment">Zahlen kann man dafür nicht einfach aneinanderreihen.</span></li>
-<li><span class="fragment">Auch im wirklichen Leben teilen wir unsere Zeichen in gewisser Weise in Datentypen ein, denn wenn wir den Satz <code>Multipliziere mal 1 und 1" hören, dann denken wir bei</code>1" an eine Zahl und nicht an eine Zeugnisnote, weil man eine Zeugnisnote nicht multiplizieren kann.</span></li>
+<li><span class="fragment">Auch im wirklichen Leben teilen wir unsere Zeichen in gewisser Weise in Datentypen ein, denn wenn wir den Satz "Multipliziere mal 1 und 1" hören, dann denken wir bei "1" an eine Zahl und nicht an eine Zeugnisnote, weil man eine Zeugnisnote nicht multiplizieren kann.</span></li>
 </ul>
 </section>
 </section>
 
 <section>
-<section style="text-align:justify;font-size:85%;" data-transition="concave" data-background="#ffffff">
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="LightYellow">
 <h2><span class="head">Datentypen</span></h2>
 <h3><span class="subhead">... in Python</span></h3>
 <p><strong>Allgemeines</strong></p>
@@ -428,7 +442,7 @@ zugewiesen werden, automatisch bestimmt. Python weist eine Vielzahl von
 Datentypen auf und ermöglicht aufgrund seiner objektorientierten Ausrichtung
 auch die Erstellung eigener komplexer Datentypen.</p>
 </section>
-<section style="text-align:justify;font-size:85%;" data-transition="concave" data-background="#ffffff">
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="LightYellow">
 <h2><span class="head">Datentypen</span></h2>
 <h3><span class="subhead">... in Python</span></h3>
 <p><strong>Wichtigste Datentypen in Python</strong></p>
@@ -441,7 +455,7 @@ auch die Erstellung eigener komplexer Datentypen.</p>
 <li><span class="fragment"><em>dict</em>: fasst jede Art von anderen Datentypen als Sammlung von Key-Value-Paaren, vobei der Key weder Liste noch Dictionary sein kann (<code>{1:1, "Friedrich" : "Nietzsche"}</code>)</span></li>
 </ul>
 </section>
-<section style="text-align:justify;font-size:85%;" data-transition="concave" data-background="#ffffff">
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="LightYellow">
 <h2><span class="head">Datentypen</span></h2>
 <h3><span class="subhead">... in Python</span></h3>
 <p><strong>Überprüfen</strong></p>
@@ -455,9 +469,9 @@ auch die Erstellung eigener komplexer Datentypen.</p>
 True
 >>> isinstance(d, (int,str))
 False
-</code>
+</code></pre>
 </section>
-<section style="text-align:justify;font-size:85%;" data-transition="concave" data-background="#ffffff">
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="LightYellow">
 <h2><span class="head">Datentypen</span></h2>
 <h3><span class="subhead">... in Python</span></h3>
 <p><strong>Programmbeispiele</strong></p>
@@ -482,7 +496,7 @@ wurst
 </section>
 
 <section>
-<section style="text-align:justify;font-size:85%;" data-transition="concave" data-background="#ffffff">
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="LightYellow">
 <h2><span class="head">Datentypen</span></h2>
 <h3><span class="subhead">... in JavaScript</span></h3>
 <p><strong>Allgemeines</strong></p>
@@ -494,7 +508,7 @@ unterschiedlichen Datentypen durchzuführen, was problematisch werden kann, da
 die erwarteten Ergebnisse sich leicht unterscheiden können, wenn ein Programm nicht
 sorgfälgit geprüft wird.</p>
 </section>
-<section style="text-align:justify;font-size:85%;" data-transition="concave" data-background="#ffffff">
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="LightYellow">
 <h2><span class="head">Datentypen</span></h2>
 <h3><span class="subhead">... in JavaScript</span></h3>
 <p><strong>Wichtigste Datentypen in Javascript</strong></p>
@@ -506,7 +520,7 @@ sorgfälgit geprüft wird.</p>
 </ul>
 <p><span class="fragment">Beachten Sie, dass es sich bei dem Datentyp "array" offiziell um eine spezielle Form des sehr abstrakten Datentypen "object" handelt, weshalb ein Type-Check auch für einen Array immer den Wert "object" zurückliefern wird.</span> </p>
 </section>
-<section style="text-align:justify;font-size:85%;" data-transition="concave" data-background="#ffffff">
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="LightYellow">
 <h2><span class="head">Datentypen</span></h2>
 <h3><span class="subhead">... in JavaScript</span></h3>
 <p><strong>Überprüfen</strong></p>
@@ -528,7 +542,7 @@ object
 object
 </code></pre>
 </section>
-<section style="text-align:justify;font-size:85%;" data-transition="concave" data-background="#ffffff">
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="LightYellow">
 <h2><span class="head">Datentypen</span></h2>
 <h3><span class="subhead">... in JavaScript</span></h3>
 <p><strong>Programmbeispiele</strong></p>
@@ -548,7 +562,7 @@ for (key in e) {alert(key+' '+e[key])}
 </section>
 </section>
 
-<section style="text-align:justify;font-size:85%;" data-transition="concave" data-background="#ffffff">
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="LightYellow">
 <h2><span class="head">Agenda 2015</span></h2>
 <ul>
 <li><span class="stroked">Variablen</span><ul>
@@ -573,7 +587,7 @@ for (key in e) {alert(key+' '+e[key])}
 </section>
 
 <section>
-<section style="text-align:justify;font-size:85%;" data-transition="concave" data-background="#ffffff">
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="LightYellow">
 <h2><span class="head">Praktische Beispiele</span></h2>
 <h3><span class="subhead">Die Dreiballkaskade</span></h3>
 <p><strong><a href="http://de.wikipedia.org/wiki/Kaskade_(Jonglieren)">Dreiballkaskade in Wikipedia</a></strong></p>
@@ -591,7 +605,7 @@ am höchsten Punkt angekommen ist, wird der dritte Gegenstand losgeworfen
 (mit der Hand, die auch den ersten Gegenstand geworfen hat) und so weiter.
 </blockquote>
 </section>
-<section style="text-align:justify;font-size:85%;" data-transition="concave" data-background="#ffffff">
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="LightYellow">
 <h2><span class="head">Praktische Beispiele</span></h2>
 <h3><span class="subhead">Die Dreiballkaskade</span></h3>
 <p style="text-align:center"><img src="img/3-ball_cascade_movie.gif" alt="3ballk"
@@ -600,7 +614,7 @@ style="width:500px"></p>
 </section>
 
 <section>
-<section style="text-align:justify;font-size:85%;" data-transition="concave" data-background="#ffffff">
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="LightYellow">
 <h2><span class="head">Praktische Beispiele</span></h2>
 <h3><span class="subhead">Die Dreiballkaskade in Python</span></h3>
 <pre><code class="python">
@@ -678,7 +692,7 @@ while i < 20:
 input("Puh, war das anstrengend!")
 </code></pre>
 </section>
-<section style="text-align:justify;font-size:85%;" data-transition="concave" data-background="#ffffff">
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="LightYellow">
 <h2><span class="head">Praktische Beispiele</span></h2>
 <h3><span class="subhead">Die Dreiballkaskade in Python</span></h3>
 <p>Dies ist eine Python-2 Version, das heißt, dass die Funktion "input" durch
@@ -688,7 +702,7 @@ input("Puh, war das anstrengend!")
 </section>
 
 <section>
-<section style="text-align:justify;font-size:85%;" data-transition="concave" data-background="#ffffff">
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="LightYellow">
 <h2><span class="head">Praktische Beispiele</span></h2>
 <h3><span class="subhead">Die Dreiballkaskade in Javascript</span></h3>
 <p><strong>HTML Kode</strong></p>
@@ -718,7 +732,7 @@ input("Puh, war das anstrengend!")
   ...
 </code></pre>
 </section>
-<section style="text-align:justify;font-size:85%;" data-transition="concave" data-background="#ffffff">
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="LightYellow">
 <h2><span class="head">Praktische Beispiele</span></h2>
 <h3><span class="subhead">Die Dreiballkaskade in Javascript</span></h3>
 <p><strong>CSS Kode</strong></p>
@@ -748,7 +762,7 @@ input("Puh, war das anstrengend!")
 }
 </code></pre>
 </section>
-<section style="text-align:justify;font-size:85%;" data-transition="concave" data-background="#ffffff">
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="LightYellow">
 <h2><span class="head">Praktische Beispiele</span></h2>
 <h3><span class="subhead">Die Dreiballkaskade in Javascript</span></h3>
 <p><strong>JavaScript Kode</strong></p>
@@ -783,7 +797,7 @@ function nextCatch() {
 }
 </code></pre>
 </section>
-<section style="text-align:justify;font-size:85%;" data-transition="concave" data-background="#ffffff">
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="LightYellow">
 <h2><span class="head">Praktische Beispiele</span></h2>
 <h3><span class="subhead">Die Dreiballkaskade in Javascript</span></h3>
 <p><strong>DEMO</strong></p>
@@ -791,7 +805,7 @@ function nextCatch() {
 </section>
 </section>
 
-<section style="text-align:justify;font-size:85%;" data-transition="concave" data-background="#ffffff">
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="LightYellow">
 <h2><span class="head">Agenda 2015</span></h2>
 <ul>
 <li><span class="stroked">Variablen</span><ul>
@@ -815,16 +829,14 @@ function nextCatch() {
 </ul>
 </section>
 
-<section style="text-align:justify;font-size:85%;" data-transition="concave" data-background="#000000">
-<p style="font-size:200px;color:white;font-weight:bold;">
-ENDE
+<section data-transition="concave" style="text-align:justify;font-size:85%;" data-background="#000000">
+<p style="font-size:100px;color:white;font-weight:bold;">
+sys.exit()
 </p>
 
 <p style="font-size:80%;color:white;font-weight:bold;text-align:right;">
-der ersten Sitzung
+Ende der ersten Sitzung
 </p>
-
-<p><code style="font-size:160px">sys.exit()</code></p>
 </section>
 
 
@@ -862,6 +874,64 @@ der ersten Sitzung
       });
 
     </script>
+<div class="footer" style="display: block; position: absolute; bottom: 50px; left: 1%; margin-left: 0px; z-index: 20;">
+  <a
+    style="background:CornflowerBlue;color:Crimson;border-radius:25px;padding:10px;font-size:60%;font-weight:bold;text-decoration:none;"
+    href="../slides.html">ÜBERBLICK</a>
+</div>
+ <div class="footer" style="display: block; position: absolute; top: 10px; right: 1%; margin-left: 0px; z-index: 20;">
+  <a id="changeme"
+    onclick="nextSession();"
+    style="background:CornflowerBlue;color:white;border-radius:25px;padding:10px;font-size:60%;font-weight:bold;text-decoration:none;"
+    href="../slides.html">Nächste Sitzung</a>
+</div>
+ <div class="footer" style="display: block; position: absolute; top: 10px; left: 1%; margin-left: 0px; z-index: 20;">
+  <a id="changeve"
+    onclick="nextSession();"
+    style="background:CornflowerBlue;color:white;border-radius:25px;padding:10px;font-size:60%;font-weight:bold;text-decoration:none;"
+    href="../slides.html">Vorherige Sitzung</a>
+</div>
+ <div class="footer" style="display: block; position: absolute; top: 2px; left: 44.0%; margin-left: 0px; z-index: 20;">
+  <p id="sitzung"
+    style="color:CornflowerBlue;padding:1px;font-size:80%;font-weight:bold;text-decoration:none;">Vorherige Sitzung</p>
+</div>
 
-  </body>
+
+<script>
+  var cur1 = window.location.href.split('#')[0];
+  var cur1= cur1.split('/');
+  console.log(cur1, cur1[cur1.length-1]);
+  var cur2 = cur1[cur1.length-1].replace('.html','').replace('sitzung-','');
+  var cur3 = cur2.split('-');
+  console.log(cur3, cur2);
+  var next = parseInt(cur3[1]) + 1;
+  var before = parseInt(cur3[1]) - 1 
+  if (next == 4) {
+    var next = 1;
+    var day = parseInt(cur3[0])+1;
+  }
+ else {
+    var day = parseInt(cur3[0]);
+  }
+
+  if (before == 0) {
+    var before = 3;
+    var bday = parseInt(cur3[0])-1
+  }
+  else {
+    var bday = parseInt(cur3[0]);
+}
+ 
+if (bday == 0) {
+  document.getElementById('changeve').style.display = "none";
+}
+if (day == 5) {
+  document.getElementById('changeme').style.display = "none";
+}
+  document.getElementById('changeme').href = 'sitzung-'+day+'-'+next+'.html';
+  document.getElementById('changeve').href = 'sitzung-'+bday+'-'+before +'.html';
+
+  document.getElementById('sitzung').innerHTML = "PyJS: Sitzung "+cur3[1]+" (Tag "+cur3[1]+")";
+</script>
+ </body>
 </html>
