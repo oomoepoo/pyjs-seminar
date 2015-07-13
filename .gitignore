@@ -7,8 +7,8 @@ __pycache__/
 
 # C extensions
 *.so
-.out
-.aux
+*.out
+*.aux
 
 # Distribution / packaging
 .Python
