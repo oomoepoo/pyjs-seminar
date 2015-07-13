@@ -450,48 +450,130 @@ END;</code></pre>
 ## @head:"Workflows"
 ### @subhead:"Allgemeines vorweg"
 
+**Workflows in LingPy**
+
+Mit Hilfe der Funktionen, die LingPy bietet, lassens ich komplette Workflows
+zum automatisierten Vergleich von Sprachen entwickeln. Das ist nicht immer einfach,
+da nur ein Bruchteil der Möglichkeiten von LingPy auch ordentlich dokumentiert ist.
+Wir wollen aber trotzdem versuchen, ein allgemeines Template zu erstellen, so dass
+es möglich ist, dieses an individuelle Daten anzupassen und weiterzuverwenden.
+
 --
-
-## @head:"Workflows"
-### @subhead:"Kognatenerkennung mit LingPy"
-
---
-
-## @head:"Workflows"
-### @subhead:"Integration mit externen Tools"
-
----
-
-## @head:"Agenda 2015"
-
-* @stroked:"Automatischer Sprachvergleich"
-    * @stroked:"Sequenzdistanzen"
-    * @stroked:"Kognatenerkennung"
-    * @stroked:"Phylogenetische Rekonstruktion"
-* @stroked:"Sprachvergleich mit LingPy"
-    * @stroked:"Eingabeformate"
-    * @stroked:"Analysen"
-    * @stroked:"Ausgabeformate"
-* @stroked:"Workflows"
-    * @stroked:"Allgemeines vorweg"
-    * @stroked:"Kognatenerkennung mit LingPy"
-    * @stroked:"Integration mit externen Tools"
-
-
----
 
 ## @head:"Workflows"
 ### @subhead:"Allgemeines vorweg"
 
+**Workflows zum Sprachvergleich**
+
+<table>
+<tr>
+<td style="vertical-align:top">
+<a href="img/workflow_basic.svg"><img src="img/workflow_basic.svg" style="width:300px" alt="workflow" /></a>
+</td>
+<td style="vertical-align:top">Dieser Workflow kann als allgemeines Konstrukt der von rohen Daten bis hin zu Rekonstruktionen führt, angesehen werden. Nicht alle Schritte können derzeit schon automatisch ausgeführt werden. Wir beschränken uns daher auf die Schritte, die von den Wortlist-Daten hin zu den Alinierungen führen.</td>
+</tr></table>
+
 ---
 
 ## @head:"Workflows"
 ### @subhead:"Kognatenerkennung mit LingPy"
 
+**Daten**
+
+Wir nehmen einen Datensatz zu den chinesischen Dialekten, der als TSV-Datei 
+im LingPy Format vorliegt (File "[chinese.tsv](https://github.com/LinguList/pyjs-seminar/blob/master/website/code/data/chinese.tsv)").
+
+Die Datei enthält neben den tabularen Daten auch eine JSON-Spezifikation (eine Formaterweiterung in LingPy, die es erlaubt, JSON-Daten mit einzubinden. Wir ignorieren diese Daten jedoch in diesem Zusammenhang.
+
+--
+
+## @head:"Workflows"
+### @subhead:"Kognatenerkennung mit LingPy"
+
+**Der Workflow**
+
+Der Workflow gliedert sich in drei Schritte:
+
+* Kognatenberechnung:
+    * Einlesen der Datei in LingPy (LexStat Modul)
+    * Berechnen von Kognatensets mit Hilfe von LexStat
+    * Auslesen der Datei mit den neu berechneten Daten in TSV-Format
+* Berechnen und Plotten eines phylogenetischen Baums
+* Berechnung der Alinierungen
+    * Einlesen der Datei in LingPy (Alignments Modul)
+    * Berechnen der Alinierungen mit Hilfe von Alignments
+    * Auslesen der Datei in HTML-Format
+
+--
+
+## @head:"Workflows"
+### @subhead:"Kognatenerkennung mit LingPy"
+
+**Der Code**
+
+<pre><code class="python" data-trim>
+from lingpy import *
+# Schritt 1
+## 1.1 Einlesen der Daten
+lex = LexStat('data/chinese.tsv')
+## 1.2 Kognatenerkennung
+lex.cluster(method='sca', threshold=0.4)
+## 1.3 Auslesen der Daten
+lex.output('tsv', filename='data/chinese_lexstat', ignore='all')
+# Schritt 2
+## 1.1 Berechnen des Baums
+lex.calculate('tree', ref="scaid") # scaid sind die automatischen kognaten
+## 1.2 Plotten des Baums
+from lingpy.convert.plot import plot_tree
+plot_tree(lex.tree, degree=160, filename="data/chinese_tree", fileformat="svg")
+## 1.3 Schreiben der Distanz-Daten
+lex.output('dst', filename="data/chinese_distances")
+# Schritt 3
+## 1.1 Einlesen der Daten
+alm = Alignments('data/chinese_lexstat.tsv', ref="scaid")
+## 1.2 Alinierung
+alm.align()
+## 1.3 Auslesen der Daten in HTML
+alm.output('html', filename='data/chinese_alignments')
+</code></pre>
+
+--
+
+## @head:"Workflows"
+### @subhead:"Kognatenerkennung mit LingPy"
+
+**Die Ergebnisse: Der Baum**
+
+[<img src="../code/data/chinese_tree.svg" alt="tree" style="width:700px" />](../code/data/chinese_tree.svg)
+
+--
+
+## @head:"Workflows"
+### @subhead:"Kognatenerkennung mit LingPy"
+
+**Die Ergebnisse: Die Alinierungen**
+
+<iframe src="../code/data/chinese_alignments.html" style="width:1000px;height:500px"></iframe>
+
+---
+
+## @head:"Workflows"
+### @subhead:"Integration mit externen Tools"
+
+**Einlesen der Daten in Splitstree**
+
+Mit [SplitsTree](http://splitstree.org) können wir Netzwerke aus Distanzmatrizzen berechnen.
+Da wir die Distanzmatrix ja bereits exportiert haben, genügt es, wenn SplitStree erfolgreich installiert wurde, diese entweder direkt als Textdatei einzulesen, oder den Inhalt der Datei [chinese_distances.dst](ttps://github.com/LinguList/pyjs-seminar/blob/master/website/code/data/chinese_distances.dst) zu kopieren und in den Editor von SplitsTree zu pasten.
+
+
 --
 
 ## @head:"Workflows"
 ### @subhead:"Integration mit externen Tools"
+
+**Das Neighbor-Net der chinesischen Daten**
+
+[<img src="../code/data/chinese_network.svg" alt="network" style="width:400px" />](../code/data/chinese_network.svg)
 
 
 ---

@@ -14,10 +14,10 @@
     * [Sitzung 1: Sequenzvergleiche in der historischen Linguistik](slides/sitzung-3-1.html)
     * [Sitzung 2: Sequenzalinierung in JavaScript](slides/sitzung-3-2.html)
     * [Sitzung 3: Sequenzalinierung in Python](slides/sitzung-3-3.html)
-* [Tag 4](tag4.html)
-    * [Sitzung 1](slides/sitzung-4-1.html)
-    * [Sitzung 2](slides/sitzung-4-2.html)
-    * [Sitzung 3](slides/sitzung-4-3.html)
+* [Tag 4: Sprachvergleiche in der historischen Linguistik](tag4.html)
+    * [Sitzung 1: Linguistischer Hintergrund zum Sprachvergleich](slides/sitzung-4-1.html)
+    * [Sitzung 2: Automatischer Sprachvergleich mit Python](slides/sitzung-4-2.html)
+    * [Sitzung 3: Geoplots mit JavaScript und D3](slides/sitzung-4-3.html)
 
 
 
