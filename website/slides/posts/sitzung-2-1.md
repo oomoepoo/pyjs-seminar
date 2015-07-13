@@ -1,6 +1,6 @@
 # Sitzung 1: Variablen und Datentypen
 
-@data-background:#ffffff
+@data-background:LightYellow
 @data-transition:concave
 @style:text-align:justify;
 @style:font-size:85%;
@@ -736,13 +736,12 @@ function nextCatch() {
 
 @data-background:#000000
 
-<p style="font-size:200px;color:white;font-weight:bold;">
-ENDE
+<p style="font-size:100px;color:white;font-weight:bold;">
+sys.exit()
 </p>
 <p style="font-size:80%;color:white;font-weight:bold;text-align:right;">
-der ersten Sitzung
+Ende der ersten Sitzung
 </p>
-<p><code style="font-size:160px">sys.exit()</code></p>
 
 
 

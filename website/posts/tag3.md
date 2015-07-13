@@ -23,7 +23,7 @@
     - Beispielskripte:
         - [align.js](https://github.com/LinguList/pyjs-seminar/blob/master/website/code/align.js)
     - DEMOS:
-        - [Smith-Waterman Algorithmus](demos/wf-demo.html)
+        - [Wagner-Fischer Algorithmus](demos/wf-demo.html)
         - [Alignment-Demo](demos/alignment-demo.html)
 
 ### III: [Sequenzalinierung in Python](sitzung-3-3.html)

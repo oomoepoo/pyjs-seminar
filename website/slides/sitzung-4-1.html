@@ -1,0 +1,766 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Sitzung 1: Sprachvergleiche in der historischen Linguistik </title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+
+
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <style>
+  .head {
+	position: relative;
+	top: 0px;
+	font-size: 90%!important;
+	color: white;
+	background-color: Green;
+	width: 960px;
+	text-align:justify;
+	display: block;
+	padding-left: 5px;
+	margin: 0;
+}
+.subhead {
+	position: relative;
+	top: -20px;
+	font-size: 70%!important;
+	color: white;
+	background-color: Crimson;
+	width: 960px;
+	text-align: justify;
+	padding: 5px;
+	margin: 0;
+	display: block;
+}
+
+.mytabs td {
+	border: 2px solid black!important;
+}
+.question {
+	position: relative;
+	font-size: 80%!important;
+	color: Crimson;
+	font-weight: bold;
+	font-style: italic;
+	text-align: center!important;
+	display: block;
+	width: 960px;
+	text-transform: none;
+}
+
+.bq80 {
+	font-size: 80%!important;
+	line-height: 30px!important;
+}
+.small {
+	font-size: 70%!important;
+}
+
+
+.stroked {
+	text-decoration: line-through;
+}
+
+
+h2 {
+	color: Green!important;
+}
+h3 {
+	color: Crimson!important;
+}
+h4 {
+	color: CornflowerBlue!important;
+}
+
+  </style>
+  <script>
+function startTime(elm) {
+    var today=new Date();
+    var h=today.getHours();
+    var m=today.getMinutes();
+    var s=today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById(elm).innerHTML = h+":"+m+":"+s;
+    var t = setTimeout(function(){startTime()},500);
+}
+
+function checkTime(i) {
+    if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+
+  </script>
+  <body>
+  <div style="display: none;" class="tilda" id="tilda">
+    <div style="height: 100px;" class="td terminal">
+      <div class="terminal-output">
+      </div>
+    </div>
+  </div>
+
+
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+	<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;text-align:center;font-size:100%;">
+<h2>Computergestützter Sprachvergleich mit Python und JavaScript</h2>
+<hr />
+<h3>Sitzung 1 (Tag 4)</h3>
+<hr />
+<h4>23.07.2015</h4>
+<hr />
+<h3>&quot;Linguistischer Hintergrund zum Sprachvergleich&quot;</h3>
+</section>
+
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Agenda 2015</span></h2>
+<ul>
+<li><span class="unstroked">Phylogenetische Rekonstruktion</span><ul>
+<li><span class="unstroked">Innere und äußere Sprachgeschichte</span></li>
+<li><span class="unstroked">Stammbäume und Wellen</span></li>
+<li><span class="unstroked">Darstellung und Analyse</span></li>
+</ul>
+</li>
+<li><span class="unstroked">Lexikostatistik</span><ul>
+<li><span class="unstroked">Hintergrund und Grundannahmen</span></li>
+<li><span class="unstroked">Praktische Umsetzung</span></li>
+<li><span class="unstroked">Kritik</span></li>
+</ul>
+</li>
+<li><span class="unstroked">Computergestützte Rekonstruktion</span><ul>
+<li><span class="unstroked">Komparanda</span></li>
+<li><span class="unstroked">Algorithmen</span></li>
+<li><span class="unstroked">Formate</span></li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Phylogenetische Rekonstruktion</span></h2>
+<h3><span class="subhead">Innere und äußere Sprachgeschichte</span></h3>
+<p><strong>Georg von der Gabelentz (1840-1893) und die Sprachgeschichte</strong></p>
+<blockquote>
+<p>Der Zweig der Sprachforschung, der uns hier beschäftigt, hat es zunächst mit
+den trockensten Einzelthatsachen zu thun: Sind die Sprachen A und B
+miteinander verwandt, und in welchem Grade? Giebt es dieses Wort oder jene
+Form in der und der Sprache oder in der und der Zeit der Sprachgeschichte? [...] Welche Gesetzmässigkeit herrscht in den lautlichen
+Abweichungen? Besteht im einzelnen Falle Urgemeinschaft oder Entlehnung? <a href="http://bibliography.lingpy.org?key=Gabelentz1891">(Gabelentz 1891:
+145)</a></p>
+</blockquote>
+</section>
+<section data-background="LightYellow" data-transition="none" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Phylogenetische Rekonstruktion</span></h2>
+<h3><span class="subhead">Innere und äußere Sprachgeschichte</span></h3>
+<p><strong>Georg von der Gabelentz (1840-1893) und die Sprachgeschichte</strong></p>
+<blockquote>
+<p>Alles das klingt und ist auch wirklich sehr trocken. Was die menschliche Re-
+de im Innersten bewegt, was sonst die Wissenschaft von den Sprachen der Völker zu
+einer der lebensvollsten macht, das tritt hier zunächst zurück: nur einige ihrer Ausläufer ranken in das Seelen- und Sittenleben der Völker hinüber. Der einzelsprachliche
+Forscher kann gar nicht schnell genug die fremde Sprache in’s eigene Ich aufnehmen:
+der Sprachhistoriker steht draussen vor seinem Gegenstande: hier der Anatom, da der
+Cadaver. <a href="http://bibliography.lingpy.org?key=Gabelentz1891">(Gabelentz 1891: 145)</a></p>
+</blockquote>
+</section>
+<section data-background="LightYellow" data-transition="none" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Phylogenetische Rekonstruktion</span></h2>
+<h3><span class="subhead">Innere und äußere Sprachgeschichte</span></h3>
+<p><strong>Georg von der Gabelentz (1840-1893) und die Sprachgeschichte</strong></p>
+<blockquote>
+<p>Wir werden, um Missverständnisse zu vermeiden, gut thun, zwischen äusserer und
+innerer Sprachgeschichte zu unterscheiden. Die äussere Geschichte einer Sprache ist
+die Geschichte ihrer räumlichen und zeitlichen Verbreitung, ihrer Verzweigungen und
+etwaigen Mischungen (Genealogie). Die innere Sprachgeschichte erzählt und sucht
+zu erklären, wie sich die Sprache in Rücksicht auf Stoff und Form allmählich verändert
+hat. <a href="http://bibliography.lingpy.org?key=Gabelentz1891">(Gabelentz 1891: 146)</a></p>
+</blockquote>
+</section>
+</section>
+
+<section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Phylogenetische Rekonstruktion</span></h2>
+<h3><span class="subhead">Stammbäume und Wellen</span></h3>
+<p><strong>Bäume</strong></p>
+<p>August Schleicher war eine herausragende Persönlichkeit in der Geschichte der Linguistik.
+Wir verdanken ihm insbesondere die sogenannte <em>Stammbaumtheorie</em>, die er in zwei frühen Werken
+erstmals im Jahre 1853 veröffentlichte (<a href="http://bibliography.lingpy.org?key=Schleicher1853">Schleicher 1853a</a>, <a href="http://bibliography.lingpy.org?key=Schleicher1853a">Schleicher 1853b</a>). Schleichers
+Theorie zur äußeren Sprachgeschichte war wahrscheinlich direkt beeinflusst von František
+Čelakovský (1799 – 1852), den er während einer Professur in Prag kennengelernt hatte,
+und der noch vor Schleicher einen ersten Stammbaum der slawischen Sprachen veröf-
+fentlichte (<a href="http://bibliography.lingpy.org?key=Celakovsky1853">Čelakovský 1853</a>).</p>
+</section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Phylogenetische Rekonstruktion</span></h2>
+<h3><span class="subhead">Stammbäume und Wellen</span></h3>
+<p><strong>Bäume</strong></p>
+<blockquote>
+<p>Die ältesten teilungen des indogermanischen bis zum entstehen der grundsprachen
+der den sprachstamm bildenden sprachfamilien laßen sich durch folgendes schema
+anschaulich machen. Die länge der linien deutet die zeitdauer an, die entfernung der-
+selben von einander den verwantschaftsgrad. (<a href="http://bibliography.lingpy.org?key=Schleicher1861">Schleicher 1861: 6</a>)</p>
+</blockquote>
+</section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Phylogenetische Rekonstruktion</span></h2>
+<h3><span class="subhead">Stammbäume und Wellen</span></h3>
+<p><strong>Bäume</strong></p>
+<p><a href="img/schleicher1861.jpg"><img style="width:600px" src="img/schleicher1861.jpg" alt="schleicher" /></a></p>
+<p><a href="http://bibliography.lingpy.org?key=Schleicher1861">Darstellung aus: Schleicher (1861: 6)</a></p>
+</section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Phylogenetische Rekonstruktion</span></h2>
+<h3><span class="subhead">Stammbäume und Wellen</span></h3>
+<p><strong>Wellen</strong></p>
+<p>Nicht lange, nachdem August Schleicher seine berühmte Stammbaumtheorie erstmals
+postuliert hatte, regte sich Widerspruch in den Kreisen der Indogermanisten und histori-
+schen Linguisten. Am bekanntesten ist in diesem Zusammenhang das Werk von Johannes
+Schmidt (1843 – 1901), der die Stammbaumtheorie verwarf, und an ihrer Stelle seine nicht
+minder berühmte <em>Wellentheorie</em> propagierte.</p>
+</section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Phylogenetische Rekonstruktion</span></h2>
+<h3><span class="subhead">Stammbäume und Wellen</span></h3>
+<p><strong>Wellen</strong></p>
+<blockquote>
+<p>Ich möchte an seine
+stelle das bild der welle setzen, welche sich in concentrischen mit der entfernung vom
+mittelpunkte immer schwächer werdenden ringen ausbreitet. Dass unser sprachgebiet keinen kreis bildet, sondern höchstens einen kreissector, dass die ursprünglichste
+sprache nicht im mittelpunkte, sondern an dem einen ende des gebietes ligt, tut nichts
+zur sache. Mir scheint auch das bild einer schiefen vom sanskrit zum keltischen in
+ununterbrochener linie geneigten ebene nicht unpassend. (<a href="http://bibliography.lingpy.org?key=Schmidt1872">Schmidt 1872: 27</a>)</p>
+</blockquote>
+</section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Phylogenetische Rekonstruktion</span></h2>
+<h3><span class="subhead">Stammbäume und Wellen</span></h3>
+<p><strong>Netze und anderes Gewirr</strong></p>
+<p>Das größte Problem von Schmidts Wellentheorie war, das niemand genau wusste, wie er
+die äußere Sprachgeschichte denn nun schematisch darstellen sollte. Und so finden wir im
+Laufe der Geschichte eine Vielzahl von Versuchen zur Visualisierung der Wellentheorie.</p>
+</section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Phylogenetische Rekonstruktion</span></h2>
+<h3><span class="subhead">Stammbäume und Wellen</span></h3>
+<p><strong>Netze und anderes Gewirr</strong></p>
+<p><a href="img/netze.png"><img style="width:600px" src="img/netze.png" alt="schleicher" /></a></p>
+</section>
+</section>
+
+<section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Phylogenetische Rekonstruktion</span></h2>
+<h3><span class="subhead">Darstellung und Analyse</span></h3>
+<p><strong>Darstellung von Daten und Darstellung von Geschichte</strong></p>
+<p>Wir müssen unterscheiden zwischen Schemata (seien es Wellen oder Bäume) zur
+Darstellung von Daten, und Schemata zur Darstellung von Geschichte (vgl. die
+Unterscheidung zwischen data-display und evolutionary in <a href="http://bibliography.lingpy.org?key=Morrison2011">Morrison 2011:
+42f</a>).</p>
+</section>
+<section data-background="LightYellow" data-transition="none" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Phylogenetische Rekonstruktion</span></h2>
+<h3><span class="subhead">Darstellung und Analyse</span></h3>
+<p><strong>Darstellung von Daten und Darstellung von Geschichte</strong></p>
+<p>Schleichers Baum von 1861 ist dabei ein klares
+Beispiel für ein Schema, das den Anspruch hat, ein geschichtliches Schema zu
+sein, während die Beispiele für die Visualisierung der Wellentheorie wohl eher
+als Datendarstellungsschemata bezeichnet werden sollten, da sie nicht für sich
+in Anspruch nehmen, äußere Sprachgeschichte zu modellieren.  Schemata zur
+Darstellung von Daten können unter Umständen in Schemata zur Darstellung von
+Geschichte überführt werden, jedoch hängt die Überführbarkeit davon ab, ob die
+Daten die Rekonstruktion von Geschichte auch erlauben.</p>
+</section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Phylogenetische Rekonstruktion</span></h2>
+<h3><span class="subhead">Darstellung und Analyse</span></h3>
+<p><strong>Welche Daten sind es, die auf die Geschichte schließen lassen?</strong></p>
+<blockquote>
+<p>Im ganzen ist also nur wenig, was aus den spezielleren Übereinstimmungen
+zwischen einzelnen von den acht Hauptgruppen [...] mit grösserer Wahrscheinlichkeit entnommen werden kann. Und
+jedenfalls treten [...] nirgends speziellere Gemeinsamkeiten, die als
+gemeinsame Neuerungen erscheinen, in so grosser Anzahl entgegen, dass man auf
+Grund derselben die betreffenden Sprachzweige in derselben Art zu Einheiten
+zusammenschliessen dürfte [...]. (<a href="http://bibliography.lingpy.org?key=Brugmann1904">Brugmann 1904[1970]: 21f</a>)</p>
+</blockquote>
+</section>
+</section>
+
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Agenda 2015</span></h2>
+<ul>
+<li><span class="stroked">Phylogenetische Rekonstruktion</span><ul>
+<li><span class="stroked">Innere und äußere Sprachgeschichte</span></li>
+<li><span class="stroked">Stammbäume und Wellen</span></li>
+<li><span class="stroked">Darstellung und Analyse</span></li>
+</ul>
+</li>
+<li><span class="unstroked">Lexikostatistik</span><ul>
+<li><span class="unstroked">Hintergrund und Grundannahmen</span></li>
+<li><span class="unstroked">Praktische Umsetzung</span></li>
+<li><span class="unstroked">Kritik</span></li>
+</ul>
+</li>
+<li><span class="unstroked">Computergestützte Rekonstruktion</span><ul>
+<li><span class="unstroked">Komparanda</span></li>
+<li><span class="unstroked">Algorithmen</span></li>
+<li><span class="unstroked">Formate</span></li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Lexikostatistik</span></h2>
+<h3><span class="subhead">Hintergrund und Grundannahmen</span></h3>
+<p><strong>Hintergrund</strong></p>
+<p>Die Lexikostatistik stellt ein statistisch basiertes Verfahren zur Ermittlung von Verwandt-
+schaftsbeziehungen zwischen Sprachen (und damit zur phylogenetischen Rekonstrukti-
+on) dar. Sie wurde von Morris Swadesh (1909 – 1967) in einer Reihe von Artikeln zu
+Beginn der 50er Jahre des 20. Jahrhunderts vorgestellt und weiterentwickelt (<a href="http://bibliography.lingpy.org?key=Swadesh1950">Swadesh
+1950</a>, <a href="http://bibliography.lingpy.org?key=Swadesh1952">Swadesh 1952</a>, <a href="http://bibliography.lingpy.org?key=Swadesh1955">Swadesh 1955</a>). In der Folgezeit mehrte sich jedoch die Kritik an
+der Methode (<a href="http://bibliography.lingpy.org?key=Bergsland1962">Bergsland und Vogt 1962</a>, <a href="http://bibliography.lingpy.org?key=Hoijer1956">Hoijer 1956</a>, <a href="http://bibliography.lingpy.org?key=Rea1973">Rea 1973</a>) und kam am Ende aus
+der Mode.</p>
+</section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Lexikostatistik</span></h2>
+<h3><span class="subhead">Hintergrund und Grundannahmen</span></h3>
+<p><strong>Hintergrund</strong></p>
+<p>Grundsätzlich werden im Rahmen der Lexikostatistik historisch relevante Ge-
+meinsamkeiten zwischen Sprachen ausgezählt. Die zugrunde liegenden Zahlen können
+dann weiterverwendet werden, um genealogische Bäume automatisch zu rekonstruieren,
+oder um (unter der Annahme konstanten Wandels) Sprachspaltungszeitpunkte zu ermit-
+teln. Die Methode erlebte zu Beginn des 21. Jahrhunderts eine Wiedergeburt im Rahmen
+neuer quantitativer biologischer Ansätze, mit deren Hilfe genealogische Bäume automa-
+tisch aus spezifischen Sprachdaten gewonnen werden können (<a href="http://bibliography.lingpy.org?key=Atkinson2006">Atkinson und Gray 2006</a>,
+<a href="http://bibliography.lingpy.org?key=Gray2003">Gray und Atkinson 2003</a>).</p>
+</section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Lexikostatistik</span></h2>
+<h3><span class="subhead">Hintergrund und Grundannahmen</span></h3>
+<p><strong>Grundannahmen</strong></p>
+<p>Die Grundannahmen der Lexikostatistik wurden in einer Vielzahl von Arbeiten besprochen
+(<a href="http://bibliography.lingpy.org?key=Gudschinsky1956">Gudschinsky 1956</a>, <a href="http://bibliography.lingpy.org?key=Sankoff1969">Sankoff 1969</a>). 
+Sie lassen sie sich in etwa
+wie folgt zusammenfassen (vgl. <a href="http://lingulist.de/jump.php?paper=Geisler2014&amp;href=documents/beautiful_trees.pdf">Geisler und List im Erscheinen</a>):</p>
+<ul>
+<li>
+<p>The lexicon of every human language contains words which are relatively resistant
+to borrowing and relatively stable over time due to the meaning they express: these
+words constitute the <em>basic vocabulary</em> of languages.</p>
+</li>
+<li>
+<p><em>Shared retentions</em> in the basic vocabulary of different languages reflect their degree
+of <em>genetic relationship</em>.</p>
+</li>
+</ul>
+</section>
+</section>
+
+<section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Lexikostatistik</span></h2>
+<h3><span class="subhead">Praktische Umsetzung</span></h3>
+<p><strong>Die praktischen Arbeitsschritte</strong></p>
+<ol>
+<li><strong>Compilation:</strong> Compile a list of basic vocabulary items (a Swadesh-list).</li>
+<li><strong>Translation:</strong> Translate the items into the languages that shall be investigated.</li>
+<li><strong>Cognate Judgments:</strong> Search the language entries for cognates.</li>
+<li><strong>Coding:</strong> Convert the cognate information into a numerical format.</li>
+<li><strong>Computation:</strong> Perform a computational analysis (cluster analysis, tree calculation) of the numerical data, which allows to make conclusions regarding the phylogeny of the languages under investigation.</li>
+</ol>
+</section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Lexikostatistik</span></h2>
+<h3><span class="subhead">Praktische Umsetzung</span></h3>
+<p><strong>Diagnostische Testlisten im <a href="http://concepticon.clld.org">Concepticon</a></strong></p>
+<iframe src="http://concepticon.clld.org" style="width:1100px;height:500px"></iframe>
+</section>
+</section>
+
+<section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Lexikostatistik</span></h2>
+<h3><span class="subhead">Kritik</span></h3>
+<p><strong>Wichtigste Kritikpunkte in der Literatur</strong></p>
+<ul>
+<li><strong>Entlehnung:</strong> Unentdeckte Entlehnungen können die Ergebnisse verfälschen.</li>
+<li><strong>Aussagekraft:</strong> Lexikalische Ersetzung ist als Prozess nicht aussagekräftig für Sprach-
+geschichte.</li>
+<li><strong>Fehleranfälligkeit:</strong> Die Methode ist fehleranfällig, da die Daten auf eine problemati-
+sche Weise erstellt werden.</li>
+</ul>
+</section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Lexikostatistik</span></h2>
+<h3><span class="subhead">Kritik</span></h3>
+<p><strong>Entscheidender Kritikpunkt</strong></p>
+<p>Neuere Vergleiche
+haben dabei zeigen können, dass die Daten, die von Forscherteams unabhängig produ-
+ziert werden, derartig große Unterschiede aufweisen, dass dies zu Unterschieden von über
+30% in von den Daten automatisch berechneten Baumtopologien führt (<a href="http://lingulist.de/jump.php?paper=Geisler2014&amp;href=documents/beautiful_trees.pdf">Geisler und List im Erscheinen</a>). 
+Die größten Probleme liegen dabei weniger im Bereich der Kognatenzuweisungen
+(Schritt 3, obwohl auch dieser problematisch ist), sondern bereits im Bereich der Überset-
+zung (Schritt 2).</p>
+</section>
+<section data-background="LightYellow" data-transition="none" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Lexikostatistik</span></h2>
+<h3><span class="subhead">Kritik</span></h3>
+<p><strong>Entscheidender Kritikpunkt</strong></p>
+<p>Bereits hier zeigen sich große Unterschiede zwischen unabhängig
+erstellten Datensätzen, die zeigen, dass mangelnde Kompetenz der Forscher in den Ein-
+zelsprachen, aber auch mangelnde Beschreibung der Konzepte in den Konzeptlisten, zu
+einer Vielzahl von Unterschieden bereits in den Ausgangsdaten führen können.</p>
+</section>
+</section>
+
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Agenda 2015</span></h2>
+<ul>
+<li><span class="stroked">Phylogenetische Rekonstruktion</span><ul>
+<li><span class="stroked">Innere und äußere Sprachgeschichte</span></li>
+<li><span class="stroked">Stammbäume und Wellen</span></li>
+<li><span class="stroked">Darstellung und Analyse</span></li>
+</ul>
+</li>
+<li><span class="stroked">Lexikostatistik</span><ul>
+<li><span class="stroked">Hintergrund und Grundannahmen</span></li>
+<li><span class="stroked">Praktische Umsetzung</span></li>
+<li><span class="stroked">Kritik</span></li>
+</ul>
+</li>
+<li><span class="unstroked">Computergestützte Rekonstruktion</span><ul>
+<li><span class="unstroked">Komparanda</span></li>
+<li><span class="unstroked">Algorithmen</span></li>
+<li><span class="unstroked">Formate</span></li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Computergestützte Rekonstruktion</span></h2>
+<h3><span class="subhead">Komparanda</span></h3>
+<p><strong>Distanzbasierte Ansätze</strong></p>
+<p>Aus den Daten werden Distanzwerte zwischen den zu vergleichenden Taxa (in
+unserem Falle Sprachen) abgeleitet. Distanzwerte sind dabei beliebige Zahlen
+zwischen $0$ (Identität der Taxa) und $\infty$ (Nichtidentität der Taxa), wobei
+Taxa, die weiter voneinander entfernt sind, einen größeren Distanzwert
+zugewiesen bekommen, als Taxa, die einander näher liegen.</p>
+</section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Computergestützte Rekonstruktion</span></h2>
+<h3><span class="subhead">Komparanda</span></h3>
+<p><strong>Charakterbasierte Ansätze</strong></p>
+<p>Die Daten werden nicht in Distanzmatrizzen transformiert.
+Stattdessen wird jedes Taxon in Bezug auf eine Reihe von Eigenschaften charakterisiert.
+Für jede dieser Eigenschaften kann ein Taxon dabei verschiedene Zustände
+aufweisen. Die einfachste Zustandsbeschreibung ist dabei die Anwesenheit oder Ab-
+wesenheit der jeweiligen Eigenschaft (dargestellt in einer Binärmatrix). Komplexere
+Zustände können den Taxa jedoch ebenfalls zugewiesen werden.</p>
+</section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Computergestützte Rekonstruktion</span></h2>
+<h3><span class="subhead">Komparanda</span></h3>
+<p><strong>Distanzbasierte versus charakterbasierte Ansätze</strong></p>
+<p><a href="img/perspective.png"><img src="img/perspective.png" alt="distchar" style="width:1000px" /></a></p>
+</section>
+</section>
+
+<section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Computergestützte Rekonstruktion</span></h2>
+<h3><span class="subhead">Algorithmen</span></h3>
+<p><strong>Allgemeines Vorweg</strong></p>
+<p>Um aus den in Distanzform oder Charakterform kodierten Daten mit Hilfe des Computers einen Stammbaum abzuleiten, müssen diese geclustert werden. Hierzu sind
+in der Biologie verschiedene Verfahren entwickelt worden. Es gibt eine Vielzahl
+verschiedenster Softwareprogramme, welche diese Aufgabe erfüllen. Den einzelnen Anwendungen innerhalb dieser Software liegen dabei verschiedene Algorithmen zugrunde, welche aus den Daten sukzessive einen Baum erzeugen, oder aus
+einer Vielzahl möglicher Bäume den wahrscheinlichsten Baum ermitteln. </p>
+</section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Computergestützte Rekonstruktion</span></h2>
+<h3><span class="subhead">Algorithmen</span></h3>
+<ul>
+<li><strong>Neighbor-Joining:</strong> Clusterverfahren für Distanzdaten, entwickelt von <a href="http://bibliography.lingpy.org?key=Saitou1987">Saitou and Nei (1987)</a>,
+  welches sich insbesondere deshalb großer Beliebtheit erfreut, weil es eine
+  sehr geringe Laufzeit hat. Um einen schnellen Überblick über die Daten zu
+  bekommen, ist es daher sehr gut geeignet.</li>
+<li><strong>Likelihood-Verfahren:</strong> Verfahren für Charakterdaten, 
+  die auf stochastischen Verfahren beruht und entweder alle 
+  möglichen Bäume auf ihre Wahrscheinlichkeit vergleichen ("maximum likelihood", <a href="http://bibliography.lingpy.org?key=Nunn2011">Nunn 2011:33-35</a>),
+  oder ein möglichst großes Sample "guter" Bäume automatisch schätzt ("bayesian methods", <a href="http://bibliography.lingpy.org?key=Nunn2011">Nunn 2011:35-38</a>). </li>
+<li><strong>Maximale Parsimonie:</strong> Verfahren, welches den evolutionären Baum errechnet, 
+  der am wenigsten evolutionären Wandel benötigt, um die Daten zu erklären (<a href="http://bibliography.lingpy.org?key=Nunn2011">Nunn 2011:30-33</a>). </li>
+</ul>
+</section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Computergestützte Rekonstruktion</span></h2>
+<h3><span class="subhead">Algorithmen</span></h3>
+<p><strong>Software</strong></p>
+<ul>
+<li><a href="http://lingpy.org">LingPy</a>: Bietet distanzbasierte Clusterverfahren, unter anderem Neighbor-Joining (<a href="http://bibliography.lingpy.org?key=Saitou1987">Saitou und Nei 1987</a>) und UPGMA (<a href="http://bibliography.lingpy.org?key=Sokal1958">Sokal und Michener 1958</a>).</li>
+<li><a href="http://mrbayes.sourceforge.net">MrBayes</a>: Bietet bayesianische Methoden, die vor allem in der Biologie verwendet werden (<a href="http://bibliography.lingpy.org?key=Ronquist2009">Ronquist et al. 2009</a>).</li>
+<li><a href="http://splitstree.org">SplitsTree</a>: Bietet distanzbasierte Clusterverfahren, aber vor allem auch distanzbasierte Netzwerkanalysen, wie zum Beispiel NeighborNet (<a href="http://bibliography.lingpy.org?key=Bryant2002">Bryant und Moulton 2002</a>).</li>
+</ul>
+</section>
+</section>
+
+<section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Computergestützte Rekonstruktion</span></h2>
+<h3><span class="subhead">Formate</span></h3>
+<p><strong>Allgemeines Vorweg</strong></p>
+<p>Als Eingabedaten werden in den phylogenetischen Analysen im Rahmen der histo-
+rischen Linguistik zumeist Swadesh-Listen (vgl. <a href="http://bibliography.lingpy.org?key=Swadesh1950">Swadesh 1950</a>, <a href="http://bibliography.lingpy.org?key=Swadesh1952">1952</a>, <a href="http://bibliography.lingpy.org?key=Swadesh1955">1955</a>) verwendet. Jedes Item (“Bedeutungsslot”) wird dabei zunächst als Charakter angesehen. Diesem wird für jede Sprache ein Zustand zugewiesen, wobei der Zustand als
+identisch kodiert wird, wenn die jeweiligen Spracheinträge kognat sind.</p>
+</section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Computergestützte Rekonstruktion</span></h2>
+<h3><span class="subhead">Formate</span></h3>
+<p><strong>Distanzberechnung aus Swadeshlisten</strong></p>
+<p><a href="img/cognates-1.svg"><img style="width:1000px" src="img/cognates-1.svg" alt="schleicher" /></a></p>
+</section>
+<section data-background="LightYellow" data-transition="none" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Computergestützte Rekonstruktion</span></h2>
+<h3><span class="subhead">Formate</span></h3>
+<p><strong>Distanzberechnung aus Swadeshlisten</strong></p>
+<p><a href="img/distance-tree.png"><img style="width:1000px" src="img/distance-tree.png" alt="schleicher" /></a></p>
+</section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Computergestützte Rekonstruktion</span></h2>
+<h3><span class="subhead">Formate</span></h3>
+<p><strong>Charaktermodellierung von Kognatensätzen</strong></p>
+<p><a href="img/cognates-2.svg"><img style="width:1000px" src="img/cognates-2.svg" alt="schleicher" /></a></p>
+</section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Computergestützte Rekonstruktion</span></h2>
+<h3><span class="subhead">Formate</span></h3>
+<p><strong>Charaktermodellierung von Kognatensätzen</strong></p>
+<p><a href="img/character-tree.png"><img style="width:1000px" src="img/character-tree.png" alt="schleicher" /></a></p>
+</section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Computergestützte Rekonstruktion</span></h2>
+<h3><span class="subhead">Formate</span></h3>
+<p><strong>Phylip-Format</strong></p>
+<pre><code class="text" data-trim>
+12
+Germa 0.0 0.19 0.11 0.27 0.19 0.26 0.16 0.16 0.19 0.22 0.11 0.08
+Engli 0.19 0.0 0.14 0.27 0.19 0.22 0.16 0.16 0.26 0.22 0.11 0.14
+Dutch 0.11 0.14 0.0 0.29 0.21 0.27 0.14 0.18 0.24 0.24 0.13 0.09
+Icela 0.27 0.27 0.29 0.0 0.08 0.21 0.14 0.11 0.27 0.08 0.22 0.22
+Nynor 0.19 0.19 0.21 0.08 0.0 0.13 0.06 0.03 0.22 0.06 0.14 0.14
+Riksm 0.26 0.22 0.27 0.21 0.13 0.0 0.13 0.09 0.29 0.16 0.21 0.21
+Swedi 0.16 0.16 0.14 0.14 0.06 0.13 0.0 0.03 0.19 0.09 0.11 0.11
+Danis 0.16 0.16 0.18 0.11 0.03 0.09 0.03 0.0 0.19 0.06 0.11 0.11
+Gothi 0.19 0.26 0.24 0.27 0.22 0.29 0.19 0.19 0.0 0.22 0.18 0.18
+OIcel 0.22 0.22 0.24 0.08 0.06 0.16 0.09 0.06 0.22 0.0 0.14 0.18
+OEngl 0.11 0.11 0.13 0.22 0.14 0.21 0.11 0.11 0.18 0.14 0.0 0.06
+OHGer 0.08 0.14 0.09 0.22 0.14 0.21 0.11 0.11 0.18 0.18 0.06 0.0
+</code></pre>
+</section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Computergestützte Rekonstruktion</span></h2>
+<h3><span class="subhead">Formate</span></h3>
+<p><strong>Nexus-Format</strong></p>
+<pre><code class="text" data-trim>
+#nexus
+BEGIN Taxa;
+DIMENSIONS ntax=12;
+TAXLABELS 'Germa' 'Engli' 'Dutch' 'Icela' 'Nynor' 'Riksm' 'Swedi' 'Danis'
+'Gothi' 'OIcel' 'OEngl' 'OHGer';
+END; [Taxa]
+BEGIN Characters;
+DIMENSIONS nchar=61;
+FORMAT
+datatype=STANDARD
+missing=?
+gap=-
+symbols="01"
+labels=left
+transpose=no
+interleave=no
+;
+MATRIX
+'Germa' 0111111111111111111111111111111111111111100000000000000000000
+'Engli' 0100011111111111111011111111010110111111111111000000000000000
+'Dutch' 0101111111111111111111111111010111111111110010110000000000000
+'Icela' 0100111110111111110111110111011110111111110001001111111100000
+AH
+'Nynor' 0100111110111111110111111111011110111111110001001110010000000
+'Riksm' 0100010110111010111111011111011110111111110001001010010010000
+'Swedi' 0100111110111111111111111111011110111111110001101010000000000
+'Danis' 0100111110111111111111111111011110111111110001001010010000000
+'Gothi' 0100111011111111111101110111011111111111100001001000000001111
+'OIcel' 0100111110111111111111111111011110111111110001001111010101000
+'OEngl' 0101111111111111111111111111011110111111110101000000000001000
+'OHGer' 0101111111111111111111111111011111111111110100001000000000000
+;
+END;
+</code></pre>
+</section>
+</section>
+
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Agenda 2015</span></h2>
+<ul>
+<li><span class="stroked">Phylogenetische Rekonstruktion</span><ul>
+<li><span class="stroked">Innere und äußere Sprachgeschichte</span></li>
+<li><span class="stroked">Stammbäume und Wellen</span></li>
+<li><span class="stroked">Darstellung und Analyse</span></li>
+</ul>
+</li>
+<li><span class="stroked">Lexikostatistik</span><ul>
+<li><span class="stroked">Hintergrund und Grundannahmen</span></li>
+<li><span class="stroked">Praktische Umsetzung</span></li>
+<li><span class="stroked">Kritik</span></li>
+</ul>
+</li>
+<li><span class="stroked">Computergestützte Rekonstruktion</span><ul>
+<li><span class="stroked">Komparanda</span></li>
+<li><span class="stroked">Algorithmen</span></li>
+<li><span class="stroked">Formate</span></li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section data-background="#000000" data-transition="concave" style="text-align:justify;font-size:85%;">
+<p style="font-size:120px;color:white;font-weight:bold;">
+<code class="python">>>> 3 - 1</code>
+</p>
+
+<p style="font-size:80%;color:white;font-weight:bold;text-align:right;">
+Ende der ersten Sitzung
+</p>
+</section>
+
+
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+	slideNumber: 'c / t',
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+	  { src: 'plugin/math/math.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true }
+        ]
+      });
+
+    </script>
+<div class="footer" style="display: block; position: absolute; bottom: 50px; left: 1%; margin-left: 0px; z-index: 20;">
+  <a
+    style="background:CornflowerBlue;color:Crimson;border-radius:25px;padding:10px;font-size:60%;font-weight:bold;text-decoration:none;"
+    href="../slides.html">ÜBERBLICK</a>
+</div>
+ <div class="footer" style="display: block; position: absolute; top: 10px; right: 1%; margin-left: 0px; z-index: 20;">
+  <a id="changeme"
+    onclick="nextSession();"
+    style="background:CornflowerBlue;color:white;border-radius:25px;padding:10px;font-size:60%;font-weight:bold;text-decoration:none;"
+    href="../slides.html">Nächste Sitzung</a>
+</div>
+ <div class="footer" style="display: block; position: absolute; top: 10px; left: 1%; margin-left: 0px; z-index: 20;">
+  <a id="changeve"
+    onclick="nextSession();"
+    style="background:CornflowerBlue;color:white;border-radius:25px;padding:10px;font-size:60%;font-weight:bold;text-decoration:none;"
+    href="../slides.html">Vorherige Sitzung</a>
+</div>
+ <div class="footer" style="display: block; position: absolute; top: 2px; left: 44.0%; margin-left: 0px; z-index: 20;">
+  <p id="sitzung"
+    style="color:CornflowerBlue;padding:1px;font-size:80%;font-weight:bold;text-decoration:none;">Vorherige Sitzung</p>
+</div>
+
+
+<script>
+  var cur1 = window.location.href.split('#')[0];
+  var cur1= cur1.split('/');
+  console.log(cur1, cur1[cur1.length-1]);
+  var cur2 = cur1[cur1.length-1].replace('.html','').replace('sitzung-','');
+  var cur3 = cur2.split('-');
+  console.log(cur3, cur2);
+  var next = parseInt(cur3[1]) + 1;
+  var before = parseInt(cur3[1]) - 1 
+  if (next == 4) {
+    var next = 1;
+    var day = parseInt(cur3[0])+1;
+  }
+ else {
+    var day = parseInt(cur3[0]);
+  }
+
+  if (before == 0) {
+    var before = 3;
+    var bday = parseInt(cur3[0])-1
+  }
+  else {
+    var bday = parseInt(cur3[0]);
+}
+ 
+if (bday == 0) {
+  document.getElementById('changeve').style.display = "none";
+}
+if (day == 5) {
+  document.getElementById('changeme').style.display = "none";
+}
+  document.getElementById('changeme').href = 'sitzung-'+day+'-'+next+'.html';
+  document.getElementById('changeve').href = 'sitzung-'+bday+'-'+before +'.html';
+
+  document.getElementById('sitzung').innerHTML = "PyJS: Sitzung "+cur3[1]+" (Tag "+cur3[0]+")";
+</script>
+ </body>
+</html>

@@ -14,8 +14,4 @@ function wind (country, season) {
   }
 }
 
-function sw_align (seqA, seqB) {
-
-  return seqAlign(seqA.split(''), seqB.split(''));
-}
 

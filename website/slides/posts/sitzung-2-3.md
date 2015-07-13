@@ -1,7 +1,7 @@
 # Sitzung 3: Funktionen
 
 
-@data-background:#ffffff
+@data-background:LightYellow
 @data-transition:concave
 @style:text-align:justify;
 @style:font-size:85%;
@@ -587,10 +587,10 @@ globaler string
 @data-background:#000000
 
 <p style="font-size:120px;color:white;font-weight:bold;">
-window.close();
+sudo shutdown now
 </p>
 <p style="font-size:80%;color:white;font-weight:bold;text-align:right;">
-der dritten Sitzung
+Ende der dritten Sitzung
 </p>
 
 

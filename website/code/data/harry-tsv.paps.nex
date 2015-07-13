@@ -1,0 +1,15 @@
+#NEXUS
+
+BEGIN DATA;
+DIMENSIONS ntax=4 NCHAR=7;
+FORMAT DATATYPE=STANDARD GAP=- MISSING=0 interleave=yes;
+MATRIX
+
+English   1001011
+German    1010011
+Russian   0100111
+Ukrainian 0100111
+
+;
+
+END;

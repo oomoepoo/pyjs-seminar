@@ -2,17 +2,17 @@
 <head>
   <title>Alignment Demo</title>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <script src="js/nw.js" type="text/javascript"></script>
+  <script src="js/align.js" type="text/javascript"></script>
   <link rel="stylesheet" type="text/css" href="css/nw.css" />
 </head>
 <body>
-  <input type="text" style="width: 300px" id="seqA" onkeyup="alignit()" />
-  <input type="text" style="width: 300px" id="seqB" onkeyup="alignit()" />
+  <input type="text" style="width: 300px" id="seqA" onkeyup="alignStart()" />
+  <input type="text" style="width: 300px" id="seqB" onkeyup="alignStart()" />
   <br>
   <div id="display"></div>
 
   <script>
-function alignit() {
+function alignStart() {
   /* get the sequences */
   var seqA = document.getElementById('seqA');
   var seqB = document.getElementById('seqB');
@@ -28,7 +28,7 @@ function alignit() {
   }
 
   /* get the alignment */
-  alms = seqAlign(seqA, seqB);
+  alms = wf_align(seqA, seqB);
   var almA = alms[0];
   var almB = alms[1];
   var dist = alms[2];

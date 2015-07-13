@@ -1,6 +1,6 @@
 # Sitzung 2: Erste Schritte in Python
 
-@data-background:#ffffff
+@data-background:LightYellow
 @data-transition:concave
 @style:text-align:justify;
 @style:font-size:85%;

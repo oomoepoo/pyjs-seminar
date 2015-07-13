@@ -1,7 +1,7 @@
 # Sitzung 1: Sequenzvergleiche in der historischen Linguistik
 
 
-@data-background:#ffffff
+@data-background:LightYellow
 @data-transition:concave
 @style:text-align:justify;
 @style:font-size:85%;

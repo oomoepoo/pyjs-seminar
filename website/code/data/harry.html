@@ -1,0 +1,655 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+ <head>
+ <meta http-equiv="content-type"content="text/html; charset=utf-8">
+ </head>
+ <title>LexStat</title>
+<style>
+table.popup {
+	background-color: #b9d9f2; 
+	border: 4px solid black;
+}
+tr.popup {
+	background-color: #2f95e3;
+	border: 2px solid black;
+}
+th.popup {
+	text-align: left;
+	border: 2px solid black;
+}
+td.popup {
+	text-align: left;
+	vertical-align: top;
+	border: 2px solid black;
+}
+div.display{
+	position: fixed;
+	display: block;
+	width: 40%;
+	right: 400px;
+	overflow: auto;
+	height: 80%;
+}
+div.slot{
+	display: block;
+}
+table.display{
+	//border: 4px solid black;
+	background-color: #b9d9f2;
+}
+tr.display{
+	border: 2px solid black;
+}
+td.display{
+	border: 2px solid black;
+	vertical-align: center;
+}
+th.display{
+	border: 2px solid black;
+}
+td.char {
+	width: 30px;
+	text-align: center;
+	color: white;
+	font-weight: bold;
+	cursor: pointer;
+}
+li.display {
+	font-weight: bold;
+}
+a.display {
+	text-decoration: none;
+	font-weight: bold;
+	color: black;
+}
+span.char {
+	width: 30px;
+	text-align: center;
+	color: white;
+	font-weight: bold;
+	padding-left: 10px;
+	padding-right: 10px;
+	cursor: pointer;
+}
+tr.white {
+	background-color: white;
+}
+tr.gray {
+	background-color: lightgray;
+}
+tr.loan {
+	font-weight: bold;
+}
+td.white {
+	background-color: white;
+}
+td.gray {
+	background-color: lightgray;
+}
+td.loan {
+	font-weight: bold;
+}
+tr.empty {background-color: white;}
+td.empty {background-color: white;}
+hr.empty {background-color:white;border:color:white;border:0;height:2pt;}
+.mybut {
+	background-color: #b9d9f2;
+}
+td.dolgo_ERROR{background-color: white; color:red;}
+td.dolgo_V{background-color: #c86464;}
+td.dolgo_K{background-color: #c89664;} 
+td.dolgo_P{background-color: #c8c864;} 
+td.dolgo_H{background-color: #96c864;} 
+td.dolgo_J{background-color: #64c864;} 
+td.dolgo_M{background-color: #64c896;} 
+td.dolgo_N{background-color: #64c8c8;} 
+td.dolgo_S{background-color: #6496c8;} 
+td.dolgo_R{background-color: #6464c8;} 
+td.dolgo_T{background-color: #9664c8;} 
+td.dolgo_W{background-color: #c864c8;} 
+td.dolgo_TONE{background-color: #c86496;} 
+td.dolgo_X{background-color: #bbbbbb;}
+td.dolgo_GAP{background-color: #bbbbbb;}
+span.dolgo_ERROR{background-color: white; color:red;}
+span.dolgo_V{background-color: #c86464;}
+span.dolgo_K{background-color: #c89664;} 
+span.dolgo_P{background-color: #c8c864;} 
+span.dolgo_H{background-color: #96c864;} 
+span.dolgo_J{background-color: #64c864;} 
+span.dolgo_M{background-color: #64c896;} 
+span.dolgo_N{background-color: #64c8c8;} 
+span.dolgo_S{background-color: #6496c8;} 
+span.dolgo_R{background-color: #6464c8;} 
+span.dolgo_T{background-color: #9664c8;} 
+span.dolgo_W{background-color: #c864c8;} 
+span.dolgo_TONE{background-color: #c86496;} 
+span.dolgo_X{background-color: #bbbbbb;}
+span.dolgo_GAP{background-color: #bbbbbb;}
+
+</style>
+<script type="text/javascript">
+
+var dolgo = {};
+dolgo['char dolgo_ERROR'] = 'white';
+dolgo['char dolgo_V'] = '#c86464';
+dolgo['char dolgo_K'] = '#c89664';
+dolgo['char dolgo_P'] = '#c8c864';
+dolgo['char dolgo_H'] = '#96c864';
+dolgo['char dolgo_J'] = '#64c864';
+dolgo['char dolgo_M'] = '#64c896';
+dolgo['char dolgo_N'] = '#64c8c8';
+dolgo['char dolgo_S'] = '#6496c8';
+dolgo['char dolgo_R'] = '#6464c8';
+dolgo['char dolgo_T'] = '#9664c8';
+dolgo['char dolgo_W'] = '#c864c8';
+dolgo['char dolgo_TONE'] = '#c86496';
+dolgo['char dolgo_X']='#bbbbbb';
+dolgo['char dolgo_GAP'] = '#bbbbbb';
+
+var myprevious = ['','',''];
+
+function show(what){
+  var words = what.split('.'); 
+  var ar = document.getElementsByClassName('taxon');
+  var k=0;
+  for(var i=0;i<ar.length;i++)
+  {
+    var taxon = ar[i].getAttribute('taxon');
+    if(taxon==words[0]){
+      var chars = ar[i].children[3];
+      chars = chars.children[0];
+      chars = chars.children[0];
+      chars = chars.children[0].children;
+      for(j=0;j<chars.length;j++)
+      {
+        var this_char = chars[j].getAttribute('num');
+        if(this_char==what)
+        {
+          chars[j].style.backgroundColor='white';
+          chars[j].style.color='red';
+          var this_c = chars[j].getAttribute('class');
+          k++;
+        }
+        else
+        {
+          c = dolgo[chars[j].getAttribute('class')];
+          chars[j].style.backgroundColor=c;
+          chars[j].style.color='white';
+        }
+      }
+    }
+    else if(taxon==myprevious[0])
+    {
+      var chars = ar[i].children[3];
+      chars = chars.children[0];
+      chars = chars.children[0];
+      chars = chars.children[0].children;
+      for(j=0;j<chars.length;j++)
+      {
+        var this_char = chars[j].getAttribute('num');
+        if(this_char==myprevious[3])
+        {
+          chars[j].style.backgroundColor=dolgo[chars[j].getAttribute('class')];
+          chars[j].style.color='white';
+        }
+      }
+    }
+  }
+  var out = '<table class="popup"><tr class="popup"><th class="popup">';  
+  out = out + words[0]+' <span class="'+this_c+'">'+words[1]+'</span>, context <b>'+words[2]+'</b>, '+k+' occurrences: </th><th class="popup">All occurrences of <span class="'+this_c+'">'+words[1]+'</span>: </th></tr><tr><td class="popup">';
+  out = out+'<table class="display"><tr class="display"><th class="display">Language</th><th class="display">Sound</th><th class="display">Context</th><th class="display">Matches</th><th class="display">Frequency</th></tr>';
+  out = out+myjson[what][0]+'</table></td><td class="popup">';
+  
+  // try to find the best concepts
+  var concepts = myjson[what][1];
+  var cstring = '<ol class="display">';
+  for(var i=0;i<concepts.length;i++)
+  {
+  cstring = cstring+'<li class="display"><a class="display" href="#';
+  cstring = cstring+concepts[i]+'">'+concepts[i]+'</a></li>';
+  }
+  cstring = cstring + '</ol>';
+  //out = out + '<br>All occurrences of the sound:<br>';
+  out = out + cstring;
+  out = out + '</td></tr></table>';
+
+  var mod = document.getElementById('display');
+  mod.style.display = 'block';
+  mod.innerHTML = out; 
+  myprevious = [words[0], words[1], words[2], what];
+}
+
+function color(mode, what){
+  // switch off general display on side-panel
+  var mod = document.getElementById("display");
+  mod.style.display = 'none';
+
+  var ar = document.getElementsByClassName('taxon');
+  for(var i=0;i<ar.length;i++)
+  {
+    var taxon = ar[i].getAttribute('taxon');
+    if(taxon==myprevious[0])
+    {
+      var chars = ar[i].children[3];
+      chars = chars.children[0];
+      chars = chars.children[0];
+      chars = chars.children[0].children;
+      for(j=0;j<chars.length;j++)
+      {
+        var this_char = chars[j].getAttribute('num');
+        if(this_char==myprevious[3])
+        {
+          chars[j].style.backgroundColor=dolgo[chars[j].getAttribute('class')];
+          chars[j].style.color='white';
+        }
+      }
+    }
+  }
+
+  // choose relevant block
+  if(mode=='confidence')
+  {
+    var trs = document.getElementById(what).children[0].children;
+    for(var i=2;i<trs.length;i++)
+    {
+       var chars = trs[i].children[3];
+       chars = chars.children[0];
+       chars = chars.children[0];
+       chars = chars.children[0].children;
+       if(chars[0].innerHTML != '--')
+       {
+         for(var k=0;k<chars.length; k++)
+         {
+           // get the confidence color
+           var cf = chars[k].getAttribute('confidence');
+           var cfc = Math.round(255-(255*cf/100));
+           cfc = 'rgb('+cfc+','+cfc+','+cfc+')';
+           chars[k].style.backgroundColor=cfc;
+           var c = chars[k].getAttribute('char');
+           chars[k].innerHTML = c;
+           if(cf >= 50)
+           {
+             chars[k].style.color = "white";
+           }
+           else
+           {
+             chars[k].style.color = "black";
+           }  
+         }
+       }
+    }
+  }
+  // choose relevant block
+  else if(mode=='sound_classes')
+  {
+    var trs = document.getElementById(what).children[0].children;
+    for(var i=2;i<trs.length;i++)
+    {
+      var chars = trs[i].children[3];
+      chars = chars.children[0];
+      chars = chars.children[0];
+      chars = chars.children[0].children;
+      if(chars[0].innerHTML != '--' && typeof(chars) != 'undefined')
+      {
+        for(var k=0;k<chars.length; k++)
+        {
+          // get the sound class color
+          var col = dolgo[chars[k].getAttribute('class')];
+          var c = chars[k].getAttribute('char');
+          chars[k].style.backgroundColor=col;
+          chars[k].style.color = 'white';
+          chars[k].innerHTML = c;
+        }
+      }
+    }
+  }
+  // choose relevant block
+  else if(mode=='scores')
+  {
+    var trs = document.getElementById(what).children[0].children;
+    for(var i=2;i<trs.length;i++)
+    {
+      var chars = trs[i].children[3];
+      chars = chars.children[0];
+      chars = chars.children[0];
+      chars = chars.children[0].children;
+      if(chars[0].innerHTML != '--')
+      {
+        for(var k=0;k<chars.length; k++)
+        {
+          // get the confidence color
+          var cf = chars[k].getAttribute('confidence');
+          var cfc = Math.round(255-(255*cf/100));
+          cfc = 'rgb('+cfc+','+cfc+','+cfc+')';
+          chars[k].style.backgroundColor=cfc;
+          chars[k].innerHTML = cf;
+          if(cf >= 50)
+          {
+            chars[k].style.color = "white";
+          }
+          else
+          {
+            chars[k].style.color = "black";
+          }  
+        }
+      }
+    }
+  }
+}
+
+</script>
+<body>
+<h3 align="left">LexStat - Automatic Cognate Judgments</h3>
+<h4 align="left">Dataset: data/harry.tsv</h4>
+<div id="display" class="display"></div>
+<table align="left" style='border:0;background-color:#b9d9f2;'>
+ <tr style="background-color:#2f95e3;border=0">
+  <td colspan="4"><b>Concept: <i>hand</i> (ID: 1)</b></td>
+ </tr>
+ <tr>
+  <td><b>CogID</b></td>
+  <td><b>Language</b></td>
+  <td><b>Entry</b></td>
+  <td><b>Aligned Entry</b></td>
+ </tr>
+ <tr class="white taxon" taxon="English">
+  <td>1</td>
+  <td>English</td>
+  <td>hænd</td>
+  <td class="white">
+   <table class="white">
+    <tr>
+     <td class="char dolgo_H">h</td>
+     <td class="char dolgo_V">æ</td>
+     <td class="char dolgo_N">n</td>
+     <td class="char dolgo_T">d</td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+ <tr class="white taxon" taxon="German">
+  <td>1</td>
+  <td>German</td>
+  <td>hant</td>
+  <td class="white">
+   <table class="white">
+    <tr>
+     <td class="char dolgo_H">h</td>
+     <td class="char dolgo_V">a</td>
+     <td class="char dolgo_N">n</td>
+     <td class="char dolgo_T">t</td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+ <tr class="gray taxon" taxon="Russian">
+  <td>2</td>
+  <td>Russian</td>
+  <td>ruka</td>
+  <td class="gray">
+   <table class="gray">
+    <tr>
+     <td class="char dolgo_R">r</td>
+     <td class="char dolgo_V">u</td>
+     <td class="char dolgo_K">k</td>
+     <td class="char dolgo_V">a</td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+ <tr class="gray taxon" taxon="Ukrainian">
+  <td>2</td>
+  <td>Ukrainian</td>
+  <td>ruka</td>
+  <td class="gray">
+   <table class="gray">
+    <tr>
+     <td class="char dolgo_R">r</td>
+     <td class="char dolgo_V">u</td>
+     <td class="char dolgo_K">k</td>
+     <td class="char dolgo_V">a</td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+ <tr class="empty"><td colspan="4" class="empty"><hr class="empty" /></td></tr>
+ <tr style="background-color:#2f95e3;border=0">
+  <td colspan="4"><b>Concept: <i>Harry</i> (ID: 2)</b></td>
+ </tr>
+ <tr>
+  <td><b>CogID</b></td>
+  <td><b>Language</b></td>
+  <td><b>Entry</b></td>
+  <td><b>Aligned Entry</b></td>
+ </tr>
+ <tr class="white taxon" taxon="English">
+  <td>7</td>
+  <td>English</td>
+  <td>hæri</td>
+  <td class="white">
+   <table class="white">
+    <tr>
+     <td class="char dolgo_H">h</td>
+     <td class="char dolgo_V">æ</td>
+     <td class="char dolgo_R">r</td>
+     <td class="char dolgo_V">i</td>
+     <td class="char dolgo_GAP">-</td>
+     <td class="char dolgo_GAP">-</td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+ <tr class="white taxon" taxon="German">
+  <td>7</td>
+  <td>German</td>
+  <td>haralt</td>
+  <td class="white">
+   <table class="white">
+    <tr>
+     <td class="char dolgo_H">h</td>
+     <td class="char dolgo_V">a</td>
+     <td class="char dolgo_R">r</td>
+     <td class="char dolgo_V">a</td>
+     <td class="char dolgo_R">l</td>
+     <td class="char dolgo_T">t</td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+ <tr class="white taxon" taxon="Russian">
+  <td>7</td>
+  <td>Russian</td>
+  <td>gari</td>
+  <td class="white">
+   <table class="white">
+    <tr>
+     <td class="char dolgo_K">g</td>
+     <td class="char dolgo_V">a</td>
+     <td class="char dolgo_R">r</td>
+     <td class="char dolgo_V">i</td>
+     <td class="char dolgo_GAP">-</td>
+     <td class="char dolgo_GAP">-</td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+ <tr class="white taxon" taxon="Ukrainian">
+  <td>7</td>
+  <td>Ukrainian</td>
+  <td>hari</td>
+  <td class="white">
+   <table class="white">
+    <tr>
+     <td class="char dolgo_H">h</td>
+     <td class="char dolgo_V">a</td>
+     <td class="char dolgo_R">r</td>
+     <td class="char dolgo_V">i</td>
+     <td class="char dolgo_GAP">-</td>
+     <td class="char dolgo_GAP">-</td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+ <tr class="empty"><td colspan="4" class="empty"><hr class="empty" /></td></tr>
+ <tr style="background-color:#2f95e3;border=0">
+  <td colspan="4"><b>Concept: <i>leg</i> (ID: 3)</b></td>
+ </tr>
+ <tr>
+  <td><b>CogID</b></td>
+  <td><b>Language</b></td>
+  <td><b>Entry</b></td>
+  <td><b>Aligned Entry</b></td>
+ </tr>
+ <tr class="white taxon" taxon="German">
+  <td>3</td>
+  <td>German</td>
+  <td>bain</td>
+  <td class="white">
+   <table class="white">
+    <tr>
+      <td class="white">--</td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+ <tr class="gray taxon" taxon="English">
+  <td>4</td>
+  <td>English</td>
+  <td>lɛg</td>
+  <td class="gray">
+   <table class="gray">
+    <tr>
+      <td class="gray">--</td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+ <tr class="white taxon" taxon="Russian">
+  <td>5</td>
+  <td>Russian</td>
+  <td>noga</td>
+  <td class="white">
+   <table class="white">
+    <tr>
+     <td class="char dolgo_N">n</td>
+     <td class="char dolgo_V">o</td>
+     <td class="char dolgo_K">g</td>
+     <td class="char dolgo_V">a</td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+ <tr class="white taxon" taxon="Ukrainian">
+  <td>5</td>
+  <td>Ukrainian</td>
+  <td>noha</td>
+  <td class="white">
+   <table class="white">
+    <tr>
+     <td class="char dolgo_N">n</td>
+     <td class="char dolgo_V">o</td>
+     <td class="char dolgo_H">h</td>
+     <td class="char dolgo_V">a</td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+ <tr class="empty"><td colspan="4" class="empty"><hr class="empty" /></td></tr>
+ <tr style="background-color:#2f95e3;border=0">
+  <td colspan="4"><b>Concept: <i>Woldemort</i> (ID: 4)</b></td>
+ </tr>
+ <tr>
+  <td><b>CogID</b></td>
+  <td><b>Language</b></td>
+  <td><b>Entry</b></td>
+  <td><b>Aligned Entry</b></td>
+ </tr>
+ <tr class="white taxon" taxon="English">
+  <td>6</td>
+  <td>English</td>
+  <td>wɔldemɔrt</td>
+  <td class="white">
+   <table class="white">
+    <tr>
+     <td class="char dolgo_W">w</td>
+     <td class="char dolgo_V">ɔ</td>
+     <td class="char dolgo_R">l</td>
+     <td class="char dolgo_GAP">-</td>
+     <td class="char dolgo_T">d</td>
+     <td class="char dolgo_V">e</td>
+     <td class="char dolgo_M">m</td>
+     <td class="char dolgo_V">ɔ</td>
+     <td class="char dolgo_R">r</td>
+     <td class="char dolgo_T">t</td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+ <tr class="white taxon" taxon="German">
+  <td>6</td>
+  <td>German</td>
+  <td>valdemar</td>
+  <td class="white">
+   <table class="white">
+    <tr>
+     <td class="char dolgo_W">v</td>
+     <td class="char dolgo_V">a</td>
+     <td class="char dolgo_R">l</td>
+     <td class="char dolgo_GAP">-</td>
+     <td class="char dolgo_T">d</td>
+     <td class="char dolgo_V">e</td>
+     <td class="char dolgo_M">m</td>
+     <td class="char dolgo_V">a</td>
+     <td class="char dolgo_R">r</td>
+     <td class="char dolgo_GAP">-</td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+ <tr class="white taxon" taxon="Russian">
+  <td>6</td>
+  <td>Russian</td>
+  <td>vladimir</td>
+  <td class="white">
+   <table class="white">
+    <tr>
+     <td class="char dolgo_W">v</td>
+     <td class="char dolgo_GAP">-</td>
+     <td class="char dolgo_R">l</td>
+     <td class="char dolgo_V">a</td>
+     <td class="char dolgo_T">d</td>
+     <td class="char dolgo_V">i</td>
+     <td class="char dolgo_M">m</td>
+     <td class="char dolgo_V">i</td>
+     <td class="char dolgo_R">r</td>
+     <td class="char dolgo_GAP">-</td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+ <tr class="white taxon" taxon="Ukrainian">
+  <td>6</td>
+  <td>Ukrainian</td>
+  <td>volodimir</td>
+  <td class="white">
+   <table class="white">
+    <tr>
+     <td class="char dolgo_W">v</td>
+     <td class="char dolgo_V">o</td>
+     <td class="char dolgo_R">l</td>
+     <td class="char dolgo_V">o</td>
+     <td class="char dolgo_T">d</td>
+     <td class="char dolgo_V">i</td>
+     <td class="char dolgo_M">m</td>
+     <td class="char dolgo_V">i</td>
+     <td class="char dolgo_R">r</td>
+     <td class="char dolgo_GAP">-</td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+ <tr class="empty"><td colspan="4" class="empty"><hr class="empty" /></td></tr>
+
+</table>
+</body>
+</html>

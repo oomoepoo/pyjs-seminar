@@ -1,0 +1,99 @@
+\documentclass[xetex,svgnames]{scrartcl}
+
+% packages
+\usepackage{xltxtra}
+\usepackage{polyglossia}
+\usepackage{lsalike}
+\usepackage{hyperref}
+\usepackage{fontspec}
+\usepackage{covington}
+\usepackage{scrpage2}
+\usepackage{qtree}
+\usepackage[left=2cm,right=2cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{draftwatermark}
+\usepackage{hieroglf}
+%\usepackage{simpsons}
+\usepackage[weather,misc,alpine]{ifsym}
+\usepackage{phaistos}
+\usepackage{linearb}
+\usepackage{dingbat}
+\usepackage{pst-node}
+\usepackage{colortbl}
+\usepackage{alltt}
+\usepackage{listings}
+
+% fonts general
+\setmainfont[Mapping=tex-text,Scale=1.0]{FreeSans}
+\setsansfont[Mapping=tex-text,Scale=1.0]{FreeSans}
+\setmonofont{FreeMono}
+
+% special fonts
+\newfontfamily\hana{HAN NOM A}
+\newfontfamily\hanb{HAN NOM B}
+\newfontfamily\sil{Doulos SIL}
+\newfontfamily\grk{Aristarcoj}
+\newfontfamily\calligraphy{Chinese Calligraphy}
+\newfontfamily\gnm{Gnommish}
+\newfontfamily\jin{cjkbronze}
+\newfontfamily\jiagu{cjkjiagu}
+\newfontfamily\xiaozhuan{shuowenxiaozhuan}
+\newfontfamily\pur{Purisa}
+\newfontfamily\cjcalligraphy{sinocalligraphy}
+%\newfontfamily\ahd{eufm10}
+
+% specific commands
+\newcommand{\mysub}[1]{\raisebox{-0.5ex}{\scriptsize{#1}}}
+\SetWatermarkText{PYTHON}
+\newcommand{\bild}[2]{%
+    \scalebox{#1}{%
+        \includegraphics{/home/mattis/projects/graphics/img/#2.jpg}
+        }
+    }
+\newcommand{\Table}[1]{%
+    \begin{flushleft}
+        \begin{tabular}{|p{16.5cm}|}
+            \hline \cellcolor{lightgray} \bf \pur #1
+            \\\hline
+        \end{tabular}
+    \end{flushleft}
+}
+
+\lstset{language=Python}
+
+\newcommand{\Code}[1]{%
+    \begin{flushleft}
+        \begin{tabular}{||p{16.5cm}||}
+            \hline\hline \cellcolor{white}
+            \\
+            #1
+
+             \cellcolor{white}
+            \\\hline\hline
+        \end{tabular}
+    \end{flushleft}
+}
+\newcommand{\White}[1]{\cellcolor{white} \textcolor{black}{ #1}}
+
+% language settings
+\setmainlanguage[spelling=new]{german}
+\setotherlanguage{english}
+
+% pagestyle settings
+\pagestyle{scrheadings}
+\ihead{Johann-Mattis List}
+\chead{Python und JavaScript}
+\ohead{Lösungen 3}
+\ifoot{}
+\cfoot{\pagemark}
+\ofoot{}
+
+%\include{latex/figures}
+\lstset{language=perl}
+\begin{document}
+%\maketitle
+\begin{center}
+  \bf \huge Im Auftrag von GLUE
+\end{center}
+\lstinputlisting{solution2.py}
+\end{document}
+

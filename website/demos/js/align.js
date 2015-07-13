@@ -141,7 +141,7 @@ function editList(seqA, seqB, debug)
 
 
 /* align two list objects */
-function seqAlign(seqA, seqB)
+function wf_align(seqA, seqB)
 {
   
   /* return nothing if either of the lists is empty */

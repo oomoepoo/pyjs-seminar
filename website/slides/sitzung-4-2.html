@@ -1,0 +1,719 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Sitzung 2: Automatischer Sprachvergleiche mit Python </title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+
+
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <style>
+  .head {
+	position: relative;
+	top: 0px;
+	font-size: 90%!important;
+	color: white;
+	background-color: Green;
+	width: 960px;
+	text-align:justify;
+	display: block;
+	padding-left: 5px;
+	margin: 0;
+}
+.subhead {
+	position: relative;
+	top: -20px;
+	font-size: 70%!important;
+	color: white;
+	background-color: Crimson;
+	width: 960px;
+	text-align: justify;
+	padding: 5px;
+	margin: 0;
+	display: block;
+}
+
+.mytabs td {
+	border: 2px solid black!important;
+}
+.question {
+	position: relative;
+	font-size: 80%!important;
+	color: Crimson;
+	font-weight: bold;
+	font-style: italic;
+	text-align: center!important;
+	display: block;
+	width: 960px;
+	text-transform: none;
+}
+
+.bq80 {
+	font-size: 80%!important;
+	line-height: 30px!important;
+}
+.small {
+	font-size: 70%!important;
+}
+
+
+.stroked {
+	text-decoration: line-through;
+}
+
+
+h2 {
+	color: Green!important;
+}
+h3 {
+	color: Crimson!important;
+}
+h4 {
+	color: CornflowerBlue!important;
+}
+
+  </style>
+  <script>
+function startTime(elm) {
+    var today=new Date();
+    var h=today.getHours();
+    var m=today.getMinutes();
+    var s=today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById(elm).innerHTML = h+":"+m+":"+s;
+    var t = setTimeout(function(){startTime()},500);
+}
+
+function checkTime(i) {
+    if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+
+  </script>
+  <body>
+  <div style="display: none;" class="tilda" id="tilda">
+    <div style="height: 100px;" class="td terminal">
+      <div class="terminal-output">
+      </div>
+    </div>
+  </div>
+
+
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+	<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;text-align:center;font-size:100%;">
+<h2>Computergestützter Sprachvergleich mit Python und JavaScript</h2>
+<hr />
+<h3>Sitzung 2 (Tag 4)</h3>
+<hr />
+<h4>23.07.2015</h4>
+<hr />
+<h3>&quot;Automatischer Sprachvergleich mit Python&quot;</h3>
+</section>
+
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Agenda 2015</span></h2>
+<ul>
+<li><span class="unstroked">Automatischer Sprachvergleich</span><ul>
+<li><span class="unstroked">Sequenzdistanzen</span></li>
+<li><span class="unstroked">Kognatenerkennung</span></li>
+<li><span class="unstroked">Phylogenetische Rekonstruktion</span></li>
+</ul>
+</li>
+<li><span class="unstroked">Sprachvergleich mit LingPy</span><ul>
+<li><span class="unstroked">Eingabeformate</span></li>
+<li><span class="unstroked">Analysen</span></li>
+<li><span class="unstroked">Ausgabeformate</span></li>
+</ul>
+</li>
+<li><span class="unstroked">Workflows</span><ul>
+<li><span class="unstroked">Allgemeines vorweg</span></li>
+<li><span class="unstroked">Kognatenerkennung mit LingPy</span></li>
+<li><span class="unstroked">Integration mit externen Tools</span></li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Automatischer Sprachvergleich</span></h2>
+<h3><span class="subhead">Sequenzdistanzen</span></h3>
+<p><strong>Von Alinierungen zu Distanzwerten</strong></p>
+<p>Wenn man Sequenzen (Wörter im Falle der Linguistik) aliniert hat, dann kann man auch ihre Distanz zueinander berechnen. Die ist implizit ja bereits ein Teil der Berechnung der Alinierung, und sie kann entsprechend auch einfach weiterverwendet werden, wobei man vorsichtig sein sollte, was die Aussage einer solchen Distanz betrifft.</p>
+</section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Automatischer Sprachvergleich</span></h2>
+<h3><span class="subhead">Sequenzdistanzen</span></h3>
+<p><strong>Die normalisierte Levenshtein-Distanz</strong></p>
+<p>Eine der bekanntesten und am häufigsten verwendeten Distanzen zwischen Strings
+ist die <em>Levenshtein-Distanz</em>, die grundlegend die Anzahl der <em>Editier-Schritte</em> beschreibt, die notwendig sind, um eine Sequenz in die andere zu überführen. 
+Um eine bessere Vergleichbarkeit zu gewährleisten, wird häufig neben der normalen <em>Levenshtein-Distanz</em>, die ein ganzzahliger Wert ist, auch die "normalisierte Levenshtein-Distanz" berechnet, bei der man die "normale" Distanz durch die Länge des größeren Strings teilt. </p>
+</section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Automatischer Sprachvergleich</span></h2>
+<h3><span class="subhead">Sequenzdistanzen</span></h3>
+<p><strong>Die normalisierte Levenshtein-Distanz</strong></p>
+<pre><code class="python" data-trim>
+>>> from lingpy import *
+>>> seqA = 'levensthein'
+>>> seqB = 'levenschtein'
+>>> d = edit_dist(seqA,seqB)
+>>> d
+1
+>>> def norm_ed(a,b):
+...     return edit_dist(a,b) / max(len(a), len(b))
+...
+>>> norm_ed(seqA, seqB)
+0.08333333333333333
+>>> edit_dist(seqA, seqB, normalized=True)
+0.08333333333333333
+</code></pre>
+</section>
+</section>
+
+<section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Automatischer Sprachvergleich</span></h2>
+<h3><span class="subhead">Kognatenerkennung</span></h3>
+<p><strong>Automatisches Erkennen von kognaten Wörtern</strong></p>
+<p>Kognaten sind, daran sei noch mal erinnert, Wörter, die auf einen gemeinsamen Vorgänger zurückgehen (wie bspw. Deutsch <em>Hand</em> und English <em>hand</em>). 
+Automatisch können wir eine recht einfache Heuristik entwickeln, um festzustellen, ob zwei Wörter kognat sind (was nicht heißt, dass sie das auch wirklich sind!). Wir können einfach sagen, dass, wenn immer zwei Wörter sich mehr ähneln als gewöhnlich, wir annehmen, dass diese kognat sind. Die Ähnlichkeit können wir dabei natürlich unterschiedlich definieren!</p>
+</section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Automatischer Sprachvergleich</span></h2>
+<h3><span class="subhead">Kognatenerkennung</span></h3>
+<p><strong>Die Lautklassenheuristik</strong></p>
+<p>Eine erste einfache Heuristik besagt, dass zwei Wörter immer dann als kognat klassifiziert werden, wenn sie in den ersten beiden Lautklassen, die Konsonanten sind, übereinstimmen (<a href="http://bibliography.lingpy.org?key=Turchin2010">Turchin et al. 2010</a>).</p>
+<pre><code class="python" data-trim>
+>>> seqA = sampa2uni('Tri')
+>>> seqB = sampa2uni('drai')
+>>> seqA, seqB 
+('θri', 'drai')
+>>> clsA = tokens2class(ipa2tokens(seqA), 'dolgo')
+>>> clsB = tokens2class(ipa2tokens(seqB), 'dolgo')
+>>> clsA = ''.join(clsA).replace('V','')
+>>> clsB = ''.join(clsB).replace('V','')
+>>> clsA[:2] == clsB[:2]
+True
+>>> clsA, clsB
+('TR', 'TR')
+>>> turchin(seqA, seqB)
+0
+>>> turchin(seqA, 'test')
+1
+</code></pre>
+</section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Automatischer Sprachvergleich</span></h2>
+<h3><span class="subhead">Kognatenerkennung</span></h3>
+<p><strong>Schwellenwerte</strong></p>
+<p>Anstelle des Kriteriums von <a href="http://bibliography.lingpy.org?key=Turchin2010">Turchin et al. (2010)</a> könnenwir natürlich auch andere Verfahren verwenden. Zum Beispiel können wir sagen, dass ab einem bestimmten Schwellenwert der normalisierten Levenshtein-Distanz zwei Wörter nicht mehr kognat sind:</p>
+<pre><code class="python" data-trim>
+>>> def cognate(seqA, seqB, threshold=0.4):
+...     if edit_dist(seqA, seqB, normalized=True) > threshold:
+...         return 1
+...     return 0
+... 
+>>> seqA = sampa2uni('t_hOxt@r')
+>>> seqB = 
+KeyboardInterrupt
+>>> seqA = sampa2uni('t_hOxt_h@r')
+>>> seqB = sampa2uni('dO:t_h@r')
+>>> cognate(seqA, seqB)
+</code></pre>
+</section>
+</section>
+
+<section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Automatischer Sprachvergleich</span></h2>
+<h3><span class="subhead">Phylogenetische Rekonstruktion</span></h3>
+<p><strong>Von Distanzen zu Bäumen</strong></p>
+<p>Wenn wir ermittelt haben, welche Wörter in welchen Sprachen miteinander kognat sind, können wir Distanzen zwischen ganzen Sprachen berechnen. Dazu zählen wir einfach alle kognaten Wörter in unserem Sample und teilen dann die Anzahl der kognaten Wörter durch die Gesamt-Anzahl der Wörter und ziehen diesen Wert von 1 ab (ansonsten hätten wir eine Ähnlichkeit und keine Distanzen).</p>
+</section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Automatischer Sprachvergleich</span></h2>
+<h3><span class="subhead">Phylogenetische Rekonstruktion</span></h3>
+<p><strong>Kleines Beispiel zur Distanzberechnung</strong></p>
+<pre><code class="python" data-trim>
+from lingpy import *
+# die daten
+data = dict(
+    german = ['hant', 'fuːs', 'kɔp͡f'],
+    english = ['hænd', 'fʊt', 'hɛd'],
+    dutch = ['hant', 'vut', 'kɔp']
+    )
+# die sprachen
+taxa = ['german', 'english', 'dutch']
+# die distanzmatrix
+matrix = [[0 for i in range(3)] for j in range(3)]
+for i,k in enumerate(taxa):
+    for j,l in enumerate(taxa):
+        # wir müssen nur ein mal pro sprachpaar vergleichen
+        if i &lt; j:
+            score = 0
+            for seqA, seqB in zip(data[k], data[l]):
+                score += edit_dist(seqA, seqB, normalized=True)
+            score = score / 3
+            matrix[i][j] = score
+            matrix[j][i] = score
+# der baum
+tree = upgma(matrix, taxa)
+# ascii-art mit Hilfe von LingPy
+print(Tree(tree).asciiArt())
+</code></pre>
+</section>
+<section data-background="LightYellow" data-transition="none" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Automatischer Sprachvergleich</span></h2>
+<h3><span class="subhead">Phylogenetische Rekonstruktion</span></h3>
+<p><strong>Kleines Beispiel zur Distanzberechnung</strong></p>
+<pre><code class="shell" data-trim>
+$ python distances.py
+          /-english
+-root----|
+         |          /-german
+          \edge.0--|
+                    \-dutch
+</code></pre>
+</section>
+</section>
+
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Agenda 2015</span></h2>
+<ul>
+<li><span class="stroked">Automatischer Sprachvergleich</span><ul>
+<li><span class="stroked">Sequenzdistanzen</span></li>
+<li><span class="stroked">Kognatenerkennung</span></li>
+<li><span class="stroked">Phylogenetische Rekonstruktion</span></li>
+</ul>
+</li>
+<li><span class="unstroked">Sprachvergleich mit LingPy</span><ul>
+<li><span class="unstroked">Eingabeformate</span></li>
+<li><span class="unstroked">Analysen</span></li>
+<li><span class="unstroked">Ausgabeformate</span></li>
+</ul>
+</li>
+<li><span class="unstroked">Workflows</span><ul>
+<li><span class="unstroked">Allgemeines vorweg</span></li>
+<li><span class="unstroked">Kognatenerkennung mit LingPy</span></li>
+<li><span class="unstroked">Integration mit externen Tools</span></li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Sprachvergleich mit LingPy</span></h2>
+<h3><span class="subhead">Eingabeformate</span></h3>
+<p><strong>Basisformat für Wortlisten</strong></p>
+<pre><code class="text" data-trim>
+ID   CONCEPT     COUNTERPART   IPA         DOCULECT     COGID
+1    hand        Hand          hant        German       1
+2    hand        hand          hænd        English      1
+3    hand        рука          ruka        Russian      2
+4    hand        рука          ruka        Ukrainian    2
+5    leg         Bein          bain        German       3
+6    leg         leg           lɛg         English      4
+7    leg         нога          noga        Russian      5
+8    leg         нога          noha        Ukrainian    5
+9    Woldemort   Waldemar      valdemar    German       6
+10   Woldemort   Woldemort     wɔldemɔrt   English      6
+11   Woldemort   Владимир      vladimir    Russian      6
+12   Woldemort   Володимир     volodimir   Ukrainian    6
+13    Harry       Harald        haralt      German       7
+14   Harry       Harry         hæri        English      7
+15   Harry       Гарри         gari        Russian      7
+16   Harry       Гаррi         hari        Ukrainian    7
+</code></pre>
+</section>
+<section date=" 2012-11-07" data-transition="concave" author=" Potter, Harry" note=" Be careful with this data, it might have been charmed..." data-background="LightYellow" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Sprachvergleich mit LingPy</span></h2>
+<h3><span class="subhead">Eingabeformate</span></h3>
+<p><strong>Key-Value-Erweiterung des Basisformats</strong></p>
+<pre><code class="text" data-trim>
+#
+ID   CONCEPT     COUNTERPART   IPA         DOCULECT     COGID    ALIGNMENT
+1    hand        Hand          hant        German       1        
+2    hand        hand          hænd        English      1        
+3    hand        рука          ruka        Russian      2        
+...  ...         ...           ...         ...          ...      ...
+</code></pre>
+</section>
+<section date=" 2012-11-07" data-transition="concave" author=" Potter, Harry" note=" Be careful with this data, it might have been charmed..." data-background="LightYellow" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Sprachvergleich mit LingPy</span></h2>
+<h3><span class="subhead">Eingabeformate</span></h3>
+<p><strong>Darstellung von Alinierungen</strong></p>
+<pre><code class="text" data-trim>
+#
+ID   CONCEPT     COUNTERPART   IPA         DOCULECT     COGID   ALIGNMENT  
+...  ...         ...           ...         ...          ...     ...  
+9    Woldemort   Waldemar      valdemar    German       6       v a l - d e m a r -
+10   Woldemort   Woldemort     wɔldemɔrt   English      6       w ɔ l - d e m ɔ r t 
+11   Woldemort   Владимир      vladimir    Russian      6       v - l a d i m i r -
+12   Woldemort   Володимир     volodimir   Ukrainian    6       v o l o d i m i r -
+...  ...         ...           ...         ...          ...     ...  
+</code></pre>
+</section>
+</section>
+
+<section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Sprachvergleich mit LingPy</span></h2>
+<h3><span class="subhead">Analysen</span></h3>
+<p><strong>Kognatenerkennung mit LexStat</strong></p>
+<p>Kognatenerkennung in LingPy lässt sich mit Hilfe des <a href="http://lingpy.org/reference/lingpy.compare.html#module-lingpy.compare.lexstat">LexStat-Moduls</a> durchführen. Basierend auf einer Datei, die das oben beschriebene Eingabeformat aufweist und zwingend die Spalten "CONCEPT", "IPA", und "DOCULECT" enthalten muss, kann man mit Hilfe des LexStat-Moduls Kognaten auf verschiedene Art und Weise berechnen, diese Werte dann in Distanzen umwandeln, und aus den Distanzen auch direkt einen Baum berechnen. </p>
+</section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Sprachvergleich mit LingPy</span></h2>
+<h3><span class="subhead">Analysen</span></h3>
+<p><strong>Beispiel zur Kognatenerkennung mit LexStat</strong></p>
+<pre><code class="python" data-trim>
+>>> from lingpy import *
+>>> lex = LexStat('data/harry.tsv')
+>>> lex.cluster(method='turchin')
+>>> lex.cluster(method='turchin')
+|++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++|
+>>> lex.calculate(tree, ref="turchinid")
+>>> print(lex.tree.asciiArt())
+                    /-English
+          /edge.0--|
+         |          \-German
+-root----|
+         |          /-Russian
+          \edge.1--|
+                    \-Ukrainian
+</code></pre>
+</section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Sprachvergleich mit LingPy</span></h2>
+<h3><span class="subhead">Analysen</span></h3>
+<p><strong>Alinierung von Kognatensets</strong></p>
+<p>Es ist sinnvoll, die automatisch ermittelten Kognaten auch zu alinieren, da man sich so am besten vergewsissern kann, dass man auch keine falschen Kognaten ermittelt oder richtige Kognaten übersehen hat. Hierfür bietet sich das <a href="http://lingpy.org/reference/lingpy.align.html#module-lingpy.align.sca">SCA-Modul</a> von LingPy an, welches als Eingabe eine Wortliste nimmt und neben den für LexStat geforderten Spalten "DOCULECT", "CONCEPT" und "IPA" eine weitere Spalte erfordert, die dem Programm mitteilt, wo die Kognaten-Identifikationsnummern sind. Normalerweise werden diese Spalten in LingPy nach der Methode beziffert, die ihnen zugrunde liegt ("turchin" == "turchinid", "sca" == "scaid", etc.), wobei der Name "cogid" gewöhnlich für eine von Experten ermittelte Kognatenzuweisung reserviert wird. </p>
+</section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Sprachvergleich mit LingPy</span></h2>
+<h3><span class="subhead">Analysen</span></h3>
+<p><strong>Beispiel für die Alinierung von Kognatensets</strong></p>
+<pre><code class="python" data-trim>
+>>> from lingpy import *
+>>> alm = Alignments('data/harry.tsv', ref="cogid")
+>>> alm.align()
+|--------------------------- ALIGNMENTS --------------------------------|
+>>> alm.output('html', filename='data/harry')
+</code></pre>
+</section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Sprachvergleich mit LingPy</span></h2>
+<h3><span class="subhead">Analysen</span></h3>
+<p><strong>Ausgabe der Daten in HTML-Format</strong></p>
+<iframe src="../code/data/harry.html" style="width:1000px;height:500px"></iframe>
+</section>
+</section>
+
+<section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Sprachvergleich mit LingPy</span></h2>
+<h3><span class="subhead">Ausgabeformate</span></h3>
+<p><strong>Grundlegendes zu Ausgabeformaten in LingPy</strong></p>
+<p>Daten in LingPy können in verschiedenste Formate exportiert werden. Grundlegend unterscheiden können wir dabei zwei Formattypen:</p>
+<ul>
+<li>Endformate, die entweder für Publikationen oder zur manuellen Untersuchung von Ergebnissen verwendet werden können (Plots, Grafiken), und</li>
+<li>Übergangsformate, die zur Weiterverwendung in alternativen Softwarepackungen verwendet werden können.</li>
+</ul>
+</section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Sprachvergleich mit LingPy</span></h2>
+<h3><span class="subhead">Ausgabeformate</span></h3>
+<p><strong>Spezifizieren von Ausgabeformaten in LingPy</strong></p>
+<pre><code class="python" data-trim>
+# grundlegenes Format des Kommandos
+wordlist.output(DTYPE, filename=NAME)
+# Beispiele
+## Exportiere nach Phylip (Distanzformat)
+wordlist.output('dst', filename="harry")
+## Exportiere nach Nexus (Charakterformat)
+wordlist.output('paps.nex', filename="harry")
+## Exportiere nach HTML (individuelles LingPy-Format)
+wordlist.output('html', filename="harry")
+## Exportiere den Baum in Newick-Format
+wordlist.output('nwk', filename="harry")
+## Exportiere zum LingPy-Wordlist-Format
+wordlist.output('tsv', filename='harry')
+</code></pre>
+</section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Sprachvergleich mit LingPy</span></h2>
+<h3><span class="subhead">Ausgabeformate</span></h3>
+<p><strong>Beispiele für die Ausgabeformate</strong></p>
+<p>Newick-Format:
+<pre><code class="text">(((English,German),Russian),Ukrainian);</code></pre>
+Phylip-Format:
+<pre><code class="text"> 4
+English    0.00 0.25 0.50 0.50
+German     0.25 0.00 0.50 0.50
+Russian    0.50 0.50 0.00 0.00
+Ukrainian  0.50 0.50 0.00 0.00</code></pre></p>
+</section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Sprachvergleich mit LingPy</span></h2>
+<h3><span class="subhead">Ausgabeformate</span></h3>
+<p><strong>Beispiele für die Ausgabeformate</strong></p>
+<p>Nexus-Format:
+<pre><code class="text" data-trim>#NEXUS
+BEGIN DATA;
+DIMENSIONS ntax=4 NCHAR=7;
+FORMAT DATATYPE=STANDARD GAP=- MISSING=0 interleave=yes;
+MATRIX
+English   1001011
+German    1010011
+Russian   0100111
+Ukrainian 0100111
+;
+END;</code></pre></p>
+</section>
+</section>
+
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Agenda 2015</span></h2>
+<ul>
+<li><span class="stroked">Automatischer Sprachvergleich</span><ul>
+<li><span class="stroked">Sequenzdistanzen</span></li>
+<li><span class="stroked">Kognatenerkennung</span></li>
+<li><span class="stroked">Phylogenetische Rekonstruktion</span></li>
+</ul>
+</li>
+<li><span class="stroked">Sprachvergleich mit LingPy</span><ul>
+<li><span class="stroked">Eingabeformate</span></li>
+<li><span class="stroked">Analysen</span></li>
+<li><span class="stroked">Ausgabeformate</span></li>
+</ul>
+</li>
+<li><span class="unstroked">Workflows</span><ul>
+<li><span class="unstroked">Allgemeines vorweg</span></li>
+<li><span class="unstroked">Kognatenerkennung mit LingPy</span></li>
+<li><span class="unstroked">Integration mit externen Tools</span></li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Workflows</span></h2>
+<h3><span class="subhead">Allgemeines vorweg</span></h3>
+</section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Workflows</span></h2>
+<h3><span class="subhead">Kognatenerkennung mit LingPy</span></h3>
+</section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Workflows</span></h2>
+<h3><span class="subhead">Integration mit externen Tools</span></h3>
+</section>
+</section>
+
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Agenda 2015</span></h2>
+<ul>
+<li><span class="stroked">Automatischer Sprachvergleich</span><ul>
+<li><span class="stroked">Sequenzdistanzen</span></li>
+<li><span class="stroked">Kognatenerkennung</span></li>
+<li><span class="stroked">Phylogenetische Rekonstruktion</span></li>
+</ul>
+</li>
+<li><span class="stroked">Sprachvergleich mit LingPy</span><ul>
+<li><span class="stroked">Eingabeformate</span></li>
+<li><span class="stroked">Analysen</span></li>
+<li><span class="stroked">Ausgabeformate</span></li>
+</ul>
+</li>
+<li><span class="stroked">Workflows</span><ul>
+<li><span class="stroked">Allgemeines vorweg</span></li>
+<li><span class="stroked">Kognatenerkennung mit LingPy</span></li>
+<li><span class="stroked">Integration mit externen Tools</span></li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Workflows</span></h2>
+<h3><span class="subhead">Allgemeines vorweg</span></h3>
+</section>
+
+<section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Workflows</span></h2>
+<h3><span class="subhead">Kognatenerkennung mit LingPy</span></h3>
+</section>
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Workflows</span></h2>
+<h3><span class="subhead">Integration mit externen Tools</span></h3>
+</section>
+</section>
+
+<section data-background="LightYellow" data-transition="concave" style="text-align:justify;font-size:85%;">
+<h2><span class="head">Agenda 2015</span></h2>
+<ul>
+<li><span class="stroked">Automatischer Sprachvergleich</span><ul>
+<li><span class="stroked">Sequenzdistanzen</span></li>
+<li><span class="stroked">Kognatenerkennung</span></li>
+<li><span class="stroked">Phylogenetische Rekonstruktion</span></li>
+</ul>
+</li>
+<li><span class="stroked">Sprachvergleich mit LingPy</span><ul>
+<li><span class="stroked">Eingabeformate</span></li>
+<li><span class="stroked">Analysen</span></li>
+<li><span class="stroked">Ausgabeformate</span></li>
+</ul>
+</li>
+<li><span class="stroked">Workflows</span><ul>
+<li><span class="stroked">Allgemeines vorweg</span></li>
+<li><span class="stroked">Kognatenerkennung mit LingPy</span></li>
+<li><span class="stroked">Integration mit externen Tools</span></li>
+</ul>
+</li>
+</ul>
+</section>
+
+<section data-background="#000000" data-transition="concave" style="text-align:justify;font-size:85%;">
+<p style="font-size:120px;color:white;font-weight:bold;">
+<code class="python">>>> 3 - 2</code>
+</p>
+
+<p style="font-size:80%;color:white;font-weight:bold;text-align:right;">
+Ende der zweiten Sitzung
+</p>
+</section>
+
+
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+	slideNumber: 'c / t',
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+	  { src: 'plugin/math/math.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true }
+        ]
+      });
+
+    </script>
+<div class="footer" style="display: block; position: absolute; bottom: 50px; left: 1%; margin-left: 0px; z-index: 20;">
+  <a
+    style="background:CornflowerBlue;color:Crimson;border-radius:25px;padding:10px;font-size:60%;font-weight:bold;text-decoration:none;"
+    href="../slides.html">ÜBERBLICK</a>
+</div>
+ <div class="footer" style="display: block; position: absolute; top: 10px; right: 1%; margin-left: 0px; z-index: 20;">
+  <a id="changeme"
+    onclick="nextSession();"
+    style="background:CornflowerBlue;color:white;border-radius:25px;padding:10px;font-size:60%;font-weight:bold;text-decoration:none;"
+    href="../slides.html">Nächste Sitzung</a>
+</div>
+ <div class="footer" style="display: block; position: absolute; top: 10px; left: 1%; margin-left: 0px; z-index: 20;">
+  <a id="changeve"
+    onclick="nextSession();"
+    style="background:CornflowerBlue;color:white;border-radius:25px;padding:10px;font-size:60%;font-weight:bold;text-decoration:none;"
+    href="../slides.html">Vorherige Sitzung</a>
+</div>
+ <div class="footer" style="display: block; position: absolute; top: 2px; left: 44.0%; margin-left: 0px; z-index: 20;">
+  <p id="sitzung"
+    style="color:CornflowerBlue;padding:1px;font-size:80%;font-weight:bold;text-decoration:none;">Vorherige Sitzung</p>
+</div>
+
+
+<script>
+  var cur1 = window.location.href.split('#')[0];
+  var cur1= cur1.split('/');
+  console.log(cur1, cur1[cur1.length-1]);
+  var cur2 = cur1[cur1.length-1].replace('.html','').replace('sitzung-','');
+  var cur3 = cur2.split('-');
+  console.log(cur3, cur2);
+  var next = parseInt(cur3[1]) + 1;
+  var before = parseInt(cur3[1]) - 1 
+  if (next == 4) {
+    var next = 1;
+    var day = parseInt(cur3[0])+1;
+  }
+ else {
+    var day = parseInt(cur3[0]);
+  }
+
+  if (before == 0) {
+    var before = 3;
+    var bday = parseInt(cur3[0])-1
+  }
+  else {
+    var bday = parseInt(cur3[0]);
+}
+ 
+if (bday == 0) {
+  document.getElementById('changeve').style.display = "none";
+}
+if (day == 5) {
+  document.getElementById('changeme').style.display = "none";
+}
+  document.getElementById('changeme').href = 'sitzung-'+day+'-'+next+'.html';
+  document.getElementById('changeve').href = 'sitzung-'+bday+'-'+before +'.html';
+
+  document.getElementById('sitzung').innerHTML = "PyJS: Sitzung "+cur3[1]+" (Tag "+cur3[0]+")";
+</script>
+ </body>
+</html>

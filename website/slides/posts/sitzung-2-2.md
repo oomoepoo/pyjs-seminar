@@ -1,6 +1,6 @@
 # Sitzung 2: Operatoren und Kontrollstrukturen
 
-@data-background:#ffffff
+@data-background:LightYellow
 @data-transition:concave
 @style:text-align:justify;
 @style:font-size:85%;
@@ -857,13 +857,12 @@ d 4
 
 @data-background:#000000
 
-<p style="font-size:200px;color:white;font-weight:bold;">
+<p style="font-size:100px;color:white;font-weight:bold;">
 sys.exit()
 </p>
 <p style="font-size:80%;color:white;font-weight:bold;text-align:right;">
-der zweiten Sitzung
+Ende der zweiten Sitzung
 </p>
-<p><code style="font-size:160px">88</code></p>
 
 
 

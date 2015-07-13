@@ -5,11 +5,35 @@ body {
   font:14px/1.5 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
   color:#777;
   font-weight:300;
+  background-color: LightYellow;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color:#222;
+  color:Crimson;
   margin:0 0 20px;
+}
+
+header p a {
+	font-weight: bold;
+	color: CornflowerBlue;
+}
+header h2 {
+	color: White;
+}
+
+section h2 {
+	color: Green;
+}
+
+section h3{
+	color: Crimson;
+	font-weight: bold;
+	text-decoration: none;
+}
+section h3 a {
+	color: Crimson;
+	font-weight: bold;
+	text-decoration: none;
 }
 
 p, ul, ol, table, pre, dl {
@@ -99,6 +123,9 @@ header {
   width:270px;
   float:left;
   position:fixed;
+  background-color: Green;
+  padding: 10px;
+  color: Crimson;
 }
 
 header ul {
@@ -156,7 +183,7 @@ header ul li + li + li {
 header ul a strong {
   font-size:14px;
   display:block;
-  color:#222;
+  color:CornflowerBlue;
 }
 
 section {

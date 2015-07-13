@@ -1,6 +1,6 @@
 # Sitzung 1: Einführung 
 
-@data-background:#ffffff
+@data-background:LightYellow
 @data-transition:concave
 @style:text-align:justify;
 @style:font-size:85%;

@@ -1,6 +1,6 @@
 # Sitzung 3: Erste Schritte in JavaScript
 
-@data-background:#ffffff
+@data-background:LightYellow
 @data-transition:concave
 @style:text-align:justify;
 @style:font-size:85%;
