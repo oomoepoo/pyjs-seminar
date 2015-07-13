@@ -1,45 +1,142 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <style>
+.textonmap {
+  cursor: pointer;
+}
+span.residue {
+  display: table-cell;
+  width: 30px;
+  background-color: #f1f1f1;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  cursor: default;
+}
+td.residue{
+  display: table-cell;
+  width: 30px;
+  background-color: #f1f1f1;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  cursor: default;
+}
 
-<head>
-<meta charset="utf-8">
-<style>
+td.dolgo_ERROR{background-color: white; color:red;}
+td.dolgo_V{background-color: #c86464;}
+td.dolgo_K{background-color: #c89664;} 
+td.dolgo_P{background-color: #c8c864;} 
+td.dolgo_H{background-color: #96c864;} 
+td.dolgo_J{background-color: #64c864;} 
+td.dolgo_M{background-color: #64c896;} 
+td.dolgo_N{background-color: #64c8c8;} 
+td.dolgo_S{background-color: #6496c8;} 
+td.dolgo_R{background-color: #6464c8;} 
+td.dolgo_T{background-color: #9664c8;} 
+td.dolgo_W{background-color: #c864c8;} 
+td.dolgo_1{background-color: #c86496;} 
+td.dolgo_X{background-color: #bbbbbb;}
+td.dolgo_GAP{background-color: #bbbbbb;}
+span.dolgo_ERROR{background-color: white; color:red;}
+span.dolgo_V{background-color: #c86464;}
+span.dolgo_K{background-color: #c89664;} 
+span.dolgo_P{background-color: #c8c864;} 
+span.dolgo_H{background-color: #96c864;} 
+span.dolgo_J{background-color: #64c864;} 
+span.dolgo_M{background-color: #64c896;} 
+span.dolgo_N{background-color: #64c8c8;} 
+span.dolgo_S{background-color: #6496c8;} 
+span.dolgo_R{background-color: #6464c8;} 
+span.dolgo_T{background-color: #9664c8;} 
+span.dolgo_W{background-color: #c864c8;} 
+span.dolgo_1{background-color: #c86496;} 
+span.dolgo_X{background-color: #bbbbbb;}
+span.dolgo_GAP{background-color: #bbbbbb;}
+        .provinces {
+          background-color: #fff;
+          border: 1px solid #ccc;
+        }
+	.mynode {
+	  cursor: pointer;
+	}
+	.msa th{
+	  text-align: left;
+	  border: 2px solid gray; 
+	}
+	.msa td {
+	  text-align: center;
+	  border: 2px solid lightgray;
+	}
+	#map {
+	  float: left;
+	}
+	#alignments {
+	  float: left;
+	}
+        .hk {
+            position:relative;
+            left:-750px;
+            top:0px;
+        }
+        
+        /*
+        .background {
+          fill: none;
+          pointer-events: all;
+        }
 
-svg {
-  background: lightgray;
-  border: 2px solid gray;
-</style>
-</head>
-<body>
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="http://d3js.org/topojson.v1.min.js"></script>
-<script>
+        .province {
+          fill: #cde;
+          stroke: #fff;
+            stroke-linejoin: round;
+          stroke-linecap: round;
+        }
+        */
+        
+        /*#provinces .active, #states .active {
+          fill: #89a;
+        }
+        #cities {
+          stroke-width: 0;
+        }
+        .city {
+          fill: #345;
+          stroke: #fff;
+        }
+        pre.prettyprint {
+          border: 1px solid #ccc;
+          margin-bottom: 0;
+          padding: 9.5px;
+        }*/
+    </style>
+  </head>
+  <body>
+    <h1>Beispiel für eine interaktive Karte chinesischer Dialektdaten</h1>
+  
+    <table><tr><td style="vertical-align:top">
+	  <div id="map"></div></td>
+	<td style="vertical-align:top"><div id="alignments"></div></td></tr></table>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="http://d3js.org/queue.v1.min.js"></script>
+    <script src="http://d3js.org/topojson.v1.min.js"></script>
+    <script>
+        
+        // MAP setup
+        var width = 800,
+            height = 550;
 
-var width = 1200,
-    height = 1000;
+        // data goes here
+        var data=[]; 
 
-//var projection = d3.geo.albers()
-//    .scale(4000)
-//    .translate([width / 3, height / 3])
-//    .center([180,40])
-//  ;
-var projection = d3.geo.mercator()
-    .center([116,39])
-    .scale(600);
-
-var path = d3.geo.path()
-  .projection(projection)
-  ;
-
-var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height);
-
-d3.json("zh-mainland-provinces.topo.json", function(error, uk) {
-  svg.append("path")
-      .datum(topojson.feature(uk, uk.objects.collection))
-      .attr("d", path);
-});;
-
-</script>
-</body>
+    </script>
+    <script src="highlight.js"></script>
+    <script src="chinese.data.js"></script>
+    <script src="chinese.words.js"></script>
+    <script src="d3map.js"></script>
+    <script src="chinese.app.js"></script>
+    
+  </body>
 </html>
