@@ -27,7 +27,7 @@ for i in range(369,480):
     msa.output('html', filename='germanic-data/germanic_'+str(i))
 
     # write the hyperlink to the file
-    html += '<li><a href="germanic-data/germanic_'+str(i)+'">File '\
+    html += '<li><a href="germanic-data/germanic_'+str(i)+'.html">File '\
             +msa.seq_id+'</a></li>'
 
 html += '</ul></body></html>'

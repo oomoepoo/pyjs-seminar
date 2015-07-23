@@ -28,9 +28,9 @@ JonglierMuster = """
 # Nun deklarieren wir die Gegenstände, die jongliert werden sollen. Dies sind
 # einfache Strings aus Zahlen, damit man die unterschiedlichen Gegenstände
 # besser verfolgen kann.
-gegenstand1 = '(1)'
-gegenstand2 = '(2)'
-gegenstand3 = '(3)'
+gegenstand1 = ':-)'
+gegenstand2 = ';-)'
+gegenstand3 = ':-('
 
 # Jetzt deklarieren wir die vier Punkte, an denen sich die drei Bälle jeweils
 # aufhalten können. Wir tun so, als wäre ein Ball schon in der Luft, um uns das
