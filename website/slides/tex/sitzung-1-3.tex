@@ -1,0 +1,267 @@
+\hyperdef{}{tilda}{}
+
+\subsection{\texorpdfstring{{Allgemeines zu
+JavaScript}}{Allgemeines zu JavaScript}}
+
+\subsubsection{\texorpdfstring{{Herkunft}}{Herkunft}}
+
+\href{http://de.wikipedia.org/wiki/JavaScript}{JavaScript}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  {ist eine Skriptsprache, die speziell für dynamisches HTML in
+  Webbrowsern entwickelt wurde}
+\item
+  {verändert Inhalte von Webseiten, reagiert auf Benutzereingaben, und
+  erweitert die Möglichkeiten von HTML und CSS}
+\item
+  {ist ein abtrünniges Kind von C, was die hässliche Syntax angeht und
+  hat mit Java selbst sehr wenig zu tun (obwohl die Syntax von Java auch
+  sehr hässlich ist)}
+\item
+  {wurde ursprünglich von Netscape entwickelt und im Jahre 1996 in der
+  Version 1.1 veröffentlicht}
+\end{itemize}
+
+
+\subsubsection{\texorpdfstring{{Charakteristik}}{Charakteristik}}
+
+\href{http://de.wikipedia.org/wiki/JavaScript}{JavaScript}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  {hat eine sehr hässliche Syntax}
+\item
+  {ist prinzipiell nicht sehr schwer zu erlernen, sieht aber hässlich
+  aus}
+\item
+  {erlaubt es den Benutzern, sehr, sehr hässlichen Kode zu schreibne}
+\item
+  {ist am Anfang sehr gewöhungsbedürftig, bis man begriffen hat, wie die
+  Interaktion zwischen HTML, CSS, und JavaScript abläuft}
+\item
+  {ist generell ``innen pfui, außen hui''}
+\item
+  {macht des dem Benutzer sehr schwer, modularen Kode zu schreiben}
+\end{itemize}
+
+
+\subsubsection{\texorpdfstring{{Installation}}{Installation}}
+
+{ JavaScript ist fester Bestandteil gängiger Webbrowser, wie
+\href{http://de.wikipedia.org/wiki/Mozilla_Firefox}{Firefox},
+\href{http://de.wikipedia.org/wiki/Google_Chrome}{Chrome}, oder
+\href{http://de.wikipedia.org/wiki/Apple_Safari}{Safari}. Im
+\href{http://de.wikipedia.org/wiki/Internet_Explorer}{Internet-Explorer}
+ist JavaScript angeblich auch vorinstalliert, jedoch laufe viele Apps
+sehr viel schlechter als gewünscht, weil Microsoft sich mal wieder
+qualitativ von den anderen Anbietern abgrenzen muss. }
+
+\subsection{\texorpdfstring{{Bibliotheken und
+Entwicklertools}}{Bibliotheken und Entwicklertools}}
+
+\subsubsection{\texorpdfstring{{Webbrowser}}{Webbrowser}}
+
+{ Ich empfehle, beim Entwickeln von JavaScript-Applikationen
+grundsätzlich auf einen der gängigen Unix-Browser
+(\href{http://de.wikipedia.org/wiki/Mozilla_Firefox}{Firefox},
+\href{http://de.wikipedia.org/wiki/Google_Chrome}{Chrome}, oder
+\href{http://de.wikipedia.org/wiki/Apple_Safari}{Safari})
+zurückzugreifen. Firefox und Chrome, welche ich beide regelmäßig
+verwende, unterscheiden sich in den Funktionen, die sie bieten. Firefox
+erlaubt bestimmte Dateizugriffe, ohne die Applikation über einen Server
+laufen zu lassen, was die Entwicklung von Applikationen erleichtert.
+Chrome hat Vorteile im Layout und im Debugging. Grundsätzlich sollten
+alle Applikationen mindestens auf Firefox und Chrome getestet werden, da
+es hier mitunter zu bestimmten Unterschieden kommen kann. Auch
+unerwartete Fehler können in einem Webbrowser auftauchen, im anderen
+aber nicht. }
+
+
+\subsubsection{\texorpdfstring{{Bibliotheken}}{Bibliotheken}}
+
+\par\noindent\textbf{Empfohlene Frameworks:}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  {\href{http://jquery.com}{jQuery}: eine der am weitesten verbreiteten
+  JavaScript-Bibliotheken, die viele Erweiterungen und Erleichterungen
+  bietet und als Grundlage zahlreicher Plugins dient. Aufgrund der Größe
+  von jQuery sollte man sich jedoch für jedes Projekt überlegen, ob man
+  die Bibliothek auch wirklich braucht, denn auch JavaScript allein
+  bietet viele Möglichkeiten, kurzen und knackigen Kode zu schreiben.}
+\item
+  {\href{http://d3js.org}{d3}: Eine wunderbare Bibliothek zur
+  Datenvisualisierung, ein bisschen gewöhnungsbedürftig in der
+  Anwendung, aber unheimlich schön in den Ergebnissen. Entwickelt wurde
+  die Bibliothek vorrangig von Mike Bostock, der für die New York Times
+  arbeitet, die seine Pionierarbeit der interaktiven Visualisierung
+  sponsort.}
+\end{itemize}
+
+
+\subsubsection{\texorpdfstring{{Entwicklertools}}{Entwicklertools}}
+
+Man kann JavaScript auch in der Konsole ausführen (die selbst in
+JavaScript geschrieben wurde):
+
+{ Zum Testen bietet sich \href{http://nodejs.org}{node.js} an: Dieses
+Paket erlaubt es, JavaScript Kode in Skripten auszuführen und bietet
+auch eine interaktive Konsole. Der Vorteil von node.js ist, dass man
+Skripte testen kann, ohne den ansonsten erforderlichen HTML/CSS-Überbau
+zugrunde legen zu müssen. }
+
+\subsection{\texorpdfstring{{Ein erstes
+Programmierbeispiel}}{Ein erstes Programmierbeispiel}}
+
+\subsubsection{\texorpdfstring{{Die Kölner Phonetik in
+JavaScript}}{Die Kölner Phonetik in JavaScript}}
+
+{ Es existiert natürlich bereits eine Implementierung der Kölner
+Phonetik für JavaScript, implementiert von J. Tillmann:
+\url{https://github.com/jtillmann/colophoneticjs}. Diese Version wurde
+für die Zwecke unseres Seminars leicht umgeschrieben, so dass wir sie in
+ähnlicher Weise, wie die Python-Version der Kölner Phonetik verwenden
+können. Der resultierende Source Code, ein Skript mit Namen
+\href{https://github.com/LinguList/pyjs-seminar/blob/master/website/code/kph.js}{kph.js}
+befindet sich auf der Projektwebseite und kann dort heruntergeladen
+werden. Er wurde ebenfalls bereits in die Terminal-Applikation
+integriert. }
+
+
+
+\par\noindent\textbf{Kölner Phonetik mit Hilfe des
+\href{../demos/console.html}{Web-Terminals}:}
+
+\begin{verbatim}
+js> kph.encode('Mayer');
+67
+\end{verbatim}
+
+{ }
+
+
+
+\par\noindent\textbf{Kölner Phonetik mit node.js:}
+
+{Einbinden von kph.js:}
+
+\begin{verbatim}
+> kph = require('./js/kph.js') /* Im Order demos/ */
+{ encode: [Function] }
+\end{verbatim}
+
+{Anwenden:}
+
+\begin{verbatim}
+> kph.encode('Müller-Lüdenscheidt');
+'65752682'
+> kph.encode('Muller-Ludenscheidt Sebastian Bach')
+65752682 81826 14
+\end{verbatim}
+
+
+
+Die Verwendung in der Konsole ist aber noch nicht alles! Viel
+interessanter wird es ja, wenn man den Kode gleich auf einer Webseite
+einsetzen kann, zum Beispiel als interaktive Applikation.
+
+Dafür brauchen wir zunächst eine HTML-Eingabe und Ausgabe, die wir in
+einer HTML-Seite (mit Standard-Head-Body Struktur) wie folgt
+unterbringen können:
+
+\begin{verbatim}
+
+OK</>
+\end{verbatim}
+
+{Die Ausgabe sieht dann auf der Webseite wie folgt aus:}
+
+OK
+
+\hyperdef{}{opt}{}
+
+
+
+Um eine bestimmte JavaScript-Bibliothek ausführen zu können, müssen wir
+sie im Header der HTML-Datei (oder an einer beliebigen anderen Stelle)
+einbinden, was wie folgt aussieht:
+
+\begin{verbatim}
+<html>
+  <head>
+    
+    
+  </head>
+  <body>
+    
+    GIB MIR DIE KPH!
+    
+  </body>
+</html>
+\end{verbatim}
+
+
+
+Dann brauchen wir noch eine JavaScript Funktion, die mit HTML
+kommuniziert:
+
+\begin{verbatim}
+// Funktion greift auf die HTML-Datei zu und Berechnet
+// die Werte für die Kölner Phonetik
+function showKPH() {
+  /* get the input button element */
+  var ipt = document.getElementById('ipt');
+  /* get the input value */
+  var ipt_val = ipt.value;
+  /* convert to Kölner Phonetik */
+  var converted_values = kph.encode(ipt_val);
+  /* write to html page */
+  var opt = document.getElementById('opt');
+  opt.innerHTML = converted_values;
+}
+\end{verbatim}
+
+{Beachten Sie, dass es zwei Arten in JS gibt, um Kommentare einzufügen,
+den Doppelslash (//), der den Rest einer Zeile auskommentiert, und die
+Kombination von Slash mit Asterisk (/* und */), mit denen man auch über
+Zeilen hinaus auskommentieren kann. }
+
+
+
+Diese Datei können wir entweder als separates Skript abspeichern und in
+HTML einbinden,
+
+\begin{verbatim}
+<html>
+  ...
+    
+    
+  </body>
+\end{verbatim}
+
+oder wir können sie direkt zwischen die Skript-Tags schreiben
+
+\begin{verbatim}
+<html>
+  ...
+    
+    
+function showKPH() {
+  var ipt = document.getElementById('ipt');
+  var ipt_val = ipt.value;
+  var converted_values = kph.encode(ipt_val);
+  var opt = document.getElementById('opt');
+  opt.innerHTML = converted_values;
+}
+    
+  </body>
+\end{verbatim}
+
+
+
+Und so sieht das Ganze dann in Aktion aus:
+

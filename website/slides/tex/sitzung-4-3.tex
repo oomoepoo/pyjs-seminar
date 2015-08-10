@@ -1,0 +1,292 @@
+\hyperdef{}{tilda}{}
+
+\subsection{Computergestützter Sprachvergleich mit Python und
+JavaScript}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\subsubsection{Sitzung 3 (Tag 4)}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\paragraph{23.07.2015}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\subsubsection{\texorpdfstring{``Geoplots mit JavaScript und
+D3''}{Geoplots mit JavaScript und D3}}
+
+\subsection{\texorpdfstring{{Agenda 2015}}{Agenda 2015}}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  {Darstellung geographischer Daten}
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    {GeoJson und TopoJson}
+  \item
+    {D3}
+  \end{itemize}
+\item
+  {Eine Beispielapplikation}
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    {Idee}
+  \item
+    {Vorbereitung}
+  \item
+    {Applikation}
+  \end{itemize}
+\end{itemize}
+
+\subsection{\texorpdfstring{{Darstellung geographischer
+Daten}}{Darstellung geographischer Daten}}
+
+\subsubsection{\texorpdfstring{{GeoJson und
+TopoJson}}{GeoJson und TopoJson}}
+
+\textbf{Grundlegendes}
+
+\href{http://geojson.org}{GeoJson} und
+\href{https://github.com/mbostock/topojson}{TopoJson} sind Formate zur
+einfachen Beschreibung geographischer Daten. Sie bauen beide auf dem
+JSON-Format auf, welches wir im Laufe des Woche ja schon zuweilen
+verwendet haben. Beide Formate stellen eine ideale Grundlage für
+geographische Darstellungen mit JavaScript dar und sind auch ineinander
+überführbar. Wir werden TopoJson für unser Beispiel verwenden.
+
+\subsection{\texorpdfstring{{Darstellung geographischer
+Daten}}{Darstellung geographischer Daten}}
+
+\subsubsection{\texorpdfstring{{GeoJson und
+TopoJson}}{GeoJson und TopoJson}}
+
+\textbf{GitHub-Integration}
+
+\begin{itemize}
+\item
+  Das tolle an Geo- und TopoJson ist, dass die Formate direkt in GitHub
+  als Karten dargestellt werden.
+\item
+  Wenn wir uns Beispielsweise die Datei
+  \href{https://github.com/LinguList/pyjs-seminar/blob/master/website/demos/china/maps/zh-mainland-provinces.topo.json}{zh-mainland-provinces-topo.json}
+  direkt auf GitHub anschauen, dann sehen wir direkt eine Karte, und
+  auch, was auf der Karte zu sehen ist!
+\end{itemize}
+
+\subsection{\texorpdfstring{{Darstellung geographischer
+Daten}}{Darstellung geographischer Daten}}
+
+\subsubsection{\texorpdfstring{{GeoJson und
+TopoJson}}{GeoJson und TopoJson}}
+
+\textbf{Getting Started}
+
+Grundlegendes zu den Formaten, aber auch zum Gestalten einer Karte kann
+man im Internet in vielen Beispielen finden. Ich selbst habe meine
+ersten Erkenntnisse über D3 und die Verwendung von geographischen Daten
+in JS durch das Beispiel \href{http://bost.ocks.org/mike/map/}{Let's
+Make a Map} von Mike Bostock gesammelt.
+
+Dort beschreibt Bostock auch, wo man gute geographischen Daten finden
+kann. Diese liegen meist in Form von ``shapefiles'' vor, die nicht in JS
+verwendet werden können. Aber es gibt mit
+\href{http://mapshaper.org/}{mapshaper} ein sehr gutes Tool, um die
+Daten direkt in die JSON-Formate umzuwandeln.
+
+\subsection{\texorpdfstring{{Darstellung geographischer
+Daten}}{Darstellung geographischer Daten}}
+
+\subsubsection{\texorpdfstring{{D3}}{D3}}
+
+\href{http://d3js.org}{D3} ist eine wunderbare Bibliothek, um Daten zu
+Visualisieren und interaktive Applikationen zu schreiben. Leider ist sie
+auch sehr kompliziert und für Anfänger nur schwer zugänglich, da sich
+hinter dem Kode viele sehr sinnvolle aber auch eigenwillige Konzepte
+verbergen.
+
+Wir haben in diesem Seminar leider keine Zeit, voll auf D3 und die
+Möglichkeiten einzugehen. Wir werden uns daher auf ein Beispiel
+beschränken, in dem es weniger um den Kode als um die Idee der
+Visualisierung geht.
+
+Denjenigen, die mehr über D3 erfahren möchte, empfehle ich, mit der
+\href{http://d3js.org}{offiziellen Homepage} anzufangen, und sich dann
+langsam ``hochzuarbeiten''.
+
+\subsection{\texorpdfstring{{Agenda 2015}}{Agenda 2015}}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  {Darstellung geographischer Daten}
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    {GeoJson und TopoJson}
+  \item
+    {D3}
+  \end{itemize}
+\item
+  {Eine Beispielapplikation}
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    {Idee}
+  \item
+    {Vorbereitung}
+  \item
+    {Applikation}
+  \end{itemize}
+\end{itemize}
+
+\subsection{\texorpdfstring{{Eine
+Beispielapplikation}}{Eine Beispielapplikation}}
+
+\subsubsection{\texorpdfstring{{Idee}}{Idee}}
+
+\textbf{Die Daten}
+
+Wir haben uns schon mit der Kollektion chinesischer Daten befasst und
+sie sogar bereits mit Hilfe von LingPy aliniert. Nun wollen wir einen
+Schritt weiter gehen, und die Diversität der Sprachen nicht nur über die
+einzelnen Alinierungen, sondern auch im Raum darzustellen.
+
+\subsection{\texorpdfstring{{Eine
+Beispielapplikation}}{Eine Beispielapplikation}}
+
+\subsubsection{\texorpdfstring{{Idee}}{Idee}}
+
+\textbf{Die Idee}
+
+Die Idee ist einfach: Wir plotten alle Dialektpunkte auf eine Karte, und
+erlauben dann den Benutzern, Konzeptweise Daten aufzurufen und bei Klick
+auf einen Dialektpunkt sowohl die Verteilung des Kognatensets als auch
+die Wörter in alinierter Form zu betrachten.
+
+\subsection{\texorpdfstring{{Eine
+Beispielapplikation}}{Eine Beispielapplikation}}
+
+\subsubsection{\texorpdfstring{{Idee}}{Idee}}
+
+\textbf{Die Tools}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Python: zur Alinierung der Daten und zur Aufbereitung der Daten in
+  JavaScript-kompatible Formate (JSON, JS Objekte).
+\item
+  JavaScript: zum Plotten der Daten mit Hilfe von D3.
+\end{itemize}
+
+\subsection{\texorpdfstring{{Eine
+Beispielapplikation}}{Eine Beispielapplikation}}
+
+\subsubsection{\texorpdfstring{{Vorbereitung}}{Vorbereitung}}
+
+\textbf{Programmarbeit}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Erstellen der Daten und Überführung in LingPy-Wortlisten-Format
+\item
+  Durchführung der Alinierungsanalyse mit Hilfe von LingPy
+\item
+  Exportieren der Daten in JS-Formate (hauptsächlich JS-Objects, die ja
+  wie ein Hash verwendet werden können und identisch mit JSON-Objekten
+  sind).
+\end{itemize}
+
+\subsection{\texorpdfstring{{Eine
+Beispielapplikation}}{Eine Beispielapplikation}}
+
+\subsubsection{\texorpdfstring{{Vorbereitung}}{Vorbereitung}}
+
+\textbf{Hintergrundarbeit}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Geographische Files konnten übernommen werden aus einem
+  \href{https://github.com/clemsos/d3-china-map}{GitHub-Repository}.
+\item
+  Der Kode musste nur geringfügig angepasst werden, und die
+  Dialektpunkte ergänzt werden.
+\end{itemize}
+
+\subsection{\texorpdfstring{{Eine
+Beispielapplikation}}{Eine Beispielapplikation}}
+
+\subsubsection{\texorpdfstring{{Vorbereitung}}{Vorbereitung}}
+
+\textbf{Planung der Applikation}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Grundlegende Idee: Teile die Applikation in zwei Teile, einen mit der
+  Karte, einen mit den Alinierungen
+\item
+  Zur Darstellung der Alinierungen liegt bereits eine
+  \href{http://github.com/dighl/prison}{JS-Bibliothek} vor, die es
+  ermöglicht, Wörter, die segmentiert vorliegen, koloriert darzustellen.
+\item
+  Erweiterte Ideen wurden in einem nicht ratsamen
+  ``trial-and-error-Vefahren'' entwickelt (planen ist immer besser als
+  ausprobieren, aber man plant dann am Ende doch immer viel zu
+  wenig\ldots{}).
+\end{itemize}
+
+\subsection{\texorpdfstring{{Eine
+Beispielapplikation}}{Eine Beispielapplikation}}
+
+\subsubsection{\texorpdfstring{{Applikation}}{Applikation}}
+
+\subsection{\texorpdfstring{{Agenda 2015}}{Agenda 2015}}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  {Darstellung geographischer Daten}
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    {GeoJson und TopoJson}
+  \item
+    {D3}
+  \end{itemize}
+\item
+  {Eine Beispielapplikation}
+
+  \begin{itemize}
+  \itemsep1pt\parskip0pt\parsep0pt
+  \item
+    {Idee}
+  \item
+    {Vorbereitung}
+  \item
+    {Applikation}
+  \end{itemize}
+\end{itemize}
+
+\VERB|\NormalTok{>>> }\DecValTok{3} \NormalTok{- }\DecValTok{3}|
+
+Ende des Blockseminars
+
+\href{../slides.html}{ÜBERBLICK}
+
+\hyperdef{}{changeme}{}{\href{../slides.html}{Nächste Sitzung}}
+
+\hyperdef{}{changeve}{}{\href{../slides.html}{Vorherige Sitzung}}
+
+Vorherige Sitzung

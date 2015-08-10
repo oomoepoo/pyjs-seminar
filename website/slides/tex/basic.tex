@@ -1,0 +1,64 @@
+\documentclass[xetex,11pt]{scrartcl}
+
+% packages
+\usepackage{xltxtra}
+\usepackage{polyglossia,hyperref}
+\usepackage[left=2.5cm,right=3cm,top=3cm,bottom=3cm]{geometry}
+\usepackage{longtable,booktabs}
+
+% fonts general
+\setmainfont[Mapping=tex-text,Scale=1.0]{DejaVu Serif}
+\setsansfont[Mapping=tex-text,Scale=1.0]{DejaVu Sans}
+\setmonofont{DejaVu Sans Mono}
+
+% special fonts
+\newfontfamily\hana{HAN NOM A}
+\newfontfamily\hanb{HAN NOM B}
+\newfontfamily\sil{Charis SIL}
+\newfontfamily\grk{Aristarcoj}
+\newfontfamily\dvs{DejaVu Sans}
+
+% specific commands
+\newcommand{\Table}[1]{%
+    \begin{flushleft}
+        \begin{tabular}{|p{15.5cm}|}
+            \hline \cellcolor{lightgray} \bf \dvs #1
+            \\\hline
+        \end{tabular}
+    \end{flushleft}
+    }
+\graphicspath{%
+{/home/mattis/projects/graphics/pstricks/}%
+{.figures/}%
+{.images/}%
+}
+% language settings
+\setmainlanguage{english}
+\setotherlanguage{english}
+
+
+
+
+\begin{document}
+\tableofcontents
+\pagebreak
+\section{Einführung}
+\input{sitzung-1-1.tex}
+\section{Erste Schritte in Python}
+\input{sitzung-1-2.tex}
+\section{Erste Schritte in JavaScript}
+\input{sitzung-1-3.tex}
+\section{Datentypen und Variablen}
+\input{sitzung-2-1.tex}
+\section{Operatoren und Kontrollstrukturen}
+\input{sitzung-2-2.tex}
+\section{Funktion}
+\input{sitzung-2-3.tex}
+\section{Sequenzvergleiche in der historischen Linguistik}
+\input{sitzung-3-1.tex}
+\section{Sequenzalinierung in JavaScript}
+\input{sitzung-3-2.tex}
+\section{Sequenzalinierung in Python}
+\input{sitzung-3-3.tex}
+\end{document}
+
