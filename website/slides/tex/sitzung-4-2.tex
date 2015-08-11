@@ -1,69 +1,10 @@
 \hyperdef{}{tilda}{}
 
-\subsection{Computergestützter Sprachvergleich mit Python und
-JavaScript}
-
-\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
-
-\subsubsection{Sitzung 2 (Tag 4)}
-
-\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
-
-\paragraph{23.07.2015}
-
-\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
-
-\subsubsection{\texorpdfstring{``Automatischer Sprachvergleich mit
-Python''}{Automatischer Sprachvergleich mit Python}}
-
-\subsection{\texorpdfstring{{Agenda 2015}}{Agenda 2015}}
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  {Automatischer Sprachvergleich}
-
-  \begin{itemize}
-  \itemsep1pt\parskip0pt\parsep0pt
-  \item
-    {Sequenzdistanzen}
-  \item
-    {Kognatenerkennung}
-  \item
-    {Phylogenetische Rekonstruktion}
-  \end{itemize}
-\item
-  {Sprachvergleich mit LingPy}
-
-  \begin{itemize}
-  \itemsep1pt\parskip0pt\parsep0pt
-  \item
-    {Eingabeformate}
-  \item
-    {Analysen}
-  \item
-    {Ausgabeformate}
-  \end{itemize}
-\item
-  {Workflows}
-
-  \begin{itemize}
-  \itemsep1pt\parskip0pt\parsep0pt
-  \item
-    {Allgemeines vorweg}
-  \item
-    {Kognatenerkennung mit LingPy}
-  \item
-    {Integration mit externen Tools}
-  \end{itemize}
-\end{itemize}
-
-\subsection{\texorpdfstring{{Automatischer
-Sprachvergleich}}{Automatischer Sprachvergleich}}
+\subsection{Automatischer Sprachvergleich}
 
 \subsubsection{\texorpdfstring{{Sequenzdistanzen}}{Sequenzdistanzen}}
 
-\textbf{Von Alinierungen zu Distanzwerten}
+\paragraph{Von Alinierungen zu Distanzwerten}
 
 Wenn man Sequenzen (Wörter im Falle der Linguistik) aliniert hat, dann
 kann man auch ihre Distanz zueinander berechnen. Die ist implizit ja
@@ -71,12 +12,9 @@ bereits ein Teil der Berechnung der Alinierung, und sie kann
 entsprechend auch einfach weiterverwendet werden, wobei man vorsichtig
 sein sollte, was die Aussage einer solchen Distanz betrifft.
 
-\subsection{\texorpdfstring{{Automatischer
-Sprachvergleich}}{Automatischer Sprachvergleich}}
 
-\subsubsection{\texorpdfstring{{Sequenzdistanzen}}{Sequenzdistanzen}}
 
-\textbf{Die normalisierte Levenshtein-Distanz}
+\paragraph{Die normalisierte Levenshtein-Distanz}
 
 Eine der bekanntesten und am häufigsten verwendeten Distanzen zwischen
 Strings ist die \emph{Levenshtein-Distanz}, die grundlegend die Anzahl
@@ -86,13 +24,6 @@ gewährleisten, wird häufig neben der normalen
 \emph{Levenshtein-Distanz}, die ein ganzzahliger Wert ist, auch die
 ``normalisierte Levenshtein-Distanz'' berechnet, bei der man die
 ``normale'' Distanz durch die Länge des größeren Strings teilt.
-
-\subsection{\texorpdfstring{{Automatischer
-Sprachvergleich}}{Automatischer Sprachvergleich}}
-
-\subsubsection{\texorpdfstring{{Sequenzdistanzen}}{Sequenzdistanzen}}
-
-\textbf{Die normalisierte Levenshtein-Distanz}
 
 \begin{verbatim}
 >>> from lingpy import *
@@ -110,12 +41,11 @@ Sprachvergleich}}{Automatischer Sprachvergleich}}
 0.08333333333333333
 \end{verbatim}
 
-\subsection{\texorpdfstring{{Automatischer
-Sprachvergleich}}{Automatischer Sprachvergleich}}
+
 
 \subsubsection{\texorpdfstring{{Kognatenerkennung}}{Kognatenerkennung}}
 
-\textbf{Automatisches Erkennen von kognaten Wörtern}
+\paragraph{Automatisches Erkennen von kognaten Wörtern}
 
 Kognaten sind, daran sei noch mal erinnert, Wörter, die auf einen
 gemeinsamen Vorgänger zurückgehen (wie bspw. Deutsch \emph{Hand} und
@@ -126,12 +56,10 @@ sagen, dass, wenn immer zwei Wörter sich mehr ähneln als gewöhnlich, wir
 annehmen, dass diese kognat sind. Die Ähnlichkeit können wir dabei
 natürlich unterschiedlich definieren!
 
-\subsection{\texorpdfstring{{Automatischer
-Sprachvergleich}}{Automatischer Sprachvergleich}}
 
-\subsubsection{\texorpdfstring{{Kognatenerkennung}}{Kognatenerkennung}}
 
-\textbf{Die Lautklassenheuristik}
+
+\paragraph{Die Lautklassenheuristik}
 
 Eine erste einfache Heuristik besagt, dass zwei Wörter immer dann als
 kognat klassifiziert werden, wenn sie in den ersten beiden Lautklassen,
@@ -158,12 +86,10 @@ True
 1
 \end{verbatim}
 
-\subsection{\texorpdfstring{{Automatischer
-Sprachvergleich}}{Automatischer Sprachvergleich}}
 
-\subsubsection{\texorpdfstring{{Kognatenerkennung}}{Kognatenerkennung}}
 
-\textbf{Schwellenwerte}
+
+\paragraph{Schwellenwerte}
 
 Anstelle des Kriteriums von
 \href{http://bibliography.lingpy.org?key=Turchin2010}{Turchin et al.
@@ -185,13 +111,12 @@ KeyboardInterrupt
 >>> cognate(seqA, seqB)
 \end{verbatim}
 
-\subsection{\texorpdfstring{{Automatischer
-Sprachvergleich}}{Automatischer Sprachvergleich}}
+
 
 \subsubsection{\texorpdfstring{{Phylogenetische
 Rekonstruktion}}{Phylogenetische Rekonstruktion}}
 
-\textbf{Von Distanzen zu Bäumen}
+\paragraph{Von Distanzen zu Bäumen}
 
 Wenn wir ermittelt haben, welche Wörter in welchen Sprachen miteinander
 kognat sind, können wir Distanzen zwischen ganzen Sprachen berechnen.
@@ -200,13 +125,10 @@ teilen dann die Anzahl der kognaten Wörter durch die Gesamt-Anzahl der
 Wörter und ziehen diesen Wert von 1 ab (ansonsten hätten wir eine
 Ähnlichkeit und keine Distanzen).
 
-\subsection{\texorpdfstring{{Automatischer
-Sprachvergleich}}{Automatischer Sprachvergleich}}
 
-\subsubsection{\texorpdfstring{{Phylogenetische
-Rekonstruktion}}{Phylogenetische Rekonstruktion}}
 
-\textbf{Kleines Beispiel zur Distanzberechnung}
+
+\paragraph{Kleines Beispiel zur Distanzberechnung}
 
 \begin{verbatim}
 from lingpy import *
@@ -236,13 +158,10 @@ tree = upgma(matrix, taxa)
 print(Tree(tree).asciiArt())
 \end{verbatim}
 
-\subsection{\texorpdfstring{{Automatischer
-Sprachvergleich}}{Automatischer Sprachvergleich}}
 
-\subsubsection{\texorpdfstring{{Phylogenetische
-Rekonstruktion}}{Phylogenetische Rekonstruktion}}
 
-\textbf{Kleines Beispiel zur Distanzberechnung}
+
+\paragraph{Kleines Beispiel zur Distanzberechnung}
 
 \begin{verbatim}
 $ python distances.py
@@ -253,54 +172,11 @@ $ python distances.py
                     \-dutch
 \end{verbatim}
 
-\subsection{\texorpdfstring{{Agenda 2015}}{Agenda 2015}}
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  {Automatischer Sprachvergleich}
-
-  \begin{itemize}
-  \itemsep1pt\parskip0pt\parsep0pt
-  \item
-    {Sequenzdistanzen}
-  \item
-    {Kognatenerkennung}
-  \item
-    {Phylogenetische Rekonstruktion}
-  \end{itemize}
-\item
-  {Sprachvergleich mit LingPy}
-
-  \begin{itemize}
-  \itemsep1pt\parskip0pt\parsep0pt
-  \item
-    {Eingabeformate}
-  \item
-    {Analysen}
-  \item
-    {Ausgabeformate}
-  \end{itemize}
-\item
-  {Workflows}
-
-  \begin{itemize}
-  \itemsep1pt\parskip0pt\parsep0pt
-  \item
-    {Allgemeines vorweg}
-  \item
-    {Kognatenerkennung mit LingPy}
-  \item
-    {Integration mit externen Tools}
-  \end{itemize}
-\end{itemize}
-
-\subsection{\texorpdfstring{{Sprachvergleich mit
-LingPy}}{Sprachvergleich mit LingPy}}
+\subsection{Sprachvergleich mit LingPy}
 
 \subsubsection{\texorpdfstring{{Eingabeformate}}{Eingabeformate}}
 
-\textbf{Basisformat für Wortlisten}
+\paragraph{Basisformat für Wortlisten}
 
 \begin{verbatim}
 ID   CONCEPT     COUNTERPART   IPA         DOCULECT     COGID
@@ -322,12 +198,10 @@ ID   CONCEPT     COUNTERPART   IPA         DOCULECT     COGID
 16   Harry       Гаррi         hari        Ukrainian    7
 \end{verbatim}
 
-\subsection{\texorpdfstring{{Sprachvergleich mit
-LingPy}}{Sprachvergleich mit LingPy}}
 
-\subsubsection{\texorpdfstring{{Eingabeformate}}{Eingabeformate}}
 
-\textbf{Key-Value-Erweiterung des Basisformats}
+
+\paragraph{Key-Value-Erweiterung des Basisformats}
 
 \begin{verbatim}
 #
@@ -338,12 +212,10 @@ ID   CONCEPT     COUNTERPART   IPA         DOCULECT     COGID    ALIGNMENT
 ...  ...         ...           ...         ...          ...      ...
 \end{verbatim}
 
-\subsection{\texorpdfstring{{Sprachvergleich mit
-LingPy}}{Sprachvergleich mit LingPy}}
 
-\subsubsection{\texorpdfstring{{Eingabeformate}}{Eingabeformate}}
 
-\textbf{Darstellung von Alinierungen}
+
+\paragraph{Darstellung von Alinierungen}
 
 \begin{verbatim}
 #
@@ -356,12 +228,8 @@ ID   CONCEPT     COUNTERPART   IPA         DOCULECT     COGID   ALIGNMENT
 ...  ...         ...           ...         ...          ...     ...  
 \end{verbatim}
 
-\subsection{\texorpdfstring{{Sprachvergleich mit
-LingPy}}{Sprachvergleich mit LingPy}}
 
-\subsubsection{\texorpdfstring{{Analysen}}{Analysen}}
-
-\textbf{Kognatenerkennung mit LexStat}
+\paragraph{Kognatenerkennung mit LexStat}
 
 Kognatenerkennung in LingPy lässt sich mit Hilfe des
 \href{http://lingpy.org/reference/lingpy.compare.html\#module-lingpy.compare.lexstat}{LexStat-Moduls}
@@ -372,12 +240,8 @@ Kognaten auf verschiedene Art und Weise berechnen, diese Werte dann in
 Distanzen umwandeln, und aus den Distanzen auch direkt einen Baum
 berechnen.
 
-\subsection{\texorpdfstring{{Sprachvergleich mit
-LingPy}}{Sprachvergleich mit LingPy}}
 
-\subsubsection{\texorpdfstring{{Analysen}}{Analysen}}
-
-\textbf{Beispiel zur Kognatenerkennung mit LexStat}
+\paragraph{Beispiel zur Kognatenerkennung mit LexStat}
 
 \begin{verbatim}
 >>> from lingpy import *
@@ -396,12 +260,10 @@ LingPy}}{Sprachvergleich mit LingPy}}
                     \-Ukrainian
 \end{verbatim}
 
-\subsection{\texorpdfstring{{Sprachvergleich mit
-LingPy}}{Sprachvergleich mit LingPy}}
 
-\subsubsection{\texorpdfstring{{Analysen}}{Analysen}}
 
-\textbf{Alinierung von Kognatensets}
+
+\paragraph{Alinierung von Kognatensets}
 
 Es ist sinnvoll, die automatisch ermittelten Kognaten auch zu alinieren,
 da man sich so am besten vergewsissern kann, dass man auch keine
@@ -417,12 +279,10 @@ in LingPy nach der Methode beziffert, die ihnen zugrunde liegt
 Name ``cogid'' gewöhnlich für eine von Experten ermittelte
 Kognatenzuweisung reserviert wird.
 
-\subsection{\texorpdfstring{{Sprachvergleich mit
-LingPy}}{Sprachvergleich mit LingPy}}
 
-\subsubsection{\texorpdfstring{{Analysen}}{Analysen}}
 
-\textbf{Beispiel für die Alinierung von Kognatensets}
+
+\paragraph{Beispiel für die Alinierung von Kognatensets}
 
 \begin{verbatim}
 >>> from lingpy import *
@@ -432,19 +292,17 @@ LingPy}}{Sprachvergleich mit LingPy}}
 >>> alm.output('html', filename='data/harry')
 \end{verbatim}
 
-\subsection{\texorpdfstring{{Sprachvergleich mit
-LingPy}}{Sprachvergleich mit LingPy}}
+
 
 \subsubsection{\texorpdfstring{{Analysen}}{Analysen}}
 
-\textbf{Ausgabe der Daten in HTML-Format}
+\paragraph{Ausgabe der Daten in HTML-Format}
 
-\subsection{\texorpdfstring{{Sprachvergleich mit
-LingPy}}{Sprachvergleich mit LingPy}}
+
 
 \subsubsection{\texorpdfstring{{Ausgabeformate}}{Ausgabeformate}}
 
-\textbf{Grundlegendes zu Ausgabeformaten in LingPy}
+\paragraph{Grundlegendes zu Ausgabeformaten in LingPy}
 
 Daten in LingPy können in verschiedenste Formate exportiert werden.
 Grundlegend unterscheiden können wir dabei zwei Formattypen:
@@ -460,12 +318,10 @@ Grundlegend unterscheiden können wir dabei zwei Formattypen:
   Softwarepackungen verwendet werden können.
 \end{itemize}
 
-\subsection{\texorpdfstring{{Sprachvergleich mit
-LingPy}}{Sprachvergleich mit LingPy}}
 
-\subsubsection{\texorpdfstring{{Ausgabeformate}}{Ausgabeformate}}
 
-\textbf{Spezifizieren von Ausgabeformaten in LingPy}
+
+\paragraph{Spezifizieren von Ausgabeformaten in LingPy}
 
 \begin{verbatim}
 # grundlegenes Format des Kommandos
@@ -483,12 +339,10 @@ wordlist.output('nwk', filename="harry")
 wordlist.output('tsv', filename='harry')
 \end{verbatim}
 
-\subsection{\texorpdfstring{{Sprachvergleich mit
-LingPy}}{Sprachvergleich mit LingPy}}
 
-\subsubsection{\texorpdfstring{{Ausgabeformate}}{Ausgabeformate}}
 
-\textbf{Beispiele für die Ausgabeformate}
+
+\paragraph{Beispiele für die Ausgabeformate}
 
 Newick-Format:
 
@@ -506,12 +360,9 @@ Russian    0.50 0.50 0.00 0.00
 Ukrainian  0.50 0.50 0.00 0.00
 \end{verbatim}
 
-\subsection{\texorpdfstring{{Sprachvergleich mit
-LingPy}}{Sprachvergleich mit LingPy}}
 
-\subsubsection{\texorpdfstring{{Ausgabeformate}}{Ausgabeformate}}
 
-\textbf{Beispiele für die Ausgabeformate}
+
 
 Nexus-Format:
 
@@ -529,54 +380,12 @@ Ukrainian 0100111
 END;
 \end{verbatim}
 
-\subsection{\texorpdfstring{{Agenda 2015}}{Agenda 2015}}
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  {Automatischer Sprachvergleich}
-
-  \begin{itemize}
-  \itemsep1pt\parskip0pt\parsep0pt
-  \item
-    {Sequenzdistanzen}
-  \item
-    {Kognatenerkennung}
-  \item
-    {Phylogenetische Rekonstruktion}
-  \end{itemize}
-\item
-  {Sprachvergleich mit LingPy}
-
-  \begin{itemize}
-  \itemsep1pt\parskip0pt\parsep0pt
-  \item
-    {Eingabeformate}
-  \item
-    {Analysen}
-  \item
-    {Ausgabeformate}
-  \end{itemize}
-\item
-  {Workflows}
-
-  \begin{itemize}
-  \itemsep1pt\parskip0pt\parsep0pt
-  \item
-    {Allgemeines vorweg}
-  \item
-    {Kognatenerkennung mit LingPy}
-  \item
-    {Integration mit externen Tools}
-  \end{itemize}
-\end{itemize}
-
-\subsection{\texorpdfstring{{Workflows}}{Workflows}}
+\subsection{Workflows}
 
 \subsubsection{\texorpdfstring{{Allgemeines
 vorweg}}{Allgemeines vorweg}}
 
-\textbf{Workflows in LingPy}
+\paragraph{Workflows in LingPy}
 
 Mit Hilfe der Funktionen, die LingPy bietet, lassens ich komplette
 Workflows zum automatisierten Vergleich von Sprachen entwickeln. Das ist
@@ -585,16 +394,14 @@ auch ordentlich dokumentiert ist. Wir wollen aber trotzdem versuchen,
 ein allgemeines Template zu erstellen, so dass es möglich ist, dieses an
 individuelle Daten anzupassen und weiterzuverwenden.
 
-\subsection{\texorpdfstring{{Workflows}}{Workflows}}
 
-\subsubsection{\texorpdfstring{{Allgemeines
-vorweg}}{Allgemeines vorweg}}
 
-\textbf{Workflows zum Sprachvergleich}
+
+\paragraph{Workflows zum Sprachvergleich}
 
 \begin{longtable}[c]{@{}ll@{}}
 \toprule
-\href{img/workflow_basic.svg}{\includegraphics{img/workflow_basic.svg}}
+\includegraphics{img/workflow_basic.pdf}
 & Dieser Workflow kann als allgemeines Konstrukt der von rohen Daten bis
 hin zu Rekonstruktionen führt, angesehen werden. Nicht alle Schritte
 können derzeit schon automatisch ausgeführt werden. Wir beschränken uns
@@ -603,12 +410,11 @@ Alinierungen führen.\tabularnewline
 \bottomrule
 \end{longtable}
 
-\subsection{\texorpdfstring{{Workflows}}{Workflows}}
 
-\subsubsection{\texorpdfstring{{Kognatenerkennung mit
-LingPy}}{Kognatenerkennung mit LingPy}}
 
-\textbf{Daten}
+\subsubsection{Kognatenerkennung mit LingPy}
+
+\paragraph{Daten}
 
 Wir nehmen einen Datensatz zu den chinesischen Dialekten, der als
 TSV-Datei im LingPy Format vorliegt (File
@@ -618,12 +424,11 @@ Die Datei enthält neben den tabularen Daten auch eine JSON-Spezifikation
 (eine Formaterweiterung in LingPy, die es erlaubt, JSON-Daten mit
 einzubinden. Wir ignorieren diese Daten jedoch in diesem Zusammenhang.
 
-\subsection{\texorpdfstring{{Workflows}}{Workflows}}
 
-\subsubsection{\texorpdfstring{{Kognatenerkennung mit
-LingPy}}{Kognatenerkennung mit LingPy}}
 
-\textbf{Der Workflow}
+
+
+\paragraph{Der Workflow}
 
 Der Workflow gliedert sich in drei Schritte:
 
@@ -657,12 +462,11 @@ Der Workflow gliedert sich in drei Schritte:
   \end{itemize}
 \end{itemize}
 
-\subsection{\texorpdfstring{{Workflows}}{Workflows}}
 
-\subsubsection{\texorpdfstring{{Kognatenerkennung mit
-LingPy}}{Kognatenerkennung mit LingPy}}
 
-\textbf{Der Code}
+
+
+\paragraph{Der Code}
 
 \begin{verbatim}
 from lingpy import *
@@ -690,28 +494,27 @@ alm.align()
 alm.output('html', filename='data/chinese_alignments')
 \end{verbatim}
 
-\subsection{\texorpdfstring{{Workflows}}{Workflows}}
 
-\subsubsection{\texorpdfstring{{Kognatenerkennung mit
-LingPy}}{Kognatenerkennung mit LingPy}}
 
-\textbf{Die Ergebnisse: Der Baum}
 
-\href{../code/data/chinese_tree.svg}{\includegraphics{../code/data/chinese_tree.svg}}
 
-\subsection{\texorpdfstring{{Workflows}}{Workflows}}
+\paragraph{Die Ergebnisse: Der Baum}
 
-\subsubsection{\texorpdfstring{{Kognatenerkennung mit
-LingPy}}{Kognatenerkennung mit LingPy}}
+\begin{center}
+\includegraphics[width=\textwidth]{img/chinese_tree.pdf}
+\end{center}
 
-\textbf{Die Ergebnisse: Die Alinierungen}
 
-\subsection{\texorpdfstring{{Workflows}}{Workflows}}
+
+
+\paragraph{Die Ergebnisse: Die Alinierungen}
+
+
 
 \subsubsection{\texorpdfstring{{Integration mit externen
 Tools}}{Integration mit externen Tools}}
 
-\textbf{Einlesen der Daten in Splitstree}
+\paragraph{Einlesen der Daten in Splitstree}
 
 Mit \href{http://splitstree.org}{SplitsTree} können wir Netzwerke aus
 Distanzmatrizzen berechnen. Da wir die Distanzmatrix ja bereits
@@ -721,65 +524,9 @@ der Datei
 \href{ttps://github.com/LinguList/pyjs-seminar/blob/master/website/code/data/chinese_distances.dst}{chinese\_distances.dst}
 zu kopieren und in den Editor von SplitsTree zu pasten.
 
-\subsection{\texorpdfstring{{Workflows}}{Workflows}}
+\paragraph{Das Neighbor-Net der chinesischen Daten}
 
-\subsubsection{\texorpdfstring{{Integration mit externen
-Tools}}{Integration mit externen Tools}}
+\begin{center}
+  \includegraphics{img/chinese_network.pdf}
+\end{center}
 
-\textbf{Das Neighbor-Net der chinesischen Daten}
-
-\href{../code/data/chinese_network.svg}{\includegraphics{../code/data/chinese_network.svg}}
-
-\subsection{\texorpdfstring{{Agenda 2015}}{Agenda 2015}}
-
-\begin{itemize}
-\itemsep1pt\parskip0pt\parsep0pt
-\item
-  {Automatischer Sprachvergleich}
-
-  \begin{itemize}
-  \itemsep1pt\parskip0pt\parsep0pt
-  \item
-    {Sequenzdistanzen}
-  \item
-    {Kognatenerkennung}
-  \item
-    {Phylogenetische Rekonstruktion}
-  \end{itemize}
-\item
-  {Sprachvergleich mit LingPy}
-
-  \begin{itemize}
-  \itemsep1pt\parskip0pt\parsep0pt
-  \item
-    {Eingabeformate}
-  \item
-    {Analysen}
-  \item
-    {Ausgabeformate}
-  \end{itemize}
-\item
-  {Workflows}
-
-  \begin{itemize}
-  \itemsep1pt\parskip0pt\parsep0pt
-  \item
-    {Allgemeines vorweg}
-  \item
-    {Kognatenerkennung mit LingPy}
-  \item
-    {Integration mit externen Tools}
-  \end{itemize}
-\end{itemize}
-
-\VERB|\NormalTok{>>> }\DecValTok{3} \NormalTok{- }\DecValTok{2}|
-
-Ende der zweiten Sitzung
-
-\href{../slides.html}{ÜBERBLICK}
-
-\hyperdef{}{changeme}{}{\href{../slides.html}{Nächste Sitzung}}
-
-\hyperdef{}{changeve}{}{\href{../slides.html}{Vorherige Sitzung}}
-
-Vorherige Sitzung
