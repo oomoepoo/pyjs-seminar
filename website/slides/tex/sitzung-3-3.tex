@@ -5,7 +5,7 @@
 \subsubsection{\texorpdfstring{{Allgemeine
 Strategien}}{Allgemeine Strategien}}
 
-\par\noindent\textbf{Python und JavaScript}
+\vspace{0.5cm}\par\noindent\textbf{Python und JavaScript}\vspace{0.5cm}
 
 Python und JavaScript sind sich im Prinzip recht ähnlich, was die
 Datentypen anbelangt. Wir werden auch für unsere Python-Implementierung
@@ -17,7 +17,7 @@ formulieren und haben es daher etwas leichter, den Kode aufzusetzen.
 
 
 
-\par\noindent\textbf{Struktur}
+\vspace{0.5cm}\par\noindent\textbf{Struktur}\vspace{0.5cm}
 
 Die Implementierung des Alinierungsalgorithmus in Python (eine Version
 des \href{http://bibliography.lingpy.org?key=Wagner1974}{Wagner-Fischer
@@ -40,7 +40,7 @@ besprochen haben:
 
 
 
-\par\noindent\textbf{Dann kann's ja losgehen!}
+\vspace{0.5cm}\par\noindent\textbf{Dann kann's ja losgehen!}\vspace{0.5cm}
 
 Genau! Denn der Algorithmus ist tatsächlich sehr leicht in Python zu
 implementieren, vorausgesetzt man ist mit den Datentypen ein wenig
@@ -50,7 +50,7 @@ vertraut. Aber wir schauen uns das jetzt Schritt für Schritt in Ruhe an.
 
 \subsubsection{Implementierung der Matrixberechnung}
 
-\par\noindent\textbf{Grundlegender Aufbau}
+\vspace{0.5cm}\par\noindent\textbf{Grundlegender Aufbau}\vspace{0.5cm}
 
 \begin{verbatim}
 
@@ -73,7 +73,7 @@ def wf_align(seqA, seqB):
 
 
 
-\par\noindent\textbf{Vorgeplänkel}
+\vspace{0.5cm}\par\noindent\textbf{Vorgeplänkel}\vspace{0.5cm}
 
 \begin{verbatim}
 def wf_align(seqA, seqB):
@@ -102,7 +102,7 @@ def wf_align(seqA, seqB):
 
 
 
-\par\noindent\textbf{Initialisierung von Matrix und Traceback}
+\vspace{0.5cm}\par\noindent\textbf{Initialisierung von Matrix und Traceback}\vspace{0.5cm}
 
 \begin{verbatim}
 def wf_align(seqA, seqB):
@@ -136,7 +136,7 @@ def wf_align(seqA, seqB):
 
 
 
-\par\noindent\textbf{Ausfüllen von Matrix und Traceback}
+\vspace{0.5cm}\par\noindent\textbf{Ausfüllen von Matrix und Traceback}\vspace{0.5cm}
 
 \begin{verbatim}
 def wf_align(seqA, seqB):
@@ -187,7 +187,7 @@ def wf_align(seqA, seqB):
 \subsubsection{\texorpdfstring{{Implementierung des
 Traceback}}{Implementierung des Traceback}}
 
-\par\noindent\textbf{Traceback-Vorbereitung}
+\vspace{0.5cm}\par\noindent\textbf{Traceback-Vorbereitung}\vspace{0.5cm}
 
 \begin{verbatim}
 def wf_align(seqA, seqB):
@@ -215,7 +215,7 @@ def wf_align(seqA, seqB):
 
 
 
-\par\noindent\textbf{Traceback}
+\vspace{0.5cm}\par\noindent\textbf{Traceback}\vspace{0.5cm}
 
 \begin{verbatim}
 def wf_align(seqA, seqB):
@@ -250,7 +250,7 @@ def wf_align(seqA, seqB):
 
 
 
-\par\noindent\textbf{Traceback}
+\vspace{0.5cm}\par\noindent\textbf{Traceback}\vspace{0.5cm}
 
 \begin{verbatim}
 def wf_align(seqA, seqB):
@@ -276,7 +276,7 @@ def wf_align(seqA, seqB):
 \subsubsection{\texorpdfstring{{Noch mal zu den
 Lautklassen}}{Noch mal zu den Lautklassen}}
 
-\par\noindent\textbf{Dolgopolskys Idee}
+\vspace{0.5cm}\par\noindent\textbf{Dolgopolskys Idee}\vspace{0.5cm}
 
 \begin{quote}
 Sounds which frequently occur in correspondence relations in genetically
@@ -298,13 +298,13 @@ those between different `types'\,''
 
 
 
-\par\noindent\textbf{Dolgopolskys Lautklassenmodell}
+\vspace{0.5cm}\par\noindent\textbf{Dolgopolskys Lautklassenmodell}\vspace{0.5cm}
 
 \includegraphics[width=\textwidth]{img/dolgo.png}
 
 
 
-\par\noindent\textbf{Erweitertes Lautklassenmodell
+\vspace{0.5cm}\par\noindent\textbf{Erweitertes Lautklassenmodell\vspace{0.5cm}
 (\href{http://bibliography.lingpy.org?key=List2014d}{List 2014})}
 
 \includegraphics[width=\textwidth]{img/sca.png}
@@ -313,7 +313,7 @@ those between different `types'\,''
 \subsubsection{\texorpdfstring{{Lautklassenkonvertierung mit
 Python}}{Lautklassenkonvertierung mit Python}}
 
-\par\noindent\textbf{Grundlegende Idee}
+\vspace{0.5cm}\par\noindent\textbf{Grundlegende Idee}\vspace{0.5cm}
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -337,12 +337,12 @@ Python}}{Lautklassenkonvertierung mit Python}}
 
 
 
-\par\noindent\textbf{Workflow}
+\vspace{0.5cm}\par\noindent\textbf{Workflow}\vspace{0.5cm}
 
 \includegraphics[width=\textwidth]{img/sca_workflow-4.png}
 
 
-\par\noindent\textbf{Segmentierung}
+\vspace{0.5cm}\par\noindent\textbf{Segmentierung}\vspace{0.5cm}
 
 Für die Segmentierung bedienen wir uns eines einfachen Modells: Jede
 Sequenz wird mit Hilfe des Leerzeichens segmentiert dargestellt:
@@ -367,7 +367,7 @@ Mit Python können wir diesen Input ganz schnell in eine Liste umwandeln:
 
 
 
-\par\noindent\textbf{Umwandlung}
+\vspace{0.5cm}\par\noindent\textbf{Umwandlung}\vspace{0.5cm}
 
 Bei der Umwandlung mit Hilfe eines Dictionaries sollten wir damit
 rechnen, dass bestimmte Zeichen nicht vorhanden sind (es gibt so viele
@@ -396,7 +396,7 @@ def segment2class(segment, converter):
 
 \subsubsection{Implementierung}
 
-\par\noindent\textbf{Laden des Lautklassenmodells}
+\vspace{0.5cm}\par\noindent\textbf{Laden des Lautklassenmodells}\vspace{0.5cm}
 
 Wir speichern und laden den Converter
 (\href{https://github.com/LinguList/pyjs-seminar/blob/master/website/code/dolgo.json}{dolgo.json})
@@ -419,7 +419,7 @@ def load_model(model):
 
 
 
-\par\noindent\textbf{Lautklassenkonvertierung}
+\vspace{0.5cm}\par\noindent\textbf{Lautklassenkonvertierung}\vspace{0.5cm}
 
 Die Konvertierung lässt sich mit sehr wenigen Zeilen Kode umsetzen, da
 wir hier von der Listengenerationssyntax in Python Gebrauch machen
@@ -444,7 +444,7 @@ def segments2classes(segments, converter):
 
 
 
-\par\noindent\textbf{Rückkonvertierung}
+\vspace{0.5cm}\par\noindent\textbf{Rückkonvertierung}\vspace{0.5cm}
 
 Zur Rückkonvertierung brauchen wir den ursprünglichen String. Wir gehen
 ja davon aus, dass wir die Strings zuerst in Lautklassen umwandeln,
@@ -474,7 +474,7 @@ def classes2segments(classes, segments):
 
 
 
-\par\noindent\textbf{Vollständige Lautklassenbasierte Alinierung}
+\vspace{0.5cm}\par\noindent\textbf{Vollständige Lautklassenbasierte Alinierung}\vspace{0.5cm}
 
 \begin{verbatim}
 def sca_align(stringA, stringB, model="dolgo"):
@@ -502,7 +502,7 @@ def sca_align(stringA, stringB, model="dolgo"):
 \subsection{Phonetische Alinierung mit LingPy}
 \subsubsection{\texorpdfstring{{Was ist LingPy?}}{Was ist LingPy?}}
 
-\par\noindent\textbf{Grundlegendes zu LingPy}
+\vspace{0.5cm}\par\noindent\textbf{Grundlegendes zu LingPy}\vspace{0.5cm}
 
 \includegraphics[width=\textwidth]{img/lingpy.pdf}
 
@@ -517,7 +517,7 @@ def sca_align(stringA, stringB, model="dolgo"):
 \subsubsection{\texorpdfstring{{Grundlegende
 Befehle}}{Grundlegende Befehle}}
 
-\par\noindent\textbf{Arbeiten mit Sequenzen}
+\vspace{0.5cm}\par\noindent\textbf{Arbeiten mit Sequenzen}\vspace{0.5cm}
 
 \begin{verbatim}
 >>> from lingpy import *
@@ -541,7 +541,7 @@ Befehle}}{Grundlegende Befehle}}
 
 
 
-\par\noindent\textbf{Vergleichen von Sequenzen}
+\vspace{0.5cm}\par\noindent\textbf{Vergleichen von Sequenzen}\vspace{0.5cm}
 
 \begin{verbatim}
 >>> seq1 = ipa2tokens(sampa2uni('t_hOxt_h@r'))
@@ -565,7 +565,7 @@ d   ɔ   -   tt  ə   r
 
 \subsubsection{\texorpdfstring{{Workflows}}{Workflows}}
 
-\par\noindent\textbf{Grundlegendes vorweg}
+\vspace{0.5cm}\par\noindent\textbf{Grundlegendes vorweg}\vspace{0.5cm}
 
 Mit LingPy lassen sich gezielt Daten im großen Stil analysieren. Dafür
 braucht man einen Workflow, und man schreibt dann normalerweise ein
@@ -580,7 +580,7 @@ vorzunehmen.
 
 
 
-\par\noindent\textbf{Das Input-Format}
+\vspace{0.5cm}\par\noindent\textbf{Das Input-Format}\vspace{0.5cm}
 
 Das Input-Format für Alinierungen in Textdateien ist relativ einfach:
 
@@ -603,7 +603,7 @@ Das Input-Format für Alinierungen in Textdateien ist relativ einfach:
 
 
 
-\par\noindent\textbf{Das Input-Format: Beispiel}
+\vspace{0.5cm}\par\noindent\textbf{Das Input-Format: Beispiel}\vspace{0.5cm}
 
 \begin{verbatim}
 French
@@ -674,7 +674,7 @@ Courtedoux........    ʧ s u
 
 
 
-\par\noindent\textbf{Der Alinierungsworkflow: Multiple Alinierung}
+\vspace{0.5cm}\par\noindent\textbf{Der Alinierungsworkflow: Multiple Alinierung}\vspace{0.5cm}
 
 \begin{verbatim}
 >>> from lingpy import *
@@ -746,7 +746,7 @@ Courtedoux........    ʧ s u
 \end{verbatim}
 
 
-\par\noindent\textbf{Der Alinierungsworkflow: Output}
+\vspace{0.5cm}\par\noindent\textbf{Der Alinierungsworkflow: Output}\vspace{0.5cm}
 
 \begin{verbatim}
 >>> msa.output('msa', filename='data/french-chasseur')
@@ -756,10 +756,10 @@ Courtedoux........    ʧ s u
 
 
 
-\par\noindent\textbf{Der Alinierungsworkflow: Ergebnisse (HTML-Output)}
+\vspace{0.5cm}\par\noindent\textbf{Der Alinierungsworkflow: Ergebnisse (HTML-Output)}\vspace{0.5cm}
 
 
-\par\noindent\textbf{Der Alinierungsworkflow: Ergebnisse (LaTeX-Output)}
+\vspace{0.5cm}\par\noindent\textbf{Der Alinierungsworkflow: Ergebnisse (LaTeX-Output)}\vspace{0.5cm}
 
 \begin{verbatim}
 \documentclass[xetex,12pt]{scrartcl}
@@ -906,7 +906,4 @@ Courtedoux........    ʧ s u
 }
 \endpspicture}
 \end{verbatim}
-\end{document}
-
-
 

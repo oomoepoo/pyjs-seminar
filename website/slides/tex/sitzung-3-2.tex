@@ -4,7 +4,7 @@
 
 \subsubsection{\texorpdfstring{{Das Problem}}{Das Problem}}
 
-\par\noindent\textbf{Wir wollen zwei Sequenzen automatisch alinieren, aber wie?}
+\vspace{0.5cm}\par\noindent\textbf{Wir wollen zwei Sequenzen automatisch alinieren, aber wie?}\vspace{0.5cm}
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -24,21 +24,21 @@
 
 
 
-\par\noindent\textbf{Leider dauert das zu lange!}
+\vspace{0.5cm}\par\noindent\textbf{Leider dauert das zu lange!}\vspace{0.5cm}
 
 Die Zahl aller Möglichen Alinierungen zwischen zwei Strings hängt von
 deren Länge ab: Es gilt:
 
-\$N = \textbackslash{}sum\_\{k=0\}\^{}\{\textbackslash{}min(m,n)\}
+$N = \textbackslash{}sum\_\{k=0\}\^{}\{\textbackslash{}min(m,n)\}
 2\^{}\{k\} \textbackslash{}cdot \textbackslash{}binom\{m\}\{k\}
-\textbackslash{}cdot \textbackslash{}binom\{n\}\{k\}\$,
+\textbackslash{}cdot \textbackslash{}binom\{n\}\{k\}$,
 
-für zwei Strings der Länge \$m\$ und \$n\$.
-
-
+für zwei Strings der Länge $m$ und $n$.
 
 
-\par\noindent\textbf{Und was soll das heißen?}
+
+
+\vspace{0.5cm}\par\noindent\textbf{Und was soll das heißen?}\vspace{0.5cm}
 
 Das wir für die Alinierung von ``Herz'' und ``heart'' 681 verschiedene
 Alinierungen testen müssten, und für die Alinierung von ``Werdegänge''
@@ -49,7 +49,7 @@ und ``Kinderpass'' 8 097 453 verschiedene Möglichkeiten!
 \subsubsection{\texorpdfstring{{Die
 Lösungsstrategie}}{Die Lösungsstrategie}}
 
-\par\noindent\textbf{Sei faul und mach Dir keine unnötige Arbeit!}
+\vspace{0.5cm}\par\noindent\textbf{Sei faul und mach Dir keine unnötige Arbeit!}\vspace{0.5cm}
 
 Die Lösungsstrategie beruht auf der Idee, dass man bestimmte
 Teillösungen, die man schon berechnet hat, ja eigentlich nicht noch ein
@@ -60,7 +60,7 @@ einfach nicht weiterverfolgt.
 
 
 
-\par\noindent\textbf{Dynamische Programmierung}
+\vspace{0.5cm}\par\noindent\textbf{Dynamische Programmierung}\vspace{0.5cm}
 
 Der Algorithmus, mit dem man die optimale Alinierung von zwei Strings
 relativ schnell und effizient berechnen kann, gehört zur Familie der
@@ -76,7 +76,7 @@ zu testen, baut man eine Alinierung auf, indem man Gebrauch macht von
 
 \subsubsection{Der Algorithmus}
 
-\par\noindent\textbf{Grundlegende Bestandteile}
+\vspace{0.5cm}\par\noindent\textbf{Grundlegende Bestandteile}\vspace{0.5cm}
 
 \begin{enumerate}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -97,7 +97,7 @@ zu testen, baut man eine Alinierung auf, indem man Gebrauch macht von
 
 
 
-\par\noindent\textbf{Scoring Schema}
+\vspace{0.5cm}\par\noindent\textbf{Scoring Schema}\vspace{0.5cm}
 
 \begin{longtable}[c]{@{}lll@{}}
 \toprule
@@ -110,7 +110,7 @@ emtpy match & 1 & A / -, - / A\tabularnewline
 \bottomrule
 \end{longtable}
 
-\par\noindent\textbf{Matrix}
+\vspace{0.5cm}\par\noindent\textbf{Matrix}\vspace{0.5cm}
 
 \begin{tabular}[c]{|l|l|l|l|}
 \hline
@@ -129,7 +129,7 @@ R / - & R / B & R / Ä & R / R\\\hline
 
 
 
-\par\noindent\textbf{Traceback}
+\vspace{0.5cm}\par\noindent\textbf{Traceback}\vspace{0.5cm}
 
 \begin{longtable}[c]{@{}llll@{}}
 \toprule
@@ -145,7 +145,7 @@ R / - & R / B & R / Ä & R / R\tabularnewline
 
 
 
-\par\noindent\textbf{Traceback}
+\vspace{0.5cm}\par\noindent\textbf{Traceback}\vspace{0.5cm}
 
 
 
@@ -157,7 +157,7 @@ JavaScript}}{Sequenzalinierung in JavaScript}}
 
 \subsubsection{\texorpdfstring{{Vorüberlegungen}}{Vorüberlegungen}}
 
-\par\noindent\textbf{Um den Algorithmus zu implementieren, brauchen wir:}
+\vspace{0.5cm}\par\noindent\textbf{Um den Algorithmus zu implementieren, brauchen wir:}\vspace{0.5cm}
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -175,7 +175,7 @@ JavaScript}}{Sequenzalinierung in JavaScript}}
 
 
 
-\par\noindent\textbf{JavaScript bietet uns:}
+\vspace{0.5cm}\par\noindent\textbf{JavaScript bietet uns:}\vspace{0.5cm}
 
 \begin{itemize}
 \itemsep1pt\parskip0pt\parsep0pt
@@ -367,7 +367,7 @@ Sequenzalinierung}}{Interaktive Sequenzalinierung}}
 
 \subsubsection{\texorpdfstring{{Grundlagen}}{Grundlagen}}
 
-\par\noindent\textbf{Input-Felder in HTML}
+\vspace{0.5cm}\par\noindent\textbf{Input-Felder in HTML}\vspace{0.5cm}
 
 Um eine interaktive Alinierungsapp zu erstellen, machen wir Gebrauch von
 den Input-Felder in HTML. Diese sind sehr einfach zu erstellen:
@@ -384,7 +384,7 @@ mit dem Cursor im Text-Feld sind, potentiell eine Funktion auslösen.
 
 
 
-\par\noindent\textbf{Es kann losgehen!}
+\vspace{0.5cm}\par\noindent\textbf{Es kann losgehen!}\vspace{0.5cm}
 
 Abgesehen davon brauchen wir eigentlich nur noch die klassische
 Einbindung von JavaScript in eine HTML-Seite vorzunehmen. Wir nutzen
@@ -399,7 +399,7 @@ werden.
 
 \subsubsection{\texorpdfstring{{Implementierung}}{Implementierung}}
 
-\par\noindent\textbf{Der Header}
+\vspace{0.5cm}\par\noindent\textbf{Der Header}\vspace{0.5cm}
 
 \begin{verbatim}
 <html>
@@ -413,7 +413,7 @@ werden.
 
 
 
-\par\noindent\textbf{Der Body}
+\vspace{0.5cm}\par\noindent\textbf{Der Body}\vspace{0.5cm}
 
 \begin{verbatim}
 <body>
@@ -426,7 +426,7 @@ werden.
 
 
 
-\par\noindent\textbf{Der JavaScript-Code}
+\vspace{0.5cm}\par\noindent\textbf{Der JavaScript-Code}\vspace{0.5cm}
 
 \begin{verbatim}
 function alignit() {
