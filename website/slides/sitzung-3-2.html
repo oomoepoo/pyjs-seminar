@@ -134,7 +134,7 @@ function checkTime(i) {
 
       <!-- Any section element inside of this container is displayed as a slide -->
       <div class="slides">
-	<section data-transition="concave" data-background="LightYellow" style="text-align:justify;font-size:85%;text-align:center;font-size:100%;">
+	<section style="text-align:justify;font-size:85%;text-align:center;font-size:100%;" data-background="LightYellow" data-transition="concave">
 <h2>Computergestützter Sprachvergleich mit Python und JavaScript</h2>
 <hr />
 <h3>Sitzung 2 (Tag 3)</h3>
@@ -144,7 +144,7 @@ function checkTime(i) {
 <h3>&quot;Sequenzalinierung in JavaScript&quot;</h3>
 </section>
 
-<section data-transition="concave" data-background="LightYellow" style="text-align:justify;font-size:85%;">
+<section style="text-align:justify;font-size:85%;" data-background="LightYellow" data-transition="concave">
 <h2><span class="head">Agenda 2015</span></h2>
 <ul>
 <li><span class="unstroked">Automatische Sequenzalinierung</span><ul>
@@ -169,7 +169,7 @@ function checkTime(i) {
 </section>
 
 <section>
-<section data-transition="concave" data-background="LightYellow" style="text-align:justify;font-size:85%;">
+<section style="text-align:justify;font-size:85%;" data-background="LightYellow" data-transition="concave">
 <h2><span class="head">Automatische Sequenzalinierung</span></h2>
 <h3><span class="subhead">Das Problem</span></h3>
 <p><strong>Wir wollen zwei Sequenzen automatisch alinieren, aber wie?</strong></p>
@@ -179,7 +179,7 @@ function checkTime(i) {
 <li><span class="fragment">Dann könnten wir den Score für jedes Paar aufsummieren und würden einfach die Alinierung mit dem besten Score nehmen.</span></li>
 </ul>
 </section>
-<section data-transition="concave" data-background="LightYellow" style="text-align:justify;font-size:85%;">
+<section style="text-align:justify;font-size:85%;" data-background="LightYellow" data-transition="concave">
 <h2><span class="head">Automatische Sequenzalinierung</span></h2>
 <h3><span class="subhead">Das Problem</span></h3>
 <p><strong>Leider dauert das zu lange!</strong></p>
@@ -187,7 +187,7 @@ function checkTime(i) {
 <p>$N = \sum_{k=0}^{\min(m,n)} 2^{k} \cdot \binom{m}{k} \cdot \binom{n}{k}$, </p>
 <p>für zwei Strings der Länge $m$ und $n$.</p>
 </section>
-<section data-transition="concave" data-background="LightYellow" style="text-align:justify;font-size:85%;">
+<section style="text-align:justify;font-size:85%;" data-background="LightYellow" data-transition="concave">
 <h2><span class="head">Automatische Sequenzalinierung</span></h2>
 <h3><span class="subhead">Das Problem</span></h3>
 <p><strong>Und was soll das heißen?</strong></p>
@@ -196,13 +196,13 @@ function checkTime(i) {
 </section>
 
 <section>
-<section data-transition="concave" data-background="LightYellow" style="text-align:justify;font-size:85%;">
+<section style="text-align:justify;font-size:85%;" data-background="LightYellow" data-transition="concave">
 <h2><span class="head">Automatische Sequenzalinierung</span></h2>
 <h3><span class="subhead">Die Lösungsstrategie</span></h3>
 <p><strong>Sei faul und mach Dir keine unnötige Arbeit!</strong></p>
 <p>Die Lösungsstrategie beruht auf der Idee, dass man bestimmte Teillösungen, die man schon berechnet hat, ja eigentlich nicht noch ein zweites Mal berechnen muss, und ferner, dass man Lösungswege, die so abwegig sind, dass klar ist, dass sie nicht zum Erfolg führen können, einfach nicht weiterverfolgt.</p>
 </section>
-<section data-transition="concave" data-background="LightYellow" style="text-align:justify;font-size:85%;">
+<section style="text-align:justify;font-size:85%;" data-background="LightYellow" data-transition="concave">
 <h2><span class="head">Automatische Sequenzalinierung</span></h2>
 <h3><span class="subhead">Die Lösungsstrategie</span></h3>
 <p><strong>Dynamische Programmierung</strong></p>
@@ -211,7 +211,7 @@ function checkTime(i) {
 </section>
 
 <section>
-<section data-transition="concave" data-background="LightYellow" style="text-align:justify;font-size:85%;">
+<section style="text-align:justify;font-size:85%;" data-background="LightYellow" data-transition="concave">
 <h2><span class="head">Automatische Sequenzalinierung</span></h2>
 <h3><span class="subhead">Der Algorithmus</span></h3>
 <p><strong>Grundlegende Bestandteile</strong></p>
@@ -221,7 +221,7 @@ function checkTime(i) {
 <li><strong>Traceback:</strong> Merkt sich alle Zwischenentscheidungen, die getroffen wurden, so dass wir nachher ermitteln können, welchen "Pfad" wir gelaufen sind, umz um besten Ergebnis zu gelangen.</li>
 </ol>
 </section>
-<section data-transition="concave" data-background="LightYellow" style="text-align:justify;font-size:85%;">
+<section style="text-align:justify;font-size:85%;" data-background="LightYellow" data-transition="concave">
 <h2><span class="head">Automatische Sequenzalinierung</span></h2>
 <h3><span class="subhead">Der Algorithmus</span></h3>
 <p><strong>Scoring Schema</strong></p>
@@ -232,7 +232,7 @@ function checkTime(i) {
 <tr><td> emtpy match </td>     <td>1 </td><td> A / -, - / A </td></tr>
 </table>
 </section>
-<section data-transition="concave" data-background="LightYellow" style="text-align:justify;font-size:85%;">
+<section style="text-align:justify;font-size:85%;" data-background="LightYellow" data-transition="concave">
 <h2><span class="head">Automatische Sequenzalinierung</span></h2>
 <h3><span class="subhead">Der Algorithmus</span></h3>
 <p><strong>Matrix</strong></p>
@@ -244,7 +244,7 @@ function checkTime(i) {
 <tr><td> R </td><td style="color:white">R / B</td><td style="color:white">R / Ä</td><td style="color:white">R / Ä</td></tr>
 </table>
 </section>
-<section data-transition="concave" data-background="LightYellow" style="text-align:justify;font-size:85%;">
+<section style="text-align:justify;font-size:85%;" data-background="LightYellow" data-transition="concave">
 <h2><span class="head">Automatische Sequenzalinierung</span></h2>
 <h3><span class="subhead">Der Algorithmus</span></h3>
 <p><strong>Matrix</strong></p>
@@ -256,7 +256,7 @@ function checkTime(i) {
 <tr><td> R / - </td><td style="color:Crimson">R / B</td><td style="color:Crimson">R / Ä</td><td style="color:Crimson">R / R</td></tr>
 </table>
 </section>
-<section data-transition="concave" data-background="LightYellow" style="text-align:justify;font-size:85%;">
+<section style="text-align:justify;font-size:85%;" data-background="LightYellow" data-transition="concave">
 <h2><span class="head">Automatische Sequenzalinierung</span></h2>
 <h3><span class="subhead">Der Algorithmus</span></h3>
 <p><strong>Matrix</strong></p>
@@ -274,7 +274,7 @@ function checkTime(i) {
 <tr><td style="color:Crimson"> B </td><td style="color:Crimson"> - </td></tr>
 </table></td></tr></table>
 </section>
-<section data-transition="concave" data-background="LightYellow" style="text-align:justify;font-size:85%;">
+<section style="text-align:justify;font-size:85%;" data-background="LightYellow" data-transition="concave">
 <h2><span class="head">Automatische Sequenzalinierung</span></h2>
 <h3><span class="subhead">Der Algorithmus</span></h3>
 <p><strong>Traceback</strong></p>
@@ -286,7 +286,7 @@ function checkTime(i) {
 <tr><td> R / - </td><td style="color:black">R / B</td><td style="color:black">R / Ä</td><td style="color:black;background:lightgray">R / R</td></tr>
 </table>
 </section>
-<section data-transition="concave" data-background="LightYellow" style="text-align:justify;font-size:85%;">
+<section style="text-align:justify;font-size:85%;" data-background="LightYellow" data-transition="concave">
 <h2><span class="head">Automatische Sequenzalinierung</span></h2>
 <h3><span class="subhead">Der Algorithmus</span></h3>
 <p><strong>Traceback</strong></p>
@@ -306,14 +306,14 @@ function checkTime(i) {
 <tr><td> 1 </td><td> 1 </td><td> 1 </td><td style="background:lightgray"> 0 </td></tr>
 </table></td></tr></table>
 </section>
-<section data-transition="concave" data-background="LightYellow" style="text-align:justify;font-size:85%;">
+<section style="text-align:justify;font-size:85%;" data-background="LightYellow" data-transition="concave">
 <h2><span class="head">Automatische Sequenzalinierung</span></h2>
 <h3><span class="subhead">Der Algorithmus</span></h3>
 <iframe src="../demos/nw-demo.html" style="width:950px;height:600px"></iframe>
 </section>
 </section>
 
-<section data-transition="none" data-background="LightYellow" style="text-align:justify;font-size:85%;">
+<section style="text-align:justify;font-size:85%;" data-background="LightYellow" data-transition="none">
 <h2><span class="head">Agenda 2015</span></h2>
 <ul>
 <li><span class="stroked">Automatische Sequenzalinierung</span><ul>
@@ -338,7 +338,7 @@ function checkTime(i) {
 </section>
 
 <section>
-<section data-transition="concave" data-background="LightYellow" style="text-align:justify;font-size:85%;">
+<section style="text-align:justify;font-size:85%;" data-background="LightYellow" data-transition="concave">
 <h2><span class="head">Sequenzalinierung in JavaScript</span></h2>
 <h3><span class="subhead">Vorüberlegungen</span></h3>
 <p><strong>Um den Algorithmus zu implementieren, brauchen wir:</strong></p>
@@ -350,7 +350,7 @@ function checkTime(i) {
 <li>eine Möglichkeit, das Scoring-Schema umzusetzen</li>
 </ul>
 </section>
-<section data-transition="concave" data-background="LightYellow" style="text-align:justify;font-size:85%;">
+<section style="text-align:justify;font-size:85%;" data-background="LightYellow" data-transition="concave">
 <h2><span class="head">Sequenzalinierung in JavaScript</span></h2>
 <h3><span class="subhead">Vorüberlegungen</span></h3>
 <p><strong>JavaScript bietet uns:</strong></p>
@@ -365,7 +365,7 @@ function checkTime(i) {
 </section>
 
 <section>
-<section data-transition="concave" data-background="LightYellow" style="text-align:justify;font-size:85%;">
+<section style="text-align:justify;font-size:85%;" data-background="LightYellow" data-transition="concave">
 <h2><span class="head">Sequenzalinierung in JavaScript</span></h2>
 <h3><span class="subhead">Implementierung der Matrixberechnung</span></h3>
 <pre><code class="javascript" data-trim>
@@ -378,7 +378,7 @@ function wf_align(seqA, seqB) {
 }
 </code></pre>
 </section>
-<section data-transition="concave" data-background="LightYellow" style="text-align:justify;font-size:85%;">
+<section style="text-align:justify;font-size:85%;" data-background="LightYellow" data-transition="concave">
 <h2><span class="head">Sequenzalinierung in JavaScript</span></h2>
 <h3><span class="subhead">Implementierung der Matrixberechnung</span></h3>
 <pre><code class="javascript" data-trim>
@@ -401,7 +401,7 @@ function wf_align(seqA, seqB) {
 }
 </code></pre>
 </section>
-<section data-transition="concave" data-background="LightYellow" style="text-align:justify;font-size:85%;">
+<section style="text-align:justify;font-size:85%;" data-background="LightYellow" data-transition="concave">
 <h2><span class="head">Sequenzalinierung in JavaScript</span></h2>
 <h3><span class="subhead">Implementierung der Matrixberechnung</span></h3>
 <pre><code class="javascript" data-trim>
@@ -445,7 +445,7 @@ function wf_align(seqA, seqB) {
 }
 </code></pre>
 </section>
-<section data-transition="concave" data-background="LightYellow" style="text-align:justify;font-size:85%;">
+<section style="text-align:justify;font-size:85%;" data-background="LightYellow" data-transition="concave">
 <h2><span class="head">Sequenzalinierung in JavaScript</span></h2>
 <h3><span class="subhead">Implementierung der Matrixberechnung</span></h3>
 <pre><code class="javascript" data-trim>
@@ -490,7 +490,7 @@ function wf_align(seqA, seqB) {
 </section>
 
 <section>
-<section data-transition="concave" data-background="LightYellow" style="text-align:justify;font-size:85%;">
+<section style="text-align:justify;font-size:85%;" data-background="LightYellow" data-transition="concave">
 <h2><span class="head">Sequenzalinierung in JavaScript</span></h2>
 <h3><span class="subhead">Implementierung des Traceback</span></h3>
 <pre><code class="javascript" data-trim>
@@ -528,7 +528,7 @@ function wf_align(seqA, seqB) {
 }
 </code></pre>
 </section>
-<section data-transition="concave" data-background="LightYellow" style="text-align:justify;font-size:85%;">
+<section style="text-align:justify;font-size:85%;" data-background="LightYellow" data-transition="concave">
 <h2><span class="head">Sequenzalinierung in JavaScript</span></h2>
 <h3><span class="subhead">Implementierung des Traceback</span></h3>
 <pre><code class="javascript" data-trim>
@@ -544,7 +544,7 @@ function wf_align(seqA, seqB) {
 </section>
 </section>
 
-<section data-transition="concave" data-background="LightYellow" style="text-align:justify;font-size:85%;">
+<section style="text-align:justify;font-size:85%;" data-background="LightYellow" data-transition="concave">
 <h2><span class="head">Agenda 2015</span></h2>
 <ul>
 <li><span class="stroked">Automatische Sequenzalinierung</span><ul>
@@ -569,7 +569,7 @@ function wf_align(seqA, seqB) {
 </section>
 
 <section>
-<section data-transition="concave" data-background="LightYellow" style="text-align:justify;font-size:85%;">
+<section style="text-align:justify;font-size:85%;" data-background="LightYellow" data-transition="concave">
 <h2><span class="head">Interaktive Sequenzalinierung</span></h2>
 <h3><span class="subhead">Grundlagen</span></h3>
 <p><strong>Input-Felder in HTML</strong></p>
@@ -578,7 +578,7 @@ function wf_align(seqA, seqB) {
 
 <p>Beachten Sie dabei, dass wir unbedingt eine ID als Tag vergeben müssen, wie auch eine Funktion, die wir diesmal nicht per <code>onclick="function()"</code>, sondern mittels <code>onkeyup="function()"</code> ausführbar machen. Das heißt nichts anderes, als dass jedes mal, wenn wir eine Taste drücken, während wir mit dem Cursor im Text-Feld sind, potentiell eine Funktion auslösen.</p>
 </section>
-<section data-transition="concave" data-background="LightYellow" style="text-align:justify;font-size:85%;">
+<section style="text-align:justify;font-size:85%;" data-background="LightYellow" data-transition="concave">
 <h2><span class="head">Interaktive Sequenzalinierung</span></h2>
 <h3><span class="subhead">Grundlagen</span></h3>
 <p><strong>Es kann losgehen!</strong></p>
@@ -587,7 +587,7 @@ function wf_align(seqA, seqB) {
 </section>
 
 <section>
-<section data-transition="concave" data-background="LightYellow" style="text-align:justify;font-size:85%;">
+<section style="text-align:justify;font-size:85%;" data-background="LightYellow" data-transition="concave">
 <h2><span class="head">Interaktive Sequenzalinierung</span></h2>
 <h3><span class="subhead">Implementierung</span></h3>
 <p><strong>Der Header</strong>
@@ -601,7 +601,7 @@ function wf_align(seqA, seqB) {
 &lt;/head&gt;
 </code></pre></p>
 </section>
-<section data-transition="concave" data-background="LightYellow" style="text-align:justify;font-size:85%;">
+<section style="text-align:justify;font-size:85%;" data-background="LightYellow" data-transition="concave">
 <h2><span class="head">Interaktive Sequenzalinierung</span></h2>
 <h3><span class="subhead">Implementierung</span></h3>
 <p><strong>Der Body</strong>
@@ -614,7 +614,7 @@ function wf_align(seqA, seqB) {
 &lt;/body&gt;
 </code></pre></p>
 </section>
-<section data-transition="concave" data-background="LightYellow" style="text-align:justify;font-size:85%;">
+<section style="text-align:justify;font-size:85%;" data-background="LightYellow" data-transition="concave">
 <h2><span class="head">Interaktive Sequenzalinierung</span></h2>
 <h3><span class="subhead">Implementierung</span></h3>
 <p><strong>Der JavaScript-Code</strong>
@@ -649,13 +649,13 @@ function alignit() {
 </section>
 </section>
 
-<section data-transition="concave" data-background="LightYellow" style="text-align:justify;font-size:85%;">
+<section style="text-align:justify;font-size:85%;" data-background="LightYellow" data-transition="concave">
 <h2><span class="head">Interaktive Sequenzalinierung</span></h2>
 <h3><span class="subhead">Demo</span></h3>
 <iframe src="../demos/alignment-demo.html" style="width:950px;height:700px"></iframe>
 </section>
 
-<section data-transition="concave" data-background="LightYellow" style="text-align:justify;font-size:85%;">
+<section style="text-align:justify;font-size:85%;" data-background="LightYellow" data-transition="concave">
 <h2><span class="head">Agenda 2015</span></h2>
 <ul>
 <li><span class="stroked">Automatische Sequenzalinierung</span><ul>
@@ -679,7 +679,7 @@ function alignit() {
 </ul>
 </section>
 
-<section data-transition="concave" data-background="#000000" style="text-align:justify;font-size:85%;">
+<section style="text-align:justify;font-size:85%;" data-background="#000000" data-transition="concave">
 <p style="font-size:120px;color:white;font-weight:bold;">
 pause(30, "min");
 </p>
@@ -781,7 +781,7 @@ if (day == 5) {
   document.getElementById('changeme').href = 'sitzung-'+day+'-'+next+'.html';
   document.getElementById('changeve').href = 'sitzung-'+bday+'-'+before +'.html';
 
-  document.getElementById('sitzung').innerHTML = "PyJS: Sitzung "+cur3[1]+" (Tag "+cur3[1]+")";
+  document.getElementById('sitzung').innerHTML = "PyJS: Sitzung "+cur3[1]+" (Tag "+cur3[0]+")";
 </script>
  </body>
 </html>

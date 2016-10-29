@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="321.87802mm"
+   height="147.19786mm"
+   viewBox="0 0 1140.5127 521.56722"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="lingpy.svg">
+  <defs
+     id="defs4">
+    <clipPath
+       id="clipPath3356"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3358"
+         d="m 14.172,590.536 809.07,0 0,-396.316 -809.07,0 0,396.316 z" />
+    </clipPath>
+    <clipPath
+       id="clipPath3366"
+       clipPathUnits="userSpaceOnUse">
+      <path
+         inkscape:connector-curvature="0"
+         id="path3368"
+         d="m 88,198 230,0 0,367 -230,0 0,-367 z" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="898.62643"
+     inkscape:cy="177.06317"
+     inkscape:document-units="px"
+     inkscape:current-layer="g3386"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="0"
+     inkscape:window-y="50"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(185.96291,-423.27719)">
+    <g
+       transform="matrix(1.25,0,0,-1.25,-205.97805,1161.4476)"
+       inkscape:label="calc-tools-2"
+       id="g3344">
+      <g
+         id="g3346">
+        <g
+           transform="matrix(1,0,0,-1,0,590.53644)"
+           id="g3348">
+          <path
+             inkscape:connector-curvature="0"
+             id="path3350"
+             style="fill:#6095be;fill-opacity:1;fill-rule:nonzero;stroke:#ffffff;stroke-width:4.8517828;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             d="m 56.105,2.426 305.875,0 c 20.868,0 37.668,16.199 37.668,36.324 l 0,339.754 c 0,20.121 -16.8,36.324 -37.668,36.324 l -305.875,0 c -20.867,0 -37.667,-16.203 -37.667,-36.324 l 0,-339.754 c 0,-20.125 16.8,-36.324 37.667,-36.324 z" />
+        </g>
+      </g>
+      <g
+         id="g3352">
+        <g
+           clip-path="url(#clipPath3356)"
+           id="g3354">
+          <g
+             transform="translate(0,-0.463562)"
+             id="g3360">
+            <g
+               id="g3362">
+              <g
+                 clip-path="url(#clipPath3366)"
+                 id="g3364">
+                <g
+                   id="g3370">
+                  <g
+                     transform="matrix(1,0,0,0.999919,0,591)"
+                     id="g3372">
+                    <path
+                       inkscape:connector-curvature="0"
+                       id="path3374"
+                       style="fill:#d16a56;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.26438999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+                       d="m 113.012,-373.397 c 0,0 137.476,-42.398 179.875,0 31.797,31.799 31.797,103.11 0,134.909 -31.797,31.799 -103.11,-31.799 -134.907,0 -10.601,10.599 -10.601,34.37 0,44.969 31.797,31.799 103.11,-31.8 134.907,0 31.797,31.799 31.797,103.109 0,134.909 -42.399,42.398 -137.481,42.398 -179.875,0 -10.602,-10.599 -10.602,-34.37 0,-44.969 31.797,-31.799 103.109,31.796 134.906,0 10.598,-10.602 10.598,-34.37 0,-44.972 -31.797,-31.796 -103.109,31.799 -134.906,0 -31.801,-31.796 -31.801,-103.106 0,-134.905 31.797,-31.8 103.109,31.799 134.906,0 10.598,-10.599 10.598,-34.37 0,-44.969 -31.797,-31.799 -103.109,31.796 -134.906,0 -10.602,-10.602 0,-44.972 0,-44.972" />
+                  </g>
+                  <path
+                     inkscape:connector-curvature="0"
+                     id="path3376"
+                     style="fill:#6095be;fill-opacity:1;fill-rule:nonzero;stroke:none"
+                     d="m 152.852,523.402 c 0,4.618 -3.747,8.36 -8.364,8.36 -4.617,0 -8.363,-3.742 -8.363,-8.36 0,-4.617 3.746,-8.363 8.363,-8.363 4.617,0 8.364,3.746 8.364,8.363" />
+                  <g
+                     transform="matrix(1,0,0,0.999919,0,591)"
+                     id="g3378">
+                    <path
+                       inkscape:connector-curvature="0"
+                       id="path3380"
+                       style="fill:none;stroke:#000000;stroke-width:1.26438999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+                       d="m 152.852,-67.603 c 0,4.617 -3.747,8.36 -8.364,8.36 -4.617,0 -8.363,-3.743 -8.363,-8.36 0,-4.618 3.746,-8.364 8.363,-8.364 4.617,0 8.364,3.746 8.364,8.364 z" />
+                  </g>
+                  <g
+                     transform="matrix(1,0,0,0.999919,0,591)"
+                     id="g3382">
+                    <path
+                       inkscape:connector-curvature="0"
+                       id="path3384"
+                       style="fill:none;stroke:#6095be;stroke-width:8.99370766;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:10;stroke-dasharray:none;stroke-opacity:1"
+                       d="m 113.012,-103.579 c 0,0 12.496,-2.746 17.984,0 6.863,3.43 13.492,17.986 13.492,17.986" />
+                  </g>
+                </g>
+              </g>
+            </g>
+          </g>
+        </g>
+      </g>
+      <g
+         id="g3386">
+        <text
+           id="text3402"
+           style="font-variant:normal;font-weight:bold;font-size:32px;font-family:'Charis SIL';-inkscape-font-specification:CharisSIL-Bold;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           transform="matrix(1,0,0,-1,438.77266,539.66396)">
+          <tspan
+             id="tspan3404"
+             sodipodi:role="line"
+             y="0"
+             x="0 17.152 35.807999 46.911999 58.911999 85.792 103.616 117.44 134.336 143.67999 161.408 172.064 191.2 205.024 222.72 236.54401 254.62399 263.96799 275.07199 293.728 307.552 316.896 338.84799 358.68799 370.68799 389.34399 418.39999 436.09601 448.09601 458.75201 474.784">Software Library for Automatic</tspan>
+          <tspan
+             id="tspan3406"
+             sodipodi:role="line"
+             y="40"
+             x="9.2187519 28.674751 46.37075 60.578751 79.490753 93.794754 103.13876 113.79475 133.79475 143.13875 167.74675 178.40276 192.70676 204.70676 223.36275 237.18675 247.84276 263.87476 281.57074 292.32275 301.66675 319.39474 330.05075 350.05075 367.90674 387.74677 398.40274 412.61075 424.61075 435.36276 451.39474">Tasks in Historical Linguistics</tspan>
+        </text>
+        <text
+           id="text3408"
+           style="font-variant:normal;font-weight:normal;font-size:36px;font-family:'Charis SIL';-inkscape-font-specification:CharisSIL;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+           transform="matrix(1,0,0,-1,439.61875,430.95099)">
+          <tspan
+             id="tspan3410"
+             sodipodi:role="line"
+             y="0"
+             x="0 11.484 21.996 42.119999 62.784 82.440002 102.816 120.456 132.66 143.56799 160.308 170.82001 185.112 202.752 221.724 252.32401 269.96399 290.34 302.54401 320.832 333.03601 343.944 363.492">- phonetic segmentation</tspan>
+          <tspan
+             id="tspan3412"
+             sodipodi:role="line"
+             y="45"
+             x="0 11.484 21.996 42.119999 62.784 82.440002 102.816 120.456 132.66 143.56799 160.308 170.82001 189.108 199.76401 210.672 229.536 249.912 280.51199 298.15201 318.63599">- phonetic alignment</tspan>
+          <tspan
+             id="tspan3414"
+             sodipodi:role="line"
+             y="90"
+             x="0 11.484 21.996 38.736 58.284 77.255997 97.632004 115.92 128.12399 145.76401 156.276 176.54401 194.18401 206.388 224.028 240.76801 252.972 263.88 283.42801">- cognate detection</tspan>
+          <tspan
+             id="tspan3416"
+             sodipodi:role="line"
+             y="135"
+             x="0 11.484 21.996 40.284 60.66 77.400002 95.040001 109.332 121.536 135.612 153.89999 164.556 175.06799 189.36 201.564 219.85201 232.056 249.696 260.20801 274.284 291.92401 308.664 328.21201 348.69601 362.98801 375.19199 389.26801 409.716 426.45599 438.66 449.56799 469.116">- ancestral state reconstruction</tspan>
+          <tspan
+             id="tspan3418"
+             sodipodi:role="line"
+             y="180"
+             x="0 11.484 21.996 41.976002 61.523998 75.599998 89.676003 109.224 137.412 148.32001 168.696 187.56 198.07201 218.448 236.088 248.29201 265.93201 282.672 294.87601 305.784 325.332">- borrowing detection</tspan>
+          <tspan
+             id="tspan3420"
+             sodipodi:role="line"
+             y="225"
+             x="0 11.484 21.996 42.119999 62.784 81.828003 92.484001 112.032 131.004 148.644 169.02 186.66 198.864 209.772 226.51199 237.024 251.10001 268.73999 285.48001 305.13599 325.51199 339.80399 352.008 366.08401 386.53201 403.272 415.47601 426.384 446.04001">- phylogenetic reconstruction</tspan>
+          <tspan
+             sodipodi:role="line"
+             y="225"
+             x="0 11.484 21.996 42.119999 62.784 81.828003 92.484001 112.032 131.004 148.644 169.02 186.66 198.864 209.772 226.51199 237.024 251.10001 268.73999 285.48001 305.13599 325.51199 339.80399 352.008 366.08401 386.53201 403.272 415.47601 426.384 446.04001"
+             id="tspan3492" />
+          <tspan
+             sodipodi:role="line"
+             y="225"
+             x="0 11.484 21.996 42.119999 62.784 81.828003 92.484001 112.032 131.004 148.644 169.02 186.66 198.864 209.772 226.51199 237.024 251.10001 268.73999 285.48001 305.13599 325.51199 339.80399 352.008 366.08401 386.53201 403.272 415.47601 426.384 446.04001"
+             id="tspan3494" />
+        </text>
+        <flowRoot
+           xml:space="preserve"
+           id="flowRoot3506"
+           style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           transform="matrix(0.8,0,0,-0.8,164.78244,929.15808)"><flowRegion
+             id="flowRegion3508"><rect
+               id="rect3510"
+               width="750"
+               height="148.57143"
+               x="351.42856"
+               y="950.93365" /></flowRegion><flowPara
+             id="flowPara3512"></flowPara></flowRoot>      </g>
+    </g>
+  </g>
+</svg>

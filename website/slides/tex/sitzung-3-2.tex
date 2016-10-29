@@ -1,0 +1,462 @@
+\hyperdef{}{tilda}{}
+
+\subsection{Automatische Sequenzalinierung}
+
+\subsubsection{\texorpdfstring{{Das Problem}}{Das Problem}}
+
+\vspace{0.5cm}\par\noindent\textbf{Wir wollen zwei Sequenzen automatisch alinieren, aber wie?}\vspace{0.5cm}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  {Eine einfache automatische Lösung wäre es, einfach alle verschiedenen
+  Kombinationen durchzutesten.}
+\item
+  {In einem weiteren Schritt könnten wir dann alle Alinierungen testen
+  und ihren ``Score'' berechnen, also sie bewerten, indem wir, zum
+  Beispiel, zählen, wie viele Mismatches und leere Matches sie
+  aufweisen.}
+\item
+  {Dann könnten wir den Score für jedes Paar aufsummieren und würden
+  einfach die Alinierung mit dem besten Score nehmen.}
+\end{itemize}
+
+
+
+
+\vspace{0.5cm}\par\noindent\textbf{Leider dauert das zu lange!}\vspace{0.5cm}
+
+Die Zahl aller Möglichen Alinierungen zwischen zwei Strings hängt von
+deren Länge ab: Es gilt:
+
+$N = \textbackslash{}sum\_\{k=0\}\^{}\{\textbackslash{}min(m,n)\}
+2\^{}\{k\} \textbackslash{}cdot \textbackslash{}binom\{m\}\{k\}
+\textbackslash{}cdot \textbackslash{}binom\{n\}\{k\}$,
+
+für zwei Strings der Länge $m$ und $n$.
+
+
+
+
+\vspace{0.5cm}\par\noindent\textbf{Und was soll das heißen?}\vspace{0.5cm}
+
+Das wir für die Alinierung von ``Herz'' und ``heart'' 681 verschiedene
+Alinierungen testen müssten, und für die Alinierung von ``Werdegänge''
+und ``Kinderpass'' 8 097 453 verschiedene Möglichkeiten!
+
+
+
+\subsubsection{\texorpdfstring{{Die
+Lösungsstrategie}}{Die Lösungsstrategie}}
+
+\vspace{0.5cm}\par\noindent\textbf{Sei faul und mach Dir keine unnötige Arbeit!}\vspace{0.5cm}
+
+Die Lösungsstrategie beruht auf der Idee, dass man bestimmte
+Teillösungen, die man schon berechnet hat, ja eigentlich nicht noch ein
+zweites Mal berechnen muss, und ferner, dass man Lösungswege, die so
+abwegig sind, dass klar ist, dass sie nicht zum Erfolg führen können,
+einfach nicht weiterverfolgt.
+
+
+
+
+\vspace{0.5cm}\par\noindent\textbf{Dynamische Programmierung}\vspace{0.5cm}
+
+Der Algorithmus, mit dem man die optimale Alinierung von zwei Strings
+relativ schnell und effizient berechnen kann, gehört zur Familie der
+dynamischen Programmieralgorithmen (\emph{dynamic programming}). Die
+Idee dieser Algorithmen ist es, ein Problem in umgekehrter Richtung
+anzugehen: Anstatt alle möglichen Alinierungen zwischen zwei Sequenzen
+zu testen, baut man eine Alinierung auf, indem man Gebrauch macht von
+``previous solutions for optimal alignments of smaller subsequenze''
+(\href{http://bibliography.lingpy.org?key=Durbin2002}{Durbin et al.
+1998{[}2002{]}}).
+
+
+
+\subsubsection{Der Algorithmus}
+
+\vspace{0.5cm}\par\noindent\textbf{Grundlegende Bestandteile}\vspace{0.5cm}
+
+\begin{enumerate}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  \textbf{Scoring Schema:} bestimmt, wie wir uniforme, divergente, und
+  leere Matches bewerten.
+\item
+  \textbf{Matrizzenkonstruktion:} erstellt eine Matrix, in der wir alle
+  möglichen Kombinationen der Sequenzen miteinander einander
+  gegenüberstellen.
+\item
+  \textbf{Traceback:} Merkt sich alle Zwischenentscheidungen, die
+  getroffen wurden, so dass wir nachher ermitteln können, welchen
+  ``Pfad'' wir gelaufen sind, umz um besten Ergebnis zu gelangen.
+\end{enumerate}
+
+
+
+
+
+\vspace{0.5cm}\par\noindent\textbf{Scoring Schema}\vspace{0.5cm}
+
+\begin{longtable}[c]{@{}lll@{}}
+\toprule
+Matching Type & Score & Example\tabularnewline
+\midrule
+\endhead
+uniform match & 0 & A / A\tabularnewline
+divergent match & 1 & A / B\tabularnewline
+emtpy match & 1 & A / -, - / A\tabularnewline
+\bottomrule
+\end{longtable}
+
+\vspace{0.5cm}\par\noindent\textbf{Matrix}\vspace{0.5cm}
+
+\begin{tabular}[c]{|l|l|l|l|}
+\hline
+  - / - & - / B & - / Ä & - / R\\\hline
+A / - & A / B & A / Ä & A / R\\\hline
+B / - & B / B & B / Ä & B / R\\\hline
+E / - & E / B & E / Ä & E / R\\\hline
+R / - & R / B & R / Ä & R / R\\\hline
+\end{tabular}
+
+
+
+
+
+
+
+
+
+\vspace{0.5cm}\par\noindent\textbf{Traceback}\vspace{0.5cm}
+
+\begin{longtable}[c]{@{}llll@{}}
+\toprule
+- / - & - / B & - / Ä & - / R\tabularnewline
+A / - & A / B & A / Ä & A / R\tabularnewline
+B / - & B / B & B / Ä & B / R\tabularnewline
+E / - & E / B & E / Ä & E / R\tabularnewline
+R / - & R / B & R / Ä & R / R\tabularnewline
+\bottomrule
+\end{longtable}
+
+
+
+
+
+\vspace{0.5cm}\par\noindent\textbf{Traceback}\vspace{0.5cm}
+
+
+
+
+
+
+\subsection{\texorpdfstring{{Sequenzalinierung in
+JavaScript}}{Sequenzalinierung in JavaScript}}
+
+\subsubsection{\texorpdfstring{{Vorüberlegungen}}{Vorüberlegungen}}
+
+\vspace{0.5cm}\par\noindent\textbf{Um den Algorithmus zu implementieren, brauchen wir:}\vspace{0.5cm}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  einige numerische Variablen
+\item
+  die Repräsentation der Sequenzen
+\item
+  Wege, Alinierungen zu repräsentieren
+\item
+  Wege, die Matrix zu repräsentieren
+\item
+  eine Möglichkeit, das Scoring-Schema umzusetzen
+\end{itemize}
+
+
+
+\vspace{0.5cm}\par\noindent\textbf{JavaScript bietet uns:}\vspace{0.5cm}
+
+\begin{itemize}
+\itemsep1pt\parskip0pt\parsep0pt
+\item
+  Variablen, kein Problem
+\item
+  Listen (Arrays) für die Alinierungen
+\item
+  und auch für die Sequenzen
+\item
+  mehrdimensionale Arrays für die Matrix und den Traceback
+\item
+  if/else-Verzweigungen und String-Vergleiche für das Scoring-Schema
+\end{itemize}
+
+
+\subsubsection{\texorpdfstring{{Implementierung der
+Matrixberechnung}}{Implementierung der Matrixberechnung}}
+
+\begin{verbatim}
+function wf_align(seqA, seqB) {
+  /* Vorbereitung der Daten hier */
+  /* Matrix-Initialisierung hier */
+  /* Haupt-Loop hier, darin auch die Scoring Function */
+  /* Traceback hier */
+  /* Nachbearbeitung hier */
+}
+\end{verbatim}
+
+
+
+\begin{verbatim}
+function wf_align(seqA, seqB) {
+  /* return nothing if either of the lists is empty */
+  if(seqA.length == 0 || seqB.length == 0) {
+    return;
+  }
+  /* get the lengths of the sequences */
+  var alen = seqA.length;
+  var blen = seqB.length;
+  /* declare variables in local environment */
+  var i, j; // numbers
+  var gapA, gapB, dist; // floats
+  var charA, charB; // characters
+  /* Matrix-Initialisierung hier */
+  /* Haupt-Loop hier, darin auch die Scoring Function */
+  /* Traceback hier */
+  /* Nachbearbeitung hier */
+}
+\end{verbatim}
+
+
+\begin{verbatim}
+function wf_align(seqA, seqB) {
+  /* Vorbereitung hier */
+  /* create the matrix */
+  var matrix = [];
+  for(var i=0;i<alen+1;i++) {
+    var inline = [];
+    for(var j=0;j<blen+1;j++) {
+      inline.push(0);
+    }
+    matrix.push(inline);
+  }
+  /* initialize matrix */
+  for(i=1;i<blen+1;i++) {
+    matrix[0][i] = i;
+  }
+  for(i=1;i<alen+1;i++) {
+    matrix[i][0] = i;
+  }
+  /* create the traceback */
+  var traceback = [];
+  for(var i=0;i<alen+1;i++) {
+    var inline = [];
+    for(var j=0;j<blen+1;j++) {
+      inline.push(0);
+    }
+    traceback.push(inline);
+  }
+  /* initialize traceback */
+  for(i=1;i<blen+1;i++) {
+    traceback[0][i] = 2;
+  }
+  for(i=1;i<alen+1;i++) {
+    traceback[i][0] = 1;
+  }
+  /* Haupt-Loop hier, darin auch die Scoring Function */
+  /* Traceback hier */
+  /* Nachbearbeitung hier */
+}
+\end{verbatim}
+
+
+
+\begin{verbatim}
+function wf_align(seqA, seqB) {
+  /* Vorbereitung hier */  
+  /* Matrix-Initialisierung hier */ 
+  /* start the iteration to fill the matrix */
+  for(i=1;i<alen+1;i++) {
+    for(j=1;j<blen+1;j++) {      
+      /* get the character in both sequences at their respective position */
+      charA = seqA[i-1];
+      charB = seqB[j-1];      
+      /* check the similarity between the characters to get the local distance */
+      if(charA == charB) {
+        dist = matrix[i-1][j-1];
+      }
+      else {
+        dist = matrix[i-1][j-1]+1;
+      }      
+      /* we have the distance for substitution, now we need the gaps */
+      gapA = matrix[i-1][j]+1;
+      gapB = matrix[i][j-1]+1;    
+      /* find the minimal value */
+      if(dist < gapA && dist < gapB) {
+        matrix[i][j] = dist;
+      }
+      else if(gapA < gapB) {
+        matrix[i][j] = gapA ;
+        traceback[i][j] = 1;
+      }
+      else {
+        matrix[i][j] = gapB;
+        traceback[i][j] = 2;
+      }
+    }
+  }
+  /* Traceback hier */
+  /* Nachbearbeitung hier */
+}
+\end{verbatim}
+
+
+\subsubsection{\texorpdfstring{{Implementierung des
+Traceback}}{Implementierung des Traceback}}
+
+\begin{verbatim}
+function wf_align(seqA, seqB) {
+  /* Vorbereitung hier */
+  /* Matrix-Initialisierung hier */
+  /* get indices for the last cells of the matrix */
+  i = matrix.length-1;
+  j = matrix[0].length-1;
+  /* get the edit-dist */
+  var ED = matrix[i][j];
+  /* initialize the alignment arrays */
+  var almA = [];
+  var almB = [];
+  /* start the traceback */
+  while(i > 0 || j > 0) {
+    if(traceback[i][j] == 0) {
+      almA.push(seqA[i-1]);
+      almB.push(seqB[j-1]);
+      i--;
+      j--;
+    }
+    else if(traceback[i][j] == 1) {
+      almA.push(seqA[i-1]);
+      almB.push("-");
+      i--;
+    }
+    else {
+      almA.push("-");
+      almB.push(seqB[j-1]);
+      j--;
+    }   
+  }
+  /* Nachbearbeitung hier */
+}
+\end{verbatim}
+
+
+
+\begin{verbatim}
+function wf_align(seqA, seqB) {
+  /* Vorbereitung hier */
+  /* Matrix-Initialisierung hier */
+  /* Haupt-Loop hier, darin auch die Scoring Function */
+  /* reverse alignments */
+  almA = almA.reverse();
+  almB = almB.reverse();
+}
+\end{verbatim}
+
+\subsection{\texorpdfstring{{Interaktive
+Sequenzalinierung}}{Interaktive Sequenzalinierung}}
+
+\subsubsection{\texorpdfstring{{Grundlagen}}{Grundlagen}}
+
+\vspace{0.5cm}\par\noindent\textbf{Input-Felder in HTML}\vspace{0.5cm}
+
+Um eine interaktive Alinierungsapp zu erstellen, machen wir Gebrauch von
+den Input-Felder in HTML. Diese sind sehr einfach zu erstellen:
+
+\begin{verbatim}
+\end{verbatim}
+
+Beachten Sie dabei, dass wir unbedingt eine ID als Tag vergeben müssen,
+wie auch eine Funktion, die wir diesmal nicht per
+\texttt{onclick="function()"}, sondern mittels
+\texttt{onkeyup="function()"} ausführbar machen. Das heißt nichts
+anderes, als dass jedes mal, wenn wir eine Taste drücken, während wir
+mit dem Cursor im Text-Feld sind, potentiell eine Funktion auslösen.
+
+
+
+\vspace{0.5cm}\par\noindent\textbf{Es kann losgehen!}\vspace{0.5cm}
+
+Abgesehen davon brauchen wir eigentlich nur noch die klassische
+Einbindung von JavaScript in eine HTML-Seite vorzunehmen. Wir nutzen
+dafür das Script
+\href{https://github.com/LinguList/pyjs-seminar/blob/master/website/code/nw.js}{nw.js},
+welches zuvor besprochen wurde. Auch eine kleine CSS-Datei wird
+erstellt, damit es nachher ein wenig besser aussieht. Darauf wird in
+diesem Zusammenhang aus Zeitgründen nicht genauer eingegangen), die
+findet sich aber online und auf GitHub und kann dort gezielt eingesehen
+werden.
+
+
+\subsubsection{\texorpdfstring{{Implementierung}}{Implementierung}}
+
+\vspace{0.5cm}\par\noindent\textbf{Der Header}\vspace{0.5cm}
+
+\begin{verbatim}
+<html>
+<head>
+  <title>Alignment Demo</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <script src="js/nw.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="css/nw.css" />
+</head>
+\end{verbatim}
+
+
+
+\vspace{0.5cm}\par\noindent\textbf{Der Body}\vspace{0.5cm}
+
+\begin{verbatim}
+<body>
+  <input type="text" style="width: 300px" id="seqA" onkeyup="alignit()" />
+  <input type="text" style="width: 300px" id="seqB" onkeyup="alignit()" />
+  <div id="display"></div>
+<!-- Java-Script-Code kommt hier -->
+</body>
+\end{verbatim}
+
+
+
+\vspace{0.5cm}\par\noindent\textbf{Der JavaScript-Code}\vspace{0.5cm}
+
+\begin{verbatim}
+function alignit() {
+  /* get the sequences */
+  var seqA = document.getElementById('seqA');
+  var seqB = document.getElementById('seqB');
+  /* get the values */
+  seqA = seqA.value.split('');
+  seqB = seqB.value.split('');
+  /* return if one of the vals is none */
+  if (seqA == '' || seqB == '') {
+    document.getElementById('display').innerHTML = '';
+    return;
+  }
+  /* get the alignment */
+  alms = wf_align(seqA, seqB);
+  var almA = alms[0];
+  var almB = alms[1];
+  var dist = alms[2];
+  /* create the text */
+  var txt = '';
+  txt += ''+almA.join('')+'';
+  txt += ''+almB.join('')+'';
+  txt += 'Edit-Distance: '+dist+'';
+  txt += '';
+  /* update */
+  document.getElementById('display').innerHTML = txt;
+}
+\end{verbatim}
+
+
+\subsubsection{\texorpdfstring{{Demo}}{Demo}}
+
